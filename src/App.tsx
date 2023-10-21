@@ -1,8 +1,12 @@
 import React from "react";
 
+import "@/style/layout.less";
+
 const App: React.FC = () => {
     return (
-        <main></main>
+        <div className="main-container">
+
+        </div>
     );
 }
 

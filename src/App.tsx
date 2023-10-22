@@ -1,11 +1,18 @@
 import React from "react";
+import { RouterProvider } from "react-router-dom";
 
-import "@/style/layout.less";
+import Navbar from "@/components/Navbar";
+
+import { router } from "@/router";
+
+import "@/style/style.less";
 
 const App: React.FC = () => {
     return (
-        <div className="main-container">
-
+        <div className="w-[100vw] h-[100vh] bg-[--nocp-bg] flex flex-col">
+            <Navbar />
+            
+            <RouterProvider router={router}/>
         </div>
     );
 }

@@ -16,3 +16,29 @@ body {
 h1, h2, h3, h4, h5, h6, p, span, li {
     color: var(--nocp-forebg);
 }
+
+code {
+    padding: 3px 5px;
+    background-color: #333131;
+    border-radius: 3px;
+    font-size: 11pt;
+}
+
+// Navbar style
+nav {
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(to bottom, var(--nocp-nav-bg), transparent);
+        z-index: -1;
+        transition: opacity .2s ease;
+        opacity: 0;
+    }
+    &[data-bg-visible=true]::before {
+        opacity: 1;
+    }
+}

@@ -9,7 +9,7 @@ import "@/style/style.less";
 
 const App: React.FC = () => {
     return (
-        <div className="w-[100vw] h-[100vh] bg-[--nocp-bg] flex flex-col">
+        <div className="w-[100vw] h-[100vh] bg-[--nocp-bg]">
             <Navbar />
             
             <RouterProvider router={router}/>

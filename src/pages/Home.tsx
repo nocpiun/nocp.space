@@ -1,5 +1,5 @@
-import React from "react";
-import GitalkComponent from "gitalk/dist/gitalk-component";
+import React, { useEffect } from "react";
+import Gitalk from "gitalk";
 
 import Page from "@/components/Page";
 import Header from "@/components/Header";
@@ -10,7 +10,21 @@ import ProjectCard from "@/components/ProjectCard";
 import "gitalk/dist/gitalk.css";
 import styles from "./home.module.less";
 
+const gitalkOptions = {
+    clientID: "421789e625976ef96925",
+    clientSecret: "bbafd76071d800d38b5b28c15933e8ae579f9522",
+    repo: "nin.red-comments",
+    owner: "NriotHrreion",
+    admin: ["NriotHrreion"],
+    number: 1
+};
+
 const Home: React.FC = () => {
+    useEffect(() => {
+        const gitalkInstance = new Gitalk(gitalkOptions);
+        gitalkInstance.render("gitalk-container");
+    }, []);
+
     return (
         <Page className={styles["page-content"]}>
             <Header />
@@ -84,16 +98,7 @@ const Home: React.FC = () => {
                 </ContentCard>
 
                 <ContentCard title="留言板">
-                    <div className="gitalk-container">
-                        <GitalkComponent options={{
-                            clientID: "421789e625976ef96925",
-                            clientSecret: "bbafd76071d800d38b5b28c15933e8ae579f9522",
-                            repo: "nin.red-comments",
-                            owner: "NriotHrreion",
-                            admin: ["NriotHrreion"],
-                            number: 1
-                        }}/>
-                    </div>
+                    <div id="gitalk-container"></div>
                 </ContentCard>
             </div>
         </Page>

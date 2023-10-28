@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Function Painting -->
+<!-- Copyright (c) NriotHrreion 2021 -->
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="NriotHrreion">
+    <title>Function Painting</title>
+    <link rel="icon" href="https://nin.red/static/icon.png">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="input-container">
+            <div class="info-container">
+                <h1>Function Painting</h1>
+                <p>By NriotHrreion</p>
+                <span id="savemode"><input type="checkbox" id="cb_savemode">Save Mode</span>
+                <p id="position"></p>
+            </div>
+            <div class="control-container">
+                <span>y = </span>
+                <input type="text" id="input">
+                <input type="button" id="btn_draw" value="Draw">
+                <input type="button" id="btn_clear" value="Clear">
+            </div>
+        </div>
+        <div class="output-container">
+            <canvas id="output" width="440px" height="440px"></canvas>
+        </div>
+    </div>
+
+    <script src="./load.js"></script>
+    <script src="./parser.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>

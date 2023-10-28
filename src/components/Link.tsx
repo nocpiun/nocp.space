@@ -19,7 +19,7 @@ const Link: React.FC<LinkProps> = (props) => {
                 {props.icon && (
                     <img src={props.icon} alt="icon" className="w-5 h-5 inline-block mr-1"/>
                 )}
-                <span className={"text-emerald-600 inline-block"+ optional(" hover:underline", "", props.underline)}>{props.children}</span>
+                <span className={"text-emerald-600 selection:text-white inline-block"+ optional(" hover:underline", "", props.underline)}>{props.children}</span>
         </a>
     );
 }

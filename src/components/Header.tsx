@@ -22,8 +22,6 @@ const Header: React.FC = () => {
                     <li>BiliBili: <Link to="https://space.bilibili.com/167995410" newTab>NoahHrreion</Link></li>
                     <li>X: <Link to="https://twitter.com/Nriot_McPack" newTab>@Nriot_McPack</Link></li>
                 </ol>
-
-                <p><code>Copyright (c) NriotHrreion {new Date().getFullYear()}</code></p>
             </div>
         </header>
     );

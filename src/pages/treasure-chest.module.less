@@ -1,0 +1,19 @@
+@import "../style/mixin.less";
+
+.page-content {
+    display: block;
+    .scrollbar-style();
+    
+    table {
+        border: 1px solid var(--nocp-gray);
+        tr, th, td {
+            border: 1px solid var(--nocp-gray);
+        }
+        th, td {
+            padding: 6px 13px;
+        }
+        tr:nth-child(2n) {
+            background-color: #222;
+        }
+    }
+}

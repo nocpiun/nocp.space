@@ -1,3 +1,18 @@
-.scrollbar-style() {
-    
+.scrollbar-style(@size: 13px) {
+    &::-webkit-scrollbar {
+        width: @size;
+        height: @size;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--nocp-gray);
+        &:hover {
+            background-color: #4e4e4e;
+        }
+        &:active {
+            background-color: #414040;
+        }
+    }
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
 }

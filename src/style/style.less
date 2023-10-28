@@ -26,3 +26,54 @@ code {
     border-radius: 3px;
     font-size: 11pt;
 }
+
+// Gitalk
+.gitalk-container {
+    text-align: left;
+    margin: 0 350px;
+    span {
+        color: #ccc;
+    }
+    .gt-meta {
+        border-bottom: 1px solid #686868;
+    }
+    .gt-header .gt-header-comment {
+        textarea {
+            background-color: #4c4d53;
+            caret-color: #ccc;
+            color: #fff;
+            &::placeholder {
+                color: #858585;
+            }
+        }
+        .gt-btn {
+            .gt-btn-text {
+                color: #fff;
+            }
+            &.gt-btn-preview {
+                background-color: #4c4d53;
+                border-color: #4c4d53;
+            }
+        }
+        .gt-header-preview {
+            background-color: #4c4d53;
+            * {
+                color: #fff;
+            }
+        }
+    }
+    .gt-comments {
+        .gt-comment-content {
+            background-color: #4c4d53;
+            &:hover {
+                box-shadow: none;
+            }
+        }
+        .gt-comment.gt-comment-admin .gt-comment-content {
+            background-color: #4d5168;
+        }
+    }
+    .gt-svg svg {
+        fill: #fff;
+    }
+}

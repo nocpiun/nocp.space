@@ -1,4 +1,5 @@
 import React from "react";
+import GitalkComponent from "gitalk/dist/gitalk-component";
 
 import Page from "@/components/Page";
 import Header from "@/components/Header";
@@ -6,6 +7,7 @@ import ContentCard from "@/components/ContentCard";
 import Badge from "@/components/Badge";
 import ProjectCard from "@/components/ProjectCard";
 
+import "gitalk/dist/gitalk.css";
 import styles from "./home.module.less";
 
 const Home: React.FC = () => {
@@ -79,6 +81,19 @@ const Home: React.FC = () => {
                         year={2020}
                         description="一个Chrome浏览器插件，可以使你的浏览器新标签页更加简洁美观。这个项目是我的第一个个人项目。"
                         repo="NriotHrreion/Nocp-startpage"/>
+                </ContentCard>
+
+                <ContentCard title="留言板">
+                    <div className="gitalk-container">
+                        <GitalkComponent options={{
+                            clientID: "421789e625976ef96925",
+                            clientSecret: "bbafd76071d800d38b5b28c15933e8ae579f9522",
+                            repo: "nin.red-comments",
+                            owner: "NriotHrreion",
+                            admin: ["NriotHrreion"],
+                            number: 1
+                        }}/>
+                    </div>
                 </ContentCard>
             </div>
         </Page>

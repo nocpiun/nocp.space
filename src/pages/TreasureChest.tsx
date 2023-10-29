@@ -4,15 +4,13 @@ import Page from "@/components/Page";
 import ContentCard from "@/components/ContentCard";
 import Link from "@/components/Link";
 
+import { TreasureInfo } from "@/types";
+
 import styles from "./treasure-chest.module.less";
 
-interface TreasureProps {
-    name: string
-    url: string
-    description: string
-}
+import treasures from "@/data/treasure-chest.json";
 
-const Treasure: React.FC<TreasureProps> = (props) => {
+const Treasure: React.FC<TreasureInfo> = (props) => {
     return (
         <tr>
             <td>{props.name}</td>
@@ -36,18 +34,9 @@ const TreasureChest: React.FC = () => {
                         <th>简介</th>
                     </thead>
                     <tbody>
-                        <Treasure name="Calcium 计算器" url="https://calcium.js.org" description="一个基于Web的多功能计算器"/>
-                        <Treasure name="Ferrum Explorer" url="https://ferrum-demo.nin.red" description="一个基于Web的文件浏览器"/>
-                        <Treasure name="ICraft" url="https://ic-game-df35eb.netlify.app/client" description="Minecraft 2D"/>
-                        <Treasure name="Nocp Startpage" url="https://nriothrreion.github.io/Nocp-startpage/" description="更简洁的Chrome新标签页"/>
-                        <Treasure name="Function Painting" url="/using/function-painting/" description="函数图像生成器"/>
-                        <Treasure name="CPS 检测器" url="/using/cps/" description="检测你的每秒钟点击速度"/>
-                        <Treasure name="Do Terminal" url="https://github.com/NriotHrreion/Do-Terminal" description="检测你的每秒钟点击速度"/>
-                        <Treasure name="控制台小游戏" url="https://nriothrreion.github.io/Console-game/" description="有趣的文字冒险游戏"/>
-                        <Treasure name="计算出题器" url="https://math.nin.red" description="给懒得出题的小学生家长们的福利"/>
-                        <Treasure name="网络聊天室" url="https://github.com/NriotHrreion/chat-server" description="Nodejs + Websocket 聊天室"/>
-                        <Treasure name="Minecraft 井字棋" url="https://github.com/NriotHrreion/Bukkit-Tictactoe" description="用MC的方式打开井字棋"/>
-                        <Treasure name="Java 贪吃蛇" url="https://github.com/NriotHrreion/Snake-game" description="用Java的方式打开贪吃蛇"/>
+                        {
+                            treasures.map((info: TreasureInfo, index) => <Treasure {...info} key={index}/>)
+                        }
                     </tbody>
                 </table>
             </ContentCard>

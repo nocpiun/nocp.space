@@ -1,5 +1,7 @@
-# nin.red
+# [nin.red](https://nin.red)
 
-> This project hasn't completed yet...
+This is Noah's Website written in React + Typescript.
 
-New nin.red website
+## LICENSE
+
+[MIT](./LICENSE)

@@ -4,6 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "@/pages/Home";
 import TreasureChest from "@/pages/TreasureChest";
 import Donate from "@/pages/Donate";
+import BlogOverview from "@/pages/BlogOverview";
 
 export const router = createBrowserRouter([
     {
@@ -17,5 +18,9 @@ export const router = createBrowserRouter([
     {
         path: "/donate",
         element: <Donate />
+    },
+    {
+        path: "/blog",
+        element: <BlogOverview />
     }
 ]);

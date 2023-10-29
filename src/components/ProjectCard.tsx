@@ -2,19 +2,13 @@ import React from "react";
 
 import Link from "@/components/Link";
 
-interface ProjectCardProps {
-    name: string
-    year: number
-    description: string | React.ReactElement
-    url?: string
-    repo: string
-}
+import { ProjectInfo } from "@/types";
 
 const repoPrefix: string = "https://github.com/";
 
-const ProjectCard: React.FC<ProjectCardProps> = (props) => {
+const ProjectCard: React.FC<ProjectInfo> = (props) => {
     return (
-        <div className="w-[100%] h-[235px] border border-solid border-[--nocp-gray] rounded overflow-hidden inline-flex flex-col justify-between">
+        <div className="w-[100%] h-[235px] bg-[--nocp-dark-gray] rounded overflow-hidden inline-flex flex-col justify-between">
             <div className="text-left p-6 pb-0">
                 <div className="mb-5 flex justify-between">
                     <a className="text-2xl font-semibold cursor-pointer hover:underline hover:text-emerald-600" href={props.url ?? repoPrefix + props.repo} target="_blank" rel="noreferrer">
@@ -24,7 +18,7 @@ const ProjectCard: React.FC<ProjectCardProps> = (props) => {
                     <span className="text-sm text-yellow-500 pt-1">{props.year}</span>
                 </div>
 
-                <p className="leading-7 text-[--nocp-light-gray] whitespace-normal">{props.description}</p>
+                <p className="leading-7 text-[--nocp-light-gray] whitespace-normal" dangerouslySetInnerHTML={{ __html: props.description }}/>
             </div>
 
             <div className="text-left p-6 flex justify-between">

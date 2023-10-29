@@ -1,0 +1,99 @@
+[
+    [
+        {
+            "text": "Javascript",
+            "color": "FFE70B",
+            "logo": "Javascript",
+            "logoColor": "fff",
+            "linkTo": "https://javascript.com"
+        },
+        {
+            "text": "Typescript",
+            "color": "3178C6",
+            "logo": "Typescript",
+            "logoColor": "fff",
+            "linkTo": "https://typescriptlang.org"
+        },
+        {
+            "text": "Node.js",
+            "color": "026E00",
+            "logo": "node.js",
+            "logoColor": "fff",
+            "linkTo": "https://nodejs.org"
+        },
+        {
+            "text": "Java",
+            "color": "E61F24",
+            "logo": "java",
+            "logoColor": "fff",
+            "linkTo": "https://java.com"
+        }
+    ],
+    [
+        {
+            "text": "Webpack",
+            "color": "175D96",
+            "logo": "webpack",
+            "logoColor": "fff",
+            "linkTo": "https://webpack.js.org"
+        },
+        {
+            "text": "Babel",
+            "color": "323330",
+            "logo": "babel",
+            "logoColor": "f5da55",
+            "linkTo": "https://babeljs.io"
+        },
+        {
+            "text": "React",
+            "color": "4598B0",
+            "logo": "react",
+            "logoColor": "fff",
+            "linkTo": "https://react.dev"
+        },
+        {
+            "text": "Less",
+            "color": "1D365D",
+            "logo": "less",
+            "logoColor": "fff",
+            "linkTo": "https://lesscss.org"
+        },
+        {
+            "text": "Tailwind CSS",
+            "color": "0EA5E9",
+            "logo": "tailwindcss",
+            "logoColor": "fff",
+            "linkTo": "https://tailwindcss.com"
+        }
+    ],
+    [
+        {
+            "text": "Git",
+            "color": "F05032",
+            "logo": "git",
+            "logoColor": "fff",
+            "linkTo": "https://git-scm.com"
+        },
+        {
+            "text": "npm",
+            "color": "CB0000",
+            "logo": "npm",
+            "logoColor": "fff",
+            "linkTo": "https://npmjs.com"
+        },
+        {
+            "text": "Docker",
+            "color": "086DD7",
+            "logo": "docker",
+            "logoColor": "fff",
+            "linkTo": "https://docker.com"
+        },
+        {
+            "text": "VSCode",
+            "color": "0066B8",
+            "logo": "visualstudiocode",
+            "logoColor": "fff",
+            "linkTo": "https://code.visualstudio.com"
+        }
+    ]
+]

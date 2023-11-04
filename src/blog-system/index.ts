@@ -1,20 +1,24 @@
-import { resolveBlog } from "@/blog-system/resolve";
-import { Blog } from "@/types";
+import { loadFront } from "yaml-front-matter";
+import { RawModule, Blog } from "@/types";
 
-export async function getBlog(id: string): Promise<Blog> {
-    var blogResponse = await fetch("/posts/"+ id);
-    var text = await blogResponse.text();
-
-    return await resolveBlog(text);
+export function resolveBlog(blogText: string): Blog {
+    const data = loadFront(blogText);
+    return data as Blog;
 }
 
-export async function getList(): Promise<Blog[]> {
-    var listResponse = await fetch("/posts/list.json");
-    var json: string[] = await listResponse.json();
-    var list = [];
+export function getBlogList(): Blog[] {
+    const moduleContext = require.context("../posts", false, /\.md$/);
+    const modules = moduleContext.keys().map(moduleContext) as RawModule[];
+    var list: Blog[] = [];
 
-    for(let item of json) {
-        list.push(await getBlog(item));
+    for(let module of modules) {
+        list.push(resolveBlog(module.default));
+    }
+
+    // Sort by date
+    for(let blog of list) {
+        var timeStamp = blog.date.getTime();
+        /** @todo */
     }
 
     return list;

@@ -1,3 +1,7 @@
+export interface RawModule {
+    default: string
+}
+
 export interface ProjectInfo {
     name: string
     year: number
@@ -22,8 +26,9 @@ export interface TreasureInfo {
 
 export interface Blog {
     title: string
-    date: number
+    date: Date
     tags: string[]
     excerpt?: string
-    content: string // markdown
+    id: string
+    __content: string // markdown
 }

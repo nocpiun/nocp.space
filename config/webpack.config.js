@@ -16,7 +16,6 @@ const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const paths = require('./paths');
 const modules = require('./modules');
 const getClientEnvironment = require('./env');
@@ -339,6 +338,9 @@ module.exports = function (webpackEnv) {
           babelRuntimeRegenerator,
         ]),
       ],
+      fallback: {
+        "buffer": false
+      }
     },
     module: {
       strictExportPresence: true,
@@ -404,6 +406,14 @@ module.exports = function (webpackEnv) {
               issuer: {
                 and: [/\.(ts|tsx|js|jsx|md|mdx)$/],
               },
+            },
+            {
+              test: /\.md$/,
+              use: [
+                {
+                  loader: require.resolve('raw-loader')
+                }
+              ]
             },
             // Process application JS with Babel.
             // The preset includes JSX, Flow, TypeScript, and some ESnext features.
@@ -782,14 +792,6 @@ module.exports = function (webpackEnv) {
             },
           },
         }),
-      new CopyWebpackPlugin({
-        patterns: [
-          {
-            from: paths.blogPosts,
-            to: paths.blogPostsCloned
-          }
-        ]
-      }),
     ].filter(Boolean),
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter

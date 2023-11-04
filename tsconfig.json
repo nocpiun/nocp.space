@@ -21,7 +21,11 @@
     "jsx": "react-jsx",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": [
+      "node",
+      "webpack-env"
+    ]
   },
   "include": [
     "src"

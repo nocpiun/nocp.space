@@ -3,7 +3,7 @@ import Gitalk from "gitalk";
 
 import Page from "@/components/Page";
 import Header from "@/components/Header";
-import ContentCard from "@/components/ContentCard";
+import Section from "@/components/Section";
 import Badge from "@/components/Badge";
 import ProjectCard from "@/components/ProjectCard";
 
@@ -36,7 +36,7 @@ const Home: React.FC = () => {
             <Header />
 
             <div className="flex flex-col space-y-28 pt-32">
-                <ContentCard title="技术栈" className="space-x-2 space-y-2">
+                <Section title="技术栈" className="space-x-2 space-y-2">
                     {
                         badges.map((badgeList: BadgeInfo[], index) => {
                             return (
@@ -49,17 +49,17 @@ const Home: React.FC = () => {
                             );
                         })
                     }
-                </ContentCard>
+                </Section>
 
-                <ContentCard title="项目" className={"w-[1030px] ml-auto mr-auto pb-4 grid grid-cols-2 gap-3 "+ styles["project-cards"]}>
+                <Section title="项目" className={"w-[1030px] ml-auto mr-auto pb-4 grid grid-cols-2 gap-3 "+ styles["project-cards"]}>
                     {
                         projects.map((info: ProjectInfo, index) => <ProjectCard {...info} key={index}/>)
                     }
-                </ContentCard>
+                </Section>
 
-                <ContentCard title="留言板">
+                <Section title="留言板">
                     <div id="gitalk-container"/>
-                </ContentCard>
+                </Section>
             </div>
         </Page>
     );

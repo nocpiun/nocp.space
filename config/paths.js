@@ -70,8 +70,6 @@ module.exports = {
   appTsBuildInfoFile: resolveApp('node_modules/.cache/tsconfig.tsbuildinfo'),
   swSrc: resolveModule(resolveApp, 'src/service-worker'),
   publicUrlOrPath,
-  blogPosts: resolveApp('posts'),
-  blogPostsCloned: resolveApp(buildPath +'/posts')
 };
 
 

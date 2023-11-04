@@ -11,9 +11,7 @@ const ProjectCard: React.FC<ProjectInfo> = (props) => {
         <div className="w-[100%] h-[235px] bg-[--nocp-dark-gray] rounded overflow-hidden inline-flex flex-col justify-between">
             <div className="text-left p-6 pb-0">
                 <div className="mb-5 flex justify-between">
-                    <a className="text-2xl font-semibold cursor-pointer hover:underline hover:text-emerald-600" href={props.url ?? repoPrefix + props.repo} target="_blank" rel="noreferrer">
-                        <span className="text-[--nocp-forebg]">{props.name}</span>
-                    </a>
+                    <Link to={props.url ?? repoPrefix + props.repo} newTab large>{props.name}</Link>
 
                     <span className="text-sm text-yellow-500 pt-1">{props.year}</span>
                 </div>

@@ -1,7 +1,7 @@
 import React from "react";
 
 import Page from "@/components/Page";
-import ContentCard from "@/components/ContentCard";
+import Section from "@/components/Section";
 import Link from "@/components/Link";
 
 import { TreasureInfo } from "@/types";
@@ -23,7 +23,7 @@ const Treasure: React.FC<TreasureInfo> = (props) => {
 const TreasureChest: React.FC = () => {
     return (
         <Page className={"pt-40 "+ styles["page-content"]}>
-            <ContentCard title="百宝箱" className="space-y-2">
+            <Section title="百宝箱" className="space-y-2">
                 <p>在这个百宝箱中，有我制作的小工具和小游戏，以及我整的各种有意思的东西。</p>
                 <p>如果你感兴趣的话，可以在我的<Link to="https://github.com/NriotHrreion" newTab>Github</Link>中找到源码。</p>
 
@@ -39,7 +39,7 @@ const TreasureChest: React.FC = () => {
                         }
                     </tbody>
                 </table>
-            </ContentCard>
+            </Section>
         </Page>
     );
 }

@@ -1,24 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import Page from "@/components/Page";
-import ContentCard from "@/components/ContentCard";
+import Section from "@/components/Section";
+import ArticleCard from "@/components/ArticleCard";
 
-// import { getBlog } from "@/blog-system";
+import { getBlogList } from "@/blog-system";
+import { Blog } from "@/types";
 
 import styles from "./blog-overview.module.less";
 
 const BlogOverview: React.FC = () => {
+    const [articleList, setArticleList] = useState<Blog[]>([]);
+
     useEffect(() => {
-        (async () => {
-            /** @todo */
-        })();
+        setArticleList(getBlogList());
     }, []);
 
     return (
         <Page className={"pt-40 "+ styles["page-content"]}>
-            <ContentCard title="文章" titleCenterAligned={false}>
-                
-            </ContentCard>
+            <Section title="文章" titleCenterAligned={false} className="pl-96 pr-96 space-y-4">
+                {
+                    articleList.map((info, index) => <ArticleCard {...info} key={index}/>)
+                }
+            </Section>
         </Page>
     );
 }

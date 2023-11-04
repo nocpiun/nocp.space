@@ -7,9 +7,22 @@ interface LinkProps extends PropsWithChildren {
     newTab?: boolean
     icon?: string
     underline?: boolean
+    large?: boolean
 }
 
 const Link: React.FC<LinkProps> = (props) => {
+    if(props.large) {
+        return (
+            <a
+                className="text-2xl font-semibold cursor-pointer hover:underline hover:text-emerald-600"
+                href={props.to}
+                target={props.newTab ? "_blank" : "_self"}
+                rel="noreferrer">
+                <span className="text-[--nocp-forebg]">{props.children}</span>
+            </a>
+        );
+    }
+
     return (
         <a
             className="inline-block"

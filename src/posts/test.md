@@ -6,6 +6,7 @@ tags:
 - "测试2"
 - "测试3"
 excerpt: "asdfasdfasdfasdf"
+id: "test"
 ---
 
 testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest

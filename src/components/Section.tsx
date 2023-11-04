@@ -2,13 +2,13 @@ import React, { PropsWithChildren } from "react";
 
 import { optional } from "@/utils";
 
-interface ContentCardProps extends PropsWithChildren {
+interface SectionProps extends PropsWithChildren {
     title: string
     className?: string
     titleCenterAligned?: boolean
 }
 
-const ContentCard: React.FC<ContentCardProps> = (props) => {
+const Section: React.FC<SectionProps> = (props) => {
     return (
         <div className="text-center">
             <h2 className={"text-4xl font-semibold "+ optional("text-center", "text-left pl-96", props.titleCenterAligned)}>{props.title}</h2>
@@ -18,4 +18,4 @@ const ContentCard: React.FC<ContentCardProps> = (props) => {
     );
 }
 
-export default ContentCard;
+export default Section;

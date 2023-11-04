@@ -29,6 +29,6 @@ export interface Blog {
     date: Date
     tags: string[]
     excerpt?: string
-    id: string
+    hidden?: boolean
     __content: string // markdown
 }

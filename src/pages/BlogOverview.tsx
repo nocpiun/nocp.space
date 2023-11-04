@@ -13,14 +13,17 @@ const BlogOverview: React.FC = () => {
     const [articleList, setArticleList] = useState<Blog[]>([]);
 
     useEffect(() => {
-        setArticleList(getBlogList());
+        setArticleList(getBlogList(true));
     }, []);
 
     return (
         <Page className={"pt-40 "+ styles["page-content"]}>
             <Section title="文章" titleCenterAligned={false} className="pl-96 pr-96 space-y-4">
                 {
-                    articleList.map((info, index) => <ArticleCard {...info} key={index}/>)
+                    articleList.map((info, index) => {
+                        if(info.hidden) return <React.Fragment key={index}/>;
+                        return <ArticleCard {...info} key={index}/>;
+                    })
                 }
             </Section>
         </Page>

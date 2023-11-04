@@ -29,18 +29,18 @@ date: 2023-07-07
 
 4. **点击“账户”**
 
-![img8.png](/img/img8.png)
+![img8.png](/static/blog/img8.png)
 
 5. **点击“离线模式”**
 
-![img9.png](/img/img9.png)
+![img9.png](/static/blog/img9.png)
 
 6. **输入你的游戏角色名称，点击“登录”即可。**
 
-![img10.png](/img/img10.png)
+![img10.png](/static/blog/img10.png)
 
 7. **之后在“下载”处自行下载所需的游戏版本后即可开始游玩。**
 
-![img11.png](/img/img11.png)
+![img11.png](/static/blog/img11.png)
 
-![img12.png](/img/img12.png)
+![img12.png](/static/blog/img12.png)

@@ -6,7 +6,7 @@ tags:
 - "开发"
 - "Linux"
 - "Minecraft"
-photo: "/img/phone_server.jpg"
+photo: "/static/blog/phone_server.jpg"
 excerpt: "最近, 我找到了家里的一台旧手机, 于是就产生了一些奇妙的想法…<br><br>这篇文章记述了我改造旧手机的过程."
 date: 2021-08-14
 ---

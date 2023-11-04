@@ -5,7 +5,7 @@ tags:
 - "开发"
 - "Chrome插件"
 - "javascript"
-photo: "/img/img2.png"
+photo: "/static/blog/img2.png"
 date: 2020-07-31
 ---
 

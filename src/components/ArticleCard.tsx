@@ -1,4 +1,5 @@
 import React from "react";
+import Markdown from "markdown-to-jsx";
 
 import Link from "@/components/Link";
 
@@ -12,7 +13,7 @@ const ArticleCard: React.FC<Blog> = (props) => {
     const url = encodeURI("/blog/"+ props.title);
 
     return (
-        <div className="w-[100%] h-[235px] bg-[--nocp-dark-gray] rounded overflow-hidden inline-flex flex-col justify-between">
+        <div className="w-[100%] bg-[--nocp-dark-gray] rounded overflow-hidden inline-flex flex-col justify-between">
             <div className="text-left p-6 pb-0">
                 <div className="mb-5 flex justify-between">
                     <Link to={url} large>{props.title}</Link>
@@ -22,7 +23,9 @@ const ArticleCard: React.FC<Blog> = (props) => {
                     </span>
                 </div>
 
-                <p className="leading-7 text-[--nocp-light-gray] whitespace-normal">{props.excerpt}</p>
+                <div className="article-card-excerpt">
+                    <Markdown>{props.excerpt ?? ""}</Markdown>
+                </div>
             </div>
 
             <div className="text-left p-6 space-x-4">

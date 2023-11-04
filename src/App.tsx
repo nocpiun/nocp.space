@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import { router } from "@/router";
 
 import "@/style/style.less";
+import "highlight.js/styles/github-dark.min.css";
 
 const App: React.FC = () => {
     return (

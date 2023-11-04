@@ -3,7 +3,7 @@ title: "NBlog, 2023新年好!"
 author: NriotHrreion
 tags:
 - "博客"
-photo: "/img/new_lunar_year_2023.jpg"
+photo: "/static/blog/new_lunar_year_2023.jpg"
 date: 2023-01-21
 ---
 

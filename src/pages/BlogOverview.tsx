@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 import Page from "@/components/Page";
-import Section from "@/components/Section";
 import Link from "@/components/Link";
 import ArticleCard from "@/components/ArticleCard";
 

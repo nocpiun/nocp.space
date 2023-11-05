@@ -37,3 +37,9 @@ export interface BlogTag {
     name: string
     amount: number
 }
+
+export interface LinkInfo {
+    name: string
+    description: string
+    url: string
+}

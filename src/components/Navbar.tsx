@@ -16,6 +16,7 @@ const Navbar: React.FC = () => {
             <div className="flex space-x-9">
                 <NavbarButton text="Noah's Website" linkTo="/"/>
                 <NavbarButton text="百宝箱" linkTo="/treasure-chest"/>
+                <NavbarButton text="友链" linkTo="/links"/>
                 <NavbarButton text="打赏" linkTo="/donate"/>
             </div>
 

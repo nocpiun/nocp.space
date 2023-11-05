@@ -29,9 +29,11 @@ const TreasureChest: React.FC = () => {
 
                 <table border={1} className="ml-auto mr-auto text-[--nocp-forebg]">
                     <thead>
-                        <th>名称</th>
-                        <th>链接</th>
-                        <th>简介</th>
+                        <tr>
+                            <th>名称</th>
+                            <th>链接</th>
+                            <th>简介</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {

@@ -21,11 +21,44 @@ h1, h2, h3, h4, h5, h6, p, span, li {
     color: var(--nocp-forebg);
 }
 
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.5em;
+}
+h3 {
+    font-size: 1.3em;
+}
+h4 {
+    font-size: 1.2em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+    color: var(--nocp-light-gray);
+    font-size: 1em;
+}
+
 code {
     padding: 3px 5px;
     background-color: #333131;
     border-radius: 3px;
     font-size: 11pt;
+}
+
+table {
+    border: 1px solid var(--nocp-gray);
+    tr, th, td {
+        border: 1px solid var(--nocp-gray);
+    }
+    th, td {
+        padding: 6px 13px;
+    }
+    tr:nth-child(2n) {
+        background-color: #222;
+    }
 }
 
 .card-excerpt {

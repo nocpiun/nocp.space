@@ -4,6 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import NotFound from "@/pages/NotFound";
 import Home from "@/pages/Home";
 import TreasureChest from "@/pages/TreasureChest";
+import Links from "@/pages/Links";
 import Donate from "@/pages/Donate";
 import BlogOverview from "@/pages/BlogOverview";
 import BlogArticle from "@/pages/BlogArticle";
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
     {
         path: "/treasure-chest",
         element: <TreasureChest />
+    },
+    {
+        path: "/links",
+        element: <Links />
     },
     {
         path: "/donate",

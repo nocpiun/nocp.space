@@ -23,7 +23,7 @@ const ArticleCard: React.FC<Blog> = (props) => {
                     </span>
                 </div>
 
-                <div className="article-card-excerpt">
+                <div className="card-excerpt">
                     <Markdown>{props.excerpt ?? ""}</Markdown>
                 </div>
             </div>

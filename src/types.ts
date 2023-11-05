@@ -32,3 +32,8 @@ export interface Blog {
     hidden?: boolean
     __content: string // markdown
 }
+
+export interface BlogTag {
+    name: string
+    amount: number
+}

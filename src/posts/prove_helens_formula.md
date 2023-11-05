@@ -77,7 +77,7 @@ $$S=\sqrt{\frac{b^2}{4}(c+\frac{c^2-a^2+b^2}{2b})(c-\frac{c^2-a^2+b^2}{2b})}$$
 
 $$=\sqrt{\frac{b^2}{4}(\frac{2cb+c^2-a^2+b^2}{2b})(\frac{2cb-c^2+a^2-b^2}{2b})}$$
 
-$$=\sqrt{\frac{b^2}{4}[\frac{(b+c)^2-a^2}{2b}][\frac{a^2-(b-c)^2}{2b}]}$$
+$$=\sqrt{\frac{b^2}{4}\[\frac{(b+c)^2-a^2}{2b}\]\[\frac{a^2-(b-c)^2}{2b}\]}$$
 
 $$=\sqrt{\frac{1}{4}\times\frac{(b+c+a)(b+c-a)}{2}\times\frac{(a+b-c)(a-b+c)}{2}}$$
 

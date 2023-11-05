@@ -8,6 +8,7 @@
 body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
     * {
         font-family: FiraCode, NotoColorEmoji, sans-serif, Arial;
         &::selection {
@@ -27,7 +28,7 @@ code {
     font-size: 11pt;
 }
 
-.article-card-excerpt {
+.card-excerpt {
     * {
         color: var(--nocp-light-gray);
         line-height: 1.75rem;
@@ -87,4 +88,9 @@ code {
     .gt-svg svg {
         fill: #fff;
     }
+}
+
+// KaTeX
+.katex * {
+    font-family: KaTex_Main;
 }

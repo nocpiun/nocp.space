@@ -6,6 +6,7 @@ import hljs from "highlight.js";
 
 import Page from "@/components/Page";
 import Section from "@/components/Section";
+import Link from "@/components/Link";
 
 import { getBlogByTitle } from "@/blog-system";
 import { Blog } from "@/types";
@@ -33,7 +34,7 @@ const BlogArticle: React.FC = () => {
 
     useEffect(() => {
         hljs.highlightAll();
-        // (window as any).renderMathInElement(document.body, (window as any).katex_config);
+        (window as any).renderMathInElement(document.body, (window as any).katex_config);
     }, [blogInfo]);
 
     return (
@@ -56,7 +57,7 @@ const BlogArticle: React.FC = () => {
                     </span>
 
                     <span className="space-x-3">
-                        {blogInfo?.tags.map((tag, index) => <span className="text-[--nocp-light-gray]" key={index}>{"#"+ tag}</span>)}
+                        {blogInfo?.tags.map((tag, index) => <Link to={"/tags/"+ tag} key={index}>{"#"+ tag}</Link>)}
                     </span>
                 </div>
 

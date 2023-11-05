@@ -7,6 +7,8 @@ import TreasureChest from "@/pages/TreasureChest";
 import Donate from "@/pages/Donate";
 import BlogOverview from "@/pages/BlogOverview";
 import BlogArticle from "@/pages/BlogArticle";
+import BlogTags from "@/pages/BlogTags";
+import BlogTag from "@/pages/BlogTag";
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +30,14 @@ export const router = createBrowserRouter([
     {
         path: "/blog/:title",
         element: <BlogArticle />
+    },
+    {
+        path: "/tags",
+        element: <BlogTags />
+    },
+    {
+        path: "/tags/:tagName",
+        element: <BlogTag />
     },
     {
         path: "/404",

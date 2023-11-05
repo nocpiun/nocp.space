@@ -1,5 +1,5 @@
 import { loadFront } from "yaml-front-matter";
-import { RawModule, Blog } from "@/types";
+import { RawModule, Blog, BlogTag } from "@/types";
 import { arrayRemove } from "@/utils";
 
 export function resolveBlog(blogText: string): Blog {
@@ -8,6 +8,7 @@ export function resolveBlog(blogText: string): Blog {
 }
 
 export function getBlogList(shallSort: boolean = false): Blog[] {
+    // Import blogs by webpack
     const moduleContext = require.context("../posts", false, /\.md$/);
     const modules = moduleContext.keys().map(moduleContext) as RawModule[];
     var list: Blog[] = [];
@@ -38,6 +39,35 @@ export function getBlogList(shallSort: boolean = false): Blog[] {
     return list;
 }
 
+export function getTagList(): BlogTag[] {
+    const list = getBlogList();
+    var tagList: BlogTag[] = [];
+
+    for(let blog of list) {
+        tagLoop: for(let tag of blog.tags) {
+            for(let i = 0; i < tagList.length; i++) {
+                if(tagList[i].name === tag) {
+                    tagList[i].amount++;
+                    continue tagLoop;
+                }
+            }
+            tagList.push({ name: tag, amount: 1 });
+        }
+    }
+
+    return tagList;
+}
+
+export function hasTag(tagName: string): boolean {
+    const tagList = getTagList();
+    for(let tag of tagList) {
+        if(tag.name === tagName) {
+            return true;
+        }
+    }
+    return false;
+}
+
 export function getBlogByTitle(title: string): Blog | null {
     const list = getBlogList();
 
@@ -46,4 +76,17 @@ export function getBlogByTitle(title: string): Blog | null {
     }
 
     return null;
+}
+
+export function getBlogsByTag(tagName: string): Blog[] {
+    const list = getBlogList();
+    var result: Blog[] = [];
+
+    for(let blog of list) {
+        if(blog.tags.includes(tagName)) {
+            result.push(blog);
+        }
+    }
+
+    return result;
 }

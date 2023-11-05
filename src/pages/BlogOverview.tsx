@@ -3,12 +3,16 @@ import React, { useState, useEffect } from "react";
 import Page from "@/components/Page";
 import Link from "@/components/Link";
 import ArticleCard from "@/components/ArticleCard";
+import Widget from "@/components/Widget";
 
 import { getBlogList, getTagList } from "@/blog-system";
 import { Blog, BlogTag } from "@/types";
 import { getRelativeNumber } from "@/utils";
 
 import styles from "./blog-overview.module.less";
+
+// Data
+import recommended from "@/data/recommended.json";
 
 const BlogOverview: React.FC = () => {
     const [articleList, setArticleList] = useState<Blog[]>([]);
@@ -44,12 +48,14 @@ const BlogOverview: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="flex-1 ml-4">
-                        <h2 className="text-center font-semibold mb-6">
-                            <Link to="/tags" large>标签</Link>
-                        </h2>
+                    <div className="flex-1 ml-4 flex flex-col space-y-6">
+                        <Widget title="推荐阅读" className="text-sm space-y-2">
+                            {
+                                recommended.map((title, index) => <Link to={"/blog/"+ title} key={index}>{title}</Link>)
+                            }
+                        </Widget>
 
-                        <div className="p-6 bg-[--nocp-dark-gray] rounded">
+                        <Widget title={<Link to="/tags" large>标签</Link>}>
                             {
                                 tagList.map((tag, index) => {
                                     return (
@@ -59,7 +65,7 @@ const BlogOverview: React.FC = () => {
                                     );
                                 })
                             }
-                        </div>
+                        </Widget>
                     </div>
                 </div>
             </div>

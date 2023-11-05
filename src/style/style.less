@@ -62,13 +62,22 @@ table {
 }
 
 .card-excerpt {
-    * {
+    &, * {
         color: var(--nocp-light-gray);
         line-height: 1.75rem;
         white-space: normal;
     }
     a {
         text-decoration: underline;
+    }
+}
+
+// If we use tailwind to set the font color,
+// it won't have effect because of the priority
+// between different CSS's
+.article-card-tag-list {
+    a span {
+        color: var(--nocp-light-gray);
     }
 }
 

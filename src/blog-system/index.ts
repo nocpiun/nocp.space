@@ -58,6 +58,18 @@ export function getTagList(): BlogTag[] {
     return tagList;
 }
 
+export function getTag(tagName: string): BlogTag | null {
+    const tagList = getTagList();
+
+    for(let tag of tagList) {
+        if(tag.name === tagName) {
+            return tag;
+        }
+    }
+
+    return null;
+}
+
 export function hasTag(tagName: string): boolean {
     const tagList = getTagList();
     for(let tag of tagList) {

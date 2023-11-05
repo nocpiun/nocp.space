@@ -8,13 +8,14 @@ interface LinkProps extends PropsWithChildren {
     icon?: string
     underline?: boolean
     large?: boolean
+    className?: string
 }
 
 const Link: React.FC<LinkProps> = (props) => {
     if(props.large) {
         return (
             <a
-                className="text-2xl font-semibold cursor-pointer hover:underline hover:text-emerald-600"
+                className={"text-2xl font-semibold cursor-pointer hover:underline hover:text-emerald-600 "+ (props.className ?? "")}
                 href={props.to}
                 target={props.newTab ? "_blank" : "_self"}
                 rel="noreferrer">
@@ -32,7 +33,7 @@ const Link: React.FC<LinkProps> = (props) => {
                 {props.icon && (
                     <img src={props.icon} alt="icon" className="w-5 h-5 inline-block mr-1"/>
                 )}
-                <span className={"text-emerald-600 selection:text-white inline-block"+ optional(" hover:underline", "", props.underline)}>{props.children}</span>
+                <span className={"text-emerald-600 selection:text-white inline-block "+ (props.className ?? "") + optional(" hover:underline", "", props.underline)}>{props.children}</span>
         </a>
     );
 }

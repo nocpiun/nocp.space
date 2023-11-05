@@ -28,8 +28,14 @@ const ArticleCard: React.FC<Blog> = (props) => {
                 </div>
             </div>
 
-            <div className="text-left p-6 space-x-4">
+            <div className="text-left p-6 flex justify-between">
                 <Link to={url}>查看更多</Link>
+
+                <div className="space-x-4 article-card-tag-list">
+                    {
+                        props.tags.map((tag, index) => <Link to={"/tags/"+ tag} key={index}>{"#"+ tag}</Link>)
+                    }
+                </div>
             </div>
         </div>
     );

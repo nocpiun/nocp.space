@@ -7,7 +7,7 @@ import Section from "@/components/Section";
 import Link from "@/components/Link";
 import ArticleCard from "@/components/ArticleCard";
 
-import { hasTag, getBlogsByTag } from "@/blog-system";
+import { getTag, hasTag, getBlogsByTag } from "@/blog-system";
 import { Blog } from "@/types";
 
 import styles from "./blog-tag.module.less";
@@ -33,9 +33,13 @@ const BlogTag: React.FC = () => {
     return (
         <Page className={"pt-40 "+ styles["page-content"]}>
             <Section title={"#"+ tagNameDecoded} titleCenterAligned={false} className="mt-6 pl-96 pr-96">
-                <p className="text-right mb-6">
-                    <Link to="/tags">所有标签</Link>
-                </p>
+                <div className="mt-8 mb-6 flex justify-between">
+                    <span className="text-[--nocp-light-gray]">共 {getTag(tagNameDecoded)?.amount} 篇文章</span>
+
+                    <span>
+                        <Link to="/tags">所有标签</Link>
+                    </span>
+                </div>
 
                 <div className="space-y-4">
                     {

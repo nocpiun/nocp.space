@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import Page from "@/components/Page";
 import Section from "@/components/Section";
+import Link from "@/components/Link";
 import ArticleCard from "@/components/ArticleCard";
 
 import { hasTag, getBlogsByTag } from "@/blog-system";
@@ -31,12 +32,18 @@ const BlogTag: React.FC = () => {
 
     return (
         <Page className={"pt-40 "+ styles["page-content"]}>
-            <Section title={"#"+ tagNameDecoded} titleCenterAligned={false} className="pl-96 pr-96 space-y-4">
-                {
-                    articleList.map((info, index) => {
-                        return <ArticleCard {...info} key={index}/>;
-                    })
-                }
+            <Section title={"#"+ tagNameDecoded} titleCenterAligned={false} className="mt-6 pl-96 pr-96">
+                <p className="text-right mb-6">
+                    <Link to="/tags">所有标签</Link>
+                </p>
+
+                <div className="space-y-4">
+                    {
+                        articleList.map((info, index) => {
+                            return <ArticleCard {...info} key={index}/>;
+                        })
+                    }
+                </div>
             </Section>
         </Page>
     );

@@ -38,3 +38,7 @@ export function arrayPut<T = any>(oldArray: T[], index: number, item: T): T[] {
     newArray.splice(index, 0, item);
     return newArray;
 }
+
+export function getRelativeNumber(min: number, max: number, percent: number): number {
+    return min + (max - min) * (percent / 100);
+}

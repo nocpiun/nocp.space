@@ -32,7 +32,7 @@ const BlogTag: React.FC = () => {
 
     return (
         <Page className={"pt-40 "+ styles["page-content"]}>
-            <Section title={"#"+ tagNameDecoded} titleCenterAligned={false} className="mt-6 pl-96 pr-96">
+            <Section title={"#"+ tagNameDecoded} titleCenterAligned={false} className="mt-6 pl-[20vw] pr-[20vw] max-lg:pl-[5vw] max-lg:pr-[5vw] max-sm:pl-[40px] max-sm:pr-[40px]">
                 <div className="mt-8 mb-6 flex justify-between">
                     <span className="text-[--nocp-light-gray]">共 {getTag(tagNameDecoded)?.amount} 篇文章</span>
 

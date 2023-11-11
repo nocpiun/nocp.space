@@ -11,11 +11,13 @@ NProgress.configure({
 const Loading: React.FC = () => {
     useEffect(() => {
         NProgress.start();
+    }, []);
 
+    useEffect(() => {
         return () => {
             NProgress.done();
         };
-    }, []);
+    });
 
     return <></>;
 }

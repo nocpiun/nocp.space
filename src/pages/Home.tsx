@@ -51,7 +51,7 @@ const Home: React.FC = () => {
                     }
                 </Section>
 
-                <Section title="项目" className={"w-[1030px] ml-auto mr-auto pb-4 grid grid-cols-2 gap-3 "+ styles["project-cards"]}>
+                <Section title="项目" className={"w-[1030px] ml-auto mr-auto pb-4 grid grid-cols-2 gap-3 max-md:grid-cols-1 max-md:gap-5 max-md:pl-[5vw] max-md:pr-[5vw] "+ styles["project-cards"]}>
                     {
                         projects.map((info: ProjectInfo, index) => <ProjectCard {...info} key={index}/>)
                     }

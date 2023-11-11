@@ -39,7 +39,7 @@ const BlogArticle: React.FC = () => {
 
     return (
         <Page className={"pt-40 "+ styles["page-content"]}>
-            <Section title={titleDecoded} titleCenterAligned={false} className={"mt-8 pl-96 pr-96 space-y-3 text-left "+ styles["article-content"]}>
+            <Section title={titleDecoded} titleCenterAligned={false} className={"mt-8 pl-[20vw] pr-[20vw] max-lg:pl-[5vw] max-lg:pr-[5vw] max-sm:pl-[40px] max-sm:pr-[40px] space-y-3 text-left "+ styles["article-content"]}>
                 <div className="mb-8 space-x-4">
                     <span className="text-[--nocp-light-gray]">By {blogInfo?.author}</span>
                     

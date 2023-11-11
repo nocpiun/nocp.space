@@ -12,7 +12,7 @@ import treasures from "@/data/treasure-chest.json";
 
 const Treasure: React.FC<TreasureInfo> = (props) => {
     return (
-        <tr>
+        <tr className="max-sm:text-sm">
             <td>{props.name}</td>
             <td><Link to={props.url} newTab>戳我</Link></td>
             <td>{props.description}</td>
@@ -23,7 +23,7 @@ const Treasure: React.FC<TreasureInfo> = (props) => {
 const TreasureChest: React.FC = () => {
     return (
         <Page className={"pt-40 "+ styles["page-content"]}>
-            <Section title="百宝箱" className="space-y-2">
+            <Section title="百宝箱" className="space-y-2 pl-[20vw] pr-[20vw] max-lg:pl-[5vw] max-lg:pr-[5vw] max-sm:pl-[40px] max-sm:pr-[40px]">
                 <p>在这个百宝箱中，有我制作的小工具和小游戏，以及我整的各种有意思的东西。</p>
                 <p>如果你感兴趣的话，可以在我的<Link to="https://github.com/NriotHrreion" newTab>Github</Link>中找到源码。</p>
 

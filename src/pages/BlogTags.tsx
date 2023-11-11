@@ -18,7 +18,7 @@ const BlogTags: React.FC = () => {
 
     return (
         <Page className={"pt-40 "+ styles["page-content"]}>
-            <Section title="标签列表" titleCenterAligned={false} className="pl-96 pr-96 grid grid-cols-3 gap-4">
+            <Section title="标签列表" titleCenterAligned={false} className="pl-[20vw] pr-[20vw] max-lg:pl-[5vw] max-lg:pr-[5vw] max-sm:pl-[40px] max-sm:pr-[40px] grid grid-cols-3 gap-4 max-md:grid-cols-2 max-sm:grid-cols-1">
                 {
                     tagList.map((info, index) => <TagCard {...info} key={index}/>)
                 }

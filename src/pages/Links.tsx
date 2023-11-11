@@ -13,8 +13,8 @@ import links from "@/data/links.json";
 const Links: React.FC = () => {
     return (
         <Page className={"pt-40 "+ styles["page-content"]}>
-            <Section title="友情链接" className="pl-96 pr-96">
-                <div className="grid grid-cols-3 gap-4">
+            <Section title="友情链接" className="pl-[20vw] pr-[20vw] max-lg:pl-[5vw] max-lg:pr-[5vw] max-sm:pl-[40px] max-sm:pr-[40px]">
+                <div className="grid grid-cols-3 gap-4 max-md:grid-cols-2 max-sm:grid-cols-1">
                     {
                         links.map((info, index) => <LinkCard {...info} key={index}/>)
                     }
@@ -27,7 +27,7 @@ const Links: React.FC = () => {
                     <p>名称: Nriot's Website</p>
                     <p>简介: 由一条咸鱼搭建的网站</p>
                     <p>URL: nin.red</p>
-                    <p>颜色: <span className="text-[--nocp-green]">#077955</span></p>
+                    <p>颜色: <span className="bg-[--nocp-green]">#077955</span></p>
                 </div>
             </Section>
         </Page>

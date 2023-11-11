@@ -5,6 +5,10 @@
 @import "@/style/vars.less";
 @import "@/style/fonts.less";
 
+html {
+    background-color: var(--nocp-bg);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -58,6 +62,12 @@ table {
     }
     tr:nth-child(2n) {
         background-color: #222;
+    }
+
+    @media not all and (min-width: 640px) {
+        td {
+            padding: 4px 9px;
+        }
     }
 }
 
@@ -130,6 +140,9 @@ table {
     .gt-svg svg {
         fill: #fff;
     }
+    @media not all and (min-width: 768px) {
+        margin: 0 5vw;
+    }
 }
 
 // KaTeX
@@ -141,6 +154,9 @@ table {
 #nprogress {
     .bar {
         height: 3px;
+    }
+    .peg {
+        box-shadow: none !important;
     }
     .bar, .peg {
         background-color: var(--nocp-green) !important;

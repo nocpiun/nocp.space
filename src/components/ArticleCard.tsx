@@ -15,10 +15,10 @@ const ArticleCard: React.FC<Blog> = (props) => {
     return (
         <div className="w-[100%] bg-[--nocp-dark-gray] rounded overflow-hidden inline-flex flex-col justify-between">
             <div className="text-left p-6 pb-0">
-                <div className="mb-5 flex justify-between">
+                <div className="mb-5 flex justify-between max-sm:flex-col">
                     <Link to={url} large>{props.title}</Link>
 
-                    <span className="text-sm text-yellow-500 pt-1">
+                    <span className="text-sm text-yellow-500 pt-1 max-sm:text-right max-sm:mt-2">
                         {year +"-"+ (month < 10 ? "0"+ month : month) +"-"+ (day < 10 ? "0"+ day : day)}
                     </span>
                 </div>
@@ -29,7 +29,7 @@ const ArticleCard: React.FC<Blog> = (props) => {
             </div>
 
             <div className="text-left p-6 flex justify-between">
-                <Link to={url}>查看更多</Link>
+                <Link to={url} className="max-sm:hidden">查看更多</Link>
 
                 <div className="space-x-4 article-card-tag-list">
                     {

@@ -8,7 +8,7 @@ const repoPrefix: string = "https://github.com/";
 
 const ProjectCard: React.FC<ProjectInfo> = (props) => {
     return (
-        <div className="w-[100%] max-md:w-[90vw] h-[235px] bg-[--nocp-dark-gray] rounded overflow-hidden inline-flex flex-col justify-between">
+        <div className="w-[100%] max-md:w-[90vw] h-[235px] max-sm:h-auto bg-[--nocp-dark-gray] rounded overflow-hidden inline-flex flex-col justify-between">
             <div className="text-left p-6 pb-0">
                 <div className="mb-5 flex justify-between">
                     <Link to={props.url ?? repoPrefix + props.repo} newTab large>{props.name}</Link>

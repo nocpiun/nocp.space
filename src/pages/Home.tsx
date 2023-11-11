@@ -32,7 +32,7 @@ const Home: React.FC = () => {
     }, []);
 
     return (
-        <Page className={styles["page-content"]}>
+        <Page className={"overflow-x-hidden "+ styles["page-content"]}>
             <Header />
 
             <div className="flex flex-col space-y-28 pt-32">

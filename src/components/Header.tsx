@@ -17,7 +17,7 @@ const Header: React.FC = () => {
                 <p className="text-lg">👋 我是一个热爱网页开发、音乐和Minecraft的高中生, 很高兴能见到你！</p>
 
                 <p className="text-lg">关注我 :)</p>
-                <ol className=" list-disc">
+                <ol>
                     <li>Github: <Link to="https://github.com/NriotHrreion" newTab>NoahHrreion</Link></li>
                     <li>BiliBili: <Link to="https://space.bilibili.com/167995410" newTab>NoahHrreion</Link></li>
                     <li>X: <Link to="https://twitter.com/Nriot_McPack" newTab>@Nriot_McPack</Link></li>

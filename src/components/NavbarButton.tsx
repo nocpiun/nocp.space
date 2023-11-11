@@ -1,21 +1,20 @@
 import React from "react";
+import { Link as RouteLink } from "react-router-dom";
 
 interface NavbarButtonProps {
     text: string
-    linkTo?: string
-    onClick?: () => void
+    linkTo: string
 }
 
 const NavbarButton: React.FC<NavbarButtonProps> = (props) => {
-    const handleClick = () => {
-        if(props.onClick) props.onClick();
-        if(props.linkTo) window.location.href = props.linkTo;
-    };
-
     return (
-        <button
-            className="text-[--nocp-forebg] hover:text-[--nocp-forebg-hovered] active:text-[--nocp-forebg-active]"
-            onClick={() => handleClick()}>{props.text}</button>
+        <RouteLink
+            className="text-[--nocp-forebg] flex flex-col justify-center hover:text-[--nocp-forebg-hovered] active:text-[--nocp-forebg-active]"
+            to={props.linkTo}
+            target="_self"
+            rel="noreferrer">
+                <span>{props.text}</span>
+        </RouteLink>
     );
 }
 

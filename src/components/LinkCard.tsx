@@ -9,7 +9,7 @@ const LinkCard: React.FC<LinkInfo> = (props) => {
         <div className="bg-[--nocp-dark-gray] rounded overflow-hidden inline-flex flex-col justify-between">
             <div className="text-left p-6">
                 <div className="mb-5 flex justify-between">
-                    <Link to={props.url} large>{props.name}</Link>
+                    <Link to={props.url} large newTab>{props.name}</Link>
                 </div>
 
                 <p className="card-excerpt">

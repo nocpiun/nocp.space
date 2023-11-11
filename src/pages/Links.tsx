@@ -23,6 +23,11 @@ const Links: React.FC = () => {
                 <div className="text-left pt-10 space-y-3">
                     <h2 className="font-semibold">友链说明</h2>
                     <p>如果你也想与我交换友链，敬请发邮件到<Link to="mailto:nriot233@gmail.com">我的邮箱</Link>，我会不定时查看更新的！(我猜不会有什么人来的)</p>
+                    <h4 className="font-semibold pt-10">本站点信息</h4>
+                    <p>名称: Nriot's Website</p>
+                    <p>简介: 由一条咸鱼搭建的网站</p>
+                    <p>URL: nin.red</p>
+                    <p>颜色: <span className="text-[--nocp-green]">#077955</span></p>
                 </div>
             </Section>
         </Page>

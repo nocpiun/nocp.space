@@ -27,7 +27,7 @@ const BlogOverview: React.FC = () => {
         <Page className={styles["page-content"]}>
             <div className="min-h-[300px] mb-10 relative">
                 <div className={"w-[100%] min-h-[300px] pt-10 absolute top-0 left-0 right-0 bottom-0 text-center space-y-3 flex flex-col justify-center z-10 "+ styles["banner"]}>
-                    <h1 className="font-semibold">NBlog</h1>
+                    <h1 className="font-semibold font-mono text-5xl">NBlog</h1>
                     <p className="text-lg">由一条咸鱼搭建的博客</p>
                 </div>
                 <div className={"w-[100%] min-h-[300px] absolute top-0 left-0 right-0 bottom-0 blur-[15px] "+ styles["banner-blur"]}/>

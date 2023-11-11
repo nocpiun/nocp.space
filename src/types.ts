@@ -26,6 +26,7 @@ export interface TreasureInfo {
 
 export interface Blog {
     title: string
+    author: string
     date: Date
     tags: string[]
     excerpt?: string

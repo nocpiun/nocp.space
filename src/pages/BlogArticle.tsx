@@ -41,7 +41,7 @@ const BlogArticle: React.FC = () => {
         <Page className={"pt-40 "+ styles["page-content"]}>
             <Section title={titleDecoded} titleCenterAligned={false} className={"mt-8 pl-96 pr-96 space-y-3 text-left "+ styles["article-content"]}>
                 <div className="mb-8 space-x-4">
-                    <span className="text-[--nocp-light-gray]">By NoahHrreion</span>
+                    <span className="text-[--nocp-light-gray]">By {blogInfo?.author}</span>
                     
                     <span className="text-sm text-yellow-500 pt-1">
                         {(() => {

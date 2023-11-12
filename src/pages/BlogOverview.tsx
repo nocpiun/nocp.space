@@ -24,7 +24,7 @@ const BlogOverview: React.FC = () => {
     }, []);
 
     return (
-        <Page className={styles["page-content"]}>
+        <Page title="博客" className={styles["page-content"]}>
             <div className="min-h-[300px] mb-10 relative">
                 <div className={"w-[100%] min-h-[300px] pt-10 absolute top-0 left-0 right-0 bottom-0 text-center space-y-3 flex flex-col justify-center z-10 "+ styles["banner"]}>
                     <h1 className="font-semibold font-mono text-5xl">NBlog</h1>

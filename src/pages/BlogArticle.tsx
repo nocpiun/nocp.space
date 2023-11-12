@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import useMetaTags from "react-metatags-hook";
 import Markdown from "markdown-to-jsx";
 import hljs from "highlight.js";
 
@@ -22,6 +23,19 @@ const BlogArticle: React.FC = () => {
     const [blogInfo, setBlogInfo] = useState<Blog>();
     const titleDecoded = decodeURI(title ?? "");
 
+    useMetaTags({
+        description: blogInfo?.excerpt,
+        metas: [
+            { name: "keywords", content: "Nriot,Noah,NriotHrreion,NoahHrreion,博客,NBlog,"+ blogInfo?.tags.join(",") }
+        ],
+        openGraph: {
+            description: blogInfo?.excerpt,
+        },
+        twitter: {
+            description: blogInfo?.excerpt,
+        }
+    });
+
     useEffect(() => {
         var info = getBlogByTitle(titleDecoded);
         if(!info) {
@@ -38,7 +52,7 @@ const BlogArticle: React.FC = () => {
     }, [blogInfo]);
 
     return (
-        <Page className={"pt-40 "+ styles["page-content"]}>
+        <Page title={titleDecoded} singleTitle className={"pt-40 "+ styles["page-content"]}>
             <Section title={titleDecoded} titleCenterAligned={false} className={"mt-8 pl-[20vw] pr-[20vw] max-lg:pl-[5vw] max-lg:pr-[5vw] max-sm:pl-[40px] max-sm:pr-[40px] space-y-3 text-left "+ styles["article-content"]}>
                 <div className="mb-8 space-x-4">
                     <span className="text-[--nocp-light-gray]">By {blogInfo?.author}</span>

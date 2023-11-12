@@ -1,5 +1,5 @@
 ---
-title: 博客更新
+title: "[博客更新] 博客已更换主题至经典landscape"
 author: NriotHrreion
 tags:
 - "公告"

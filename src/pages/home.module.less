@@ -1,7 +1,80 @@
 @import "../style/mixin.less";
 
+.shadow-factory(@type, @offset-percent) when (@type = "red") {
+    text-shadow: calc(var(--nocp-broken-offset) * @offset-percent) calc(var(--nocp-broken-offset) * @offset-percent) var(--nocp-broken-red);
+}
+
+.shadow-factory(@type, @offset-percent) when (@type = "blue") {
+    text-shadow: calc(var(--nocp-broken-offset) * -@offset-percent) calc(var(--nocp-broken-offset) * -@offset-percent) var(--nocp-broken-blue);
+}
+
+@keyframes broken-red {
+    0% {
+        .shadow-factory("red", 0);
+    }
+    5% {
+        .shadow-factory("red", 1);
+    }
+    10%, 25% {
+        .shadow-factory("red", 0);
+    }
+    30% {
+        .shadow-factory("red", 1);
+    }
+    35%, 100% {
+        .shadow-factory("red", 0);
+    }
+}
+
+@keyframes broken-blue {
+    0% {
+        .shadow-factory("blue", 0);
+    }
+    5% {
+        .shadow-factory("blue", 1);
+    }
+    10%, 25% {
+        .shadow-factory("blue", 0);
+    }
+    30% {
+        .shadow-factory("blue", 1);
+    }
+    35%, 100% {
+        .shadow-factory("blue", 0);
+    }
+}
+
+@keyframes broken-text {
+    from {
+        height: 0;
+    }
+    to {
+        height: 100%;
+    }
+}
+
 .page-content {
     .scrollbar-style();
+    // Hello Text
+    h1 span {
+        @text: "Hello";
+
+        animation: 3s broken-red ease-in infinite;
+        &::before {
+            content: @text;
+            display: block;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 2px;
+            bottom: 0;
+            background-color: var(--nocp-bg);
+            animation:
+                2s broken-blue ease-in infinite,
+                .6s broken-text cubic-bezier(.19, .71, .56, .86) alternate infinite;
+        }
+    }
 }
 
 .project-cards {

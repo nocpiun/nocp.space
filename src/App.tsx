@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import useMetaTags from "react-metatags-hook";
 
 import Loading from "@/components/Loading";
 import Navbar from "@/components/Navbar";
@@ -19,6 +20,14 @@ const BlogTags = lazy(() => import("@/pages/BlogTags"));
 const BlogTag = lazy(() => import("@/pages/BlogTag"));
 
 const App: React.FC = () => {
+    useMetaTags({
+        description: "由一条咸鱼搭建的网站",
+        openGraph: {
+            description: "由一条咸鱼搭建的网站",
+            image: "/static/icon.png"
+        }
+    });
+
     return (
         <div className="w-[100vw] h-[100vh] bg-[--nocp-bg]">
             <Router>

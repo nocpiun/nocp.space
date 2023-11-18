@@ -9,7 +9,7 @@ import DonateQRCode from "@/static/donate.png";
 
 const Donate: React.FC = () => {
     return (
-        <Page className={"pt-40 "+ styles["page-content"]}>
+        <Page title="打赏" className={"pt-40 "+ styles["page-content"]}>
             <Section title="打赏" className="pl-[20vw] pr-[20vw] max-lg:pl-[5vw] max-lg:pr-[5vw] max-sm:pl-[40px] max-sm:pr-[40px]">
                 <p>打赏能给予我创造和开发的动力，如果你对我的项目感到满意，欢迎打赏！</p>
 

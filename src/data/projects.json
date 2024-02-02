@@ -35,6 +35,13 @@
         "repo": "nocpiun/hycdgx"
     },
     {
+        "name": "Gravity Pong",
+        "year": 2024,
+        "description": "经典游戏《Pong》，但是有重力存在...<br>这是一个在学校机房中被开发出来的小游戏。",
+        "url": "https://nriothrreion.github.io/gravity-pong",
+        "repo": "NriotHrreion/gravity-pong"
+    },
+    {
         "name": "EasyBedwars",
         "year": 2023,
         "description": "一个简单的起床战争服务端插件，基于Bukkit，包含了起床战争游戏的基本玩法。目前有部分功能暂未完工。",

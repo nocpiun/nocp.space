@@ -3,7 +3,7 @@ title: "证明一些导数结论"
 author: NriotHrreion
 tags:
 - "数学"
-excerpt: "尝试证明一些常用函数的导数"
+excerpt: "尝试证明一些常用的导数结论"
 date: 2024-02-15
 ---
 
@@ -222,3 +222,25 @@ $$=\frac{1}{\cos^2{x}}$$
 故
 
 $$f'(x)=\frac{1}{\cos^2{x}}$$
+
+## 两函数相乘求导公式
+
+设
+
+$$h(x)=f(x)g(x)$$
+
+则有
+
+$$h'(x)=\lim_{\Delta x \to 0} \frac{h(x+\Delta x)-h(x)}{\Delta x}$$
+
+$$=\lim_{\Delta x \to 0} \frac{f(x+\Delta x)g(x+\Delta x)-f(x)g(x)}{\Delta x}$$
+
+$$=\lim_{\Delta x \to 0} (\frac{f(x+\Delta x)-f(x)+f(x)}{\Delta x}g(x+\Delta x)-\frac{g(x)}{\Delta x}f(x))$$
+
+$$=\lim_{\Delta x \to 0} ((\frac{f(x)}{\Delta x}+f'(x))g(x+\Delta x)-\frac{g(x)}{\Delta x}f(x))$$
+
+$$=\lim_{\Delta x \to 0} (\frac{g(x+\Delta x)}{\Delta x}f(x)+f'(x)g(x+\Delta x)-\frac{g(x)}{\Delta x}f(x))$$
+
+$$=\lim_{\Delta x \to 0} (f(x)g'(x)+f'(x)g(x+\Delta x))$$
+
+$$=f(x)g'(x)+f'(x)g(x)$$

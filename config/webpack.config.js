@@ -25,6 +25,7 @@ const ForkTsCheckerWebpackPlugin =
     ? require('react-dev-utils/ForkTsCheckerWarningWebpackPlugin')
     : require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const { FeedPlugin } = require('./feed');
 
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash');
 
@@ -792,6 +793,32 @@ module.exports = function (webpackEnv) {
             },
           },
         }),
+      new FeedPlugin({
+        site: "https://nin.red",
+        postPath: path.resolve(paths.appSrc, "posts"),
+        output: {
+          json: "feed.json",
+          atom: "feed.xml"
+        },
+        feedConfig: {
+          title: "NBlog Feed",
+          description: "由一条咸鱼搭建的博客",
+          id: "http://nin.red/blog",
+          link: "http://nin.red/blog",
+          language: "zh-cn",
+          favicon: "http://nin.red/static/blog-icon.png",
+          copyright: `Copyright (c) ${new Date().getFullYear()} NriotHrreion`,
+          feedLinks: {
+            json: "https://nin.red/feed.json",
+            atom: "https://nin.red/feed.xml"
+          },
+          author: {
+            name: "NoahHrreion",
+            email: "nriot233@gmail.com",
+            link: "https://nin.red"
+          }
+        }
+      }),
     ].filter(Boolean),
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter

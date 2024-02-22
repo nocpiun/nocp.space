@@ -123,10 +123,7 @@ class FeedPlugin {
         this.options = options;
     }
     
-    /**
-     * 
-     * @param {import("webpack").Compiler} compiler 
-     */
+    /** @param {import("webpack").Compiler} compiler */
     apply(compiler) {
         compiler.hooks.done.tap("FeedPlugin", async () => {
             var feed = new Feed(this.options.feedConfig);

@@ -25,7 +25,7 @@ const ForkTsCheckerWebpackPlugin =
     ? require('react-dev-utils/ForkTsCheckerWarningWebpackPlugin')
     : require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const { FeedPlugin } = require('./feed');
+const { WebpackFeedPlugin } = require('webpack-feed-plugin');
 
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash');
 
@@ -793,9 +793,10 @@ module.exports = function (webpackEnv) {
             },
           },
         }),
-      new FeedPlugin({
+      new WebpackFeedPlugin({
         site: "https://nin.red",
         postPath: path.resolve(paths.appSrc, "posts"),
+        postLink: "%s/%a",
         output: {
           json: "feed.json",
           atom: "feed.xml"
@@ -803,8 +804,8 @@ module.exports = function (webpackEnv) {
         feedConfig: {
           title: "NBlog Feed",
           description: "由一条咸鱼搭建的博客",
-          id: "http://nin.red/blog",
-          link: "http://nin.red/blog",
+          id: "https://nin.red/blog",
+          link: "https://nin.red/blog",
           language: "zh-cn",
           favicon: "http://nin.red/static/blog-icon.png",
           copyright: `Copyright (c) ${new Date().getFullYear()} NriotHrreion`,

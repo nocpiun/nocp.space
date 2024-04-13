@@ -33,9 +33,9 @@ const BlogOverview: React.FC = () => {
                 <div className={"w-[100%] min-h-[300px] absolute top-0 left-0 right-0 bottom-0 blur-[15px] "+ styles["banner-blur"]}/>
             </div>
 
-            <div className="flex-1 pl-[20vw] pr-[20vw] max-lg:pl-[5vw] max-lg:pr-[5vw] max-sm:pl-[40px] max-sm:pr-[40px]">
+            <div className="flex-1 pl-[25vw] pr-[25vw] max-lg:pl-[5vw] max-lg:pr-[5vw] max-sm:pl-[40px] max-sm:pr-[40px]">
                 <div className="flex">
-                    <div className="w-[75%] max-md:w-[100%] flex flex-col">
+                    <div className="w-[70%] max-md:w-[100%] flex flex-col">
                         <h2 className="text-left font-semibold mb-6">文章列表</h2>
 
                         <div className="space-y-4">
@@ -48,7 +48,7 @@ const BlogOverview: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="flex-1 ml-4 flex flex-col space-y-6 max-md:hidden">
+                    <div className="flex-1 ml-8 flex flex-col space-y-6 max-md:hidden">
                         <Widget title="推荐阅读" className="text-sm space-y-2">
                             {
                                 recommended.map((title, index) => <Link to={"/blog/"+ title} key={index}>{title}</Link>)

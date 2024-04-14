@@ -179,3 +179,14 @@ embed {
         background-color: var(--nocp-green) !important;
     }
 }
+
+// Medium Zoom
+.medium-zoom-image--opened {
+    z-index: 1;
+}
+.medium-zoom-overlay {
+    z-index: -1;
+}
+.medium-zoom--opened .medium-zoom-overlay {
+    z-index: 0 !important;
+}

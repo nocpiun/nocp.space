@@ -8,6 +8,8 @@ import hljs from "highlight.js";
 import Page from "@/components/Page";
 import Section from "@/components/Section";
 import Link from "@/components/Link";
+import Image from "@/components/Image";
+import CodeBlock from "@/components/CodeBlock";
 
 import { getBlogByTitle } from "@/blog-system";
 import { Blog } from "@/types";
@@ -75,7 +77,19 @@ const BlogArticle: React.FC = () => {
                     </span>
                 </div>
 
-                <Markdown options={{ wrapper: "article" }}>{blogInfo?.__content ?? ""}</Markdown>
+                <Markdown options={{
+                    wrapper: "article",
+                    overrides: {
+                        img: {
+                            component: Image
+                        },
+                        pre: {
+                            component: CodeBlock
+                        }
+                    }
+                }}>
+                    {blogInfo?.__content ?? ""}
+                </Markdown>
             </Section>
         </Page>
     );

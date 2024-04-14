@@ -12,6 +12,7 @@ const ArticleCard: React.FC<Blog> = (props) => {
     const day = date.getDate();
     const url = encodeURI("/blog/"+ props.title);
 
+    /* old version */
     // return (
     //     <div className="w-[100%] bg-[--nocp-dark-gray] rounded overflow-hidden inline-flex flex-col justify-between">
     //         <div className="text-left p-6 pb-0">

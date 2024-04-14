@@ -26,7 +26,7 @@ const CodeBlock: React.FC<CodeBlockProps> = (props) => {
         <pre className="relative">
             <button
                 className="absolute top-0 right-0 pt-2 pr-3 text-sm transition-colors hover:text-[--nocp-light-green] active:text-[--nocp-green]"
-                onClick={() => handleCopy()}>复制代码</button>
+                onClick={() => handleCopy()}>复制</button>
             <span className="absolute bottom-0 right-0 pb-2 pr-3 text-[--nocp-light-gray] text-sm">{lang}</span>
 
             <code className={"lang-"+ lang +" hljs"}>{content}</code>

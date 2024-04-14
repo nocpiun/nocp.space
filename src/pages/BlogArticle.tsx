@@ -12,6 +12,7 @@ import Image from "@/components/Image";
 import CodeBlock from "@/components/CodeBlock";
 
 import { getBlogByTitle } from "@/blog-system";
+import bash from "@/blog-system/hljs/bash";
 import { Blog } from "@/types";
 
 import styles from "./blog-article.module.less";
@@ -49,7 +50,12 @@ const BlogArticle: React.FC = () => {
     }, []);
 
     useEffect(() => {
+        hljs.unregisterLanguage("bash");
+        hljs.unregisterLanguage("cmd");
+        hljs.registerLanguage("bash", () => bash);
+        hljs.registerLanguage("cmd", () => bash);
         hljs.highlightAll();
+
         (window as any).renderMathInElement(document.body, (window as any).katex_config);
     }, [blogInfo]);
 

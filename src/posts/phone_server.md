@@ -11,8 +11,6 @@ excerpt: "最近, 我找到了家里的一台旧手机, 于是就产生了一些
 date: 2021-08-14
 ---
 
-![phone_server](/static/blog/phone_server.jpg)
-
 最近, 我找到了家里的一台旧手机, 于是就产生了一些奇妙的想法...
 
 由于Android手机是基于Linux开发的, 所以只要有方法, 就可以把手机当作服务器来使用.

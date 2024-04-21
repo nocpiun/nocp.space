@@ -12,8 +12,8 @@ interface SectionProps extends PropsWithChildren {
 const Section: React.FC<SectionProps> = (props) => {
     return (
         <section className="text-center">
-            {props.photo && <div className="h-[500px] flex justify-center mb-12 pl-[20vw] pr-[20vw] max-lg:pl-[5vw] max-lg:pr-[5vw] max-sm:pl-0 max-sm:pr-0 max-sm:h-auto">
-                <img src={props.photo} alt="banner"/>
+            {props.photo && <div className="mb-12 pl-[20vw] pr-[20vw] max-lg:pl-[5vw] max-lg:pr-[5vw] max-sm:pl-0 max-sm:pr-0 max-sm:h-auto">
+                <img className=" ml-auto mr-auto" src={props.photo} alt="banner"/>
             </div>}
             <h2 className={"z-10 text-4xl font-semibold "+ optional("text-center", "text-left pl-[20vw] pr-[20vw] max-lg:pl-[5vw] max-lg:pr-[5vw] max-sm:pl-[40px] max-sm:pr-[40px]", props.titleCenterAligned)}>{props.title}</h2>
 

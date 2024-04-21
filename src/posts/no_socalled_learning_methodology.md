@@ -3,6 +3,7 @@ title: "拒绝“学习方法论”视频"
 author: NriotHrreion
 tags:
 - "小文章"
+photo: "/static/blog/no_socalled_learning_methodology.jpg"
 excerpt: "现在B站上有许多关于所谓“学习方法论”的视频，打着“轻松上600分”的旗号赚取源源不断的流量，然而这些视频的最大的实际作用可能只是让你热血沸腾"
 date: 2024-04-21
 ---

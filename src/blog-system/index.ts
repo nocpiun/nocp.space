@@ -102,3 +102,9 @@ export function getBlogsByTag(tagName: string): Blog[] {
 
     return result;
 }
+
+export function getBlogAmount(): number {
+    const list = getBlogList();
+
+    return list.length;
+}

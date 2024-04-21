@@ -5,7 +5,7 @@ import Link from "@/components/Link";
 import ArticleCard from "@/components/ArticleCard";
 import Widget from "@/components/Widget";
 
-import { getBlogList, getTagList } from "@/blog-system";
+import { getBlogList, getTagList, getBlogAmount } from "@/blog-system";
 import { Blog, BlogTag } from "@/types";
 import { getRelativeNumber } from "@/utils";
 
@@ -59,7 +59,7 @@ const BlogOverview: React.FC = () => {
                             {
                                 tagList.map((tag, index) => {
                                     return (
-                                        <span className="ml-1 mr-1" style={{ fontSize: getRelativeNumber(12, 65, tag.amount) +"px" }} key={index}>
+                                        <span className="ml-1 mr-1" style={{ fontSize: getRelativeNumber(12, 35, tag.amount, getBlogAmount()) +"px" }} key={index}>
                                             <Link to={"/tags/"+ tag.name}>{"#"+ tag.name}</Link>
                                         </span>
                                     );

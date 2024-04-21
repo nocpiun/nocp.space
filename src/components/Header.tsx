@@ -22,7 +22,7 @@ const Header: React.FC = () => {
                 <ol>
                     <li>Github: <Link to="https://github.com/NriotHrreion" newTab>NoahHrreion</Link></li>
                     <li>BiliBili: <Link to="https://space.bilibili.com/167995410" newTab>NoahHrreion</Link></li>
-                    <li>X: <Link to="https://twitter.com/Nriot_McPack" newTab>@Nriot_McPack</Link></li>
+                    <li>𝕏: <Link to="https://twitter.com/Nriot_McPack" newTab>@Nriot_McPack</Link></li>
                 </ol>
             </div>
         </header>

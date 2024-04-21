@@ -19,7 +19,12 @@ const Image: React.FC<ImageProps> = (props) => {
         });
     }, []);
 
-    return <img src={props.src} alt={props.alt} ref={imageRef}/>;
+    return (
+        <div className="text-center">
+            <img className="mt-6 mb-2 ml-auto mr-auto" src={props.src} alt={props.alt} ref={imageRef}/>
+            <span className="text-sm text-[--nocp-light-gray]">{props.alt}</span>
+        </div>
+    );
 }
 
 export default Image;

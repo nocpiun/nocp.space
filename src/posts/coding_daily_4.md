@@ -16,7 +16,7 @@ Webpack和Babel这两个工具非常好用, 但是要用好还是有点难度的
 
 虽然`nriot-utils`非常简单, 只有那几个功能, 但是在对Webpack的配置上我还是花了很多时间. 你可以在这个博客的任何一个地方打开浏览器Devtools, 然后输入`NUtils`, 就可以尝试`nriot-utils`了（因为博客引入了它）
 
-![img1.png](/static/blog/img1.png)
+![控制台中的NUtils](/static/blog/img1.png)
 
 ## 安装 & 使用
 

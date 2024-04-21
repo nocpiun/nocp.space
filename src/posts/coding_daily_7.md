@@ -158,11 +158,11 @@ Unhandled Rejection at: Promise Promise {
 
 首先，用VSCode打开源码的根目录文件夹，然后从侧边栏进入“运行和调试”。
 
-![img23](/static/blog/img23.png)
+![打开“运行和调试”](/static/blog/img23.png)
 
 然后点击上面的“开始调试”按钮，就可以开始修改和调试代码了。
 
-![img24](/static/blog/img24.png)
+![点击“开始调试”按钮](/static/blog/img24.png)
 
 ## 小结
 

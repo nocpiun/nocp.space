@@ -4,7 +4,7 @@ import Page from "@/components/Page";
 import Section from "@/components/Section";
 import TagCard from "@/components/TagCard";
 
-import { getTagList } from "@/blog-system";
+import { BlogSystem } from "@/blog-system";
 import { BlogTag } from "@/types";
 
 import styles from "./blog-tags.module.less";
@@ -13,7 +13,7 @@ const BlogTags: React.FC = () => {
     const [tagList, setTagList] = useState<BlogTag[]>([]);
 
     useEffect(() => {
-        setTagList(getTagList());
+        setTagList(BlogSystem.get().getTagList());
     }, []);
 
     return (

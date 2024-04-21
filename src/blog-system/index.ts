@@ -2,109 +2,119 @@ import { loadFront } from "yaml-front-matter";
 import { RawModule, Blog, BlogTag } from "@/types";
 import { arrayRemove } from "@/utils";
 
-export function resolveBlog(blogText: string): Blog {
-    const data = loadFront(blogText);
-    return data as Blog;
-}
+export class BlogSystem {
+    private static instance: BlogSystem;
 
-export function getBlogList(shallSort: boolean = false): Blog[] {
-    // Import blogs by webpack
-    const moduleContext = require.context("../posts", false, /\.md$/);
-    const modules = moduleContext.keys().map(moduleContext) as RawModule[];
-    var list: Blog[] = [];
+    private blogList: Blog[] = [];
+    private tagList: BlogTag[] = [];
 
-    for(let module of modules) {
-        list.push(resolveBlog(module.default));
+    private constructor() {
+        this.initBlogList();
+        this.initTagList();
     }
 
-    if(!shallSort) return list;
+    private initBlogList(): void {
+        // Import blogs by webpack
+        const moduleContext = require.context("../posts", false, /\.md$/);
+        const modules = moduleContext.keys().map(moduleContext) as RawModule[];
 
-    // Sort by date
-    var latestIndex = null;
-    for(let i = 0; i < list.length; i++) {
-        for(let j = i; j < list.length; j++) {
-            var timeStamp = list[j].date.getTime();
-
-            if(!latestIndex || timeStamp < list[latestIndex].date.getTime()) {
-                latestIndex = j;
-            }
+        var list: Blog[] = [];
+        for(let module of modules) {
+            list.push(this.resolveBlog(module.default));
         }
-        if(!latestIndex) break;
 
-        list = [list[latestIndex], ...list];
-        list = arrayRemove(list, latestIndex + 1);
-        latestIndex = null;
-    }
+        // Sort blogs by date
+        var latestIndex = null;
+        for(let i = 0; i < list.length; i++) {
+            for(let j = i; j < list.length; j++) {
+                var timeStamp = list[j].date.getTime();
 
-    return list;
-}
-
-export function getTagList(): BlogTag[] {
-    const list = getBlogList();
-    var tagList: BlogTag[] = [];
-
-    for(let blog of list) {
-        tagLoop: for(let tag of blog.tags) {
-            for(let i = 0; i < tagList.length; i++) {
-                if(tagList[i].name === tag) {
-                    tagList[i].amount++;
-                    continue tagLoop;
+                if(!latestIndex || timeStamp < list[latestIndex].date.getTime()) {
+                    latestIndex = j;
                 }
             }
-            tagList.push({ name: tag, amount: 1 });
+            if(!latestIndex) break;
+
+            list = [list[latestIndex], ...list];
+            list = arrayRemove(list, latestIndex + 1);
+            latestIndex = null;
         }
+
+        this.blogList = list;
     }
 
-    return tagList;
-}
-
-export function getTag(tagName: string): BlogTag | null {
-    const tagList = getTagList();
-
-    for(let tag of tagList) {
-        if(tag.name === tagName) {
-            return tag;
+    private initTagList(): void {
+        var list: BlogTag[] = [];
+        for(let blog of this.blogList) {
+            tagLoop: for(let tag of blog.tags) {
+                for(let i = 0; i < list.length; i++) {
+                    if(list[i].name === tag) {
+                        list[i].amount++;
+                        continue tagLoop;
+                    }
+                }
+                list.push({ name: tag, amount: 1 });
+            }
         }
+
+        this.tagList = list;
     }
 
-    return null;
-}
+    public getBlogList(): Blog[] {
+        return this.blogList;
+    }
 
-export function hasTag(tagName: string): boolean {
-    const tagList = getTagList();
-    for(let tag of tagList) {
-        if(tag.name === tagName) {
-            return true;
+    public getTagList(): BlogTag[] {
+        return this.tagList;
+    }
+
+    public resolveBlog(blogText: string): Blog {
+        const data = loadFront(blogText);
+        return data as Blog;
+    }
+
+    public getTag(tagName: string): BlogTag | null {
+        for(let tag of this.tagList) {
+            if(tag.name === tagName) {
+                return tag;
+            }
         }
-    }
-    return false;
-}
-
-export function getBlogByTitle(title: string): Blog | null {
-    const list = getBlogList();
-
-    for(let blog of list) {
-        if(blog.title === title) return blog;
+    
+        return null;
     }
 
-    return null;
-}
-
-export function getBlogsByTag(tagName: string): Blog[] {
-    const list = getBlogList();
-    var result: Blog[] = [];
-
-    for(let blog of list) {
-        if(blog.tags.includes(tagName)) {
-            result.push(blog);
+    public hasTag(tagName: string): boolean {
+        for(let tag of this.tagList) {
+            if(tag.name === tagName) {
+                return true;
+            }
         }
+
+        return false;
     }
 
-    return result;
-}
+    public getBlogByTitle(title: string): Blog | null {
+        for(let blog of this.blogList) {
+            if(blog.title === title) return blog;
+        }
+    
+        return null;
+    }
 
-export function getBlogAmount(): number {
-    const list = getBlogList();
+    public getBlogsByTag(tagName: string): Blog[] {
+        var result: Blog[] = [];
+    
+        for(let blog of this.blogList) {
+            if(blog.tags.includes(tagName)) {
+                result.push(blog);
+            }
+        }
+    
+        return result;
+    }
 
-    return list.length;
+    public static get(): BlogSystem {
+        if(!BlogSystem.instance) BlogSystem.instance = new BlogSystem();
+        return BlogSystem.instance;
+    }
 }

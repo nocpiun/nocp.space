@@ -11,7 +11,7 @@ import Link from "@/components/Link";
 import Image from "@/components/Image";
 import CodeBlock from "@/components/CodeBlock";
 
-import { getBlogByTitle } from "@/blog-system";
+import { BlogSystem } from "@/blog-system";
 import bash from "@/blog-system/hljs/bash";
 import { Blog } from "@/types";
 
@@ -40,7 +40,7 @@ const BlogArticle: React.FC = () => {
     });
 
     useEffect(() => {
-        var info = getBlogByTitle(titleDecoded);
+        var info = BlogSystem.get().getBlogByTitle(titleDecoded);
         if(!info) {
             window.location.href = "/404";
             return;

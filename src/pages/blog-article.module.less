@@ -26,6 +26,9 @@
                 text-decoration: underline;
             }
         }
+        img {
+            max-width: 600px;
+        }
         pre {
             background-color: var(--nocp-dark-gray);
             border-radius: 3px;
@@ -39,6 +42,25 @@
             p {
                 font-family: "宋体";
                 color: var(--nocp-dark-forebg);
+            }
+        }
+        ul, ol {
+            padding: 15px 40px;
+            li {
+                margin: 7px 0;
+                color: var(--nocp-dark-forebg);
+            }
+        }
+        ul li {
+            list-style: disc;
+            &::marker {
+                color: var(--nocp-gray);
+            }
+        }
+        ol li {
+            list-style: decimal;
+            &::marker {
+                color: var(--nocp-light-gray);
             }
         }
         embed {

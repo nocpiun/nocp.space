@@ -283,6 +283,8 @@ date: 2024-04-30
 
 感谢阅读文本，还有一如既往的：祝你晶体制作愉快！
 
+---
+
 _2021-11-10 Written By Chase（已授权翻译此文章）_
 
 _Translated By NoahHrreion_

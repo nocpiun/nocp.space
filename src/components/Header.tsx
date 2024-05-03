@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import Link from "@/components/Link";
+
+import Emitter from "@/utils/Emitter";
 
 import AvatarImg from "@/static/avatar.jpg";
 
 const Header: React.FC = () => {
+    const [clickCounts, setClickCounts] = useState<number>(0);
+    
+    const handleClickEaster = useCallback(() => {
+        if(clickCounts === -1) return;
+        setClickCounts(clickCounts + 1);
+    }, [clickCounts]);
+
+    useEffect(() => {
+        if(clickCounts < 10) return;
+
+        Emitter.get().emit("easter");
+
+        setClickCounts(-1);
+    }, [clickCounts]);
+
     return (
         <header className="h-auto pl-10 pr-10 pt-52 pb-16 flex max-md:flex-col max-md:space-y-9">
             <div className="flex-1">
-                <h1 className="text-8xl text-right relative max-md:text-center">
-                    <span className="font-[FiraCode-SemiBold]">Hello</span>
+                <h1
+                    className="text-8xl text-right relative selection:select-none max-md:text-center"
+                    onClick={() => handleClickEaster()}>
+                    <span className="font-[FiraCode-SemiBold] selection:select-none">Hello</span>
                 </h1>
                 <p className="text-4xl text-right max-md:text-center pt-4">I'm NoahHrreion</p>
             </div>

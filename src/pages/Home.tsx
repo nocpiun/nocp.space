@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Section from "@/components/Section";
 import Badge from "@/components/Badge";
 import ProjectCard from "@/components/ProjectCard";
+import Easter from "@/components/Easter";
 
 import { ProjectInfo, BadgeInfo } from "@/types";
 
@@ -34,6 +35,8 @@ const Home: React.FC = () => {
     return (
         <Page title="主页" className={"overflow-x-hidden "+ styles["page-content"]}>
             <Header />
+
+            <Easter />
 
             <div className="flex flex-col space-y-28 pt-32">
                 <Section title="技术栈" className="space-x-2 space-y-2">

@@ -42,3 +42,7 @@ export function arrayPut<T = any>(oldArray: T[], index: number, item: T): T[] {
 export function getRelativeNumber(min: number, max: number, n: number, total: number): number {
     return min + (max - min) * (n / total);
 }
+
+export function getRandom(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}

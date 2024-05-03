@@ -57,7 +57,7 @@ const Easter: React.FC = () => {
     return (
         <div>
             {isActivated && (
-                <pre className="w-[35vw] h-0 transition-all duration-700 text-[--nocp-forebg] ml-auto mr-auto" ref={containerRef}>
+                <pre className="w-[35vw] max-lg:w-[60vw] max-sm:w-[70vw] h-0 transition-all duration-700 text-[--nocp-forebg] ml-auto mr-auto" ref={containerRef}>
                     <code className="block w-full pt-2 pb-2 pl-3 pr-3">
                         <span ref={contentRef}/>
                         <div className={"w-2 h-4 inline-block align-text-top ml-[2px] "+ (cursorBlink ? "bg-[--nocp-forebg]" : "")}/>

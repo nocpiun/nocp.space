@@ -24,15 +24,18 @@ export interface TreasureInfo {
     description: string
 }
 
-export interface Blog {
+export interface TextInfo {
     title: string
-    author: string
     date: Date
+    __content: string // markdown
+}
+
+export interface Blog extends TextInfo {
+    author: string
     tags: string[]
     photo?: string
     excerpt?: string
     hidden?: boolean
-    __content: string // markdown
 }
 
 export interface BlogTag {
@@ -44,4 +47,8 @@ export interface LinkInfo {
     name: string
     description: string
     url: string
+}
+
+export interface DynamicInfo extends TextInfo {
+    photoList?: string[]
 }

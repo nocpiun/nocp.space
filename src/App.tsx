@@ -12,6 +12,7 @@ import "highlight.js/styles/github-dark.min.css";
 const NotFound = lazy(() => import("@/pages/NotFound"));
 const Home = lazy(() => import("@/pages/Home"));
 const TreasureChest = lazy(() => import("@/pages/TreasureChest"));
+const Dynamic = lazy(() => import("@/pages/Dynamic"));
 const Links = lazy(() => import("@/pages/Links"));
 const Donate = lazy(() => import("@/pages/Donate"));
 const BlogOverview = lazy(() => import("@/pages/BlogOverview"));
@@ -41,6 +42,9 @@ const App: React.FC = () => {
                         <Route
                             path="/treasure-chest"
                             element={<TreasureChest />}/>
+                        <Route
+                            path="/dynamic"
+                            element={<Dynamic />}/>
                         <Route
                             path="/links"
                             element={<Links />}/>

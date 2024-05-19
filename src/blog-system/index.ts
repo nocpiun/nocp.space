@@ -1,15 +1,39 @@
 import { loadFront } from "yaml-front-matter";
-import { RawModule, Blog, BlogTag } from "@/types";
+import { RawModule, Blog, BlogTag, DynamicInfo, TextInfo } from "@/types";
 import { arrayRemove } from "@/utils";
+
+function sortTextInfoByDate<T extends TextInfo[]>(_list: T): T {
+    var list = _list;
+
+    var latestIndex = null;
+    for(let i = 0; i < list.length; i++) {
+        for(let j = i; j < list.length; j++) {
+            var timeStamp = list[j].date.getTime();
+
+            if(latestIndex === null || timeStamp < list[latestIndex].date.getTime()) {
+                latestIndex = j;
+            }
+        }
+        if(latestIndex === null) break;
+
+        list = [list[latestIndex], ...list] as T;
+        list = arrayRemove(list, latestIndex + 1) as T;
+        latestIndex = null;
+    }
+
+    return list;
+}
 
 export class BlogSystem {
     private static instance: BlogSystem;
 
     private blogList: Blog[] = [];
+    private dynamicList: DynamicInfo[] = [];
     private tagList: BlogTag[] = [];
 
     private constructor() {
         this.initBlogList();
+        this.initDynamicList();
         this.initTagList();
     }
 
@@ -20,27 +44,29 @@ export class BlogSystem {
 
         var list: Blog[] = [];
         for(let module of modules) {
-            list.push(this.resolveBlog(module.default));
+            list.push(this.resolveTextInfo(module.default));
         }
 
         // Sort blogs by date
-        var latestIndex = null;
-        for(let i = 0; i < list.length; i++) {
-            for(let j = i; j < list.length; j++) {
-                var timeStamp = list[j].date.getTime();
-
-                if(!latestIndex || timeStamp < list[latestIndex].date.getTime()) {
-                    latestIndex = j;
-                }
-            }
-            if(!latestIndex) break;
-
-            list = [list[latestIndex], ...list];
-            list = arrayRemove(list, latestIndex + 1);
-            latestIndex = null;
-        }
+        list = sortTextInfoByDate(list);
 
         this.blogList = list;
+    }
+
+    private initDynamicList(): void {
+        // Import dynamic by webpack
+        const moduleContext = require.context("../dynamic", false, /\.md$/);
+        const modules = moduleContext.keys().map(moduleContext) as RawModule[];
+
+        var list: DynamicInfo[] = [];
+        for(let module of modules) {
+            list.push(this.resolveTextInfo(module.default));
+        }
+
+        // Sort dynamic by date
+        list = sortTextInfoByDate(list);
+
+        this.dynamicList = list;
     }
 
     private initTagList(): void {
@@ -64,13 +90,17 @@ export class BlogSystem {
         return this.blogList;
     }
 
+    public getDynamicList(): DynamicInfo[] {
+        return this.dynamicList;
+    }
+
     public getTagList(): BlogTag[] {
         return this.tagList;
     }
 
-    public resolveBlog(blogText: string): Blog {
+    public resolveTextInfo<T extends TextInfo>(blogText: string): T {
         const data = loadFront(blogText);
-        return data as Blog;
+        return data as T;
     }
 
     public getTag(tagName: string): BlogTag | null {

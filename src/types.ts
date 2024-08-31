@@ -47,6 +47,7 @@ export interface LinkInfo {
     name: string
     description: string
     url: string
+    avatar: string
 }
 
 export interface DynamicInfo extends TextInfo {

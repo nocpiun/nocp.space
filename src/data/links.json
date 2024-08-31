@@ -1,32 +1,32 @@
 [
     {
-        "name": "Misaka-L’s Website",
+        "name": "Misaka-L",
         "description": "我朋友的网站",
-        "url": "https://misakal.xyz"
+        "url": "https://misakal.xyz",
+        "avatar": "https://misakal.xyz/akari.webp"
     },
     {
         "name": "SerinaNya",
         "description": "哇这个好可爱呀",
-        "url": "https://serinanya.cn"
+        "url": "https://serinanya.cn",
+        "avatar": "https://serinanya.cn/assets-zone-1/avatar-mahiro.webp"
     },
     {
         "name": "夏·祈·楓",
         "description": "Just Kaede!",
-        "url": "https://flymc.cc"
-    },
-    {
-        "name": "希铁石z",
-        "description": "还需要更多磨炼和学习的技术爱好者",
-        "url": "https://xitieshiz2.github.io"
+        "url": "https://flymc.cc",
+        "avatar": "https://flymc.cc/wp-content/uploads/2022/12/22-1.jpg"
     },
     {
         "name": "云游君的小站",
         "description": "希望能成为一个有趣的人。",
-        "url": "https://yunyoujun.cn"
+        "url": "https://yunyoujun.cn",
+        "avatar": "https://www.yunyoujun.cn/images/avatar.jpg"
     },
     {
         "name": "HYCDGX",
         "description": "一个Minecraft生存服务器",
-        "url": "https://site.hycdgx.com"
+        "url": "https://site.hycdgx.com",
+        "avatar": "https://site.hycdgx.com/icon.jpg"
     }
 ]

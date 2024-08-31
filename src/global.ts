@@ -1,1 +1,1 @@
-export const siteName = "Noah's Website";
+export const siteName = "Norcleeh's Site";

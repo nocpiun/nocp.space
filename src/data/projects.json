@@ -1,5 +1,12 @@
 [
     {
+        "name": "Motive",
+        "year": 2024,
+        "description": "尚未完工...",
+        "url": "https://motive.nin.red",
+        "repo": "nocpiun/motive"
+    },
+    {
         "name": "Calcium 计算器",
         "year": 2022,
         "description": "Calcium计算器是一个使用 React 和 Typescript 编写的多功能网页计算器，支持<b>基础计算</b>、<b>求和积分</b>、<b>变量存储</b>、<b>函数图像绘制</b>等等功能，且完全开源。",
@@ -9,7 +16,7 @@
     {
         "name": "Ferrum Explorer",
         "year": 2021,
-        "description": "Ferrum是一个使用 React 和 Typescript 编写的服务器文件管理器，支持<b>文件读写</b>、<b>文件操作</b>、<b>多种格式浏览</b>、<b>插件装载</b>等等功能，且完全开源。",
+        "description": "Ferrum是一个使用 Next.js 和 Typescript 编写的服务器文件管理器，支持<b>文件读写</b>、<b>文件操作</b>、<b>多种格式浏览</b>等等功能，且完全开源。",
         "url": "https://ferrum-demo.nin.red",
         "repo": "nocpiun/ferrum"
     },

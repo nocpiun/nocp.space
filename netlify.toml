@@ -1,4 +1,10 @@
 [[redirects]]
+    from = "https://blog.nin.red/*"
+    to = "https://nin.red/blog"
+    status = 301
+    force = true
+
+[[redirects]]
     from = "/*"
     to = "/"
     status = 200

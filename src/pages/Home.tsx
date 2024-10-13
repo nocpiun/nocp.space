@@ -60,7 +60,7 @@ const Home: React.FC = () => {
                     }
                 </Section>
 
-                <Section title="留言板">
+                <Section title="留言板" id="comments">
                     <div id="gitalk-container"/>
                 </Section>
             </div>

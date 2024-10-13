@@ -4,6 +4,7 @@ import { optional } from "@/utils";
 
 interface SectionProps extends PropsWithChildren {
     title: string
+    id?: string
     photo?: string
     className?: string
     titleCenterAligned?: boolean
@@ -11,7 +12,7 @@ interface SectionProps extends PropsWithChildren {
 
 const Section: React.FC<SectionProps> = (props) => {
     return (
-        <section className="text-center">
+        <section className="text-center" id={props.id}>
             {props.photo && <div className="mb-12 pl-[20vw] pr-[20vw] max-lg:pl-[5vw] max-lg:pr-[5vw] max-sm:pl-0 max-sm:pr-0 max-sm:h-auto">
                 <img className=" ml-auto mr-auto" src={props.photo} alt="banner"/>
             </div>}

@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
             <p>Copyright (c) NriotHrreion {new Date().getFullYear()}</p>
             <p className="space-x-6">
                 <Link to="https://netlify.app" newTab icon={NetlifyLogo}>Netlify</Link>
-                <Link to="https://github.com/nocpiun/nin.red" newTab>Github Repo</Link>
+                <Link to="https://github.com/nocpiun/nocp.space" newTab>Github Repo</Link>
             </p>
         </footer>
     );

@@ -1,6 +1,18 @@
 [[redirects]]
     from = "https://blog.nin.red/*"
-    to = "https://nin.red/blog"
+    to = "https://nocp.space/blog"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "https://blog.nocp.space/*"
+    to = "https://nocp.space/blog"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "https://nin.red/*"
+    to = "https://nocp.space/:splat"
     status = 301
     force = true
 

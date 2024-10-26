@@ -3,7 +3,7 @@
         "name": "Motive",
         "year": 2024,
         "description": "尚未完工...",
-        "url": "https://motive.nin.red",
+        "url": "https://motive.nocp.space",
         "repo": "nocpiun/motive"
     },
     {
@@ -17,21 +17,21 @@
         "name": "Ferrum Explorer",
         "year": 2021,
         "description": "Ferrum是一个使用 Next.js 和 Typescript 编写的服务器文件管理器，支持<b>文件读写</b>、<b>文件操作</b>、<b>多种格式浏览</b>等等功能，且完全开源。",
-        "url": "https://ferrum-demo.nin.red",
+        "url": "https://ferrum-demo.nocp.space",
         "repo": "nocpiun/ferrum"
     },
     {
         "name": "Snake-ts",
         "year": 2021,
         "description": "这是一个用 Typescript 编写的贪吃蛇小游戏，里面不仅包含了贪吃蛇的基本玩法，还有炸弹、糖果等多种道具和玩法。",
-        "url": "https://snake-ts.nin.red",
+        "url": "https://snake-ts.nocp.space",
         "repo": "NriotHrreion/Snake-ts"
     },
     {
         "name": "控制台小游戏",
         "year": 2020,
         "description": "欢迎来到这个住着小比特与老比特的后台城！在看似平常的一天中，一位黑客入侵了这个后台城，于是发生了许多故事... 这个小游戏较为简陋，因为它只是控制台游戏的一个小Demo。",
-        "url": "https://console-game.nin.red",
+        "url": "https://console-game.nocp.space",
         "repo": "NriotHrreion/Console-game"
     },
     {

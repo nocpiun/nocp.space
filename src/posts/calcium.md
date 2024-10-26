@@ -142,4 +142,4 @@ Calcium在支持电脑端的同时也适配了移动端，你可以使用手机�
 
 感谢你使用**Calcium**！如果你在使用时发现问题，可以通过[Issue](https://github.com/nocpiun/calcium/issues/new/choose)、[邮件](mailto:nriot233@gmail.com)向我反馈
 
-如果你喜欢这个项目，别忘了去[项目仓库](https://github.com/nocpiun/calcium)给个Star，或者可以[打赏](https://nin.red/#/donate)支持一下我，感谢！
+如果你喜欢这个项目，别忘了去[项目仓库](https://github.com/nocpiun/calcium)给个Star，或者可以[打赏](https://nocp.space/#/donate)支持一下我，感谢！

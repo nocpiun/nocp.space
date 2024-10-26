@@ -794,7 +794,7 @@ module.exports = function (webpackEnv) {
           },
         }),
       new WebpackFeedPlugin({
-        site: "https://nin.red",
+        site: "https://nocp.space",
         postPath: path.resolve(paths.appSrc, "posts"),
         postLink: "%s/%a",
         output: {
@@ -804,19 +804,19 @@ module.exports = function (webpackEnv) {
         feedConfig: {
           title: "NBlog Feed",
           description: "由一条咸鱼搭建的博客",
-          id: "https://nin.red/blog",
-          link: "https://nin.red/blog",
+          id: "https://nocp.space/blog",
+          link: "https://nocp.space/blog",
           language: "zh-cn",
-          favicon: "http://nin.red/static/blog-icon.png",
+          favicon: "http://nocp.space/static/blog-icon.png",
           copyright: `Copyright (c) ${new Date().getFullYear()} NriotHrreion`,
           feedLinks: {
-            json: "https://nin.red/feed.json",
-            atom: "https://nin.red/feed.xml"
+            json: "https://nocp.space/feed.json",
+            atom: "https://nocp.space/feed.xml"
           },
           author: {
             name: "NoahHrreion",
             email: "nriot233@gmail.com",
-            link: "https://nin.red"
+            link: "https://nocp.space"
           }
         }
       }),

@@ -20,7 +20,7 @@ import badges from "@/data/badges.json";
 const gitalkOptions = {
     clientID: "421789e625976ef96925",
     clientSecret: "bbafd76071d800d38b5b28c15933e8ae579f9522",
-    repo: "nin.red-comments",
+    repo: "nocp.space-comments",
     owner: "NriotHrreion",
     admin: ["NriotHrreion"],
     number: 1

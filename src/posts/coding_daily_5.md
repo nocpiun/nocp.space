@@ -93,4 +93,4 @@ Ferrum Explorer的开发暂时告一段落, 这下我又不知道下一个项目
 
 没啥好说, 项目先搁置了, 咕咕咕~
 
-项目已经部署在: [calc.nin.red](https://calc.nin.red)
+项目已经部署在: [calcium.js.org](https://calcium.js.org)

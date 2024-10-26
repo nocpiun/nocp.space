@@ -5,7 +5,7 @@ import Emitter from "@/utils/Emitter";
 import { getRandom } from "@/utils";
 
 const contents = [
-    `Hey there, welcome to nin.red!`,
+    `Hey there, welcome to nocp.space!`,
     `Bingo!`,
     `Calcium is a calculator.`,
     `Congratulations! You found the easter.`,

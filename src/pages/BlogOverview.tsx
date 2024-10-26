@@ -69,8 +69,8 @@ const BlogOverview: React.FC = () => {
 
                         <Widget title="订阅" className="text-center">
                             {/* Use absolute path here */}
-                            <Link to="https://nin.red/feed.xml" newTab>RSS Feed (atom)</Link>
-                            <Link to="https://nin.red/feed.json" newTab>RSS Feed (json)</Link>
+                            <Link to="https://nocp.space/feed.xml" newTab>RSS Feed (atom)</Link>
+                            <Link to="https://nocp.space/feed.json" newTab>RSS Feed (json)</Link>
                         </Widget>
                     </div>
                 </div>

@@ -16,7 +16,7 @@ import Link from "@/components/Link";
 const gitalkOptions = {
     clientID: "421789e625976ef96925",
     clientSecret: "bbafd76071d800d38b5b28c15933e8ae579f9522",
-    repo: "nin.red-comments",
+    repo: "nocp.space-comments",
     owner: "NriotHrreion",
     admin: ["NriotHrreion"],
     number: 3
@@ -43,7 +43,7 @@ const Links: React.FC = () => {
                     <h4 className="font-semibold pt-10">本站点信息</h4>
                     <p>名称: <code>{siteName}</code></p>
                     <p>简介: 由一条咸鱼搭建的网站</p>
-                    <p>URL: <Link to="https://nin.red">https://nin.red</Link></p>
+                    <p>URL: <Link to="https://nocp.space">https://nocp.space</Link></p>
                     <p>颜色: <span className="bg-[--nocp-green]">#077955</span></p>
                 </div>
             </Section>

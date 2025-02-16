@@ -28,7 +28,7 @@ const Header: React.FC = () => {
                 <h1
                     className="text-8xl text-right relative selection:select-none max-md:text-center"
                     onClick={() => handleClickEaster()}>
-                    <span className="font-[FiraCode-SemiBold] selection:select-none">Hello</span>
+                    <span className="font-semibold selection:select-none">Hello</span>
                 </h1>
                 <p className="text-4xl text-right max-md:text-center pt-4">I'm Norcleeh</p>
             </div>

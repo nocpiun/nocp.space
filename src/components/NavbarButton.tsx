@@ -10,7 +10,7 @@ interface NavbarButtonProps {
 const NavbarButton: React.FC<NavbarButtonProps> = (props) => {
     return (
         <RouteLink
-            className={"text-[--nocp-forebg] flex flex-col justify-center hover:text-[--nocp-forebg-hovered] active:text-[--nocp-forebg-active] "+ (props.className ?? "")}
+            className={"text-[--nocp-forebg] flex flex-col justify-center "+ (props.className ?? "")}
             to={props.linkTo}
             target="_self"
             rel="noreferrer">

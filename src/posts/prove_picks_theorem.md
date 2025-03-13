@@ -3,7 +3,7 @@ title: "证明皮克定理"
 author: NriotHrreion
 tags:
 - "数学"
-excerpt: 一个神奇的定理，这次尝试证明一下"
+excerpt: "一个神奇的定理，这次尝试证明一下"
 date: 2024-10-12
 ---
 

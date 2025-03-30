@@ -57,11 +57,17 @@ code {
 }
 
 table {
-    border: 1px solid var(--nocp-gray);
-    tr, th, td {
-        border: 1px solid var(--nocp-gray);
+    width: 100%;
+    thead {
+        border-bottom: 3px solid var(--nocp-gray);
     }
-    th, td {
+    tr > td {
+        vertical-align: text-top;
+    }
+    tr, th, tr > td {
+        border-bottom: 1px solid var(--nocp-gray);
+    }
+    th, tr > td {
         padding: 6px 13px;
     }
     tr:nth-child(2n) {

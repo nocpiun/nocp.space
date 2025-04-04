@@ -102,6 +102,27 @@ date: 2025-03-30
     <td></td>
 </tr>
 <tr>
+    <td>张楚</td>
+    <td></td>
+    <td>
+        姐姐
+        <br>我想，我想
+        <br>社会主义好
+        <br>蚂蚁，蚂蚁
+        <br>上苍保佑吃完了饭的人民
+    </td>
+</tr>
+<tr>
+    <td>现代人</td>
+    <td></td>
+    <td>小鸟</td>
+</tr>
+<tr>
+    <td>唐朝乐队</td>
+    <td></td>
+    <td>国际歌</td>
+</tr>
+<tr>
     <td>许巍</td>
     <td>
         在别处
@@ -289,6 +310,7 @@ date: 2025-03-30
     <td>
         Wonderful Tonight
         <br>Sensitive Kind
+        <br>Layla
     </td>
 </tr>
 <tr>

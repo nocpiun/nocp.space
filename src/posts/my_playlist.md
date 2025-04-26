@@ -250,6 +250,47 @@ date: 2025-03-30
     </td>
 </tr>
 <tr>
+    <td>周杰伦</td>
+    <td>
+        最伟大的作品
+        <br>魔杰座
+        <br>11月的萧邦
+        <br>八度空间
+    </td>
+    <td>
+        床边故事
+        <br>告白气球
+        <br>牛仔很忙
+        <br>彩虹
+        <br>青花瓷
+        <br>蒲公英的约定
+        <br>最长的电影
+        <br>路小雨
+        <br>不能说的秘密
+        <br>听妈妈的话
+        <br>千里之外
+        <br>本草纲目
+        <br>菊花台
+        <br>我的地盘
+        <br>七里香
+        <br>搁浅
+        <br>以父之名
+        <br>三年二班
+        <br>东风破
+        <br>爱在西元前
+        <br>爸我回来了
+        <br>简单爱
+        <br>开不了口
+        <br>威廉古堡
+        <br>双截棍
+        <br>星晴
+        <br>黑色幽默
+        <br>印第安老斑鸠
+        <br>龙卷风
+        <br>反方向的钟
+    </td>
+</tr>
+<tr>
     <td>揽佬 SKAIISYOURGOD</td>
     <td>八方来财</td>
     <td>金叶大酒店</td>
@@ -296,7 +337,9 @@ date: 2025-03-30
 </tr>
 <tr>
     <td>Bob Dylan</td>
-    <td></td>
+    <td>
+        MTV Unplugged
+    </td>
     <td>
         Blowing in the Wind
         <br>Knockin' On Heaven's Door
@@ -319,6 +362,7 @@ date: 2025-03-30
     </td>
     <td>
         Wonderful Tonight
+        <br>Tears in Heaven
         <br>Sensitive Kind
         <br>Layla
     </td>
@@ -400,6 +444,8 @@ date: 2025-03-30
         Hey Jude
         <br>Let It Be
         <br>Here Comes The Sun
+        <br>In My Life
+        <br>Yesterday
         <br>Now And Then
     </td>
 </tr>

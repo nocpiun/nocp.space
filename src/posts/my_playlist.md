@@ -291,6 +291,11 @@ date: 2025-03-30
     </td>
 </tr>
 <tr>
+    <td>接个吻，开一枪</td>
+    <td></td>
+    <td>Beijing</td>
+</tr>
+<tr>
     <td>揽佬 SKAIISYOURGOD</td>
     <td>八方来财</td>
     <td>金叶大酒店</td>
@@ -500,6 +505,26 @@ date: 2025-03-30
     <td>Tracy Chapman</td>
     <td></td>
     <td>Give Me One Reason</td>
+</tr>
+<tr>
+    <td>TheFatRat</td>
+    <td>PARALLAX</td>
+    <td>
+        We'll Meet Again
+        <br>The Storm
+        <br>Rise Up
+        <br>Close To The Sun
+        <br>Sunlight
+        <br>Solitude
+        <br>Chosen
+        <br>MAYDAY
+        <br>Oblivion
+        <br>Prelude (VIP Edit)
+        <br>Jackpot
+        <br>Monody
+        <br>Xenogenesis
+        <br>Fly Away
+    </td>
 </tr>
 </tbody>
 </table>

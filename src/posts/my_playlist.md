@@ -237,6 +237,40 @@ date: 2025-03-30
     </td>
 </tr>
 <tr>
+    <td>郑智化</td>
+    <td></td>
+    <td>
+        水手
+        <br>伙伊去
+        <br>星星点灯
+        <br>游戏人间
+        <br>阿飞和他的那个女人
+        <br>面子问题
+    </td>
+</tr>
+<tr>
+    <td>金门王与李炳辉</td>
+    <td></td>
+    <td>流浪到淡水</td>
+</tr>
+<tr>
+    <td>邓丽君</td>
+    <td></td>
+    <td>
+        我只在乎你
+        <br>漫步人生路
+        <br>甜蜜蜜
+    </td>
+</tr>
+<tr>
+    <td>刘若英</td>
+    <td></td>
+    <td>
+        后来
+        <br>为爱痴狂
+    </td>
+</tr>
+<tr>
     <td>莫文蔚</td>
     <td>我要说</td>
     <td></td>
@@ -444,11 +478,10 @@ date: 2025-03-30
 </tr>
 <tr>
     <td>The Beatles</td>
-    <td></td>
+    <td>Abbey Road</td>
     <td>
         Hey Jude
         <br>Let It Be
-        <br>Here Comes The Sun
         <br>In My Life
         <br>Yesterday
         <br>Now And Then

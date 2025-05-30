@@ -335,6 +335,11 @@ date: 2025-03-30
     <td>金叶大酒店</td>
 </tr>
 <tr>
+    <td>蔡徐坤</td>
+    <td></td>
+    <td>Deadman</td>
+</tr>
+<tr>
     <td>Nirvana</td>
     <td>
         Bleach

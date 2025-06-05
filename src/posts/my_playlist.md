@@ -370,12 +370,15 @@ date: 2025-03-30
         <br>The Dark Side of the Moon
         <br>Wish You Were Here
         <br>The Wall
+        <br>A Momentary Lapse of Reason
     </td>
     <td>
         Atom Heart Mother
         <br>If
         <br>Fat Old Sun
         <br>Echoes
+        <br>Echoes - Part 1 (Live at Pompeii - MCMLXXII - 2025 Mix)
+        <br>Echoes - Part 2 (Live at Pompeii - MCMLXXII - 2025 Mix)
         <br>Learning To Fly
     </td>
 </tr>

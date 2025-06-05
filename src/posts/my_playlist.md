@@ -82,6 +82,7 @@ date: 2025-03-30
     </td>
     <td>
         谁他妈没织过毛衣
+        <br>Radio 南京
     </td>
 </tr>
 <tr>
@@ -348,7 +349,7 @@ date: 2025-03-30
         <br>MTV Unplugged In New York
         <br>Live At The Paramount
     </td>
-    <td></td>
+    <td>Seasons In The Sun</td>
 </tr>
 <tr>
     <td>Guns N' Roses</td>
@@ -379,7 +380,6 @@ date: 2025-03-30
         <br>Echoes
         <br>Echoes - Part 1 (Live at Pompeii - MCMLXXII - 2025 Mix)
         <br>Echoes - Part 2 (Live at Pompeii - MCMLXXII - 2025 Mix)
-        <br>Learning To Fly
     </td>
 </tr>
 <tr>
@@ -480,6 +480,11 @@ date: 2025-03-30
     </td>
 </tr>
 <tr>
+    <td>Oasis</td>
+    <td></td>
+    <td>Wonderwall</td>
+</tr>
+<tr>
     <td>Led Zeppelin</td>
     <td></td>
     <td>Stairway to Heaven</td>
@@ -502,6 +507,16 @@ date: 2025-03-30
         Dead Flowers
         <br>Satisfaction
     </td>
+</tr>
+<tr>
+    <td>Deep Purple</td>
+    <td></td>
+    <td>Smoke On The Water</td>
+</tr>
+<tr>
+    <td>The Police</td>
+    <td></td>
+    <td>Every Breath You Take</td>
 </tr>
 <tr>
     <td>Michael Jackson</td>

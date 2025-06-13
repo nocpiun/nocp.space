@@ -10,7 +10,7 @@ import {
 	NavigationMenuList
 } from "./ui/navigation-menu";
 import { ThemeToggle } from "./theme-toggle";
-import { siteName } from "@/lib/global";
+import { githubAccount, siteName } from "@/lib/global";
 
 interface NavbarItem {
 	name: string
@@ -27,7 +27,7 @@ const leftList: NavbarItem[] = [
 
 const rightList: NavbarItem[] = [
 	{ name: "Blog", url: "/blog" },
-	{ name: "Github", url: "https://github.com/NriotHrreion", external: true },
+	{ name: "Github", url: githubAccount, external: true },
 ];
 
 export function Navbar() {

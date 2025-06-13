@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { githubAccount } from "@/lib/global";
 
 import Avatar from "@/assets/images/avatar.jpg";
 
@@ -120,7 +121,7 @@ export function Banner() {
             <p>你可以称呼我：<b>Norcleeh</b> <b>Nriot</b> <b>NriotHrreion</b> 或 <b>NoahHrreion</b></p>
             <p className="text-secondary-foreground">关注我 :)</p>
             <ul>
-              <li>Github: <Link href="https://github.com/NriotHrreion">Norcleeh</Link></li>
+              <li>Github: <Link href={githubAccount}>Norcleeh</Link></li>
               <li>Bilibili: <Link href="https://space.bilibili.com/167995410">Norcleeh</Link></li>
               <li>𝕏: <Link href="https://x.com/Nriot_McPack">@Nriot_McPack</Link></li>
             </ul>

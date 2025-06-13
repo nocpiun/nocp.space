@@ -18,9 +18,9 @@ import {
   TableHeader,
   TableRow
 } from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
 
 import projects from "@/data/info/projects.json";
-import { Button } from "@/components/ui/button";
 
 const columns: ColumnDef<ArrayElement<typeof projects>>[] = [
   {
@@ -106,7 +106,7 @@ export function ProjectsTable() {
 
   return (
     <Table>
-      <TableHeader className="border-b-4">
+      <TableHeader>
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
@@ -126,10 +126,7 @@ export function ProjectsTable() {
       </TableHeader>
       <TableBody>
         {table.getRowModel().rows.map((row) => (
-          <TableRow
-            className="hover:bg-transparent"
-            key={row.id}
-            data-state={row.getIsSelected() && "selected"}>
+          <TableRow key={row.id}>
             {
               row.getVisibleCells().map((cell) => (
                 <TableCell key={cell.id}>

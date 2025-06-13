@@ -140,6 +140,9 @@
       b {
         @apply font-bold;
       }
+      code {
+        @apply px-2 py-1 text-sm font-light bg-muted rounded-sm;
+      }
     }
   }
   .nav-padding {

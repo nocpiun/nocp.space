@@ -35,12 +35,6 @@
         "repo": "NriotHrreion/Console-game"
     },
     {
-        "name": "Chatty 聊天室",
-        "year": 2024,
-        "description": "这是一个简易版聊天室，实现了基本的用户系统与聊天功能，前端使用了 React 和 Typescript，后端使用了 Java 和 MySQL，且前后端分离。",
-        "repo": "nocpiun/chatty-backend"
-    },
-    {
         "name": "HYCDGX 官网",
         "year": 2022,
         "description": "一个使用 React 和 Typescript 编写的Minecraft服务器官方网站。",

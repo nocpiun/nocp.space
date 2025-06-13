@@ -56,9 +56,9 @@
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary-foreground: oklch(0.502 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: oklch(0.708 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -92,9 +92,9 @@
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
+  --secondary-foreground: oklch(0.708 0 0);
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted-foreground: oklch(0.502 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
@@ -134,12 +134,18 @@
           @apply text-white;
         }
       }
+      p {
+        @apply font-light;
+      }
+      b {
+        @apply font-bold;
+      }
     }
   }
   .nav-padding {
     @apply px-56 max-xl:px-36 max-lg:px-20 max-md:px-7 max-sm:px-4;
   }
   .page-padding {
-    @apply px-96 max-xl:px-96 max-lg:px-20 max-md:px-11 max-sm:px-2;
+    @apply px-96 max-xl:px-96 max-lg:px-20 max-md:px-11;
   }
 }

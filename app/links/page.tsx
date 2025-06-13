@@ -4,6 +4,7 @@ import { siteName, siteDescription } from "@/lib/global";
 import { LinkCard } from "./link-card";
 
 import links from "@/data/info/links.json";
+import { GitalkComments } from "@/components/gitalk-comments";
 
 export default function Links() {
   return (
@@ -23,8 +24,7 @@ export default function Links() {
         <p><b>颜色</b>：<span className="bg-theme text-white">#077955</span></p>
       </div>
 
-      <h3 className="text-2xl font-semibold">友链交换</h3>
-      {/** @todo */}
+      <GitalkComments issue={3}/>
     </Page>
   );
 }

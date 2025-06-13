@@ -5,6 +5,7 @@ import renderMathInElement from "katex/contrib/auto-render";
 import { Banner } from "./banner";
 import { TechStacks } from "./tech-stacks";
 import { ProjectsTable } from "./projects-table";
+import { GitalkComments } from "@/components/gitalk-comments";
 
 export default function Home() {
   // Katex Rendering
@@ -25,7 +26,7 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section className="space-y-7 page-padding">
+      <section className="space-y-7 page-padding mb-12">
         <h2 className="text-4xl font-semibold">个人项目</h2>
         <p>这是我曾经制作过的一些小项目，这些项目均是在课余时间完成。</p>
 
@@ -33,9 +34,10 @@ export default function Home() {
       </section>
 
       {/* Message Board */}
-      <section className="hidden page-padding">
+      <section className="page-padding">
         <h2 className="text-4xl font-semibold">留言板</h2>
-        {/** @todo */}
+        
+        <GitalkComments issue={1}/>
       </section>
     </div>
   );

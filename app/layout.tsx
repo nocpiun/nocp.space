@@ -10,8 +10,10 @@ import { Footer } from "@/components/footer";
 import { siteName, siteDescription } from "@/lib/global";
 import { cn } from "@/lib/utils";
 
-import "./globals.css";
 import "katex/dist/katex.min.css";
+import "gitalk/dist/gitalk.css";
+import "./globals.css";
+import "./gitalk.css";
 
 const firaCode = localFont({
   src: [{ path: "../assets/fonts/FiraCode-VariableFont_wght.ttf", style: "normal" }],

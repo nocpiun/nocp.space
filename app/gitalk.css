@@ -1,0 +1,43 @@
+@reference "tailwindcss";
+@reference "./globals.css";
+
+@layer components {
+  .gt-container {
+    .gt-meta {
+      @apply !border-b-muted-foreground;
+      .gt-counts {
+        @apply text-secondary-foreground;
+      }
+      .gt-user svg {
+        @apply !fill-secondary-foreground;
+      }
+      .gt-popup {
+        @apply !bg-popover !border-secondary rounded-sm;
+        .gt-copyright {
+          @apply !border-t-muted-foreground;
+        }
+      }
+    }
+    .gt-header {
+      .gt-avatar-github svg {
+        @apply !fill-foreground;
+      }
+      .gt-header-comment {
+        textarea, .gt-header-preview {
+          @apply !bg-muted !text-foreground;
+        }
+        .gt-header-controls .gt-btn-preview {
+          @apply !bg-background;
+        }
+      }
+    }
+    .gt-comments .gt-comment {
+      .gt-comment-content {
+        @apply !bg-muted hover:!shadow-none;
+        .gt-comment-body {
+          @apply !text-foreground;
+        }
+      }
+    }
+  }
+}

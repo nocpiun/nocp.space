@@ -1,6 +1,6 @@
 # [nocp.space](https://nocp.space)
 
-This is Noah's Website written in Nextjs + Typescript.
+This is Norcleeh's Site written in Nextjs + Typescript.
 
 ## Deploy
 

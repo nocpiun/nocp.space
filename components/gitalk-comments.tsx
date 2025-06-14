@@ -10,7 +10,7 @@ export function GitalkComments({
 }) {
   const gitalkOptions: Gitalk.GitalkOptions = {
     clientID: process.env["NEXT_PUBLIC_GITALK_CLIENT_ID"] ?? "",
-    clientSecret: process.env["GITALK_CLIENT_SECRET"] ?? "",
+    clientSecret: process.env["NEXT_PUBLIC_GITALK_CLIENT_SECRET"] ?? "",
     repo: "nocp.space-comments",
     owner: "NriotHrreion",
     admin: ["NriotHrreion"],

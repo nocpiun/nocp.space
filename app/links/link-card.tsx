@@ -23,6 +23,7 @@ export function LinkCard({
   return (
     <Card
       className="h-28 p-0 flex flex-row gap-0 overflow-hidden rounded-md group cursor-pointer"
+      title={url}
       onClick={() => handleClick()}>
       <Image src={avatar} alt={name} width={112} height={112}/>
       <div className="p-5 flex flex-col justify-between">

@@ -45,7 +45,7 @@ export function TechStacks() {
   const [delta2, setDelta2] = useState(0);
 
   useEffect(() => {
-    const d = .1;
+    const d = .03;
 
     const nextFrame = () => {
       setDelta1((c) => {

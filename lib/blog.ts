@@ -16,25 +16,38 @@ export interface Post {
 export type Article = Post & { __content: string };
 
 const postsDirectory = path.resolve(process.cwd(), "data/posts");
-const posts: Post[] = [];
+const posts: Post[] = getAllArticles(false);
 
-initialize();
-
-function initialize() {
+export function getAllArticles<T extends boolean = false>(containContent: T): T extends true ? Article[] : Post[] {
+  const list = [];
   const files = fs.readdirSync(postsDirectory);
   for(const fileName of files) {
     const filePath = path.join(postsDirectory, fileName);
     const fileContent = fs.readFileSync(filePath, "utf-8");
     const front = loadFront(fileContent) as Article;
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { __content, ...info } = front;
-    posts.push({ ...info, slug: fileName.replace(".md", "") });
+    if(!containContent) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { __content, ...info } = front;
+      (list as Post[]).push({ ...info, slug: fileName.replace(".md", "") });
+    } else {
+      list.push({ ...front, slug: fileName.replace(".md", "") });
+    }
   }
-  posts.sort((a, b) => b.date.getTime() - a.date.getTime());
+  list.sort((a, b) => b.date.getTime() - a.date.getTime());
+  return list;
 }
 
 export { posts };
+
+export function getArticle(slug: string): Article | null {
+  const filePath = path.join(postsDirectory, `${slug}.md`);
+  if(!fs.existsSync(filePath)) return null;
+
+  const fileContent = fs.readFileSync(filePath, "utf-8");
+  const front = loadFront(fileContent);
+  return { ...front, slug } as Article;
+}
 
 export function getPostsByCategory(category: string): Post[] {
   const result: Post[] = [];
@@ -54,15 +67,6 @@ export function getPostsByTag(tag: string): Post[] {
     }
   }
   return result;
-}
-
-export function getArticle(slug: string): Article | null {
-  const filePath = path.join(postsDirectory, `${slug}.md`);
-  if(!fs.existsSync(filePath)) return null;
-
-  const fileContent = fs.readFileSync(filePath, "utf-8");
-  const front = loadFront(fileContent);
-  return { ...front, slug } as Article;
 }
 
 export function getTags(): { tag: string, amount: number }[] {

@@ -1,8 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -109,12 +109,10 @@ export function Banner() {
         {/** small screen */}
         <h1 className="invisible max-md:text-8xl max-md:visible font-extrabold text-muted-foreground select-none">Hello</h1>
         <div className="w-[45%] pr-28 flex flex-col gap-12 max-lg:items-center max-lg:text-center max-lg:pr-0 max-lg:translate-y-[-60px] max-md:w-[70%] max-sm:w-[90%]">
-          <Image
+          <img
             className="w-40 h-40 rounded-full shadow-2xl"
             src={Avatar.src}
-            alt="avatar"
-            width={30}
-            height={30}/>
+            alt="avatar"/>
           
           <div className="space-y-3 *:text-lg">
             <p>👋 我是一个热爱网页开发、音乐和Minecraft的高中生, 很高兴能见到你！</p>

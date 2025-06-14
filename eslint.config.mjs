@@ -20,7 +20,8 @@ const eslintConfig = [
       "@stylistic": stylistic
     },
     rules: {
-      "@stylistic/semi": ["error", "always"]
+      "@stylistic/semi": ["error", "always"],
+      "@next/next/no-img-element": "off"
     }
   }
 ];

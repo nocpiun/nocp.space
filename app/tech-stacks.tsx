@@ -8,7 +8,8 @@ import {
   SiBabel,
   SiNextdotjs,
   SiTailwindcss,
-  SiSpigotmc
+  SiSpigotmc,
+  SiIntellijidea
 } from "react-icons/si";
 import {
   FaJava,
@@ -36,6 +37,7 @@ const techStacks = [
   { icon: <FaNpm />, url: "https://npmjs.com" },
   { icon: <FaDocker />, url: "https://docker.com" },
   { icon: <VscVscode />, url: "https://code.visualstudio.com" },
+  { icon: <SiIntellijidea />, url: "https://jetbrains.com/idea" },
 ];
 
 export function TechStacks() {
@@ -80,9 +82,9 @@ export function TechStacks() {
   ));
 
   return (
-    <div className="w-full h-52 max-md:h-36 mt-10 p-10 flex gap-7 max-md:gap-5 overflow-hidden">
-      <div className="flex gap-14 max-md:gap-10" style={{ transform: `translateX(${delta1}%)` }}>{icons}</div>
-      <div className="flex gap-14 max-md:gap-10 pr-7" style={{ transform: `translateX(${delta2}%)` }}>{icons}</div>
+    <div className="w-full h-52 max-md:h-36 mt-10 p-10 flex max-md:gap-5 overflow-hidden">
+      <div className="flex gap-14 max-md:gap-10 pr-14" style={{ transform: `translateX(${delta1}%)` }}>{icons}</div>
+      <div className="flex gap-14 max-md:gap-10 pr-14" style={{ transform: `translateX(${delta2}%)` }}>{icons}</div>
     </div>
   );
 }

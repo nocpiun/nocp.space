@@ -1,16 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import localFont from "next/font/local";
-import "katex/dist/katex";
-import "katex/contrib/auto-render";
-import "katex/contrib/mhchem";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { siteName, siteDescription } from "@/lib/global";
+import { siteName, siteDescription, siteKeywords } from "@/lib/global";
 import { cn } from "@/lib/utils";
 
-import "katex/dist/katex.min.css";
 import "gitalk/dist/gitalk.css";
 import "./globals.css";
 import "./gitalk.css";
@@ -23,18 +19,18 @@ export const metadata: Metadata = {
   title: siteName,
   description: siteDescription,
   authors: [{ name: "NriotHrreion", url: "https://nocp.space" }],
-  keywords: ["Nriot", "Norcleeh", "NriotHrreion", "NoahHrreion", "个人网站", "博客", "NBlog"],
+  keywords: siteKeywords,
   icons: "/static/icon.png"
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000"
+  themeColor: "#077955"
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="zh-cn" suppressHydrationWarning>

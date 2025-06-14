@@ -115,7 +115,7 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
   --theme: #077955;
-  --theme-foreground: #059669;
+  --theme-foreground: #0b9c6e;
 }
 
 @layer base {

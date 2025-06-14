@@ -1,0 +1,67 @@
+@reference "tailwindcss";
+@reference "../globals.css";
+
+@layer components {
+  article {
+    p, pre, table {
+      @apply my-4;
+    }
+    p {
+      @apply leading-[1.75rem];
+    }
+    b, strong {
+      @apply font-bold;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      @apply font-bold my-5;
+    }
+    h1 {
+      @apply text-3xl;
+    }
+    h2 {
+      @apply text-2xl;
+    }
+    h3 {
+      @apply text-xl;
+    }
+    h4 {
+      @apply text-lg;
+    }
+    h6 {
+      @apply text-sm;
+    }
+    hr {
+      @apply border-2;
+    }
+    pre {
+      @apply w-full px-5 py-4 text-wrap bg-card rounded-sm relative;
+      code {
+        @apply !p-0 !bg-transparent;
+      }
+    }
+    blockquote {
+      @apply text-center;
+      p {
+        @apply font-[宋体];
+      }
+      b, strong {
+        @apply font-bold;
+      }
+    }
+    ul, ol {
+      @apply px-10 py-4;
+      li {
+        @apply my-2 marker:text-muted-foreground;
+      }
+    }
+    ul li {
+      @apply list-disc;
+    }
+    ol li {
+      @apply list-decimal;
+    }
+    embed {
+      @apply w-full h-[700px];
+    }
+  }
+}

@@ -25,7 +25,7 @@ export function ThemeToggle() {
 
   return (
     <Button
-      variant="outline"
+      variant="ghost"
       size="icon"
       className="cursor-pointer"
       onClick={() => handleClick()}>

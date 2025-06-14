@@ -51,7 +51,7 @@ export function Navbar() {
 				))}
 			</NavigationMenuList>
 
-			<div className="flex gap-3 items-center max-sm:hidden">
+			<div className="flex gap-1 items-center max-sm:hidden">
 				<NavigationMenuList>
 					{rightList.map(({ name, url, external }, i) => (
 						<NavigationMenuItem key={i}>

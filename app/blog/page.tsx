@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BookMarked, Rss, Tag } from "lucide-react";
-import { getTags, posts } from "@/lib/blog";
+import { getPostByTitle, getTags, posts } from "@/lib/blog";
 import { ArticleCard } from "./article-card";
 import {
   Card,
@@ -38,7 +38,7 @@ export default function BlogOverview() {
               {recommended.map((title, i) => (
                 <li className="list-disc marker:text-muted-foreground" key={i}>
                   <Link
-                    href={`/blog/${title}`}>
+                    href={`/blog/${getPostByTitle(title)?.slug}`}>
                     {title}
                   </Link>
                 </li>

@@ -37,7 +37,7 @@ export default function TreasureChest() {
                   variant="link"
                   size="sm"
                   asChild>
-                  <Link href={url} target="_blank">Demo</Link>
+                  <Link href={url} target="_blank">查看</Link>
                 </Button>
               </TableCell>
               <TableCell className="font-light">{description}</TableCell>

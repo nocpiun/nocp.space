@@ -49,6 +49,15 @@ export function getArticle(slug: string): Article | null {
   return { ...front, slug } as Article;
 }
 
+export function getPostByTitle(title: string): Post | null {
+  for(const post of posts) {
+    if(post.title === title) {
+      return post;
+    }
+  }
+  return null;
+}
+
 export function getPostsByCategory(category: string): Post[] {
   const result: Post[] = [];
   for(const post of posts) {

@@ -11,12 +11,6 @@
     force = true
 
 [[redirects]]
-    from = "https://nin.red/*"
-    to = "https://nocp.space/:splat"
-    status = 301
-    force = true
-
-[[redirects]]
     from = "/*"
     to = "/"
     status = 200

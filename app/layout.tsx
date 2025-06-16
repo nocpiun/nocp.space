@@ -34,6 +34,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-cn" suppressHydrationWarning>
+      <head>
+        {/* Google Analytics */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-4ZYGQ03SMX"/>
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-4ZYGQ03SMX');
+          `}
+        </Script>
+        {/* Baidu Analytics */}
+        <Script id="baidu-analytics">
+          {`
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?620b212e2ea7f19ef49f3276fb1f286e";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+          `}
+        </Script>
+      </head>
       <body className={cn(firaCode.className, "antialiased")}>
         <ThemeProvider
           attribute="class"

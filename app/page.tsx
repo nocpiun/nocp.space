@@ -1,18 +1,9 @@
-"use client";
-
-import { useEffect } from "react";
-import renderMathInElement from "katex/contrib/auto-render";
 import { Banner } from "./banner";
 import { TechStacks } from "./tech-stacks";
 import { ProjectsTable } from "./projects-table";
 import { GitalkComments } from "@/components/gitalk-comments";
 
 export default function Home() {
-  // Katex Rendering
-  useEffect(() => {
-    renderMathInElement(document.body);
-  }, []);
-
   return (
     <div className="flex flex-col overflow-y-auto overflow-x-hidden">
       {/* Homepage */}

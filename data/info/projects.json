@@ -1,10 +1,10 @@
 [
     {
-        "name": "Motive",
-        "year": 2024,
-        "description": "尚未完工...",
-        "url": "https://motive.nocp.space",
-        "repo": "nocpiun/motive"
+        "name": "歌词本",
+        "year": 2025,
+        "description": "这是一个网页歌词本，包含陈升、李志的歌词",
+        "url": "https://lyrics.nocp.space",
+        "repo": "NriotHrreion/lyrics-book"
     },
     {
         "name": "Calcium 计算器",

@@ -20,7 +20,7 @@ interface NavbarItem {
 
 const leftList: NavbarItem[] = [
 	{ name: siteName, url: "/" },
-	{ name: "百宝箱", url: "/treasure-chest" },
+	{ name: "曲谱", url: "/sheets" },
 	{ name: "友链", url: "/links" },
 	{ name: "打赏", url: "/donate" },
 ];

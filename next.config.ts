@@ -29,6 +29,14 @@ const nextConfig: NextConfig = {
         pathname: "/img/**"
       }
     ]
+  },
+  turbopack: {
+    rules: {
+      "*.abc": {
+        loaders: ["raw-loader"],
+        as: "*.js"
+      }
+    }
   }
 };
 

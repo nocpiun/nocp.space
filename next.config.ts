@@ -21,6 +21,12 @@ const nextConfig: NextConfig = {
         hostname: "yunyoujun.cn",
         port: "",
         pathname: "/**"
+      },
+      {
+        protocol: "https",
+        hostname: "blog.byteloid.one",
+        port: "",
+        pathname: "/img/**"
       }
     ]
   }

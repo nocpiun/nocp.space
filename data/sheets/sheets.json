@@ -12,5 +12,12 @@
     "tune": "E",
     "capo": 4,
     "src": "the-long-road-home"
+  },
+  {
+    "name": "粼兰曲",
+    "author": "布衣乐队",
+    "tune": "C",
+    "capo": 0,
+    "src": "song-of-linlan"
   }
 ]

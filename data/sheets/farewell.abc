@@ -1,0 +1,23 @@
+X: 1
+M: 4/4
+K: G
+| "G" !p! G,[DB]([DB]c)-c4 | G,[DB]([DB]c) -cg-g2 |
+|: "G" !mp! G,D BD "C" CE cE | "C" CE cE "G" B,D dG | "G" G,D (GA) "Em" E,E BG | "D" DA d(f e)d "D7" cA |
+w: 长 _ 亭 _ 外 | 古 _ 道 _ 边 | 芳 _ 草 _ 碧 _ 连 | 天
+| "G" [G,B]D GB "C" [Cc]E GE | "C" CE GE "G" B,D dG | "D" DA dA "D7" cA fA | "G" G,D GA BD (G/A/)B |
+w: 晚 _ 风 _ 拂 __ 柳 | 笛 _ 声 _ 残 | 夕 _ 阳 _ 山 _ 外 | 山
+| "C" !mf! CG cG eG cG | "D" DA dA "G" G,D dG | "C" CE cE "G" B,D dG | "Am7" A,E cG "D" DA (e/f/)d |
+w: 天 _ 之 _ 涯 | 地 _ 之 _ 角 | 知 _ 交 _ 半 _ 零 | 落
+| "G" G,D BD "C" CE cE | "C" CE cE "G" B,D dG | "D" DA dA "D7" cA fA |
+w: 一 _ 壶 _ 浊 __ 酒 | 尽 _ 余 _ 欢 | 今 _ 宵 _ 别 __ 梦
+|1 "C" CG cG eG cG | "G" G,G BG gG BG | "Am7" A,G cG "D" DG fG | "G" G,G BG gG BG |
+w: 寒
+| "C" CG cG eG cG | "Bm7" B,A dA fA dA | "Am7" A,G cG gG cG | "D" DA dA fA dA :|
+|2 "G" G,D (G/A/)B "Am" [A,c]E "Bm" [B,d]F | "C" CG eG "Cm" [C_e]c ge | "D" DA dA "Em" E,E BG |
+w: 寒 | 天 _ 之 _ 涯 | 地 _ 之 _ 角
+| "C" CG cG "C#dim" ^CG ^cG | "D" DA dA (e/f/)A dA  | "G" G,D BG "C" [Cc]E GE | "C" CE cG "Cm" [CGc_eg]4 |
+w: 知 _ 交 _ 半 _ 零 | 落 | 一 _ 壶 _ 浊 __ 酒 | 尽 _ 余 _ 欢
+| "D" DA dA "D7" cA fA | "G" !mp! G,D !>(! GD BD GD | "Am" A,E cA "D" DA !>)! fd !p! |
+w: 今 _ 宵 _ 别 __ 梦 | 寒 | 今 _ 宵 _ 别 |
+| "Em9" E,F !mp! Gd -dF GF | "Gmaj7" G,F Gd -dF Gd | "Cadd9(#11)" CF Gd -dF Gd | "Dadd11" DF G{d}e dG FB | "G" [G,B,DGBg]8 |]
+w: 梦寒

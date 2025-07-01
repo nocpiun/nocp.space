@@ -35,7 +35,7 @@ export default async function Sheet({
       <div className="mt-6 flex flex-col gap-12">
         <h1 className="text-4xl font-bold">{sheet.name}</h1>
         <div className="space-x-6">
-          <span className="text-secondary-foreground">作曲 {sheet.author}</span>
+          <span className="text-secondary-foreground">作曲 / 编曲 {sheet.author}</span>
           <span>
             <span className="text-green-600">{sheet.tune}</span>
             &nbsp;调

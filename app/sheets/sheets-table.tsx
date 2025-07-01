@@ -46,7 +46,7 @@ const columns: ColumnDef<ArrayElement<typeof sheets>>[] = [
   },
   {
     accessorKey: "author",
-    header: "作曲",
+    header: "作曲 / 编曲",
     cell({ getValue }) {
       const author = getValue() as string;
       return <span className="text-center">{author}</span>;

@@ -19,5 +19,12 @@
     "tune": "C",
     "capo": 0,
     "src": "song-of-linlan"
+  },
+  {
+    "name": "送别",
+    "author": "李叔同 / 李志",
+    "tune": "G",
+    "capo": 0,
+    "src": "farewell"
   }
 ]

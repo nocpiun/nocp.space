@@ -37,6 +37,14 @@ const nextConfig: NextConfig = {
         as: "*.js"
       }
     }
+  },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.abc$/,
+      loader: "raw-loader"
+    });
+
+    return config;
   }
 };
 

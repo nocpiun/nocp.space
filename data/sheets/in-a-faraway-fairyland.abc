@@ -1,7 +1,7 @@
 X: 1
 M: 4/4
 K: C
-| "Asus2" A,E AB cB{cB} AE | "D7" DA cg ^f2 c |
+| "Asus2" !mp! A,E AB cB{cB} AE | "D7" DA cg ^f2 c |
 | "Asus2" A,E AB cB{cB} AE | "D7" DA cg ^f2 cE |
 | "Fmaj7" FA ce -eA cA | "Em7" EG de -eG dG | "Asus2" A,E AB (cB) AE | e2 z2 |
 w: |||| 在那
@@ -26,6 +26,6 @@ w: 跟 _ 在 _ 她 _ 身 | 旁 | 我 _ 愿 _ 她 _ 拿着 | 细 _ 细的 _ 皮 _
 | "Fmaj7" FA ce -eA cA | "Em7" E,G de -eG dG | "A" A,E ^ce -eA ^c2 | [A,EA^ce]2 z2 :|
 w: 和 _ 那 _ 美 _ 丽 | 金 _ 边的 _ 衣 | 裳 | 我愿
 w: 不 _ 断 _ 轻 _ 轻 | 打 _ 在我 _ 身 | 上
-| A,3[ce] [ce][ce] -[ce][d^f] | -[d^f][d^f] -[d^f][Bd] [Bd]2 [Bd]2 | A,3[ce] [ce][ce] -[ce][d^f] | -[d^f][d^f] -[d^f][da] [da]4 |
-| A,3[ce] [ce][ce] -[ce][d^f] | -[d^f][d^f] -[d^f][Bd] [Bd]2 [Bd]2 | "Fmaj7" FA ce -eA cA | "Em7" EG de -eG dG |
-| "A" [A,EA^ce]8 |]
+| !p! A,3[ce] [ce][ce] -[ce][d^f] | -[d^f][d^f] -[d^f][Bd] [Bd]2 [Bd]2 | A,3[ce] [ce][ce] -[ce][d^f] | -[d^f][d^f] -[d^f][da] [da]4 |
+| A,3[ce] [ce][ce] -[ce][d^f] | -[d^f][d^f] -[d^f][Bd] [Bd]2 [Bd]2 | "Fmaj7" !>(! FA ce -eA cA | "Em7" EG de -eG dG !>)! |
+| "A" !pp! [A,EA^ce]8 |]

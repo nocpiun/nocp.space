@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, TramFront } from "lucide-react";
 import {
 	NavigationMenu,
 	NavigationMenuItem,
@@ -11,6 +11,7 @@ import {
 } from "./ui/navigation-menu";
 import { ThemeToggle } from "./theme-toggle";
 import { githubAccount, siteName } from "@/lib/global";
+import { Button } from "./ui/button";
 
 interface NavbarItem {
 	name: string
@@ -66,6 +67,19 @@ export function Navbar() {
 				</NavigationMenuList>
 
 				<ThemeToggle />
+
+				{/* Travelling */}
+				<Button
+					variant="ghost"
+					size="icon"
+					title="开往..."
+					asChild>
+					<Link
+						href="https://travellings.cn/go.html"
+						target="_blank">
+						<TramFront />
+					</Link>
+				</Button>
 			</div>
 		</NavigationMenu>
 	);

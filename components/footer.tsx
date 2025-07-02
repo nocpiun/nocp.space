@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Award, ShieldCheck } from "lucide-react";
+import { Award, ShieldCheck, TramFront } from "lucide-react";
 
 import NetlifyLogo from "@/assets/images/netlify.png";
 
@@ -35,6 +35,16 @@ export function Footer() {
           target="_blank">
           <ShieldCheck className="inline-block align-middle stroke-theme-foreground" size={18}/>
           <span>SSL</span>
+        </Link>
+      </p>
+      <p>
+        <Link
+          className="space-x-1 text-purple-700 dark:text-purple-400"
+          href="https://travellings.cn/go.html"
+          title="开往..."
+          target="_blank">
+          <TramFront className="inline-block align-middle stroke-purple-700 dark:stroke-purple-400" size={18}/>
+          <span>Travelling</span>
         </Link>
       </p>
     </footer>

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import * as MarkdownJSX from "markdown-to-jsx";
 import hljs from "highlight.js";
+import hljsAbc from "highlightjs-abc";
 import "katex/dist/katex";
 import "katex/contrib/mhchem";
 import renderMathInElement from "katex/contrib/auto-render";
@@ -28,6 +29,7 @@ export function Markdown({ wrapper, children }: {
     hljs.unregisterLanguage("cmd");
     hljs.registerLanguage("bash", () => bash);
     hljs.registerLanguage("cmd", () => bash);
+    hljs.registerLanguage("abc", () => hljsAbc);
     hljs.highlightAll();
     
     renderMathInElement(document.body, {

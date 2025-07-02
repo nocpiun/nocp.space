@@ -21,6 +21,7 @@
     "feed": "^5.1.0",
     "gitalk": "^1.8.0",
     "highlight.js": "^11.11.1",
+    "highlightjs-abc": "^1.0.0",
     "katex": "^0.16.22",
     "lucide-react": "^0.513.0",
     "markdown-to-jsx": "^7.7.6",

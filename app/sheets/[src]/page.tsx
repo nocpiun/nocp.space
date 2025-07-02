@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { blogName, siteKeywords } from "@/lib/global";
 import { getSheet } from "@/lib/sheets";
 import { AbcSheet } from "@/components/abc-sheet";
+import { PrintSheetButton } from "./print-sheet-button";
+
+import "./print-visibility.css";
 
 export async function generateMetadata({
   params,
@@ -31,7 +34,7 @@ export default async function Sheet({
   if(!sheet) return <></>;
 
   return (
-    <div className="page-padding pt-24 flex flex-col gap-10">
+    <div className="page-padding pt-24 flex flex-col gap-10" id="sheet-container">
       <div className="mt-6 flex flex-col gap-12">
         <h1 className="text-4xl font-bold">{sheet.name}</h1>
         <div className="space-x-6">
@@ -45,6 +48,7 @@ export default async function Sheet({
             <span className="text-yellow-600">{sheet.capo}</span>
             &nbsp;品
           </span>
+          <PrintSheetButton />
         </div>
       </div>
       <AbcSheet

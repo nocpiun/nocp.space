@@ -1,0 +1,13 @@
+@reference "tailwindcss";
+
+@media print {
+  body {
+    @apply invisible;
+  }
+  #sheet-container {
+    @apply visible absolute top-0 left-0;
+    #print-sheet-button {
+      @apply invisible;
+    }
+  }
+}

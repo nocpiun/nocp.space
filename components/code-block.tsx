@@ -1,24 +1,22 @@
 "use client";
 
-import React, { useMemo } from "react";
-import { Copy } from "lucide-react";
+import React, { useState } from "react";
+import { Check, Copy } from "lucide-react";
 import { Button } from "./ui/button";
 
 export function CodeBlock({ children }: {
 	children: React.ReactElement
 }) {
 	const childProps = children.props as React.ComponentProps<"code"> & React.PropsWithChildren;
-	const lang = useMemo(() => {
-		return childProps.className?.replace("lang-", "");
-	}, [childProps]);
-	const content = useMemo(() => {
-		return childProps.children;
-	}, [childProps]);
+	const lang = childProps.className?.replace("lang-", "");
+	const content = childProps.children;
+	const [icon, setIcon] = useState(<Copy />);
 
 	const handleCopy = async () => {
 		try {
 			await window.navigator.clipboard.writeText(content as string);
-			alert("复制成功");
+			setIcon(<Check />);
+			setTimeout(() => setIcon(<Copy />), 2000);
 		} catch (e) {
 			alert("复制失败 "+ e);
 		}
@@ -32,7 +30,7 @@ export function CodeBlock({ children }: {
 				size="icon"
 				title="复制代码"
 				onClick={() => handleCopy()}>
-				<Copy />
+				{icon}
 			</Button>
 			<span className="absolute bottom-0 right-0 pb-2 pr-3 text-secondary-foreground text-sm">{lang}</span>
 

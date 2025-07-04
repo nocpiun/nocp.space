@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 
 import { blogName, blogDescription } from "@/lib/global";
 
-import "highlight.js/styles/github-dark.min.css";
 import "katex/dist/katex.min.css";
+import "./github-dark.css";
+import "./github-light.css";
 import "./blog.css";
 
 import BlogBanner from "@/assets/images/blog-banner.jpg";

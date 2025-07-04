@@ -34,7 +34,7 @@
       @apply border-2;
     }
     pre {
-      @apply w-full px-5 py-4 text-wrap bg-card rounded-sm relative;
+      @apply w-full px-5 py-4 text-wrap bg-card rounded-sm relative not-dark:bg-muted;
       code {
         @apply !p-0 !bg-transparent;
       }

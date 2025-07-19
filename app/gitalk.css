@@ -36,6 +36,15 @@
         @apply !bg-muted hover:!shadow-none;
         .gt-comment-body {
           @apply !text-foreground;
+          pre {
+            @apply !bg-background;
+            .pl-s {
+              @apply dark:!text-[#2065b6];
+            }
+          }
+          blockquote {
+            @apply !border-l-muted-foreground;
+          }
         }
       }
     }

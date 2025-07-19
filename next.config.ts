@@ -27,6 +27,12 @@ const nextConfig: NextConfig = {
         hostname: "blog.byteloid.one",
         port: "",
         pathname: "/img/**"
+      },
+      {
+        protocol: "https",
+        hostname: "thirdqq.qlogo.cn",
+        port: "",
+        pathname: "/g"
       }
     ]
   },

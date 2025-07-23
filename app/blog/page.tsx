@@ -18,11 +18,11 @@ import recommended from "@/data/info/recommended.json";
 export default function BlogOverview() {
   return (
     <div className="page-padding flex gap-7">
-      <div className="flex-3/4">
+      <div className="flex-3/4 max-sm:flex-1 max-sm:min-w-0">
         {posts.map((post, i) => <ArticleCard {...post} key={i}/>)}
       </div>
 
-      <div className="flex-1/4 flex flex-col gap-5">
+      <div className="flex-1/4 flex flex-col gap-5 max-sm:hidden">
         <Card className="rounded-md">
           <CardHeader>
             <CardTitle className="flex gap-2 items-center">

@@ -121,6 +121,7 @@ export function Banner() {
               <li>Github: <Link href={githubAccount}>Norcleeh</Link></li>
               <li>Bilibili: <Link href="https://space.bilibili.com/167995410">Norcleeh</Link></li>
               <li>𝕏: <Link href="https://x.com/Nriot_McPack">@Nriot_McPack</Link></li>
+              <li>博客: <Link href="/blog">NBlog</Link></li>
             </ul>
           </div>
         </div>

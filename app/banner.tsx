@@ -114,7 +114,7 @@ export function Banner() {
             alt="avatar"/>
           
           <div className="space-y-3 *:text-lg">
-            <p>👋 我是一个热爱网页开发、音乐和Minecraft的高中生, 很高兴能见到你！</p>
+            <p>👋 我是一个热爱网页开发、音乐和Minecraft的学生, 很高兴能见到你！</p>
             <p>你可以称呼我：<b>Norcleeh</b> <b>Nriot</b> <b>NriotHrreion</b> 或 <b>NoahHrreion</b></p>
             <p className="text-secondary-foreground">关注我 :)</p>
             <ul>

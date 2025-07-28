@@ -33,6 +33,12 @@ const nextConfig: NextConfig = {
         hostname: "thirdqq.qlogo.cn",
         port: "",
         pathname: "/g"
+      },
+      {
+        protocol: "https",
+        hostname: "ttio.cc",
+        port: "",
+        pathname: "/**"
       }
     ]
   },

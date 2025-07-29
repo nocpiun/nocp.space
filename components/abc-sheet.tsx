@@ -17,7 +17,7 @@ export function AbcSheet({
       tablature: [{
         instrument: "guitar",
         tuning: ["E,", "A,", "D", "G", "B", "e"],
-        capo: capo,
+        capo,
       }],
       wrap: {
         preferredMeasuresPerLine: 4,

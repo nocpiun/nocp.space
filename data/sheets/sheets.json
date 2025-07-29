@@ -33,5 +33,12 @@
     "tune": "C",
     "capo": 0,
     "src": "in-a-faraway-fairyland"
+  },
+  {
+    "name": "卖田（节选）",
+    "author": "陈升",
+    "tune": "D",
+    "capo": 2,
+    "src": "selling-fields"
   }
 ]

@@ -63,7 +63,8 @@ date: 2025-03-30
 <tr>
     <td>李志</td>
     <td>
-        爵士乐与不插电新编12首
+        2024叁缺壹巡演 东京站现场
+        <br>爵士乐与不插电新编12首
         <br>李志、电声与管弦乐
         <br>李志北京不插电现场
         <br>动静
@@ -261,6 +262,7 @@ date: 2025-03-30
         我只在乎你
         <br>漫步人生路
         <br>甜蜜蜜
+        <br>再见 我的爱人
     </td>
 </tr>
 <tr>
@@ -273,7 +275,7 @@ date: 2025-03-30
 </tr>
 <tr>
     <td>莫文蔚</td>
-    <td>我要说</td>
+    <td>I SAY</td>
     <td></td>
 </tr>
 <tr>
@@ -283,6 +285,16 @@ date: 2025-03-30
         再会啦心爱的无缘的人
         <br>谁是老大
     </td>
+</tr>
+<tr>
+    <td>臧天朔 / 1989乐队</td>
+    <td></td>
+    <td>再见 我的爱人</td>
+</tr>
+<tr>
+    <td>张震岳</td>
+    <td></td>
+    <td>再见</td>
 </tr>
 <tr>
     <td>周杰伦</td>
@@ -332,7 +344,10 @@ date: 2025-03-30
 </tr>
 <tr>
     <td>揽佬 SKAIISYOURGOD</td>
-    <td>八方来财</td>
+    <td>
+        八方来财
+        <br>八方来财之江船入海
+    </td>
     <td>金叶大酒店</td>
 </tr>
 <tr>
@@ -372,12 +387,11 @@ date: 2025-03-30
         <br>Wish You Were Here
         <br>The Wall
         <br>A Momentary Lapse of Reason
+        <br>Atom Heart Mother
+        <br>Animals
     </td>
     <td>
-        Atom Heart Mother
-        <br>If
-        <br>Fat Old Sun
-        <br>Echoes
+        Echoes
         <br>Echoes - Part 1 (Live at Pompeii - MCMLXXII - 2025 Mix)
         <br>Echoes - Part 2 (Live at Pompeii - MCMLXXII - 2025 Mix)
     </td>
@@ -482,7 +496,11 @@ date: 2025-03-30
 <tr>
     <td>Oasis</td>
     <td></td>
-    <td>Wonderwall</td>
+    <td>
+        Wonderwall
+        <br>Don't Look Back in Anger
+        <br>Champagne Supernova
+    </td>
 </tr>
 <tr>
     <td>Led Zeppelin</td>
@@ -498,6 +516,7 @@ date: 2025-03-30
         <br>In My Life
         <br>Yesterday
         <br>Now And Then
+        <br>Obladi Oblada
     </td>
 </tr>
 <tr>
@@ -517,6 +536,14 @@ date: 2025-03-30
     <td>The Police</td>
     <td></td>
     <td>Every Breath You Take</td>
+</tr>
+<tr>
+    <td>Survivor</td>
+    <td></td>
+    <td>
+        Eye of the Tiger
+        <br>Burning Heart
+    </td>
 </tr>
 <tr>
     <td>Michael Jackson</td>

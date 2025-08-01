@@ -63,5 +63,11 @@
     embed {
       @apply w-full h-[700px];
     }
+    & + footer {
+      @apply pl-4 pt-4 border-t border-muted space-y-1;
+      div {
+        @apply text-sm;
+      }
+    }
   }
 }

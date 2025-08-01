@@ -13,7 +13,7 @@ export default function Links() {
     <Page title="友情链接">
       <p>如果你也想与我交换友链，敬请在下方留言，附上你的网站信息，我会不定时查看更新的😉</p>
 
-      <div className="grid grid-cols-3 gap-5 mb-10 max-2xl:grid-cols-2 max-xl:grid-cols-1">
+      <div className="grid grid-cols-2 gap-5 mb-10 max-xl:grid-cols-1">
         {links.map((item, i) => <LinkCard {...item} key={i}/>)}
       </div>
 

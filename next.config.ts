@@ -24,6 +24,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "blog.liuzhen932.top",
+        port: "",
+        pathname: "/**"
+      },
+      {
+        protocol: "https",
         hostname: "blog.byteloid.one",
         port: "",
         pathname: "/img/**"

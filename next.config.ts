@@ -45,6 +45,12 @@ const nextConfig: NextConfig = {
         hostname: "ttio.cc",
         port: "",
         pathname: "/**"
+      },
+      {
+        protocol: "https",
+        hostname: "772123.xyz",
+        port: "",
+        pathname: "/**"
       }
     ]
   },

@@ -40,5 +40,12 @@
     "tune": "D",
     "capo": 2,
     "src": "selling-fields"
+  },
+  {
+    "name": "女神",
+    "author": "李志",
+    "tune": "C",
+    "capo": 0,
+    "src": "goddess"
   }
 ]

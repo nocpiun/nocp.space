@@ -51,6 +51,12 @@ const nextConfig: NextConfig = {
         hostname: "772123.xyz",
         port: "",
         pathname: "/**"
+      },
+      {
+        protocol: "https",
+        hostname: "smite.work",
+        port: "",
+        pathname: "/**"
       }
     ]
   },

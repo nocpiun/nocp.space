@@ -1,5 +1,11 @@
 [
     {
+        "name": "OPanel",
+        "year": 2025,
+        "description": "OPanel是一个Minecraft服务器管理面板插件（模组），支持Bukkit / Spigot / Paper / Fabric / Forge服务端",
+        "repo": "nocpiun/opanel"
+    },
+    {
         "name": "歌词本",
         "year": 2025,
         "description": "这是一个网页歌词本，包含陈升、李志的歌词",

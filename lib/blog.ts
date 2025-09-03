@@ -7,10 +7,11 @@ export interface Post {
   title: string
   author: string
   date: Date
-  categories: string[]
+  categories?: string[]
   tags: string[]
-  photo: string
-  excerpt: string
+  photo?: string
+  excerpt?: string
+  hasAI?: boolean
 }
 
 export type Article = Post & { __content: string };
@@ -61,7 +62,7 @@ export function getPostByTitle(title: string): Post | null {
 export function getPostsByCategory(category: string): Post[] {
   const result: Post[] = [];
   for(const post of posts) {
-    if(post.categories.includes(category) && !result.some(p => p.title === post.title)) {
+    if(post.categories && post.categories.includes(category) && !result.some(p => p.title === post.title)) {
       result.push(post);
     }
   }

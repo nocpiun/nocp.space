@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Info } from "lucide-react";
 import { blogName, siteKeywords } from "@/lib/global";
 import { getArticle } from "@/lib/blog";
 import { formatDate } from "@/lib/utils";
 import { Markdown } from "@/components/markdown";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export async function generateMetadata({
   params,
@@ -52,6 +54,15 @@ export default async function Article({
             ))}
           </div>
         </div>
+        {article.hasAI && (
+          <Alert className="rounded-md">
+            <Info />
+            <AlertTitle>本文包含AI生成内容</AlertTitle>
+            <AlertDescription>
+              本文内容中有部分内容由AI生成，请仔细甄别
+            </AlertDescription>
+          </Alert>
+        )}
       </div>
       <Markdown wrapper>
         {article.__content}

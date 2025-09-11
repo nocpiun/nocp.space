@@ -57,6 +57,12 @@ const nextConfig: NextConfig = {
         hostname: "smite.work",
         port: "",
         pathname: "/**"
+      },
+      {
+        protocol: "https",
+        hostname: "casear.net",
+        port: "",
+        pathname: "/static/img/**"
       }
     ]
   },

@@ -19,7 +19,7 @@ export function ArticleCard(post: Post) {
         <span className="text-yellow-600 text-sm text-nowrap max-sm:float-right">{formatDate(post.date)}</span>
       </div>
       <div className="*:text-secondary-foreground *:text-[11pt] *:max-sm:whitespace-normal *:max-sm:break-words">
-        <Markdown>{post.excerpt}</Markdown>
+        <Markdown>{post.excerpt as string}</Markdown>
       </div>
     </div>
   );

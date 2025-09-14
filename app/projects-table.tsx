@@ -21,6 +21,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 import projects from "@/data/info/projects.json";
+import { Markdown } from "@/components/markdown";
 
 const columns: ColumnDef<ArrayElement<typeof projects>>[] = [
   {
@@ -90,10 +91,17 @@ const columns: ColumnDef<ArrayElement<typeof projects>>[] = [
       );
     }
   },
-  // {
-  //   accessorKey: "description",
-  //   header: "简介"
-  // },
+  {
+    accessorKey: "description",
+    header: "简介",
+    cell({ getValue }) {
+      return (
+        <div className=" wrap-anywhere text-wrap">
+          <Markdown>{getValue() as string}</Markdown>
+        </div>
+      );
+    }
+  },
 ];
 
 export function ProjectsTable() {

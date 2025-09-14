@@ -2,8 +2,8 @@
     {
         "name": "OPanel",
         "year": 2025,
-        "description": "OPanel是一个Minecraft服务器管理面板插件（模组），支持Bukkit / Spigot / Paper / Fabric / Forge服务端",
-        "repo": "nocpiun/opanel"
+        "description": "OPanel是一个Minecraft服务器管理面板插件（模组），支持Bukkit / Spigot / Paper / Fabric / Forge / Folia服务端。这个项目是我的第一个较大型开源项目",
+        "repo": "opanel-mc/opanel"
     },
     {
         "name": "歌词本",

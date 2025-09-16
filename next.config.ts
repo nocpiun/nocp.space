@@ -63,6 +63,12 @@ const nextConfig: NextConfig = {
         hostname: "casear.net",
         port: "",
         pathname: "/static/img/**"
+      },
+      {
+        protocol: "https",
+        hostname: "opanel.cn",
+        port: "",
+        pathname: "/static/**"
       }
     ]
   },

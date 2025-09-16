@@ -70,5 +70,11 @@
         "description": "如果你有机会到好望角，请在海边的石头上刻下我的故事👨‍💻",
         "url": "https://casear.net",
         "avatar": "https://casear.net/static/img/eae10f098ce1f671fa0e60d899bf545e.avatar.svg"
+    },
+    {
+        "name": "OPanel",
+        "description": "Norcleeh的第一个较大型开源项目，一个Minecraft服务端管理面板",
+        "url": "https://opanel.cn",
+        "avatar": "https://opanel.cn/static/logo-icon.png"
     }
 ]

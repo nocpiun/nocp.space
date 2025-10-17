@@ -557,6 +557,14 @@ date: 2025-03-30
     </td>
 </tr>
 <tr>
+    <td>Suede</td>
+    <td></td>
+    <td>
+        Beautiful Ones
+        <br>Trash
+    </td>
+</tr>
+<tr>
     <td>Michael Jackson</td>
     <td></td>
     <td>

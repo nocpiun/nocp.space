@@ -69,6 +69,18 @@ const nextConfig: NextConfig = {
         hostname: "opanel.cn",
         port: "",
         pathname: "/static/**"
+      },
+      {
+        protocol: "https",
+        hostname: "q1.qlogo.cn",
+        port: "",
+        pathname: "/g"
+      },
+      {
+        protocol: "https",
+        hostname: "henlo.cc",
+        port: "",
+        pathname: "/static/**"
       }
     ]
   },

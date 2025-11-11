@@ -1,25 +1,5 @@
 [
     {
-        "name": "OPanel",
-        "year": 2025,
-        "description": "OPanel是一个Minecraft服务器管理面板插件（模组），支持Bukkit / Spigot / Paper / Fabric / Forge / Folia服务端。这个项目是我的第一个较大型开源项目",
-        "repo": "opanel-mc/opanel"
-    },
-    {
-        "name": "歌词本",
-        "year": 2025,
-        "description": "这是一个网页歌词本，包含陈升、李志的歌词",
-        "url": "https://lyrics.nocp.space",
-        "repo": "NriotHrreion/lyrics-book"
-    },
-    {
-        "name": "Calcium 计算器",
-        "year": 2022,
-        "description": "Calcium计算器是一个使用 React 和 Typescript 编写的多功能网页计算器，支持<b>基础计算</b>、<b>求和积分</b>、<b>变量存储</b>、<b>函数图像绘制</b>等等功能，且完全开源。",
-        "url": "https://calcium.js.org",
-        "repo": "nocpiun/calcium"
-    },
-    {
         "name": "Ferrum Explorer",
         "year": 2021,
         "description": "Ferrum是一个使用 Next.js 和 Typescript 编写的服务器文件管理器，支持<b>文件读写</b>、<b>文件操作</b>、<b>多种格式浏览</b>等等功能，且完全开源。",
@@ -46,6 +26,13 @@
         "description": "一个使用 React 和 Typescript 编写的Minecraft服务器官方网站。",
         "url": "https://site.hycdgx.com",
         "repo": "nocpiun/hycdgx"
+    },
+    {
+        "name": "歌词本",
+        "year": 2025,
+        "description": "这是一个网页歌词本，包含陈升、李志的歌词",
+        "url": "https://lyrics.nocp.space",
+        "repo": "NriotHrreion/lyrics-book"
     },
     {
         "name": "Gravity Pong",

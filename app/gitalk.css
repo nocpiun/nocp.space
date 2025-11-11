@@ -33,7 +33,7 @@
     }
     .gt-comments .gt-comment {
       .gt-comment-content {
-        @apply !bg-muted hover:!shadow-none;
+        @apply !bg-muted !shadow-none;
         .gt-comment-body {
           @apply !text-foreground;
           pre {
@@ -47,6 +47,25 @@
           }
         }
       }
+    }
+
+    .gt-btn {
+      @apply !border-theme;
+      &.gt-btn-preview {
+        @apply !text-theme-foreground;
+      }
+      &.gt-btn-login {
+        @apply !bg-theme !text-white;
+      }
+    }
+    .gt-svg svg {
+      @apply !fill-theme-foreground;
+    }
+    a {
+      @apply !text-theme-foreground !border-theme !border-solid;
+    }
+    .gt-ico-text {
+      @apply !text-theme-foreground;
     }
   }
 }

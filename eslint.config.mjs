@@ -21,7 +21,8 @@ const eslintConfig = [
     },
     rules: {
       "@stylistic/semi": ["error", "always"],
-      "@next/next/no-img-element": "off"
+      "@next/next/no-img-element": "off",
+      "@typescript-eslint/no-unused-vars": "warn"
     }
   }
 ];

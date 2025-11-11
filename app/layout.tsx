@@ -15,6 +15,13 @@ const firaCode = localFont({
   src: [{ path: "../assets/fonts/FiraCode-VariableFont_wght.ttf", style: "normal" }],
 });
 
+const googleSansCode = localFont({
+  src: [
+    { path: "../assets/fonts/GoogleSansCode-VariableFont_wght.ttf", style: "normal" },
+    { path: "../assets/fonts/GoogleSansCode-Italic-VariableFont_wght.ttf", style: "italic" }
+  ]
+});
+
 export const metadata: Metadata = {
   title: siteName,
   description: siteDescription,
@@ -59,7 +66,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={cn(firaCode.className, "antialiased")}>
+      <body className={cn(firaCode.className, googleSansCode.className, "antialiased")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

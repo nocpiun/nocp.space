@@ -40,7 +40,7 @@ export function Navbar() {
 	
 	return (
 		<NavigationMenu
-			className="z-10 nav-padding w-full max-w-none py-5 flex justify-between fixed bg-gradient-to-b from-[var(--background)] to-transparent transition-all ease-out duration-[250ms] overflow-hidden"
+			className="z-20 nav-padding w-full max-w-none py-5 flex justify-between fixed bg-gradient-to-b from-[var(--background)] to-transparent transition-all ease-out duration-[250ms] overflow-hidden"
 			style={{ transform: visible ? "translateY(0)" : "translateY(-3.5rem)" }}>
 			<NavigationMenuList className="max-sm:gap-0 text-nowrap">
 				{leftList.map(({ name, url }, i) => (

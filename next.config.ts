@@ -86,6 +86,10 @@ const nextConfig: NextConfig = {
   },
   turbopack: {
     rules: {
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js"
+      },
       "*.abc": {
         loaders: ["raw-loader"],
         as: "*.js"
@@ -94,6 +98,10 @@ const nextConfig: NextConfig = {
   },
   webpack(config) {
     config.module.rules.push({
+      test: /\.svg$/,
+      loader: "@svgr/webpack",
+    });
+    config.module.rules.push({
       test: /\.abc$/,
       loader: "raw-loader"
     });
@@ -101,7 +109,7 @@ const nextConfig: NextConfig = {
     return config;
   },
   experimental: {
-    optimizePackageImports: ["lucide-react", "react-icons"],
+    optimizePackageImports: ["lucide-react"],
   },
 };
 

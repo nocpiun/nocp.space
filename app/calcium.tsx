@@ -11,7 +11,7 @@ export default function Calcium() {
   const { theme } = useTheme();
 
   return (
-    <section className="pt-16 max-md:pt-0 h-[500px] flex justify-between max-md:flex-col-reverse max-md:gap-10">
+    <section className="min-2xl:mb-14 pt-16 max-md:pt-0 h-[500px] flex justify-between max-md:flex-col-reverse max-md:gap-10">
       <div className="flex-1 flex flex-col max-md:justify-center gap-10">
         <Link href="https://calcium.js.org" target="_blank">
           <h2 className="text-foreground text-3xl font-semibold">

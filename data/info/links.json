@@ -88,5 +88,11 @@
         "description": "如果你一百年后想找他，可以来这",
         "url": "https://henlo.cc",
         "avatar": "https://henlo.cc/static/icon.png"
+    },
+    {
+        "name": "VnYzm的博客",
+        "description": "分享技术心得和摸鱼感想",
+        "url": "https://vnyzm.top",
+        "avatar": "https://vnyzm.top/img/profile.jpg"
     }
 ]

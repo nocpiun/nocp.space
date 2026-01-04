@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { BookMarked, Rss, Tag } from "lucide-react";
 import { getPostByTitle, getTags, posts } from "@/lib/blog";
-import { ArticleCard } from "./article-card";
 import {
   Card,
   CardContent,
@@ -14,13 +13,13 @@ import { ButtonGroup } from "@/components/ui/button-group";
 import { getRelativeNumber } from "@/lib/utils";
 
 import recommended from "@/data/info/recommended.json";
+import { notes } from "@/lib/notes";
+import { BlogTabs } from "./blog-tabs";
 
 export default function BlogOverview() {
   return (
     <div className="page-padding flex gap-10">
-      <div className="flex-2/3 max-sm:flex-1 max-sm:min-w-0">
-        {posts.map((post, i) => <ArticleCard {...post} key={i}/>)}
-      </div>
+      <BlogTabs posts={posts} notes={notes}/>
 
       <div className="flex-1/3 flex flex-col gap-7 max-md:hidden">
         <Card className="rounded-md">

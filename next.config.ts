@@ -81,6 +81,12 @@ const nextConfig: NextConfig = {
         hostname: "henlo.cc",
         port: "",
         pathname: "/static/**"
+      },
+      {
+        protocol: "https",
+        hostname: "vnyzm.top",
+        port: "",
+        pathname: "/img/**"
       }
     ]
   },

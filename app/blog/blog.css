@@ -51,14 +51,14 @@
     ul, ol {
       @apply px-10 py-4;
       li {
-        @apply my-2 marker:text-muted-foreground;
+        @apply my-2;
       }
     }
     ul li {
-      @apply list-disc;
+      @apply list-disc marker:text-muted-foreground;
     }
     ol li {
-      @apply list-decimal;
+      @apply list-decimal marker:text-secondary-foreground;
     }
     embed {
       @apply w-full h-[700px];

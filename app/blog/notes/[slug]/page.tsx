@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { blogName, siteKeywords } from "@/lib/global";
 import { getNote } from "@/lib/notes";
 import { formatDate } from "@/lib/utils";

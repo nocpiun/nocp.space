@@ -54,17 +54,17 @@ $$\lim \frac{f(x)}{g(x)}=\lim \frac{f'(x)}{g'(x)}=\lim \frac{f''(x)}{g''(x)}=...
 
 #### 例题
 
-$$\lim\_{x \to \infty}[x-x^2\ln(1+\frac{1}{x})]\xlongequal{t=\frac{1}{x}}\lim\_{t \to 0}[\frac{1}{t}-\frac{\ln(1+t)}{t^2}]$$
-
-$$=\lim_{t \to 0}\frac{t-\ln(1+t)}{t^2}$$
-
-$$=\lim_{t \to 0}\frac{1-\frac{1}{1+t}}{2t}$$
-
-$$=\lim_{t \to 0}\frac{t}{2t(1+t)}$$
-
-$$=\lim_{t \to 0}\frac{1}{2(1+t)}$$
-
-$$=\frac{1}{2}$$
+$$
+\begin{split}
+  &\lim\_{x \to \infty}[x-x^2\ln(1+\frac{1}{x})]\\\\
+  \xlongequal{t=\frac{1}{x}}&\lim\_{t \to 0}[\frac{1}{t}-\frac{\ln(1+t)}{t^2}]\\\\
+  &=\lim\_{t \to 0}\frac{t-\ln(1+t)}{t^2}\\\\
+  &=\lim\_{t \to 0}\frac{1-\frac{1}{1+t}}{2t}\\\\
+  &=\lim\_{t \to 0}\frac{t}{2t(1+t)}\\\\
+  &=\lim\_{t \to 0}\frac{1}{2(1+t)}\\\\
+  &=\frac{1}{2}
+\end{split}
+$$
 
 ## $1^\infty$ 型
 
@@ -76,13 +76,14 @@ $$\lim f(x)^{g(x)}=e^{\lim g(x)\cdot(f(x)-1)}$$
 
 当 $f(x) \to 1$， $g(x) \to \infty$
 
-$$\lim f(x)^{g(x)}$$
-
-$$=\lim e^{\ln{f(x)^{g(x)}}}$$
-
-$$=\lim e^{g(x)\ln{f(x)}}$$
-
-$$=e^{\lim g(x)\ln{f(x)}}$$
+$$
+\begin{split}
+  &\lim f(x)^{g(x)}\\\\
+  &=\lim e^{\ln{f(x)^{g(x)}}}\\\\
+  &=\lim e^{g(x)\ln{f(x)}}\\\\
+  &=e^{\lim g(x)\ln{f(x)}}
+\end{split}
+$$
 
 因为 $f(x)-1 \to 0$，使用等价无穷小 $\ln(x+1) \sim x$
 
@@ -98,15 +99,15 @@ $$I=e^{\lim_{x \to 0}\frac{1}{x}\cdot(1-\frac{\ln(1+x)}{x})}$$
 
 令 $t=\lim_{x \to 0}\frac{1}{x}\cdot(1-\frac{\ln(1+x)}{x})$，则 $I=e^t$
 
-$$t=\lim_{x \to 0}\frac{1}{x}-\frac{\ln(1+x)}{x^2}$$
-
-$$=\lim_{x \to 0}\frac{x-\ln(1+x)}{x^2}$$
-
-$$=\lim_{x \to 0}\frac{1-\frac{1}{1+x}}{2x}$$
-
-$$=\lim_{x \to 0}\frac{1}{2(1+x)}$$
-
-$$=\frac{1}{2}$$
+$$
+\begin{split}
+  t&=\lim\_{x \to 0}\frac{1}{x}-\frac{\ln(1+x)}{x^2}\\\\
+  &=\lim\_{x \to 0}\frac{x-\ln(1+x)}{x^2}\\\\
+  &=\lim\_{x \to 0}\frac{1-\frac{1}{1+x}}{2x}\\\\
+  &=\lim\_{x \to 0}\frac{1}{2(1+x)}\\\\
+  &=\frac{1}{2}
+\end{split}
+$$
 
 可得
 
@@ -130,13 +131,14 @@ $$=e^{\lim_{x \to 0^+}\sin x\ln x}$$
 
 使用等价无穷小 $\sin x \sim x$
 
-$$t=\lim_{x \to 0^+}x\ln x$$
-
-$$=\lim_{x \to 0^+}\frac{\ln x}{\frac{1}{x}}$$
-
-$$=\lim_{x \to 0^+}\frac{\frac{1}{x}}{-\frac{1}{x^2}}$$
-
-$$=0$$
+$$
+\begin{split}
+  t&=\lim\_{x \to 0^+}x\ln x\\\\
+  &=\lim\_{x \to 0^+}\frac{\ln x}{\frac{1}{x}}\\\\
+  &=\lim\_{x \to 0^+}\frac{\frac{1}{x}}{-\frac{1}{x^2}}\\\\
+  &=0
+\end{split}
+$$
 
 可得
 
@@ -144,11 +146,13 @@ $$I=e^0=1$$
 
 #### 例题 2
 
-$$\lim_{x \to 0^+}(\frac{1}{x})^{\tan x}$$
-
-$$=e^{\lim_{x \to 0^+}\tan x\ln{\frac{1}{x}}}$$
-
-$$=e^{-\lim_{x \to 0^+}\tan x\ln{x}}$$
+$$
+\begin{split}
+  &\lim\_{x \to 0^+}(\frac{1}{x})^{\tan x}\\\\
+  &=e^{\lim\_{x \to 0^+}\tan x\ln{\frac{1}{x}}}\\\\
+  &=e^{-\lim\_{x \to 0^+}\tan x\ln{x}}
+\end{split}
+$$
 
 令 $t=\lim_{x \to 0^+}\tan x\ln{x}$，则 $I=e^{-t}$
 

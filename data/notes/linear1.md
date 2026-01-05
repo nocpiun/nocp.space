@@ -4,7 +4,7 @@ author: NriotHrreion
 tags:
 - "期末"
 - "线代"
-date: 2026-01-04
+date: 2026-01-05
 ---
 
 ## 二阶行列式计算

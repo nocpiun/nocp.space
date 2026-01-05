@@ -49,7 +49,7 @@
       }
     }
     ul, ol {
-      @apply px-10 py-4;
+      @apply px-10 py-2;
       li {
         @apply my-2;
       }

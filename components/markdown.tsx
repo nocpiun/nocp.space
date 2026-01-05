@@ -59,7 +59,6 @@ export function Markdown({ wrapper, children }: {
       },
       renderRule(next, node, renderChildren, state) {
         if(node.type === RuleType.blockQuote && node.alert) {
-          console.log(node);
           switch(node.alert.toLowerCase()) {
             case "info": return <InfoCallout key={state.key}>{renderChildren(node.children[0], state)}</InfoCallout>;
             case "tip": return <TipCallout key={state.key}>{renderChildren(node.children[0], state)}</TipCallout>;

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Info } from "lucide-react";
+import { Bot } from "lucide-react";
 import { blogName, siteKeywords } from "@/lib/global";
 import { getArticle } from "@/lib/blog";
 import { formatDate } from "@/lib/utils";
@@ -56,7 +56,7 @@ export default async function Article({
         </div>
         {article.hasAI && (
           <Alert className="rounded-md">
-            <Info />
+            <Bot />
             <AlertTitle>本文包含AI生成内容</AlertTitle>
             <AlertDescription>
               本文内容中有部分内容由AI生成，请仔细甄别

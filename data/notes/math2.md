@@ -47,13 +47,14 @@ $$\lim\_{n \to \infty}x\_n=\frac{1}{2}$$
 
 ## 单调有界原理
 
+> [!tip]
+> 当数列由递推式给定时使用
+
 若数列 $\lbrace a\_n\rbrace$ 满足：
 - $\lbrace a\_n\rbrace$ 单调递增，且 $\lbrace a\_n\rbrace \leq M$ (有上界)
 - $\lbrace a\_n\rbrace$ 单调递减，且 $\lbrace a\_n\rbrace \geq L$ (有下界)
 
 则可推出 $\lim\_{n \to \infty}a\_n$ 存在
-
-**用法**：当数列由递推式给定时使用
 
 #### 例题
 

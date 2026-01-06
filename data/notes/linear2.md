@@ -81,11 +81,11 @@ BA=
 \end{pmatrix}
 =
 \boxed{
-\begin{pmatrix}
-  3 & 6 & 9\\
-  2 & 4 & 6\\
-  1 & 2 & 3
-\end{pmatrix}
+  \begin{pmatrix}
+    3 & 6 & 9\\
+    2 & 4 & 6\\
+    1 & 2 & 3
+  \end{pmatrix}
 }
 $$
 
@@ -138,11 +138,11 @@ $$(A|E)\xrightarrow{\text{多次行变换}}(E|A^{-1})$$
 $$
 (A|E)=
 \left(
-\begin{array}{ccc|ccc}
-  3 & 2 & 1 & 1 & 0 & 0\\
-  3 & 1 & 5 & 0 & 1 & 0\\
-  3 & 2 & 3 & 0 & 0 & 1
-\end{array}
+  \begin{array}{ccc|ccc}
+    3 & 2 & 1 & 1 & 0 & 0\\
+    3 & 1 & 5 & 0 & 1 & 0\\
+    3 & 2 & 3 & 0 & 0 & 1
+  \end{array}
 \right)
 $$
 
@@ -150,68 +150,68 @@ $$
 
 $$
 \left(
-\begin{array}{ccc|ccc}
-  3 & 2 & 1 & 1 & 0 & 0\\
-  3 & 1 & 5 & 0 & 1 & 0\\
-  3 & 2 & 3 & 0 & 0 & 1
-\end{array}
+  \begin{array}{ccc|ccc}
+    3 & 2 & 1 & 1 & 0 & 0\\
+    3 & 1 & 5 & 0 & 1 & 0\\
+    3 & 2 & 3 & 0 & 0 & 1
+  \end{array}
 \right)
 \xrightarrow[r_3-r_1]{r_2-r_1}
 \left(
-\begin{array}{ccc|ccc}
-  3 & 2  & 1 & 1  & 0 & 0\\
-  0 & -1 & 4 & -1 & 1 & 0\\
-  0 & 0  & 2 & -1 & 0 & 1
-\end{array}
+  \begin{array}{ccc|ccc}
+    3 & 2  & 1 & 1  & 0 & 0\\
+    0 & -1 & 4 & -1 & 1 & 0\\
+    0 & 0  & 2 & -1 & 0 & 1
+  \end{array}
 \right)
 $$
 
 $$
 \xrightarrow{r_1+2r_2}
 \left(
-\begin{array}{ccc|ccc}
-  3 & 0  & 9 & -1 & 2 & 0\\
-  0 & -1 & 4 & -1 & 1 & 0\\
-  0 & 0  & 2 & -1 & 0 & 1
-\end{array}
+  \begin{array}{ccc|ccc}
+    3 & 0  & 9 & -1 & 2 & 0\\
+    0 & -1 & 4 & -1 & 1 & 0\\
+    0 & 0  & 2 & -1 & 0 & 1
+  \end{array}
 \right)
 \xrightarrow[r_2\cdot(-1)]{r_1\cdot \frac{1}{3}}
 \left(
-\begin{array}{ccc|ccc}
-  1 & 0 & 3  & -\frac{1}{3} & \frac{2}{3} & 0\\
-  0 & 1 & -4 & 1            & -1          & 0\\
-  0 & 0 & 2  & -1           & 0           & 1
-\end{array}
+  \begin{array}{ccc|ccc}
+    1 & 0 & 3  & -\frac{1}{3} & \frac{2}{3} & 0\\
+    0 & 1 & -4 & 1            & -1          & 0\\
+    0 & 0 & 2  & -1           & 0           & 1
+  \end{array}
 \right)
 $$
 
 $$
 \xrightarrow{r_2+2r_3}
 \left(
-\begin{array}{ccc|ccc}
-  1 & 0 & 3 & -\frac{1}{3} & \frac{2}{3} & 0\\
-  0 & 1 & 0 & -1           & -1          & 2\\
-  0 & 0 & 2 & -1           & 0           & 1
-\end{array}
+  \begin{array}{ccc|ccc}
+    1 & 0 & 3 & -\frac{1}{3} & \frac{2}{3} & 0\\
+    0 & 1 & 0 & -1           & -1          & 2\\
+    0 & 0 & 2 & -1           & 0           & 1
+  \end{array}
 \right)
 \xrightarrow{r_3\cdot \frac{1}{2}}
 \left(
-\begin{array}{ccc|ccc}
-  1 & 0 & 3 & -\frac{1}{3} & \frac{2}{3} & 0\\
-  0 & 1 & 0 & -1           & -1          & 2\\
-  0 & 0 & 1 & -\frac{1}{2} & 0           & \frac{1}{2}
-\end{array}
+  \begin{array}{ccc|ccc}
+    1 & 0 & 3 & -\frac{1}{3} & \frac{2}{3} & 0\\
+    0 & 1 & 0 & -1           & -1          & 2\\
+    0 & 0 & 1 & -\frac{1}{2} & 0           & \frac{1}{2}
+  \end{array}
 \right)
 $$
 
 $$
 \xrightarrow{r_1-3r_3}
 \left(
-\begin{array}{ccc|ccc}
-  1 & 0 & 0 & -\frac{7}{6} & \frac{2}{3} & -\frac{3}{2}\\
-  0 & 1 & 0 & -1           & -1          & 2           \\
-  0 & 0 & 1 & -\frac{1}{2} & 0           & \frac{1}{2}
-\end{array}
+  \begin{array}{ccc|ccc}
+    1 & 0 & 0 & -\frac{7}{6} & \frac{2}{3} & -\frac{3}{2}\\
+    0 & 1 & 0 & -1           & -1          & 2           \\
+    0 & 0 & 1 & -\frac{1}{2} & 0           & \frac{1}{2}
+  \end{array}
 \right)
 $$
 
@@ -219,12 +219,12 @@ $$
 
 $$
 \boxed{
-A^{-1}=
-\begin{pmatrix}
-  -\frac{7}{6} & \frac{2}{3} & -\frac{3}{2}\\
-  -1           & -1          & 2           \\
-  -\frac{1}{2} & 0           & \frac{1}{2}
-\end{pmatrix}
+  A^{-1}=
+  \begin{pmatrix}
+    -\frac{7}{6} & \frac{2}{3} & -\frac{3}{2}\\
+    -1           & -1          & 2           \\
+    -\frac{1}{2} & 0           & \frac{1}{2}
+  \end{pmatrix}
 }
 $$
 
@@ -247,7 +247,7 @@ $$
 由矩阵 $A$ 可得
 
 $$
-\|A\|=
+|A|=
 \begin{vmatrix}
   1 & 4\\
   -1 & 2
@@ -265,9 +265,9 @@ A^{-1}=\frac{1}{6}
 \end{pmatrix}
 =
 \boxed{
-\begin{pmatrix}
-  \frac{1}{3} & -\frac{2}{3}\\
-  \frac{1}{6} & \frac{1}{6}
-\end{pmatrix}
+  \begin{pmatrix}
+    \frac{1}{3} & -\frac{2}{3}\\
+    \frac{1}{6} & \frac{1}{6}
+  \end{pmatrix}
 }
 $$

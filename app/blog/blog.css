@@ -71,6 +71,9 @@
       @apply my-6;
       div[data-slot="alert-description"] {
         @apply [&>*]:m-0;
+        ul, ol {
+          @apply px-6 py-0;
+        }
       }
     }
     & + footer {

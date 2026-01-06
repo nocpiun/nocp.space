@@ -6,7 +6,7 @@ tags:
 - "音乐"
 - "javascript"
 - "曲谱"
-excerpt: "Abc Notation是一种用于标记曲谱的语言，通过配合[abc.js](https://abcjs.net)可以将其渲染在网页中<br>_Abc Music Standard 2.1: <https://michaeleskin.com/abctools/abc_standard_v2.1.pdf>_"
+excerpt: "Abc Notation是一种用于标记曲谱的语言，通过配合[abc.js](https://abcjs.net)可以将其渲染在网页中<br><i>Abc Music Standard 2.1: <https://michaeleskin.com/abctools/abc_standard_v2.1.pdf></i>"
 date: 2025-07-04
 ---
 

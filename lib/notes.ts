@@ -13,7 +13,6 @@ export interface Note {
 export type NoteWithContent = Note & { __content: string };
 
 const notesDirectory = path.resolve(process.cwd(), "data/notes");
-const notes: Note[] = getAllNotes(false);
 
 export function getAllNotes<T extends boolean = false>(containContent: T): T extends true ? NoteWithContent[] : Note[] {
   const list = [];
@@ -35,8 +34,6 @@ export function getAllNotes<T extends boolean = false>(containContent: T): T ext
   return list;
 }
 
-export { notes };
-
 export function getNote(slug: string): NoteWithContent | null {
   const filePath = path.join(notesDirectory, `${slug}.md`);
   if(!fs.existsSync(filePath)) return null;
@@ -47,7 +44,7 @@ export function getNote(slug: string): NoteWithContent | null {
 }
 
 export function getNoteByTitle(title: string): Note | null {
-  for(const note of notes) {
+  for(const note of getAllNotes(false)) {
     if(note.title === title) {
       return note;
     }
@@ -57,7 +54,7 @@ export function getNoteByTitle(title: string): Note | null {
 
 export function getNotesByTag(tag: string): Note[] {
   const result: Note[] = [];
-  for(const note of notes) {
+  for(const note of getAllNotes(false)) {
     if(note.tags.includes(tag) && !result.some(n => n.title === note.title)) {
       result.push(note);
     }
@@ -67,7 +64,7 @@ export function getNotesByTag(tag: string): Note[] {
 
 export function getNoteTags(): { tag: string, amount: number }[] {
   const tags: { tag: string, amount: number }[] = [];
-  for(const note of notes) {
+  for(const note of getAllNotes(false)) {
     for(const tag of note.tags) {
       if(!tags.some(t => t.tag === tag)) {
         tags.push({ tag, amount: 1 });

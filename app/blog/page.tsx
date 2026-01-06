@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BookMarked, Rss, Tag } from "lucide-react";
-import { getPostByTitle, getTags, posts } from "@/lib/blog";
+import { getAllArticles, getPostByTitle, getTags } from "@/lib/blog";
 import {
   Card,
   CardContent,
@@ -11,12 +11,15 @@ import {
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { getRelativeNumber } from "@/lib/utils";
-
-import recommended from "@/data/info/recommended.json";
-import { notes } from "@/lib/notes";
+import { getAllNotes } from "@/lib/notes";
 import { BlogTabs } from "./blog-tabs";
 
+import recommended from "@/data/info/recommended.json";
+
 export default function BlogOverview() {
+  const posts = getAllArticles(false);
+  const notes = getAllNotes(false);
+
   return (
     <div className="page-padding flex gap-10">
       <BlogTabs posts={posts} notes={notes}/>

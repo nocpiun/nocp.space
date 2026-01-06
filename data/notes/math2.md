@@ -43,7 +43,7 @@ $$\lim\_{n \to \infty}\frac{(1+n)n}{2(n^2+2n)}=\lim\_{n \to \infty}\frac{(1+n)n}
 
 故
 
-$$\lim\_{n \to \infty}x\_n=\frac{1}{2}$$
+$$\boxed{\lim\_{n \to \infty}x\_n=\frac{1}{2}}$$
 
 ## 单调有界原理
 
@@ -102,4 +102,4 @@ $$
 
 故
 
-$$\lim\_{n \to \infty}a\_n=t=3$$
+$$\boxed{\lim\_{n \to \infty}a\_n=t=3}$$

@@ -17,7 +17,6 @@ export interface Post {
 export type Article = Post & { __content: string };
 
 const postsDirectory = path.resolve(process.cwd(), "data/posts");
-const posts: Post[] = getAllArticles(false);
 
 export function getAllArticles<T extends boolean = false>(containContent: T): T extends true ? Article[] : Post[] {
   const list = [];
@@ -39,8 +38,6 @@ export function getAllArticles<T extends boolean = false>(containContent: T): T 
   return list;
 }
 
-export { posts };
-
 export function getArticle(slug: string): Article | null {
   const filePath = path.join(postsDirectory, `${slug}.md`);
   if(!fs.existsSync(filePath)) return null;
@@ -51,7 +48,7 @@ export function getArticle(slug: string): Article | null {
 }
 
 export function getPostByTitle(title: string): Post | null {
-  for(const post of posts) {
+  for(const post of getAllArticles(false)) {
     if(post.title === title) {
       return post;
     }
@@ -61,7 +58,7 @@ export function getPostByTitle(title: string): Post | null {
 
 export function getPostsByCategory(category: string): Post[] {
   const result: Post[] = [];
-  for(const post of posts) {
+  for(const post of getAllArticles(false)) {
     if(post.categories && post.categories.includes(category) && !result.some(p => p.title === post.title)) {
       result.push(post);
     }
@@ -71,7 +68,7 @@ export function getPostsByCategory(category: string): Post[] {
 
 export function getPostsByTag(tag: string): Post[] {
   const result: Post[] = [];
-  for(const post of posts) {
+  for(const post of getAllArticles(false)) {
     if(post.tags.includes(tag) && !result.some(p => p.title === post.title)) {
       result.push(post);
     }
@@ -81,7 +78,7 @@ export function getPostsByTag(tag: string): Post[] {
 
 export function getTags(): { tag: string, amount: number }[] {
   const tags: { tag: string, amount: number }[] = [];
-  for(const post of posts) {
+  for(const post of getAllArticles(false)) {
     for(const tag of post.tags) {
       if(!tags.some(t => t.tag === tag)) {
         tags.push({ tag, amount: 1 });

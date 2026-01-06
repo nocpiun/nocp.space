@@ -11,27 +11,27 @@ date: 2026-01-06
 
 <div align="center">
 
-$\lim\_{x \to x\_0}f(x)=f(x\_0)$ $\Harr$ $f(x)$ 在 $x=x\_0$ 处连续
+$\lim_{x \to x_0}f(x)=f(x_0)$ $\Harr$ $f(x)$ 在 $x=x_0$ 处连续
 
 </div>
 
 #### 例题
 
-若 $f(x)=\begin{cases}a+bx^2 & x\leq 0\\\\\frac{\sin bx}{x} & x>0\end{cases}$ 在 $x=0$ 处连续，求 $a,b$ 的关系
+若 $f(x)=\begin{cases}a+bx^2 & x\leq 0\\\frac{\sin bx}{x} & x>0\end{cases}$ 在 $x=0$ 处连续，求 $a,b$ 的关系
 
 由 $f(x)$ 在 $x=0$ 处连续，可得
 
-$$\lim\_{x \to 0^+}f(x)=\lim\_{x \to 0^-}f(x)=f(0)=a$$
+$$\lim_{x \to 0^+}f(x)=\lim_{x \to 0^-}f(x)=f(0)=a$$
 
 当 $x>0$ 时， $f(x)=\frac{\sin bx}{x}$，所以有
 
-$$\lim\_{x \to 0^+}\frac{\sin bx}{x}=a$$
+$$\lim_{x \to 0^+}\frac{\sin bx}{x}=a$$
 
 使用等价无穷小 $\sin bx \sim bx$
 
 $$
 \begin{split}
-  \lim\_{x \to 0^+}\frac{bx}{x}&=a\\\\
+  \lim_{x \to 0^+}\frac{bx}{x}&=a\\
   b&=a
 \end{split}
 $$
@@ -44,9 +44,9 @@ $$\boxed{a=b}$$
 
 间断点是不连续的点 (一般为无定义点、分段点)
 
-- **可去间断点**： $\lim\_{x \to x\_0^+}f(x)=\lim\_{x \to x\_0^-}f(x)\neq f(x\_0)$
-- **跳跃间断点**： $\lim\_{x \to x\_0^+}f(x)\neq\lim\_{x \to x\_0^-}f(x)$
-- **无穷间断点**： $\lim\_{x \to x\_0^+}=\infty$ 或 $\lim\_{x \to x\_0^-}=\infty$
+- **可去间断点**： $\lim_{x \to x_0^+}f(x)=\lim_{x \to x_0^-}f(x)\neq f(x_0)$
+- **跳跃间断点**： $\lim_{x \to x_0^+}f(x)\neq\lim_{x \to x_0^-}f(x)$
+- **无穷间断点**： $\lim_{x \to x_0^+}=\infty$ 或 $\lim_{x \to x_0^-}=\infty$
 - **振荡间断点**： 如 $\sin\frac{1}{x}$ 或 $\cos\frac{1}{x}$ 在 $x=0$ 处
 
 #### 例题
@@ -55,8 +55,8 @@ $$\boxed{a=b}$$
 
 $$
 \begin{split}
-  f(x)&=\frac{x-x^3}{\sin\pi x}\\\\
-  &=\frac{x(1-x^2)}{\sin\pi x}\\\\
+  f(x)&=\frac{x-x^3}{\sin\pi x}\\
+  &=\frac{x(1-x^2)}{\sin\pi x}\\
   &=\frac{x(1-x)(1+x)}{\sin\pi x}
 \end{split}
 $$
@@ -65,14 +65,14 @@ $$
 
 当 $x=0$ 时
 
-$$\lim\_{x \to 0}f(x)=\lim\_{x \to 0}\frac{x-x^3}{\sin\pi x}$$
+$$\lim_{x \to 0}f(x)=\lim_{x \to 0}\frac{x-x^3}{\sin\pi x}$$
 
 使用等价无穷小 $\sin\pi x \sim\pi x$
 
 $$
 \begin{split}
-  \lim\_{x \to 0}f(x)&=\lim\_{x \to 0}\frac{x-x^3}{\pi x}\\\\
-  &=\lim\_{x \to 0}\frac{1-x^2}{\pi}\\\\
+  \lim_{x \to 0}f(x)&=\lim_{x \to 0}\frac{x-x^3}{\pi x}\\
+  &=\lim_{x \to 0}\frac{1-x^2}{\pi}\\
   &=\frac{1}{\pi}
 \end{split}
 $$
@@ -86,9 +86,9 @@ $$
 
 $$
 \begin{split}
-  \lim\_{x \to 1}f(x)&=\lim\_{x \to 1}\frac{x(1-x^2)}{\sin\pi x}\\\\
-  &=\lim\_{x \to 1}\frac{1-x^2}{\sin\pi x}\\\\
-  &=\lim\_{x \to 1}\frac{-2x}{\pi\cos\pi x}\\\\
+  \lim_{x \to 1}f(x)&=\lim_{x \to 1}\frac{x(1-x^2)}{\sin\pi x}\\
+  &=\lim_{x \to 1}\frac{1-x^2}{\sin\pi x}\\
+  &=\lim_{x \to 1}\frac{-2x}{\pi\cos\pi x}\\
   &=\frac{2}{\pi}
 \end{split}
 $$
@@ -99,9 +99,9 @@ $$
 
 $$
 \begin{split}
-  \lim\_{x \to -1}f(x)&=\lim\_{x \to -1}\frac{x(1-x^2)}{\sin\pi x}\\\\
-  &=\lim\_{x \to -1}\frac{x^2-1}{\sin\pi x}\\\\
-  &=\lim\_{x \to -1}\frac{2x}{\pi\cos\pi x}\\\\
+  \lim_{x \to -1}f(x)&=\lim_{x \to -1}\frac{x(1-x^2)}{\sin\pi x}\\
+  &=\lim_{x \to -1}\frac{x^2-1}{\sin\pi x}\\
+  &=\lim_{x \to -1}\frac{2x}{\pi\cos\pi x}\\
   &=\frac{2}{\pi}
 \end{split}
 $$

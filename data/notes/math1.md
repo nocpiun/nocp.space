@@ -56,12 +56,12 @@ $$\lim \frac{f(x)}{g(x)}=\lim \frac{f'(x)}{g'(x)}=\lim \frac{f''(x)}{g''(x)}=...
 
 $$
 \begin{split}
-  &\lim\_{x \to \infty}[x-x^2\ln(1+\frac{1}{x})]\\\\
-  \xlongequal{t=\frac{1}{x}}&\lim\_{t \to 0}[\frac{1}{t}-\frac{\ln(1+t)}{t^2}]\\\\
-  &=\lim\_{t \to 0}\frac{t-\ln(1+t)}{t^2}\\\\
-  &=\lim\_{t \to 0}\frac{1-\frac{1}{1+t}}{2t}\\\\
-  &=\lim\_{t \to 0}\frac{t}{2t(1+t)}\\\\
-  &=\lim\_{t \to 0}\frac{1}{2(1+t)}\\\\
+  &\lim_{x \to \infty}[x-x^2\ln(1+\frac{1}{x})]\\
+  \xlongequal{t=\frac{1}{x}}&\lim_{t \to 0}[\frac{1}{t}-\frac{\ln(1+t)}{t^2}]\\
+  &=\lim_{t \to 0}\frac{t-\ln(1+t)}{t^2}\\
+  &=\lim_{t \to 0}\frac{1-\frac{1}{1+t}}{2t}\\
+  &=\lim_{t \to 0}\frac{t}{2t(1+t)}\\
+  &=\lim_{t \to 0}\frac{1}{2(1+t)}\\
   &=\boxed{\frac{1}{2}}
 \end{split}
 $$
@@ -78,9 +78,9 @@ $$\lim f(x)^{g(x)}=e^{\lim g(x)\cdot(f(x)-1)}$$
 
 $$
 \begin{split}
-  &\lim f(x)^{g(x)}\\\\
-  &=\lim e^{\ln{f(x)^{g(x)}}}\\\\
-  &=\lim e^{g(x)\ln{f(x)}}\\\\
+  &\lim f(x)^{g(x)}\\
+  &=\lim e^{\ln{f(x)^{g(x)}}}\\
+  &=\lim e^{g(x)\ln{f(x)}}\\
   &=e^{\lim g(x)\ln{f(x)}}
 \end{split}
 $$
@@ -101,10 +101,10 @@ $$I=e^{\lim_{x \to 0}\frac{1}{x}\cdot(1-\frac{\ln(1+x)}{x})}$$
 
 $$
 \begin{split}
-  t&=\lim\_{x \to 0}\frac{1}{x}-\frac{\ln(1+x)}{x^2}\\\\
-  &=\lim\_{x \to 0}\frac{x-\ln(1+x)}{x^2}\\\\
-  &=\lim\_{x \to 0}\frac{1-\frac{1}{1+x}}{2x}\\\\
-  &=\lim\_{x \to 0}\frac{1}{2(1+x)}\\\\
+  t&=\lim_{x \to 0}\frac{1}{x}-\frac{\ln(1+x)}{x^2}\\
+  &=\lim_{x \to 0}\frac{x-\ln(1+x)}{x^2}\\
+  &=\lim_{x \to 0}\frac{1-\frac{1}{1+x}}{2x}\\
+  &=\lim_{x \to 0}\frac{1}{2(1+x)}\\
   &=\frac{1}{2}
 \end{split}
 $$
@@ -133,9 +133,9 @@ $$=e^{\lim_{x \to 0^+}\sin x\ln x}$$
 
 $$
 \begin{split}
-  t&=\lim\_{x \to 0^+}x\ln x\\\\
-  &=\lim\_{x \to 0^+}\frac{\ln x}{\frac{1}{x}}\\\\
-  &=\lim\_{x \to 0^+}\frac{\frac{1}{x}}{-\frac{1}{x^2}}\\\\
+  t&=\lim_{x \to 0^+}x\ln x\\
+  &=\lim_{x \to 0^+}\frac{\ln x}{\frac{1}{x}}\\
+  &=\lim_{x \to 0^+}\frac{\frac{1}{x}}{-\frac{1}{x^2}}\\
   &=0
 \end{split}
 $$
@@ -148,9 +148,9 @@ $$\boxed{I=e^0=1}$$
 
 $$
 \begin{split}
-  &\lim\_{x \to 0^+}(\frac{1}{x})^{\tan x}\\\\
-  &=e^{\lim\_{x \to 0^+}\tan x\ln{\frac{1}{x}}}\\\\
-  &=e^{-\lim\_{x \to 0^+}\tan x\ln{x}}
+  &\lim_{x \to 0^+}(\frac{1}{x})^{\tan x}\\
+  &=e^{\lim_{x \to 0^+}\tan x\ln{\frac{1}{x}}}\\
+  &=e^{-\lim_{x \to 0^+}\tan x\ln{x}}
 \end{split}
 $$
 

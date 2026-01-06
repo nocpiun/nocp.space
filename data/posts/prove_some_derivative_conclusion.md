@@ -101,7 +101,7 @@ $$f(x)=\log_{a}{x}, a \in (0,+\infty)$$
 
 $$f'(x)=\lim_{\Delta x \to 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}$$
 
-$$=\lim\_{\Delta x \to 0} \frac{\log\_{a}(x+\Delta x)-\log\_{a}{x}}{\Delta x}$$
+$$=\lim_{\Delta x \to 0} \frac{\log_{a}(x+\Delta x)-\log_{a}{x}}{\Delta x}$$
 
 $$=\lim_{\Delta x \to 0} \frac{\ln(x+\Delta x)-\ln{x}}{\Delta x\ln{a}}$$
 

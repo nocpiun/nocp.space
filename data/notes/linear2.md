@@ -432,6 +432,22 @@ $$AA^*=A^*A=|A|\cdot E$$
 
 $$A^*=|A|\cdot A^{-1} \Harr A^{-1}=\frac{A^*}{|A|}$$
 
+由此可推出
+
+<div align="center">
+
+$A$ 可逆 $\Harr$ $|A|\neq0$
+
+</div>
+
+<br>
+
+<div align="center">
+
+$A$ 不可逆 $\Harr$ $|A|=0$
+
+</div>
+
 #### 例题
 
 设矩阵 $X$ 满足 $A^*X=A^{-1}B+2X$，其中，$A=\begin{pmatrix}1 & 1 & -1\\-1 & 1 & 1\\1 & -1 & 1\end{pmatrix}$， $B=\begin{pmatrix}1 & 1\\1 & 0\\0 & 0\end{pmatrix}$

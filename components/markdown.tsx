@@ -26,7 +26,7 @@ function renderLatex(content: string) {
   // block latex
   content = content.replace(/\$\$([^\$]+)\$\$/g, (match, formula) => {
     try {
-      return katex.renderToString(formula, { displayMode: true, output: "html" });
+      return katex.renderToString(formula, { displayMode: true, output: "html", strict: "ignore" });
     } catch (e) {
       return match;
     }
@@ -35,7 +35,7 @@ function renderLatex(content: string) {
   // inline latex
   content = content.replace(/\$([^\$]+)\$/g, (match, formula) => {
     try {
-      return katex.renderToString(formula, { displayMode: false, output: "html" });
+      return katex.renderToString(formula, { displayMode: false, output: "html", strict: "ignore" });
     } catch (e) {
       return match;
     }

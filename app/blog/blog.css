@@ -6,6 +6,9 @@
     p, pre, table {
       @apply my-4;
     }
+    p, li {
+      @apply font-light;
+    }
     p {
       @apply leading-[1.75rem];
     }

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Book, ExternalLink, Github, Tv } from "lucide-react";
+import { Book, ExternalLink, Github, Mail, Tv } from "lucide-react";
 import SplitText from "@/components/animations/split-text";
 import { Button } from "@/components/ui/button";
 import { githubAccount } from "@/lib/global";
@@ -28,43 +28,46 @@ export function Banner() {
           我是一个热爱前端开发、音乐和Minecraft的学生，<br />
           很高兴能见到你！👋
         </span>
-        <div className="mt-6 flex flex-wrap max-md:justify-center gap-4 [&>a]:text-foreground [&>a]:no-underline">
+        <div className="mt-6 flex flex-wrap max-md:justify-center gap-0 [&>a]:text-foreground [&>a]:no-underline [&>a]:rounded-full">
           <Button
-            className="!text-primary-foreground"
+            className="!text-white bg-theme hover:bg-theme-foreground mr-2"
             size="lg"
             asChild>
             <Link href="/blog">
-              <Book />
+              <Book stroke="#fff"/>
               Blog
             </Link>
           </Button>
           <Button
-            variant="outline"
-            size="lg"
+            variant="ghost"
+            size="icon-lg"
             asChild>
             <Link href={githubAccount} target="_blank">
               <Github />
-              Github
-              <ExternalLink stroke="var(--color-secondary-foreground)"/>
             </Link>
           </Button>
           <Button
-            variant="outline"
-            size="lg"
+            variant="ghost"
+            size="icon-lg"
             asChild>
             <Link href="https://space.bilibili.com/167995410" target="_blank">
               <Tv />
-              Bili
-              <ExternalLink stroke="var(--color-secondary-foreground)"/>
             </Link>
           </Button>
           <Button
-            variant="outline"
-            size="lg"
+            variant="ghost"
+            size="icon-lg"
             asChild>
             <Link href="https://x.com/norcleeh" target="_blank">
               𝕏
-              <ExternalLink stroke="var(--color-secondary-foreground)"/>
+            </Link>
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon-lg"
+            asChild>
+            <Link href="mailto:nriot233@gmail.com" target="_blank">
+              <Mail />
             </Link>
           </Button>
         </div>

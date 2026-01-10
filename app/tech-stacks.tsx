@@ -14,6 +14,15 @@ export function TechStacks() {
         </div>
         <div className="flex gap-6 [&>*]:flex [&>*]:flex-col [&>*]:gap-4 [&>*]:pr-6 [&>*]:border-r [&>*]:last:border-0">
           <div>
+            <CountUp
+              from={0}
+              to={200}
+              className="text-4xl text-yellow-600 dark:text-yellow-500 !font-semibold"
+              duration={1}
+              onEnd={(elem) => elem.innerText += "+"}/>
+            <span className="text-secondary-foreground">仓库获Star总数</span>
+          </div>
+          <div>
             <SplitText
               text="A-"
               className="text-4xl font-semibold overflow-visible"
@@ -24,15 +33,6 @@ export function TechStacks() {
               textAlign="left"
               onLetterAnimationComplete={() => {}}/>
             <span className="text-secondary-foreground">Github 账号评级</span>
-          </div>
-          <div>
-            <CountUp
-              from={0}
-              to={200}
-              className="text-4xl !font-semibold"
-              duration={1}
-              onEnd={(elem) => elem.innerText += "+"}/>
-            <span className="text-secondary-foreground">仓库获Star总数</span>
           </div>
         </div>
       </div>

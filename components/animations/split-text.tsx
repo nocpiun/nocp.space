@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText as GSAPSplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
+import { cn } from '@/lib/utils';
 
 gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
 
@@ -39,9 +40,11 @@ const SplitText: React.FC<SplitTextProps> = ({
 }) => {
   const ref = useRef<HTMLParagraphElement>(null);
   const animationCompletedRef = useRef(false);
+  const [animationStarted, setAnimationStarted] = useState<boolean>(false);
   const [fontsLoaded, setFontsLoaded] = useState<boolean>(false);
 
   useEffect(() => {
+    setAnimationStarted(true);
     if (document.fonts.status === 'loaded') {
       setFontsLoaded(true);
     } else {
@@ -154,7 +157,7 @@ const SplitText: React.FC<SplitTextProps> = ({
       wordWrap: 'break-word',
       willChange: 'transform, opacity'
     };
-    const classes = `split-parent overflow-hidden inline-block whitespace-normal ${className}`;
+    const classes = cn('split-parent overflow-hidden inline-block whitespace-normal', animationStarted ? "visible" : "invisible", className);
     switch (tag) {
       case 'h1':
         return (

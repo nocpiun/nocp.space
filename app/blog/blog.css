@@ -79,6 +79,9 @@
         }
       }
     }
+    .grid-2 {
+      @apply grid grid-cols-2 min-w-[550px];
+    }
     footer {
       @apply px-4 pt-4 border-t border-muted space-y-1;
       div {

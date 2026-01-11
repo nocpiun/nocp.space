@@ -58,7 +58,7 @@ $$
     x_1     & y_1     & z_1    \\
     x_2     & y_2     & z_2
   \end{vmatrix}\\
-  &=(y_1z_2-y_2z_1)\vec{i}+(x_1z_2-x_2z_1)\vec{j}+(x_1y_2-x_2y_1)\vec{k}
+  &=(y_1z_2-y_2z_1)\vec{i}-(x_1z_2-x_2z_1)\vec{j}+(x_1y_2-x_2y_1)\vec{k}
 \end{split}
 $$
 

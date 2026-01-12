@@ -103,6 +103,45 @@ $$
 
 $$\cos\phi=\frac{|\vec{s_1}\cdot\vec{s_2}|}{|\vec{s_1}||\vec{s_2}|}$$
 
+### 点到直线的距离
+
+已知点 $M_0(x_0,y_0,z_0)$ 和直线 $l:\;\frac{x-x_1}{m}=\frac{y-y_1}{n}=\frac{z-z_1}{p}$，设直线的方向向量为 $\vec{s}$， $M_1(x_1,y_1,z_1)$ 为直线上一点，则点 $M_0$ 到直线 $l$ 的距离为
+
+$$
+\begin{split}
+  d&=\frac{|\overrightarrow{M_0M_1}\times\vec{s}|}{|\vec{s}|}\\
+  &=\frac{1}{\sqrt{m^2+n^2+p^2}}\cdot|
+  \begin{vmatrix}
+    \vec{i} & \vec{j} & \vec{k}\\
+    x_1-x_0 & y_1-y_0 & z_1-z_0\\
+    m       & n       & p
+  \end{vmatrix}|
+\end{split}
+$$
+
+#### 例题
+
+求与两平面 $x-4z=3$ 和 $2x-y-5z=1$ 的交线平行，且过点 $(-3,2,5)$ 的直线方程
+
+设两平面的法向量分别为 $\vec{n_1},\vec{n_2}$，则待求直线的方向向量为
+
+$$
+\begin{split}
+  \vec{s}&=\vec{n_1}\times\vec{n_2}\\
+  &=
+  \begin{vmatrix}
+    \vec{i} & \vec{j} & \vec{k}\\
+    1       & 0       & -4     \\
+    2       & -1      & -5
+  \end{vmatrix}\\
+  &=(-4,-3,-1)
+\end{split}
+$$
+
+由直线上的点 $(-3,2,5)$ 易得
+
+$$\boxed{\frac{x+3}{4}=\frac{y-2}{3}=\frac{z-5}{1}}$$
+
 ## 平面
 
 ### 平面的点法式方程
@@ -249,6 +288,49 @@ $$\sin\phi=\cos\lang\vec{n},\vec{s}\rang=\frac{|\vec{n}\cdot\vec{s}|}{|\vec{n}||
 **特殊情况**：
 - $l\perp\Gamma\Harr\vec{s}\parallel\vec{n}\Harr\frac{A}{m}=\frac{B}{n}=\frac{C}{p}$
 - $l\parallel\Gamma\Harr\vec{s}\cdot\vec{n}=0\Harr Am+Bn+Cp=0$
+
+#### 例题
+
+一直线 $L$ 过点 $A(1,2,1)$ 且垂直于直线 $l_1:\;\frac{x-1}{3}=\frac{y}{2}=\frac{z+1}{1}$，又和直线 $l_2:\;\frac{x}{2}=\frac{y}{1}=\frac{z}{-1}$ 相交，求直线 $L$ 的方程
+
+设 $l_1,l_2$ 的方向向量分别为 $\vec{s_1},\vec{s_2}$，则可得 $\vec{s_1}=(3,2,1),\vec{s_2}=(2,1,-1)$
+
+因为 $L$ 与 $l_2$ 相交，不妨设其交点为 $B(x_0,y_0,z_0)$，可得
+
+$$
+\frac{x_0}{2}=\frac{y_0}{1}=\frac{z_0}{-1}\Rarr
+\begin{cases}
+  x_0=2y_0\\
+  z_0=-y_0
+\end{cases}
+$$
+
+所以 $B$ 的坐标可以表示为 $(2y_0,y_0,-y_0)$
+
+因为 $A,B\in L$，所以 $\overrightarrow{AB}$ 是直线 $L$ 的方向向量
+
+由 $L\perp l_1$，可得
+
+$$
+\begin{split}
+  \overrightarrow{AB}\cdot\vec{s_1}&=0\\
+  (2y_0-1,y_0-2,-y_0-1)\cdot(3,2,1)&=0\\
+  6y_0-3+2y_0-4-y_0-1&=0\\
+  y_0&=\frac{8}{7}
+\end{split}
+$$
+
+所以 $B$ 的坐标为 $(\frac{16}{7},\frac{8}{7},-\frac{8}{7})$，可得
+
+$$\overrightarrow{AB}=(\frac{9}{7},-\frac{6}{7},-\frac{15}{7})$$
+
+故直线 $L$ 的方程为
+
+$$\frac{x-1}{\frac{9}{7}}=\frac{y-2}{-\frac{6}{7}}=\frac{z-1}{-\frac{15}{7}}$$
+
+化简得
+
+$$\boxed{\frac{x-1}{3}=\frac{y-2}{-2}=\frac{z-1}{-5}}$$
 
 ### 点到平面的距离
 

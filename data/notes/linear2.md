@@ -448,6 +448,10 @@ $A$ 不可逆 $\Harr$ $|A|=0$
 
 </div>
 
+- 当 $r(A)=n$ 时， $r(A^*)=n$
+- 当 $r(A)=n-1$ 时， $r(A^*)=1$
+- 当 $r(A)<n-1$ 时， $r(A^*)=0$
+
 #### 例题
 
 设矩阵 $X$ 满足 $A^*X=A^{-1}B+2X$，其中，$A=\begin{pmatrix}1 & 1 & -1\\-1 & 1 & 1\\1 & -1 & 1\end{pmatrix}$， $B=\begin{pmatrix}1 & 1\\1 & 0\\0 & 0\end{pmatrix}$

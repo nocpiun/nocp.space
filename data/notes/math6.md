@@ -189,6 +189,9 @@ $$
 ## 第二类换元法
 
 - 若 $\int f(x)\text{d}x$ 中含有 $\sqrt{a^2-x^2}$，则可令 $x=a\sin t$
+- 若 $\int f(x)\text{d}x$ 中含有 $\sqrt{a^2+x^2}$，则可令 $x=a\tan t$
+- 若 $\int f(x)\text{d}x$ 中含有 $\sqrt{ax+b}$，则可令 $t=\sqrt{ax+b}$
+- 若 $\int f(x)\text{d}x$ 中含有 $\sqrt[m]x$ 和 $\sqrt[n]x$，则可令 $t=\sqrt[p]x$，其中 $p$ 是 $m,n$ 的最小公倍数
 
 #### 例题
 
@@ -296,5 +299,108 @@ $$
   &=6(\frac{t^3}{3}-\frac{t^2}{2}+t-\ln|t+1|)+C\\
   &=2t^3-3t^2+6t-6\ln|t+1|+C\\
   &=\boxed{2\sqrt x-3\sqrt[3]x+6\sqrt[6]x-6\ln(\sqrt[6]x+1)+C}
+\end{split}
+$$
+
+## 分部积分法
+
+当被积函数为两类不同函数相乘 (复合) 时，用分部积分法
+
+$$\int u\text{d}v=uv-\int v\text{d}u$$
+
+#### 例题
+
+求下列不定积分
+
+(1)
+
+$$
+\begin{split}
+  &\int x^2e^x\text{d}x\\
+  &=x^2e^x-\int 2xe^x\text{d}x\\
+  &=x^2e^x-(2xe^x-\int 2e^x\text{d}x)\\
+  &=\boxed{x^2e^x-2xe^x+2e^x+C}
+\end{split}
+$$
+
+(2)
+
+$$
+\begin{split}
+  &\int x^2\cos x\text{d}x\\
+  &=x^2\sin x-\int 2x\sin x\text{d}x\\
+  &=x^2\sin x-(-2x\cos x-\int(-2)\cos x\text{d}x)\\
+  &=x^2\sin x+2x\cos x-2\int\cos x\text{d}x\\
+  &=\boxed{x^2\sin x+2x\cos x-2\sin x+C}
+\end{split}
+$$
+
+(3)
+
+$$
+\begin{split}
+  &\int e^{2x}\cos x\text{d}x\\
+  &=e^{2x}\sin x-2\int e^{2x}\sin x\text{d}x\\
+  &=e^{2x}\sin x-2(-e^{2x}\cos x-\int2e^{2x}\cdot(-\cos x)\text{d}x)\\
+  &=e^{2x}\sin x-2(-e^{2x}\cos x+2\int e^{2x}\cos x\text{d}x)\\
+\end{split}
+$$
+
+可得
+
+$$
+\begin{split}
+  I&=e^{2x}\sin x-2(-e^{2x}\cos x+2I)\\
+  I&=e^{2x}\sin x+2e^{2x}\cos x-4I\\
+  5I&=e^{2x}\sin x+2e^{2x}\cos x\\
+  I&=\boxed{\frac{1}{5}(e^{2x}\sin x+2e^{2x}\cos x)+C}
+\end{split}
+$$
+
+## 分式函数积分
+
+对于不定积分 $\int\frac{P(x)}{Q(x)}\text{d}x$
+
+- 若分母 $Q(x)$ 可因式分解 ($\Delta>0$) 时，使用裂项法
+- 若分母 $Q(x)$ 不可因式分解 ($\Delta<0$) 时，使用配方法 + $\int\frac{1}{a^2+x^2}\text{d}x$ 或 $\int\frac{Q'(x)}{Q(x)}\text{d}x$
+
+#### 例题
+
+求下列不定积分
+
+(1)
+
+$$
+\begin{split}
+  &\int\frac{1}{x^2-x-12}\text{d}x\\
+  &=\int\frac{1}{(x-4)(x+3)}\text{d}x\\
+  &=\frac{1}{7}\int(\frac{1}{x-4}-\frac{1}{x+3})\text{d}x\\
+  &=\frac{1}{7}(\int\frac{1}{x-4}\text{d}x-\int\frac{1}{x+3}\text{d}x)\\
+  &=\boxed{\frac{1}{7}\ln|x-4|-\frac{1}{7}\ln|x+3|+C}
+\end{split}
+$$
+
+(2)
+
+$$
+\begin{split}
+  &\int\frac{5x-1}{x^2-x-2}\text{d}x\\
+  &=\int\frac{5x-1}{(x-2)(x+1)}\text{d}x\\
+  &=6\int\frac{5x-1}{(2x-4)(3x+3)}\text{d}x\\
+  &=6\int(\frac{1}{2x-4}+\frac{1}{3x+3})\text{d}x\\
+  &=6(\frac{1}{2}\int\frac{1}{x-2}\text{d}x+\frac{1}{3}\int\frac{1}{x+1}\text{d}x)\\
+  &=6(\frac{1}{2}\ln|x-2|+\frac{1}{3}\ln|x+1|)+C\\
+  &=\boxed{3\ln|x-2|+2\ln|x+1|+C}
+\end{split}
+$$
+
+(3)
+
+$$
+\begin{split}
+  &\int\frac{1}{x^2+x+1}\text{d}x\\
+  &=\int\frac{1}{x^2+x+\frac{1}{4}+\frac{3}{4}}\text{d}x\\
+  &=\int\frac{1}{(x+\frac{1}{2})^2+\frac{3}{4}}\text{d}x\\
+  &=\boxed{\frac{2\sqrt{3}}{3}\arctan\frac{2\sqrt3(x+\frac{1}{2})}{3}+C}
 \end{split}
 $$

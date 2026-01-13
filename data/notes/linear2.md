@@ -518,6 +518,8 @@ $$|kA_{n\times n}|=k^n|A|$$
 
 $$|A^*_{n\times n}|=|A|^{n-1}$$
 
+$$|AB|=|A||B|=|B||A|=|BA|$$
+
 > [!warning]
 > **常见错误**： $|A+B|\neq|A|+|B|$
 
@@ -638,3 +640,63 @@ $$
 当 $r(A)=3$ 时，可得
 
 $$\boxed{k\in (-\infty,-2)\cup(-2,1)\cup(1,+\infty)}$$
+
+## 标准正交基
+
+设 $V=\{v_1,v_2,...,v_n\}$ 是 $\mathbb{R}^n$ 空间的一组标准正交基，则它们满足：
+- **相互垂直**：对于任何 $i\neq j$，都有 $v_i\cdot v_j=0$
+- **单位长度**：对于任何 $i$，都有 $||v_i||=1$，即 $v_i^2=1$
+
+#### 例题
+
+设 $A_{n\times n}=(\alpha_1,\alpha_2,...,\alpha_n)$ 为 $n$ 阶实矩阵，其中 $\alpha_1,\alpha_2,...,\alpha_n$ 是 $\mathbb{R}^n$ 的一个标准正交基，证明： $A^{\text{T}}=A^{-1}$
+
+设矩阵 $A$ 为
+
+$$
+A=
+\begin{pmatrix}
+  a_{11} & a_{12} & ... & a_{1n}\\
+  a_{21} & a_{22} & ... & a_{2n}\\
+  ...    &        &     & ...   \\
+  a_{n1} & ...    &     & a_{nn}
+\end{pmatrix}
+$$
+
+则 $A^{\text{T}}$ 为
+
+$$
+A^{\text{T}}=
+\begin{pmatrix}
+  a_{11} & a_{21} & ... & a_{n1}\\
+  a_{12} & a_{22} & ... & a_{n2}\\
+  ...    &        &     & ...   \\
+  a_{1n} & ...    &     & a_{nn}
+\end{pmatrix}
+$$
+
+可得
+
+$$
+\begin{split}
+  A^{\text{T}}A&=
+  \begin{pmatrix}
+    a_{11}^2             & (a_{12}\cdot a_{21}) & ... & (a_{1n}\cdot a_{n1})\\
+    (a_{21}\cdot a_{12}) & a_{22}^2             & ... & (a_{2n}\cdot a_{n2})\\
+    ...                  &                      &     & ...                 \\
+    (a_{n1}\cdot a_{1n}) & ...                  &     & a_{nn}^2
+  \end{pmatrix}\\
+  &=
+  \begin{pmatrix}
+    1   & 0   & ... & 0  \\
+    0   & 1   &     & ...\\
+    ... &     & ... & 0  \\
+    0   & ... & 0   & 1
+  \end{pmatrix}\\
+  &=E_{n\times n}
+\end{split}
+$$
+
+因为 $A^{-1}A=E$ 所以
+
+$$\boxed{A^{\text{T}}=A^{-1}}$$

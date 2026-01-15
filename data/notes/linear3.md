@@ -243,7 +243,7 @@ $$
 \end{pmatrix}
 $$
 
-若 $(\beta_1,\beta_2,\beta_3)=(\alpha_1,\alpha_2,\alpha_3)\cdot C$，且 $\alpha_1,\alpha_2,\alpha_3$ 无关，则
+- 若 $(\beta_1,\beta_2,\beta_3)=(\alpha_1,\alpha_2,\alpha_3)\cdot C$，且 $\alpha_1,\alpha_2,\alpha_3$ 无关，则
 
 <div align="center">
 
@@ -254,6 +254,8 @@ $|C|=0$ $(\neq0)$ $\Harr$ $\beta_1,\beta_2,\beta_3$ 相关 (无关)
 > [!tip]
 > - 无关组 * 可逆阵 = 无关
 > - 无关组 * 不可逆阵 = 相关
+
+- 若向量组 $\alpha_1,\alpha_2,\alpha_3$ 可以被另一向量组 $\beta_1,\beta_2$ 的线性组合表示，则向量组 $\alpha_1,\alpha_2,\alpha_3$ 线性相关
 
 #### 例题
 
@@ -351,13 +353,8 @@ $$
 
 $$\boxed{r(\alpha_1,\alpha_2,\alpha_3)=2}$$
 
-且 $(\alpha_1,\alpha_2,\alpha_3)$ 有两个极大无关组
+且 $(\alpha_1,\alpha_2,\alpha_3)$ 有两个极大无关组 (取拐弯处在原向量组中对应的列向量)
 
 $$
-\begin{pmatrix}
-  1\\0\\0\\0
-\end{pmatrix},
-\begin{pmatrix}
-  4\\-9\\0\\0
-\end{pmatrix}
+\boxed{\alpha_1,\alpha_2}
 $$

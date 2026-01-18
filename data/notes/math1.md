@@ -29,6 +29,7 @@ $$\lim \frac{f(x)}{g(x)}=\lim \frac{f'(x)}{g'(x)}=\lim \frac{f''(x)}{g''(x)}=...
 - $x \sim \sin x \sim \arcsin x \sim \tan x \sim \arctan x \sim e^x-1 \sim \ln(x+1)$
 - $1-\cos x \sim \frac{1}{2}x^2$
 - $(x+1)^k-1 \sim kx$
+- $x-\sin x \sim \frac{x^3}{6}$
 
 ## $\frac{\infty}{\infty}$ 型
 
@@ -167,3 +168,9 @@ $$t=0$$
 可得
 
 $$\boxed{I=e^{-0}=1}$$
+
+## 重要极限
+
+$$\lim_{x \to +\infty}(1+\frac{1}{x})^x=e$$
+
+$$\lim_{x \to 0}\frac{\sin x}{x}=1$$

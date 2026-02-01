@@ -87,6 +87,12 @@ const nextConfig: NextConfig = {
         hostname: "vnyzm.top",
         port: "",
         pathname: "/img/**"
+      },
+      {
+        protocol: "https",
+        hostname: "mgrowup.com",
+        port: "",
+        pathname: "/**"
       }
     ]
   },

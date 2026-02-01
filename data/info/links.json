@@ -94,5 +94,11 @@
         "description": "分享技术心得和摸鱼感想",
         "url": "https://vnyzm.top",
         "avatar": "https://vnyzm.top/img/profile.jpg"
+    },
+    {
+        "name": "Donghai",
+        "description": "真诚记录，生活值得",
+        "url": "https://mgrowup.com",
+        "avatar": "https://mgrowup.com/avatar.webp"
     }
 ]

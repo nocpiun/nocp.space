@@ -16,7 +16,7 @@ export function TechStacks() {
           <div>
             <CountUp
               from={0}
-              to={200}
+              to={300}
               className="text-4xl text-yellow-600 dark:text-yellow-500 !font-semibold"
               duration={1}
               onEnd={(elem) => elem.innerText += "+"}/>

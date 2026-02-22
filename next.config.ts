@@ -93,6 +93,12 @@ const nextConfig: NextConfig = {
         hostname: "mgrowup.com",
         port: "",
         pathname: "/**"
+      },
+      {
+        protocol: "https",
+        hostname: "worable.top",
+        port: "",
+        pathname: "/wp-content/uploads/**"
       }
     ]
   },

@@ -99,6 +99,12 @@ const nextConfig: NextConfig = {
         hostname: "worable.top",
         port: "",
         pathname: "/wp-content/uploads/**"
+      },
+      {
+        protocol: "https",
+        hostname: "nernge.cn",
+        port: "",
+        pathname: "/upload/**"
       }
     ]
   },

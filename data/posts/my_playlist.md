@@ -84,6 +84,7 @@ date: 2025-03-30
     <td>
         谁他妈没织过毛衣
         <br>Radio 南京
+        <br>南京越来越远
     </td>
 </tr>
 <tr>
@@ -230,8 +231,23 @@ date: 2025-03-30
     <td>再见琳尼尔</td>
 </tr>
 <tr>
+    <td>赵雷</td>
+    <td>
+        吉姆餐厅
+        <br>无法长大
+        <br>没有信号 (Live)
+    </td>
+    <td>
+        成都
+        <br>画
+    </td>
+</tr>
+<tr>
     <td>罗大佑</td>
-    <td>之乎者也</td>
+    <td>
+        之乎者也
+        <br>二零二零八月宜花東鹿記
+    </td>
     <td>
         童年
         <br>海上花
@@ -297,6 +313,21 @@ date: 2025-03-30
     <td>再见</td>
 </tr>
 <tr>
+    <td>郑钧</td>
+    <td></td>
+    <td>私奔</td>
+</tr>
+<tr>
+    <td>小安</td>
+    <td>浪费爱情</td>
+    <td></td>
+</tr>
+<tr>
+    <td>赵传</td>
+    <td>黑暗的英雄</td>
+    <td></td>
+</tr>
+<tr>
     <td>周杰伦</td>
     <td>
         最伟大的作品
@@ -353,7 +384,10 @@ date: 2025-03-30
 <tr>
     <td>蔡徐坤</td>
     <td></td>
-    <td>Deadman</td>
+    <td>
+        Deadman
+        <br>What a Day
+    </td>
 </tr>
 <tr>
     <td>Nirvana</td>
@@ -547,10 +581,11 @@ date: 2025-03-30
 </tr>
 <tr>
     <td>Radiohead</td>
-    <td></td>
     <td>
-        Creep
-        <br>Let Down
+        Pablo Honey
+    </td>
+    <td>
+        Let Down
         <br>No Surprises
         <br>Karma Police
         <br>Fake Plastic Trees
@@ -617,6 +652,16 @@ date: 2025-03-30
     <td>Spin Doctors</td>
     <td></td>
     <td>Two Princes</td>
+</tr>
+<tr>
+    <td>Dire Straits</td>
+    <td></td>
+    <td>
+        Sultans Of Swing
+        <br>Walk Of Life
+        <br>Money For Nothing
+        <br>
+    </td>
 </tr>
 <tr>
     <td>TheFatRat</td>

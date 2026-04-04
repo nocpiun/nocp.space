@@ -105,6 +105,12 @@ const nextConfig: NextConfig = {
         hostname: "nernge.cn",
         port: "",
         pathname: "/upload/**"
+      },
+      {
+        protocol: "https",
+        hostname: "blog.liseezn.top",
+        port: "",
+        pathname: "/**"
       }
     ]
   },

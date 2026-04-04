@@ -106,5 +106,11 @@
         "description": "由Nernge搭建的博客网站",
         "url": "https://nernge.cn",
         "avatar": "https://nernge.cn/upload/Nernge_profile.png"
+    },
+    {
+        "name": "Liseezn's blog",
+        "description": "分享个人学习，项目，及一些教程",
+        "url": "https://blog.liseezn.top",
+        "avatar": "https://blog.liseezn.top/logo.webp"
     }
 ]

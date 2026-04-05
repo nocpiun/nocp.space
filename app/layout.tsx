@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -10,17 +9,7 @@ import { cn } from "@/lib/utils";
 import "gitalk/dist/gitalk.css";
 import "./globals.css";
 import "./gitalk.css";
-
-const firaCode = localFont({
-  src: [{ path: "../assets/fonts/FiraCode-VariableFont_wght.ttf", style: "normal" }],
-});
-
-const googleSansCode = localFont({
-  src: [
-    { path: "../assets/fonts/GoogleSansCode-VariableFont_wght.ttf", style: "normal" },
-    { path: "../assets/fonts/GoogleSansCode-Italic-VariableFont_wght.ttf", style: "italic" }
-  ]
-});
+import { firaCode, googleSansCode } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: siteName,

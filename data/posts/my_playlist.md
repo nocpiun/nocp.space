@@ -249,8 +249,7 @@ date: 2025-03-30
         <br>二零二零八月宜花東鹿記
     </td>
     <td>
-        童年
-        <br>海上花
+        海上花
         <br>皇后大道东
     </td>
 </tr>
@@ -279,6 +278,7 @@ date: 2025-03-30
         <br>漫步人生路
         <br>甜蜜蜜
         <br>再见 我的爱人
+        <br>望春风
     </td>
 </tr>
 <tr>
@@ -301,6 +301,11 @@ date: 2025-03-30
         再会啦心爱的无缘的人
         <br>谁是老大
     </td>
+</tr>
+<tr>
+    <td>黄乙玲</td>
+    <td></td>
+    <td>一把小雨伞</td>
 </tr>
 <tr>
     <td>臧天朔 / 1989乐队</td>
@@ -366,6 +371,17 @@ date: 2025-03-30
         <br>印第安老斑鸠
         <br>龙卷风
         <br>反方向的钟
+        <br>女儿殿下
+    </td>
+</tr>
+<tr>
+    <td>陶喆</td>
+    <td></td>
+    <td>
+        普通朋友
+        <br>爱我还是他
+        <br>爱，很简单
+        <br>找自己
     </td>
 </tr>
 <tr>
@@ -598,6 +614,21 @@ date: 2025-03-30
         Beautiful Ones
         <br>Trash
     </td>
+</tr>
+<tr>
+    <td>My Chemical Romance</td>
+    <td>The Black Parade</td>
+    <td></td>
+</tr>
+<tr>
+    <td>Billy Joel</td>
+    <td>The Stranger</td>
+    <td>Piano Man</td>
+</tr>
+<tr>
+    <td>Pen Name</td>
+    <td>Pen Name</td>
+    <td></td>
 </tr>
 <tr>
     <td>Michael Jackson</td>

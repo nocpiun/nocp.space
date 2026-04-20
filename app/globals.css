@@ -150,7 +150,7 @@
   }
   .page-padding {
     /* @apply px-96 max-xl:px-96 max-lg:px-20 max-md:px-11; */
-    @apply px-[20%] max-xl:px-[13%];
+    @apply px-[13%] min-2xl:px-[30%];
   }
 }
 

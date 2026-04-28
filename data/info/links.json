@@ -112,5 +112,11 @@
         "description": "分享个人学习，项目，及一些教程",
         "url": "https://blog.liseezn.top",
         "avatar": "https://blog.liseezn.top/logo.webp"
+    },
+    {
+        "name": "Lime's Blog",
+        "description": "whirling in rags",
+        "url": "https://limening.vercel.app",
+        "avatar": "https://limening.vercel.app/img/base/avatar.jpg"
     }
 ]

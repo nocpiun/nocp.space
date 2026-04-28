@@ -111,6 +111,12 @@ const nextConfig: NextConfig = {
         hostname: "blog.liseezn.top",
         port: "",
         pathname: "/**"
+      },
+      {
+        protocol: "https",
+        hostname: "limening.vercel.app",
+        port: "",
+        pathname: "/img/base/**"
       }
     ]
   },

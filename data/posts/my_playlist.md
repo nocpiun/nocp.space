@@ -333,6 +333,11 @@ date: 2025-03-30
     <td></td>
 </tr>
 <tr>
+    <td>阿牛</td>
+    <td>阿牛陳慶祥1998個人第一張創作專輯</td>
+    <td></td>
+</tr>
+<tr>
     <td>周杰伦</td>
     <td>
         最伟大的作品
@@ -631,6 +636,11 @@ date: 2025-03-30
     <td></td>
 </tr>
 <tr>
+    <td>Yorushika</td>
+    <td>Second Person</td>
+    <td></td>
+</tr>
+<tr>
     <td>Michael Jackson</td>
     <td></td>
     <td>
@@ -713,6 +723,14 @@ date: 2025-03-30
         <br>Xenogenesis
         <br>Fly Away
     </td>
+</tr>
+<tr>
+    <td>The Village Stompers</td>
+    <td>
+        Washington Square
+        <br>A Taste of Honey (and Other Goodies)
+    </td>
+    <td></td>
 </tr>
 </tbody>
 </table>

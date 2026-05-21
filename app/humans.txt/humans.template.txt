@@ -1,0 +1,17 @@
+/* AUTHOR */
+  Name: Norcleeh
+  Contact: nriot233@gmail.com
+  GitHub: NriotHrreion
+  From: China
+
+/* THANKS */
+  React: https://react.dev
+  Next.js: https://nextjs.org
+  Shadcn UI: https://ui.shadcn.com
+  Lucide: https://lucide.dev
+
+/* SITE */
+  Last update: {0}
+  Language: Chinese
+  Doctype: HTML5
+  IDE: VSCode

@@ -129,6 +129,10 @@ const nextConfig: NextConfig = {
       "*.abc": {
         loaders: ["raw-loader"],
         as: "*.js"
+      },
+      "*.txt": {
+        loaders: ["raw-loader"],
+        as: "*.js"
       }
     }
   },

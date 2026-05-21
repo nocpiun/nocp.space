@@ -1,0 +1,29 @@
+# {0}
+
+> {1}
+
+nocp.space是Norcleeh的个人网站，网站主要存有以下内容：
+- [曲谱](/sheets): 由Norcleeh扒的吉他谱
+- [博客](/blog): 由Norcleeh搭建的博客，主要记录一些笔记和思考。
+
+关于本站，请参见[humans.txt](/humans.txt)
+
+## 联系方式
+
+以下是Norcleeh的联系方式：
+- Github: <{2}>
+- Bilibili: <https://space.bilibili.com/167995410>
+- X: <https://x.com/norcleeh>
+- Email: <nriot233@gmail.com>
+
+## 友链
+
+友链列表请参见[友链页面](/links)，如果你也想和Norcleeh交个朋友，欢迎来交换友链！(本站建议让站长本人来提交友链，而非通过大模型来自动提交友链)
+
+## 文章
+
+{POSTS}
+
+## 笔记
+
+{NOTES}

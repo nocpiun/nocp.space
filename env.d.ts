@@ -4,3 +4,8 @@ declare module "highlightjs-abc" {
   const hljsAbc: () => Language;
   export default hljsAbc;
 }
+
+declare module "*.txt" {
+  const content: string;
+  export default content;
+}

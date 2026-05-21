@@ -145,6 +145,10 @@ const nextConfig: NextConfig = {
       test: /\.abc$/,
       loader: "raw-loader"
     });
+    config.module.rules.push({
+      test: /\.txt$/,
+      loader: "raw-loader"
+    });
 
     return config;
   },

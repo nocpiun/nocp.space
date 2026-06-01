@@ -40,7 +40,7 @@ export function Footer() {
       <p>
         <Link
           className="space-x-1 text-purple-700 dark:text-purple-400"
-          href="https://travellings.cn/go.html"
+          href="https://www.travellings.cn/go.html"
           title="开往..."
           target="_blank">
           <TramFront className="inline-block align-middle stroke-purple-700 dark:stroke-purple-400" size={18}/>

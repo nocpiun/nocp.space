@@ -31,7 +31,7 @@ export default function Links() {
       <Button asChild>
         <Link
           className="hover:no-underline"
-          href="https://travellings.cn/go.html"
+          href="https://www.travellings.cn/go.html"
           target="_blank">
           <TramFront />
           Travelling 开往...

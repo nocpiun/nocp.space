@@ -75,7 +75,7 @@ export function Navbar() {
 					title="开往..."
 					asChild>
 					<Link
-						href="https://travellings.cn/go.html"
+						href="https://www.travellings.cn/go.html"
 						target="_blank">
 						<TramFront />
 					</Link>

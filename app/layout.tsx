@@ -31,6 +31,9 @@ export default function RootLayout({
   return (
     <html lang="zh-cn" suppressHydrationWarning>
       <head>
+        <link rel="alternate" type="application/atom+xml" title="NBlog Atom Feed" href="https://nocp.space/rss/feed.xml"/>
+        <link rel="alternate" type="application/feed+json" title="NBlog JSON Feed" href="https://nocp.space/rss/feed.json" />
+
         {/* Google Analytics */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-4ZYGQ03SMX"/>
         <Script id="google-analytics">

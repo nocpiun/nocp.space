@@ -7,16 +7,18 @@ import { Badge } from "@/components/ui/badge";
 export function NoteCard(note: Note) {
   return (
     <div className="border-b border-muted last:border-none pt-3 pb-5 flex flex-col gap-2">
-      <div className="flex justify-between items-center max-sm:block">
+      <div className="flex justify-between items-start gap-4 max-sm:block">
         <Button
-          className="text-xl font-semibold p-0 max-sm:inline-block max-sm:whitespace-normal max-sm:break-words"
+          className="text-xl font-semibold p-0 h-auto shrink min-w-0 whitespace-normal break-words text-left max-sm:inline-block"
           variant="link"
           asChild>
           <Link href={"/blog/notes/"+ note.slug}>
             {note.title}
           </Link>
         </Button>
-        <span className="text-yellow-600 text-sm text-nowrap max-sm:float-right">{formatDate(note.date)}</span>
+        <span className="mt-1 text-yellow-600 text-sm text-nowrap max-sm:float-right">
+          {formatDate(note.date)}
+        </span>
       </div>
       <div className="space-x-1">
         {note.tags.map((tag, i) => (

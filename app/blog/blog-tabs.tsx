@@ -36,7 +36,7 @@ export function BlogTabs({ posts, notes }: {
   }, []);
 
   return (
-    <Tabs value={activeTab} onValueChange={handleTabChange} className="flex-2/3 max-sm:flex-1 max-sm:min-w-0">
+    <Tabs value={activeTab} onValueChange={handleTabChange} className="flex-2/3 min-w-0 max-sm:flex-1">
       <TabsList className="[&>*]:cursor-pointer">
         <TabsTrigger value="blog">博客 ({posts.length})</TabsTrigger>
         <TabsTrigger value="notes">笔记 ({notes.length})</TabsTrigger>

@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
+import { googleSansCode } from "@/lib/fonts";
 
 export function CodeBlock({ children }: {
 	children: React.ReactElement
@@ -23,16 +25,16 @@ export function CodeBlock({ children }: {
 	};
 
 	return (
-		<pre className="relative">
+		<pre className="relative group/code-block">
 			<Button
-				className="absolute top-0 right-0 cursor-pointer"
+				className="absolute top-0 right-0 cursor-pointer bg-transparent! text-muted-foreground opacity-0 group-hover/code-block:opacity-100 duration-100"
 				variant="ghost"
 				size="icon"
 				title="复制代码"
 				onClick={() => handleCopy()}>
 				{icon}
 			</Button>
-			<span className="absolute bottom-0 right-0 pb-2 pr-3 text-secondary-foreground text-sm">{lang}</span>
+			<span className={cn("absolute bottom-0 right-0 pb-2 pr-3 text-secondary-foreground text-xs font-light", googleSansCode.className)}>{lang}</span>
 
 			<code className={`lang-${lang} hljs`}>{content}</code>
 		</pre>

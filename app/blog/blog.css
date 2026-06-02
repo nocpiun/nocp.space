@@ -37,9 +37,9 @@
       @apply border-2;
     }
     pre {
-      @apply w-full px-5 py-4 text-wrap bg-card rounded-sm relative not-dark:bg-muted;
+      @apply w-full px-4.5 py-3 text-wrap bg-muted dark:bg-card border dark:border-accent rounded-sm relative;
       code {
-        @apply !p-0 !bg-transparent;
+        @apply !p-0 !bg-transparent !text-sm;
       }
     }
     blockquote {

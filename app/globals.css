@@ -141,7 +141,7 @@
         @apply font-bold;
       }
       code {
-        @apply px-2 py-1 text-sm font-light bg-muted rounded-sm;
+        @apply px-1.5 py-0.5 text-sm font-[googleSansCode] bg-muted rounded-sm;
       }
     }
   }

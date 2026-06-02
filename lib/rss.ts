@@ -26,9 +26,9 @@ getAllArticles(true).forEach(article => {
     content: article.__content,
     author: [{ name: article.author }],
     date: article.date,
-    image: article.photo,
+    image: article.photo ? `https://nocp.space${article.photo}` : undefined,
   });
 });
 
-// export const atom = feed.atom1();
+export const atom = feed.atom1();
 export const json = feed.json1();

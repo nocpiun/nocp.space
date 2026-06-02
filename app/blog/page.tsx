@@ -79,8 +79,8 @@ export default function BlogOverview() {
           </CardHeader>
           <CardContent>
             <ButtonGroup className="w-full [&>*]:flex-1 *:text-foreground *:hover:no-underline">
-              <Button variant="outline" disabled>
-                atom
+              <Button variant="outline" asChild>
+                <Link href="/rss/feed.xml">atom</Link>
               </Button>
               <Button variant="outline" asChild>
                 <Link href="/rss/feed.json">json</Link>

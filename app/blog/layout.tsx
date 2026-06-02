@@ -9,6 +9,8 @@ import "./blog.css";
 
 import BlogBanner from "@/assets/images/blog-banner.jpg";
 
+import { BlogNavWatcher } from "@/components/blog-nav-watcher";
+
 export const metadata: Metadata = {
   title: blogName,
   description: blogDescription
@@ -21,14 +23,15 @@ export default function BlogLayout({
 }>) {
   return (
     <div className="flex flex-col gap-10 overflow-y-auto" data-blog>
-      <div className="w-full min-h-80 relative">
+      <BlogNavWatcher />
+      <div className="w-full min-h-80 relative" data-blog-banner>
         <header
           className="w-full h-full absolute top-0 left-0 flex flex-col justify-center items-center gap-4 z-0 *:text-white">
           <h1 className="text-4xl font-semibold font-mono">{blogName}</h1>
           <p className="text-lg">{blogDescription}</p>
         </header>
         {/* Light mode adaptation */}
-        <div className="w-full h-full absolute top-0 left-0 -z-10 dark:invisible bg-[rgba(255,255,255,.16)]"/>
+        {/* <div className="w-full h-full absolute top-0 left-0 -z-10 dark:invisible bg-[rgba(255,255,255,.16)]"/> */}
         {/* Banner */}
         <div
           className="w-full h-full absolute top-0 left-0 -z-20 bg-cover bg-center"

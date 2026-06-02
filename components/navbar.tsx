@@ -11,6 +11,8 @@ import {
 } from "./ui/navigation-menu";
 import { ThemeToggle } from "./theme-toggle";
 import { githubAccount, siteName } from "@/lib/global";
+import { emitter } from "@/lib/emitter";
+import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 
 interface NavbarItem {
@@ -33,14 +35,28 @@ const rightList: NavbarItem[] = [
 
 export function Navbar() {
 	const [visible, setVisible] = useState(true);
+	const [overBanner, setOverBanner] = useState(false);
 
 	useEffect(() => {
 		document.body.addEventListener("wheel", (e) => setVisible(e.deltaY < 0));
 	}, []);
-	
+
+	useEffect(() => {
+		const handler = (value: boolean) => setOverBanner(value);
+		emitter.on("nav-over-banner", handler);
+		return () => { emitter.off("nav-over-banner", handler); };
+	}, []);
+
 	return (
 		<NavigationMenu
-			className="z-20 nav-padding w-full max-w-none py-5 flex justify-between fixed bg-gradient-to-b from-[var(--background)] to-transparent transition-all ease-out duration-[250ms] overflow-hidden"
+			data-over-banner={overBanner || undefined}
+			className={cn(
+				"z-20 nav-padding w-full max-w-none py-5 flex justify-between fixed",
+				"bg-gradient-to-b to-transparent transition-all ease-out duration-[250ms] overflow-hidden",
+				"from-background",
+				"data-[over-banner]:from-foreground dark:data-[over-banner]:from-background",
+				"data-[over-banner]:text-white dark:data-[over-banner]:text-foreground"
+			)}
 			style={{ transform: visible ? "translateY(0)" : "translateY(-3.5rem)" }}>
 			<NavigationMenuList className="max-sm:gap-0 text-nowrap">
 				{leftList.map(({ name, url }, i) => (

@@ -38,7 +38,7 @@ export default async function Note({
     <div className="page-padding flex flex-col gap-10">
       <div className="mt-6 flex flex-col gap-12">
         <h1 className="text-4xl font-bold">{note.title}</h1>
-        <div className="space-x-4">
+        <div className="space-x-4 *:whitespace-nowrap *:inline-block">
           <span className="text-secondary-foreground">By {note.author}</span>
           <span className="text-yellow-600">{formatDate(note.date)}</span>
           <div className="inline-block space-x-1">
@@ -48,9 +48,11 @@ export default async function Note({
           </div>
         </div>
       </div>
-      <Markdown wrapper>
-        {note.__content}
-      </Markdown>
+      <div className="min-md:px-4">
+        <Markdown wrapper>
+          {note.__content}
+        </Markdown>
+      </div>
     </div>
   );
 }

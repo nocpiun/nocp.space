@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import "gitalk/dist/gitalk.css";
 import "./globals.css";
 import "./gitalk.css";
-import { firaCode, googleSansCode } from "@/lib/fonts";
+import { googleSansCode, notoSansSC, notoSerifSC } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: siteName,
@@ -58,7 +58,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={cn(firaCode.className, googleSansCode.className, "antialiased")}>
+      <body className={cn(googleSansCode.className, notoSansSC.variable, notoSerifSC.variable, "antialiased")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

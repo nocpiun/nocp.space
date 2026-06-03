@@ -1,7 +1,17 @@
 import localFont from "next/font/local";
 
-export const firaCode = localFont({
-  src: [{ path: "../assets/fonts/FiraCode-VariableFont_wght.ttf", style: "normal" }],
+export const notoSansSC = localFont({
+  src: [
+    { path: "../assets/fonts/NotoSansSC-VariableFont_wght.ttf", style: "normal" }
+  ],
+  variable: "--noto-sans"
+});
+
+export const notoSerifSC = localFont({
+  src: [
+    { path: "../assets/fonts/NotoSerifSC-VariableFont_wght.ttf", style: "normal" }
+  ],
+  variable: "--noto-serif"
 });
 
 export const googleSansCode = localFont({

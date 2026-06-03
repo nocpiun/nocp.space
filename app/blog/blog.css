@@ -19,13 +19,13 @@
       @apply font-bold my-5;
     }
     h1 {
-      @apply text-3xl;
+      @apply text-3xl mt-10;
     }
     h2 {
-      @apply text-2xl;
+      @apply text-2xl mt-8;
     }
     h3 {
-      @apply text-xl;
+      @apply text-xl mt-8;
     }
     h4 {
       @apply text-lg;
@@ -43,9 +43,9 @@
       }
     }
     blockquote {
-      @apply text-center;
+      @apply text-center my-12;
       p {
-        @apply font-[宋体];
+        @apply font-(family-name:--noto-serif);
       }
       b, strong {
         @apply font-bold;

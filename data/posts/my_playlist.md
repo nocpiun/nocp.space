@@ -335,7 +335,7 @@ date: 2025-03-30
 <tr>
     <td>阿牛</td>
     <td>阿牛陳慶祥1998個人第一張創作專輯</td>
-    <td></td>
+    <td>浪花一朵朵</td>
 </tr>
 <tr>
     <td>周杰伦</td>
@@ -569,9 +569,12 @@ date: 2025-03-30
         Hey Jude
         <br>Let It Be
         <br>In My Life
-        <br>Yesterday
         <br>Now And Then
-        <br>Obladi Oblada
+        <br>Ob-La-Di, Ob-La-Da
+        <br>Norwegian Wood
+        <br>Black Bird
+        <br>While My Guitar Gently Weeps
+        <br>Don't Let Me Down
     </td>
 </tr>
 <tr>
@@ -703,6 +706,11 @@ date: 2025-03-30
         <br>Money For Nothing
         <br>
     </td>
+</tr>
+<tr>
+    <td>Steve Vai</td>
+    <td></td>
+    <td>For the Love of God</td>
 </tr>
 <tr>
     <td>TheFatRat</td>

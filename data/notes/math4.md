@@ -187,11 +187,11 @@ $$
 
 $$\text{d}y=y'(x)\cdot\text{d}x$$
 
-$$\text{d}y\big|_{x=x_0}=y'(x_0)\cdot\text{d}x$$
+$$\text{d}y\bigg|_{x=x_0}=y'(x_0)\cdot\text{d}x$$
 
 #### 例题
 
-设函数 $y=y(x)$ 由方程 $2^{xy}=x+y$ 所确定，求：(1) $\text{d}y$；(2) $\text{d}y\big|_{x=0}$
+设函数 $y=y(x)$ 由方程 $2^{xy}=x+y$ 所确定，求：(1) $\text{d}y$；(2) $\text{d}y\bigg|_{x=0}$
 
 (1)
 
@@ -226,13 +226,13 @@ $$
 
 $$
 \begin{equation}
-  y'\big|_{x=0}=y\ln2-1=\ln2-1
+  y'\bigg|_{x=0}=y\ln2-1=\ln2-1
 \end{equation}
 $$
 
 故
 
-$$\text{d}y\big|_{x=0}=y'\big|_{x=0}\cdot\text{d}x=\boxed{(\ln2-1)\cdot\text{d}x}$$
+$$\text{d}y\bigg|_{x=0}=y'\bigg|_{x=0}\cdot\text{d}x=\boxed{(\ln2-1)\cdot\text{d}x}$$
 
 ## 莱布尼茨法求高阶导数
 

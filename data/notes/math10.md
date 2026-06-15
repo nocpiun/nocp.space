@@ -82,19 +82,19 @@ $$
 对 $f(x,y)$ 求其对 $x$ 的偏导数
 
 $$
-f_x(x_0,y_0)=\frac{\partial f}{\partial x}\big|_{(x_0,y_0)}=\lim_{x\to x_0}\frac{f(x,y_0)-f(x_0,y_0)}{x-x_0}
+f_x(x_0,y_0)=\frac{\partial f}{\partial x}\bigg|_{(x_0,y_0)}=\lim_{x\to x_0}\frac{f(x,y_0)-f(x_0,y_0)}{x-x_0}
 $$
 
 对 $f(x,y)$ 求其对 $y$ 的偏导数
 
 $$
-f_y(x_0,y_0)=\frac{\partial f}{\partial y}\big|_{(x_0,y_0)}=\lim_{y\to y_0}\frac{f(x_0,y)-f(x_0,y_0)}{y-y_0}
+f_y(x_0,y_0)=\frac{\partial f}{\partial y}\bigg|_{(x_0,y_0)}=\lim_{y\to y_0}\frac{f(x_0,y)-f(x_0,y_0)}{y-y_0}
 $$
 
 对 $f(x,y)$ 在 $(x_0,y_0)$ 处全微分
 
 $$
-\text{d}z\big|_{(x_0,y_0)}=f_x(x_0,y_0)\text{d}x+f_y(x_0,y_0)\text{d}y
+\text{d}z\bigg|_{(x_0,y_0)}=f_x(x_0,y_0)\text{d}x+f_y(x_0,y_0)\text{d}y
 $$
 
 ### 求偏导

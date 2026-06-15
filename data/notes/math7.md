@@ -46,7 +46,7 @@ $$
   I&=\lim_{n \to \infty}\sum^n_{i=1}\frac{1}{n}\cdot f(\frac{i}{n})\\
   &=\int^1_0f(x)\text{d}x\\
   &=\int^1_0\frac{1}{1+x^2}\text{d}x\\
-  &=\arctan x\big|^1_0\\
+  &=\arctan x\bigg|^1_0\\
   &=\boxed{\frac{\pi}{4}}
 \end{split}
 $$
@@ -121,7 +121,7 @@ $$
   &=4\int^{\frac{\pi}{2}}_0\frac{(1-\sin^2t)\sin t}{1+\sin t}\text{d}t\\
   &=4\int^{\frac{\pi}{2}}_0(1-\sin t)\sin t\text{d}t\\
   &=4\int^{\frac{\pi}{2}}_0\sin t\text{d}t-4\int^{\frac{\pi}{2}}_0\sin^2t\text{d}t\\
-  &=4(-\cos t)\big|^{\frac{\pi}{2}}_0-4\cdot\frac{1}{2}\cdot\frac{\pi}{2}\\
+  &=4(-\cos t)\bigg|^{\frac{\pi}{2}}_0-4\cdot\frac{1}{2}\cdot\frac{\pi}{2}\\
   &=\boxed{4-\pi}
 \end{split}
 $$
@@ -130,7 +130,7 @@ $$
 
 当被积函数为两类不同函数相乘 (复合) 时，用分部积分法
 
-$$\int^b_au\text{d}v=uv\big|^b_a-\int^b_av\text{d}u$$
+$$\int^b_au\text{d}v=uv\bigg|^b_a-\int^b_av\text{d}u$$
 
 #### 例题 1
 
@@ -142,9 +142,9 @@ $$
 \begin{split}
   &\int^2_1x\ln\sqrt{x}\text{d}x\\
   &=\frac{1}{2}\int^2_1x\ln x\text{d}x\\
-  &=\frac{1}{2}[(\frac{1}{2}x^2\ln x)\big|^2_1-\int^2_1\frac{1}{2}x^2\cdot\frac{1}{x}\text{d}x]\\
+  &=\frac{1}{2}[(\frac{1}{2}x^2\ln x)\bigg|^2_1-\int^2_1\frac{1}{2}x^2\cdot\frac{1}{x}\text{d}x]\\
   &=\frac{1}{2}(2\ln2-\int^2_1\frac{1}{2}x\text{d}x)\\
-  &=\frac{1}{2}[2\ln2-(\frac{1}{4}x^2)\big|^2_1]\\
+  &=\frac{1}{2}[2\ln2-(\frac{1}{4}x^2)\bigg|^2_1]\\
   &=\frac{1}{2}(2\ln2-\frac{3}{4})\\
   &=\boxed{\ln2-\frac{3}{8}}
 \end{split}
@@ -155,12 +155,12 @@ $$
 $$
 \begin{split}
   &\int^1_0x\arctan x\text{d}x\\
-  &=(\frac{1}{2}x^2\arctan x)\big|^1_0-\int^1_0\frac{1}{2}x^2\cdot\frac{1}{1+x^2}\text{d}x\\
+  &=(\frac{1}{2}x^2\arctan x)\bigg|^1_0-\int^1_0\frac{1}{2}x^2\cdot\frac{1}{1+x^2}\text{d}x\\
   &=\frac{\pi}{8}-\frac{1}{2}\int^1_0\frac{x^2}{1+x^2}\text{d}x\\
   &=\frac{\pi}{8}-\frac{1}{2}\int^1_0\frac{x^2+1-1}{1+x^2}\text{d}x\\
   &=\frac{\pi}{8}-\frac{1}{2}\int^1_0(1-\frac{1}{1+x^2})\text{d}x\\
   &=\frac{\pi}{8}-\frac{1}{2}(1-\int^1_0\frac{1}{1+x^2}\text{d}x)\\
-  &=\frac{\pi}{8}-\frac{1}{2}(1-\arctan x\big|^1_0)\\
+  &=\frac{\pi}{8}-\frac{1}{2}(1-\arctan x\bigg|^1_0)\\
   &=\frac{\pi}{8}-\frac{1}{2}+\frac{\pi}{8}\\
   &=\boxed{\frac{\pi}{4}-\frac{1}{2}}
 \end{split}
@@ -171,14 +171,14 @@ $$
 $$
 \begin{split}
   &\int^{\pi}_0(x\sin x)^2\text{d}x\\
-  &=(\frac{1}{3}x^3\sin^2x)\big|^{\pi}_0-\int^{\pi}_0\frac{1}{3}x^3\cdot2\sin x\cos x\text{d}x\\
+  &=(\frac{1}{3}x^3\sin^2x)\bigg|^{\pi}_0-\int^{\pi}_0\frac{1}{3}x^3\cdot2\sin x\cos x\text{d}x\\
   &=-\frac{1}{3}\int^{\pi}_0x^3\sin2x\text{d}x\\
-  &=-\frac{1}{3}[(-\frac{1}{2}x^3\cos2x)\big|^{\pi}_0+\frac{3}{2}\int^{\pi}_0x^2\cos2x\text{d}x]\\
+  &=-\frac{1}{3}[(-\frac{1}{2}x^3\cos2x)\bigg|^{\pi}_0+\frac{3}{2}\int^{\pi}_0x^2\cos2x\text{d}x]\\
   &=\frac{\pi^3}{6}-\frac{1}{2}\int^{\pi}_0x^2\cos2x\text{d}x\\
-  &=\frac{\pi^3}{6}-\frac{1}{2}[(\frac{1}{2}x^2\sin2x)\big|^{\pi}_0-\int^{\pi}_0x\sin2x\text{d}x]\\
+  &=\frac{\pi^3}{6}-\frac{1}{2}[(\frac{1}{2}x^2\sin2x)\bigg|^{\pi}_0-\int^{\pi}_0x\sin2x\text{d}x]\\
   &=\frac{\pi^3}{6}+\frac{1}{2}\int^{\pi}_0x\sin2x\text{d}x\\
-  &=\frac{\pi^3}{6}+\frac{1}{2}[(-\frac{1}{2}x\cos2x)\big|^{\pi}_0+\frac{1}{2}\int^{\pi}_0\cos2x\text{d}x]\\
-  &=\frac{\pi^3}{6}+\frac{1}{2}(-\frac{\pi}{2}+\frac{1}{2}(\frac{1}{2}\sin2x)\big|^{\pi}_0)\\
+  &=\frac{\pi^3}{6}+\frac{1}{2}[(-\frac{1}{2}x\cos2x)\bigg|^{\pi}_0+\frac{1}{2}\int^{\pi}_0\cos2x\text{d}x]\\
+  &=\frac{\pi^3}{6}+\frac{1}{2}(-\frac{\pi}{2}+\frac{1}{2}(\frac{1}{2}\sin2x)\bigg|^{\pi}_0)\\
   &=\boxed{\frac{\pi^3}{6}-\frac{\pi}{4}}
 \end{split}
 $$
@@ -192,11 +192,11 @@ $$
 
 $$
 \begin{split}
-  I&=[xf(x)]\big|^{\pi}_0-\int^{\pi}_0xf'(x)\text{d}x\\
+  I&=[xf(x)]\bigg|^{\pi}_0-\int^{\pi}_0xf'(x)\text{d}x\\
   &=\pi\int^{\pi}_0\frac{\sin x}{\pi-x}\text{d}x-\int^{\pi}_0\frac{x\sin x}{\pi-x}\text{d}x\\
   &=\int^{\pi}_0\frac{\pi\sin x-x\sin x}{\pi-x}\text{d}x\\
   &=\int^{\pi}_0\sin x\text{d}x\\
-  &=(-\cos x)\big|^{\pi}_0\\
+  &=(-\cos x)\bigg|^{\pi}_0\\
   &=\boxed{2}
 \end{split}
 $$
@@ -322,7 +322,7 @@ $$
 \begin{split}
   S&=\int^1_02t(1-t)^2\text{d}t\\
   &=2\int^1_0(t-2t^2+t^3)\text{d}t\\
-  &=2(\frac{1}{2}t^2-\frac{2}{3}t^3+\frac{1}{4}t^4)\big|^1_0\\
+  &=2(\frac{1}{2}t^2-\frac{2}{3}t^3+\frac{1}{4}t^4)\bigg|^1_0\\
   &=2(\frac{1}{2}-\frac{2}{3}+\frac{1}{4})\\
   &=\boxed{\frac{1}{6}}
 \end{split}
@@ -348,7 +348,7 @@ $$
 \begin{split}
   S_0&=\int^{\frac{\pi}{4}}_0\frac{1}{2}\rho^2\text{d}\theta\\
   &=\frac{1}{2}\int^{\frac{\pi}{4}}_0\cos2\theta\text{d}\theta\\
-  &=\frac{1}{2}(\frac{1}{2}\sin2\theta)\big|^{\frac{\pi}{4}}_0\\
+  &=\frac{1}{2}(\frac{1}{2}\sin2\theta)\bigg|^{\frac{\pi}{4}}_0\\
   &=\frac{1}{4}
 \end{split}
 $$
@@ -386,7 +386,7 @@ $$
   V_x&=\int^{\pi}_0\pi(2\sin x)^2\text{d}x\\
   &=4\pi\int^{\pi}_0\sin^2x\text{d}x\\
   &=4\pi\int^{\pi}_0\frac{1-\cos2x}{2}\text{d}x\\
-  &=4\pi(\frac{1}{2}x-\frac{1}{4}\sin2x)\big|^{\pi}_0\\
+  &=4\pi(\frac{1}{2}x-\frac{1}{4}\sin2x)\bigg|^{\pi}_0\\
   &=\boxed{2\pi^2}
 \end{split}
 $$
@@ -397,7 +397,7 @@ $$
 \begin{split}
   V_y&=\int^{\pi}_02\pi x|2\sin x|\text{d}x\\
   &=4\pi\int^{\pi}_0x\sin x\text{d}x\\
-  &=4\pi[(-x\cos x)\big|^{\pi}_0+\int^{\pi}_0\cos x\text{d}x]\\
+  &=4\pi[(-x\cos x)\bigg|^{\pi}_0+\int^{\pi}_0\cos x\text{d}x]\\
   &=\boxed{4\pi^2}
 \end{split}
 $$
@@ -414,9 +414,9 @@ $$
 \begin{split}
   V&=\int^1_02\pi(e-x)\cdot\frac{1}{e}x\text{d}x+\int^e_12\pi(e-x)(\frac{1}{e}x-\ln x)\text{d}x\\
   &=2\pi\int^1_0(x-\frac{1}{e}x^2)\text{d}x+2\pi\int^e_1(x-e\ln x-\frac{1}{e}x^2+x\ln x)\text{d}x\\
-  &=2\pi(\frac{1}{2}x^2-\frac{1}{3e}x^3)\big|^1_0+2\pi(\frac{1}{2}x^2-\frac{1}{3e}x^3)\big|^e_1+2\pi\int^e_1(x-e)\ln x\text{d}x\\
-  &=\frac{1}{3}\pi e^2+2\pi[(\frac{1}{2}x^2-ex)\ln x\big|^e_1-\int^e_1(\frac{1}{2}x-e)\text{d}x]\\
-  &=\frac{1}{3}\pi e^2+2\pi[-\frac{1}{2}e^2-(\frac{1}{4}x^2-ex)\big|^e_1]\\
+  &=2\pi(\frac{1}{2}x^2-\frac{1}{3e}x^3)\bigg|^1_0+2\pi(\frac{1}{2}x^2-\frac{1}{3e}x^3)\bigg|^e_1+2\pi\int^e_1(x-e)\ln x\text{d}x\\
+  &=\frac{1}{3}\pi e^2+2\pi[(\frac{1}{2}x^2-ex)\ln x\bigg|^e_1-\int^e_1(\frac{1}{2}x-e)\text{d}x]\\
+  &=\frac{1}{3}\pi e^2+2\pi[-\frac{1}{2}e^2-(\frac{1}{4}x^2-ex)\bigg|^e_1]\\
   &=\frac{1}{3}\pi e^2+2\pi[-\frac{1}{2}e^2-(\frac{1}{4}e^2-e^2-\frac{1}{4}+e)]\\
   &=\frac{1}{3}\pi e^2-\pi e^2+\frac{3}{2}\pi e^2+\frac{1}{2}\pi-2\pi e\\
   &=\boxed{\frac{5}{6}\pi e^2-2\pi e+\frac{\pi}{2}}

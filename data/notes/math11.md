@@ -16,7 +16,7 @@ $$
 > [!tip]
 > 区域 $D$ 的面积 $S_D=\iint_D\text{d}x\text{d}y$
 
-### 对称性
+## 对称性
 
 - 若 $D$ 关于 $y$ 轴对称，右半部分记作 $D_1$，那么
 
@@ -36,7 +36,7 @@ $$
 \iint\limits_D f(x,y)\text{d}x\text{d}y=\iint\limits_D f(y,x)\text{d}x\text{d}y
 $$
 
-### 直角坐标系下的二重积分
+## 直角坐标系下的二重积分
 
 ![x-型区域](/static/notes/math11-1.png)
 
@@ -74,14 +74,14 @@ $$
 \end{split}
 $$
 
-### 极坐标系下的二重积分
+## 极坐标系下的二重积分
 
 令 $\begin{cases}x=r\cos\theta\\ y=r\sin\theta\end{cases}$，$\theta\in(\theta_1,\theta_2)$，$r\in(r_1(\theta),r_2(\theta))$
 
 ![极坐标系区域](/static/notes/math11-4.png)
 
 $$
-\iint\limits_D f(x,y)\text{d}x\text{d}y=\int_{\theta_1}^{\theta_2}\text{d}\theta\int_{r_1(\theta)}^{r_2(\theta)}f(r\cos\theta,r\sin\theta)r\text{d}r
+\iint\limits_D f(x,y)\text{d}x\text{d}y=\int_{\theta_1}^{\theta_2}\text{d}\theta\int_{r_1(\theta)}^{r_2(\theta)}f(r\cos\theta,r\sin\theta)\boxed r\text{d}r
 $$
 
 > [!tip]

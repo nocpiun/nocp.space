@@ -83,7 +83,7 @@
       }
     }
     .grid-2 {
-      @apply grid grid-cols-2 min-w-[550px];
+      @apply grid grid-cols-2 max-md:grid-cols-1;
     }
     footer {
       @apply px-4 pt-4 border-t border-muted space-y-1;

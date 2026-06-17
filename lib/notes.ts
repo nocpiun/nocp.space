@@ -30,7 +30,11 @@ export function getAllNotes<T extends boolean = false>(containContent: T): T ext
       list.push({ ...front, slug: fileName.replace(".md", "") });
     }
   }
-  list.sort((a, b) => b.date.getTime() - a.date.getTime());
+  list.sort((a, b) => (
+    a.date.getTime() !== b.date.getTime()
+    ? b.date.getTime() - a.date.getTime()
+    : b.title.localeCompare(a.title)
+  ));
   return list;
 }
 

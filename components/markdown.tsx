@@ -70,7 +70,10 @@ export function Markdown({ wrapper, children, enableKatex = true }: {
         tbody: TableBody,
         th: TableHead,
         tr: TableRow,
-        td: TableCell
+        td: TableCell,
+        boxed: ({ children }) => (
+          <span className="boxed">{children}</span>
+        )
       },
       renderRule(next, node, renderChildren, state) {
         if(node.type === RuleType.blockQuote && node.alert) {

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   Card,
   CardDescription,
@@ -25,7 +24,7 @@ export function LinkCard({
       className="h-28 p-0 flex flex-row gap-0 overflow-hidden rounded-md group cursor-pointer"
       title={url}
       onClick={() => handleClick()}>
-      <Image src={avatar} alt={name} width={112} height={112} className="object-cover"/>
+      <img src={avatar} alt={name} width={112} height={112} className="object-cover"/>
       <div className="p-5 flex flex-col justify-between">
         <CardTitle>
           <Button className="text-xl p-0 font-semibold cursor-pointer group-hover:underline" variant="link">

@@ -63,7 +63,7 @@
         "name": "Casear的技术栈",
         "description": "如果你有机会到好望角，请在海边的石头上刻下我的故事👨‍💻",
         "url": "https://casear.net",
-        "avatar": "https://casear.net/static/img/eae10f098ce1f671fa0e60d899bf545e.avatar.svg"
+        "avatar": "https://img.casear.net/img/eae10f098ce1f671fa0e60d899bf545e.avatar.svg"
     },
     {
         "name": "OPanel",
@@ -99,7 +99,7 @@
         "name": "worable's Blog",
         "description": "≡ω≡ 嗯对，一名普通的职一牲~",
         "url": "https://worable.top",
-        "avatar": "https://worable.top/wp-content/uploads/2026/02/2026020109015019.jpg"
+        "avatar": "https://www.worable.top/wp-content/uploads/2026/02/2026020109015019.jpg"
     },
     {
         "name": "Nernge Blog",
@@ -118,5 +118,11 @@
         "description": "whirling in rags",
         "url": "https://limening.vercel.app",
         "avatar": "https://limening.vercel.app/img/base/avatar.jpg"
+    },
+    {
+        "name": "寒士杰克",
+        "description": "喜欢捣鼓，不断进步！",
+        "url": "https://hansjack.com",
+        "avatar": "https://www.hansjack.com/favicon.ico"
     }
 ]

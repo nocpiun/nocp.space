@@ -3,6 +3,7 @@ title: "论如何免费的游玩离线Minecraft"
 author: NriotHrreion
 tags:
 - "Minecraft"
+- "教程"
 excerpt: "免费游玩离线Minecraft教程"
 date: 2023-07-07
 ---

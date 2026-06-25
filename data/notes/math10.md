@@ -131,7 +131,10 @@ $$
 
 $$
 \begin{split}
-  \frac{\partial^2f}{\partial x^2}&=\frac{\partial}{\partial x}(\frac{\partial f}{\partial u}\frac{\partial u}{\partial x}+\frac{\partial f}{\partial v}\frac{\partial v}{\partial x})\\
+  \frac{\partial^2f}{\partial x^2}
+  &=\frac{\partial}{\partial x}(\underbrace{\frac{\partial f}{\partial u}}_A\underbrace{\frac{\partial u}{\partial x}}_B+\underbrace{\frac{\partial f}{\partial v}\frac{\partial v}{\partial x}}_C)\\
+  &=\underbrace{\frac{\partial}{\partial x}(\frac{\partial f}{\partial u})}_{A'}\underbrace{\frac{\partial u}{\partial x}}_B+\underbrace{\frac{\partial f}{\partial u}}_A\underbrace{\frac{\partial^2u}{\partial x^2}}_{B'}+\underbrace{\frac{\partial}{\partial x}(\frac{\partial f}{\partial v}\frac{\partial v}{\partial x})}_{C'}\\
+  &=\underbrace{(\frac{\partial}{\partial u}(\frac{\partial f}{\partial u})\frac{\partial u}{\partial x}+\frac{\partial}{\partial v}(\frac{\partial f}{\partial u})\frac{\partial v}{\partial x})}_{A'}\underbrace{\frac{\partial u}{\partial x}}_B+\underbrace{\frac{\partial f}{\partial u}}_A\underbrace{\frac{\partial^2u}{\partial x^2}}_{B'}+\underbrace{\frac{\partial}{\partial x}(\frac{\partial f}{\partial v}\frac{\partial v}{\partial x})}_{C'}\\
   &=(\frac{\partial^2 f}{\partial u^2}\frac{\partial u}{\partial x}+\frac{\partial^2 f}{\partial u\partial v}\frac{\partial v}{\partial x})\frac{\partial u}{\partial x}+\frac{\partial f}{\partial u}\frac{\partial^2 u}{\partial x^2}+(\frac{\partial^2 f}{\partial v\partial u}\frac{\partial u}{\partial x}+\frac{\partial^2 f}{\partial v^2}\frac{\partial v}{\partial x})\frac{\partial v}{\partial x}+\frac{\partial f}{\partial v}\frac{\partial^2 v}{\partial x^2}
 \end{split}
 $$

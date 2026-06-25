@@ -9,30 +9,30 @@ date: 2026-06-16
 
 ## 第一型曲线积分（对弧长）
 
-对于曲线 $L:\begin{cases}x=x(t)\\ y=y(t)\end{cases}$，$t\in[a,b]$，则
+对于一根弯曲铁丝 $L:\begin{cases}x=x(t)\\ y=y(t)\end{cases}$，$t\in[a,b]$，其不同位置的质量为 $f(x,y)$，则其总质量为
 
 $$
-\int\limits_L f(x,y)\text{d}s=\int_a^bf(x(t),y(t))\sqrt{[x'(t)]^2+[y'(t)]^2}\text{d}t
+\int\limits_L f(x,y)\text{d}l=\int_a^bf(x(t),y(t))\sqrt{[x'(t)]^2+[y'(t)]^2}\text{d}t
 $$
 
-对于曲线 $L:y=f(x)$，$x\in[a,b]$，则 $L:\begin{cases}x=x\\ y=f(x)\end{cases}$，那么
+对于铁丝 $L:y=f(x)$，$x\in[a,b]$，则 $L:\begin{cases}x=x\\ y=f(x)\end{cases}$，那么
 
 $$
-\int\limits_L f(x,y)\text{d}s=\int_a^bf(x,f(x))\sqrt{1+[f'(x)]^2}\text{d}x
+\int\limits_L f(x,y)\text{d}l=\int_a^bf(x,f(x))\sqrt{1+[f'(x)]^2}\text{d}x
 $$
 
 ## 第二型曲线积分（对坐标）
 
-对于曲线 $L:\begin{cases}x=x(t)\\ y=y(t)\end{cases}$，$t\in[a,b]$，则
+在风场中，$x$，$y$ 方向的风力分别为 $P(x,y)$，$Q(x,y)$，人走过的路径 $L:\begin{cases}x=x(t)\\ y=y(t)\end{cases}$，$t\in[a,b]$，则风力对人做的功为
 
 $$
-\int\limits_L P(x,y)\text{d}x+Q(x,y)\text{d}y=\int_a^b[P(x(t),y(t))x'(t)+Q(x(t),y(t))y'(t)]\text{d}t
+\int\limits_L P(x,y)\text{d}x+Q(x,y)\text{d}y=\int_a^b[P(x(t),y(t))\frac{\text{d}x}{\text{d}t}+Q(x(t),y(t))\frac{\text{d}y}{\text{d}t}]\text{d}t
 $$
 
-对于曲线 $L:y=f(x)$，$x\in[a,b]$，则 $L:\begin{cases}x=x\\ y=f(x)\end{cases}$，那么
+对于路径 $L:y=f(x)$，$x\in[a,b]$，则 $L:\begin{cases}x=x\\ y=f(x)\end{cases}$，那么
 
 $$
-\int\limits_L P(x,y)\text{d}x+Q(x,y)\text{d}y=\int_a^b[P(x,f(x))+Q(x,f(x))f'(x)]\text{d}x
+\int\limits_L P(x,y)\text{d}x+Q(x,y)\text{d}y=\int_a^b[P(x,f(x))+Q(x,f(x))\frac{\text{d}y}{\text{d}x}]\text{d}x
 $$
 
 ## 格林公式

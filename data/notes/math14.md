@@ -9,15 +9,15 @@ date: 2026-06-16
 
 ## 第一型曲面积分（对面积）
 
-设曲面 $S:z=z(x,y)$，$(x,y)\in D$，$f(x,y,z)$ 是 $S$ 上的连续函数，则
+对于一片弯曲铁片 $S:z=z(x,y)$，$(x,y)\in D$，其不同位置的质量为 $f(x,y,z)$，则其总质量为
 
 $$
-\iint\limits_S f(x,y,z)\text{d}s=\iint\limits_D f(x,y,z(x,y))\sqrt{1+(\frac{\partial z}{\partial x})^2+(\frac{\partial z}{\partial y})^2}\text{d}x\text{d}y
+\iint\limits_S f(x,y,z)\text{d}S=\iint\limits_D f(x,y,z(x,y))\sqrt{1+(\frac{\partial z}{\partial x})^2+(\frac{\partial z}{\partial y})^2}\text{d}x\text{d}y
 $$
 
 ## 第二型曲面积分（对坐标）
 
-设曲面 $S:z=z(x,y)$，$S$ 在 $xOy$ 平面的投影为 $D$，则
+在磁场中，$x$，$y$，$z$ 方向的磁感应强度分别为 $P(x,y,z)$，$Q(x,y,z)$，$R(x,y,z)$，设曲面 $S:z=z(x,y)$，$S$ 在 $xOy$ 或 $yOz$ 平面的投影为 $D$，则该曲面的磁通量为
 
 $$
 \iint\limits_S R(x,y,z)\text{d}x\text{d}y=\iint\limits_D R(x,y,z(x,y))\text{d}x\text{d}y

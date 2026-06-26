@@ -95,3 +95,46 @@ $$
   &=-\frac{9}{2}\pi
 \end{split}
 $$
+
+#### 例题 3
+
+(_南京邮电大学2023-2024期末考试_) 计算 $\iint_\Sigma(x^3+az^2)\text{d}y\text{d}z+(y^3+ax^2)\text{d}z\text{d}x+(z^3+ay^2)\text{d}x\text{d}y$，其中 $\Sigma$ 为上半球面 $z=\sqrt{a^2-x^2-y^2}\;(a>0)$ 的上侧。
+
+由于 $\Sigma$ 不是闭合曲面，令 $\Sigma_1:x^2+y^2\leq a^2,z=0$ 将其补全为 $\Sigma+\Sigma_1$，然后使用闭合曲面积分
+
+$$
+\begin{split}
+  \oiint\limits_{\Sigma+\Sigma_1}
+  &=\iiint\limits_V(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z})\text{d}x\text{d}y\text{d}z\\
+  &=\iiint\limits_V(3x^2+3y^2+3z^2)\text{d}x\text{d}y\text{d}z\\
+  &=3\iiint\limits_V(x^2+y^2+z^2)\text{d}x\text{d}y\text{d}z\\
+  &=3\int_0^{2\pi}\text{d}\theta\int_0^\frac{\pi}{2}\text{d}\phi\int_0^a(r^2\sin^2\phi\cos^2\theta+r^2\sin^2\phi\sin^2\theta+r^2\cos^2\phi)r^2\sin\phi\text{d}r\\
+  &=3\int_0^{2\pi}\text{d}\theta\int_0^\frac{\pi}{2}\sin\phi\text{d}\phi\int_0^ar^4\text{d}r\\
+  &=3\int_0^{2\pi}\text{d}\theta\int_0^\frac{\pi}{2}\sin\phi\text{d}\phi(\frac{1}{5}r^5)\bigg|_0^a\\
+  &=\frac{3}{5}a^5\int_0^{2\pi}\text{d}\theta\int_0^\frac{\pi}{2}\sin\phi\text{d}\phi\\
+  &=\frac{3}{5}a^5\int_0^{2\pi}\text{d}\theta\\
+  &=\frac{6\pi a^5}{5}\\
+\end{split}
+$$
+
+计算底面 $\Sigma_1$ 的积分
+
+$$
+\begin{split}
+  &\iint\limits_{\Sigma_1}(z^3+ay^2)\text{d}x\text{d}y\\
+  &=-\iint\limits_D(z^3+ay^2)\text{d}x\text{d}y\\
+  &=-\iint\limits_D ay^2\text{d}x\text{d}y\\
+  &=-a\int_0^{2\pi}\text{d}\theta\int_0^ar^3\sin^2\theta\text{d}r\\
+  &=-a\int_0^{2\pi}\sin^2\theta\text{d}\theta(\frac{1}{4}r^4)\bigg|_0^a\\
+  &=-\frac{a^5}{4}\int_0^{2\pi}\sin^2\theta\text{d}\theta\\
+  &=-\frac{a^5}{4}\cdot4\int_0^\frac{\pi}{2}\sin^2\theta\text{d}\theta\\
+  &=-a^5\cdot\frac{1}{2}\cdot\frac{\pi}{2}\\
+  &=-\frac{\pi a^5}{4}
+\end{split}
+$$
+
+将闭合曲面积分中的底面积分减去，即可得到原积分
+
+$$
+\iint\limits_\Sigma=\oiint\limits_{\Sigma+\Sigma_1}-\iint\limits_{\Sigma_1}=\frac{6\pi a^5}{5}+\frac{\pi a^5}{4}=\frac{29\pi a^5}{20}
+$$

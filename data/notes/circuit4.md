@@ -86,7 +86,7 @@ $$
 ![复数的复平面表示](/static/notes/circuit4-2.png)
 
 对于复平面中的复数 $A$，有如下的书写形式：
-- 直角坐标形式：$A=a_1+ja_2$
+- 直角坐标形式：$A=a_1+ja_2=a\cos\phi+ja\sin\phi$
 - 三角形式：$A=a(\cos\phi+j\sin\phi)$
 - 指数形式：$A=ae^{j\phi}$
 - 极坐标形式：$A=a\angle\phi$

@@ -32,13 +32,13 @@ $$
 - 无限长带电直导线在距离 $x$ 处产生的电场强度
 
 $$
-E=\frac{\lambda}{2\pi\epsilon_0x}
+E=\frac{\sigma}{2\pi\epsilon_0x}
 $$
 
 - 有限长带电直导线在距离中点 $x$ 处产生的电场强度
 
 $$
-E=\frac{\lambda}{2\pi\epsilon_0x}\sin\theta_0
+E=\frac{\sigma}{2\pi\epsilon_0x}\sin\theta_0
 $$
 
 > [!info]
@@ -353,6 +353,12 @@ $$
 $$
 \mu=\mu_0\mu_r
 $$
+
+> [!info]
+> 对于相对磁导率 $\mu_r$，满足：
+> - 顺磁质：$\mu_r>1$
+> - 铁磁质：$\mu_r\gg1$
+> - 抗磁质：$\mu_r<1$
 
 ## 磁场能
 

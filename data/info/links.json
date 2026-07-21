@@ -124,5 +124,11 @@
         "description": "喜欢捣鼓，不断进步！",
         "url": "https://hansjack.com",
         "avatar": "https://www.hansjack.com/favicon.ico"
+    },
+    {
+        "name": "天狗的博客",
+        "description": "一个记录生活的博客",
+        "url": "https://tengu.l2.ink",
+        "avatar": "https://tengu.l2.ink/wp-content/uploads/2026/07/cropped-Camera_XHS_17834972703201040g00831dq5qmlm0m6g5od3.jpg"
     }
 ]

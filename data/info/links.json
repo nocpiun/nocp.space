@@ -30,12 +30,6 @@
         "avatar": "https://avatars.githubusercontent.com/u/79007796?v=4"
     },
     {
-        "name": "橙の小站",
-        "description": "靠自己，实际一些！",
-        "url": "https://blog.zhaozilin.cn",
-        "avatar": "https://thirdqq.qlogo.cn/g?b=sdk&nk=2752718571&s=640"
-    },
-    {
         "name": "記緒漂流",
         "description": "于记忆之川，泛思绪之舟。",
         "url": "https://ttio.cc",
@@ -114,12 +108,6 @@
         "avatar": "https://limening.vercel.app/img/base/avatar.jpg"
     },
     {
-        "name": "寒士杰克",
-        "description": "喜欢捣鼓，不断进步！",
-        "url": "https://hansjack.com",
-        "avatar": "https://www.hansjack.com/favicon.ico"
-    },
-    {
         "name": "天狗的博客",
         "description": "一个记录生活的博客",
         "url": "https://tengu.l2.ink",
@@ -136,5 +124,11 @@
         "description": "愛玩CS和麥塊",
         "url": "https://www.anontokyo.icu",
         "avatar": "https://www.anontokyo.icu/anontokyo.jpg"
+    },
+    {
+        "name": "sssr7844",
+        "description": "为了未来",
+        "url": "https://sssr7844.cc.cd",
+        "avatar": "https://sssr7844.cc.cd/wp-content/uploads/2026/07/1785027509-%E9%9C%9E%E5%A1%94_original-scaled-e1785157015117.jpg"
     }
 ]

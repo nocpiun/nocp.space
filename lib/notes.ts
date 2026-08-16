@@ -1,5 +1,3 @@
-import fs from "fs";
-import path from "path";
 import matter from "gray-matter";
 
 export interface Note {
@@ -14,18 +12,22 @@ export type NoteWithContent = Omit<ReturnType<typeof matter>, "data"> & {
   data: Note;
 };
 
-const notesDirectory = path.resolve(process.cwd(), "data/notes");
+const noteSources = import.meta.glob("../data/notes/*.md", {
+  eager: true,
+  import: "default",
+  query: "?raw",
+});
+
+function parseNote(slug: string, fileContent: string): NoteWithContent {
+  const note = matter(fileContent) as NoteWithContent;
+  note.data = { ...note.data, slug };
+  return note;
+}
 
 export function getAllNotes<T extends boolean = false>(containContent: T): T extends true ? NoteWithContent[] : Note[] {
-  const notes = fs.readdirSync(notesDirectory).map(fileName => {
-    const fileContent = fs.readFileSync(path.join(notesDirectory, fileName), "utf-8");
-    const note = matter(fileContent) as NoteWithContent;
-    note.data = {
-      ...note.data,
-      slug: fileName.replace(".md", ""),
-    };
-    return note;
-  });
+  const notes = Object.entries(noteSources).map(([filePath, fileContent]) => (
+    parseNote(filePath.replace(/^.*\//, "").replace(/\.md$/, ""), fileContent)
+  ));
 
   notes.sort(({ data: a }, { data: b }) => (
     a.date.getTime() !== b.date.getTime()
@@ -37,13 +39,8 @@ export function getAllNotes<T extends boolean = false>(containContent: T): T ext
 }
 
 export function getNote(slug: string): NoteWithContent | null {
-  const filePath = path.join(notesDirectory, `${slug}.md`);
-  if(!fs.existsSync(filePath)) return null;
-
-  const fileContent = fs.readFileSync(filePath, "utf-8");
-  const note = matter(fileContent) as NoteWithContent;
-  note.data = { ...note.data, slug };
-  return note;
+  const fileContent = noteSources[`../data/notes/${slug}.md`];
+  return fileContent === undefined ? null : parseNote(slug, fileContent);
 }
 
 export function getNoteByTitle(title: string): Note | null {

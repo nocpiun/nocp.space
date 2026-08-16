@@ -1,5 +1,3 @@
-import fs from "fs";
-import path from "path";
 import matter from "gray-matter";
 
 export interface Post {
@@ -18,18 +16,22 @@ export type Article = Omit<ReturnType<typeof matter>, "data"> & {
   data: Post;
 };
 
-const postsDirectory = path.resolve(process.cwd(), "data/posts");
+const postSources = import.meta.glob("../data/posts/*.md", {
+  eager: true,
+  import: "default",
+  query: "?raw",
+});
+
+function parseArticle(slug: string, fileContent: string): Article {
+  const article = matter(fileContent) as Article;
+  article.data = { ...article.data, slug };
+  return article;
+}
 
 export function getAllArticles<T extends boolean = false>(containContent: T): T extends true ? Article[] : Post[] {
-  const articles = fs.readdirSync(postsDirectory).map(fileName => {
-    const fileContent = fs.readFileSync(path.join(postsDirectory, fileName), "utf-8");
-    const article = matter(fileContent) as Article;
-    article.data = {
-      ...article.data,
-      slug: fileName.replace(".md", ""),
-    };
-    return article;
-  });
+  const articles = Object.entries(postSources).map(([filePath, fileContent]) => (
+    parseArticle(filePath.replace(/^.*\//, "").replace(/\.md$/, ""), fileContent)
+  ));
 
   articles.sort(({ data: a }, { data: b }) => (
     a.date.getTime() !== b.date.getTime()
@@ -41,13 +43,8 @@ export function getAllArticles<T extends boolean = false>(containContent: T): T 
 }
 
 export function getArticle(slug: string): Article | null {
-  const filePath = path.join(postsDirectory, `${slug}.md`);
-  if(!fs.existsSync(filePath)) return null;
-
-  const fileContent = fs.readFileSync(filePath, "utf-8");
-  const article = matter(fileContent) as Article;
-  article.data = { ...article.data, slug };
-  return article;
+  const fileContent = postSources[`../data/posts/${slug}.md`];
+  return fileContent === undefined ? null : parseArticle(slug, fileContent);
 }
 
 export function getPostByTitle(title: string): Post | null {

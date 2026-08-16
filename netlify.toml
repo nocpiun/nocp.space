@@ -22,8 +22,3 @@
     to = "https://nocp.space/blog"
     status = 301
     force = true
-
-[[redirects]]
-    from = "/*"
-    to = "/"
-    status = 200

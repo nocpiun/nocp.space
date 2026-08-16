@@ -1,6 +1,6 @@
 # [nocp.space](https://nocp.space)
 
-This is Norcleeh's Site written in Nextjs (vinext) + Typescript. Deployed on Netlify.
+This is Norcleeh's Site written in Next.js (vinext) + TypeScript. Deployed on Cloudflare Workers.
 
 ## Deploy
 

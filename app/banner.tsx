@@ -1,12 +1,17 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import { Book, ExternalLink, Github, Mail, Tv } from "lucide-react";
-import SplitText from "@/components/animations/split-text";
+import { Book, Github, Mail, Tv } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { githubAccount } from "@/lib/global";
 
 import Avatar from "@/assets/images/avatar.jpg";
+
+const SplitText = dynamic(
+  () => import("@/components/animations/split-text"),
+  { ssr: false },
+);
 
 export function Banner() {
   return (

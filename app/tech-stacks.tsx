@@ -1,7 +1,14 @@
-import SplitText from "@/components/animations/split-text";
+"use client";
+
+import dynamic from "next/dynamic";
 import CountUp from "@/components/animations/count-up";
 
 import TechStackLogos from "@/assets/images/techstacks.svg?react";
+
+const SplitText = dynamic(
+  () => import("@/components/animations/split-text"),
+  { ssr: false },
+);
 
 export function TechStacks() {
   return (

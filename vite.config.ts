@@ -1,8 +1,8 @@
 import { readFile } from "node:fs/promises";
 import { extname } from "node:path";
 
+import { cloudflare } from "@cloudflare/vite-plugin";
 import tailwindcss from "@tailwindcss/vite";
-import { nitro } from "nitro/vite";
 import vinext from "vinext";
 import { defineConfig, type Plugin } from "vite";
 import svgr from "vite-plugin-svgr";
@@ -24,14 +24,17 @@ function rawAbcImports(): Plugin {
   };
 }
 
-export default defineConfig(({ command }) => ({
-  
+export default defineConfig({
   plugins: [
     rawAbcImports(),
     svgr(),
     tailwindcss(),
     vinext(),
-    // workaround for https://github.com/cloudflare/vinext/issues/853
-    ...(command === "build" ? [nitro()] : []),
+    cloudflare({
+      viteEnvironment: {
+        name: "rsc",
+        childEnvironments: ["ssr"],
+      },
+    }),
   ],
-}));
+});

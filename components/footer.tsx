@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { Award, ShieldCheck, TramFront } from "lucide-react";
 
-import NetlifyLogo from "@/assets/images/netlify.png";
-
 export function Footer() {
   return (
     <footer className="py-20 text-sm text-center space-y-2">
@@ -11,14 +9,11 @@ export function Footer() {
       <p className="space-x-6">
         <Link href="https://github.com/nocpiun/nocp.space">Source Code</Link>
         <Link
-          href="https://netlify.com"
-          title="本站部署于Netlify"
+          className="space-x-1"
+          href="https://www.cloudflare.com/"
+          title="本站部署于 Cloudflare Workers"
           target="_blank">
-          <img
-            className="w-5 h-5 inline-block mr-2"
-            src={NetlifyLogo.src}
-            alt="netlify"/>
-          Netlify
+          <span>Cloudflare</span>
         </Link>
         <Link
           className="space-x-1"

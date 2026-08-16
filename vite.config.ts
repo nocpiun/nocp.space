@@ -7,14 +7,14 @@ import vinext from "vinext";
 import { defineConfig, type Plugin } from "vite";
 import svgr from "vite-plugin-svgr";
 
-function rawTextImports(): Plugin {
+function rawAbcImports(): Plugin {
   return {
-    name: "raw-text-imports",
+    name: "raw-abc-imports",
     enforce: "pre",
     async load(id) {
       const filePath = id.replace(/\?.*$/, "");
 
-      if (![".abc", ".txt"].includes(extname(filePath))) {
+      if(extname(filePath) !== ".abc") {
         return null;
       }
 
@@ -27,7 +27,7 @@ function rawTextImports(): Plugin {
 export default defineConfig(({ command }) => ({
   
   plugins: [
-    rawTextImports(),
+    rawAbcImports(),
     svgr(),
     tailwindcss(),
     vinext(),

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import template from "./llms.template.txt";
+import template from "./llms.template.txt?raw";
 import { getAllArticles, Post } from "@/lib/blog";
 import { getAllNotes, Note } from "@/lib/notes";
 import { githubAccount, siteDescription, siteName } from "@/lib/global";

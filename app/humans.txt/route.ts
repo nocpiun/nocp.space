@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import template from "./humans.template.txt";
+import template from "./humans.template.txt?raw";
 
 export const dynamic = "force-static";
 

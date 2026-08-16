@@ -1,7 +1,7 @@
 import SplitText from "@/components/animations/split-text";
 import CountUp from "@/components/animations/count-up";
 
-import TechStackLogos from "@/assets/images/techstacks.svg";
+import TechStackLogos from "@/assets/images/techstacks.svg?react";
 
 export function TechStacks() {
   return (

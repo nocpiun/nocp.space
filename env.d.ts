@@ -1,3 +1,7 @@
+/// <reference types="vinext/types" />
+/// <reference types="vite/client" />
+/// <reference types="vite-plugin-svgr/client" />
+
 declare module "highlightjs-abc" {
   import type { Language } from "highlight.js";
 

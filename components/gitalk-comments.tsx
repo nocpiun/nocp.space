@@ -23,7 +23,7 @@ export function GitalkComments({
 
     const gitalk = new Gitalk(gitalkOptions);
     gitalk.render(containerRef.current);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // oxlint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <div ref={containerRef}/>;

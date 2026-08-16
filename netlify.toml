@@ -1,3 +1,10 @@
+[build]
+    command = "npm run build"
+    publish = "dist"
+
+[build.environment]
+    NITRO_PRESET = "netlify"
+
 [[redirects]]
     from = "https://blog.nocp.space/*"
     to = "https://nocp.space/blog"
@@ -15,8 +22,3 @@
     to = "https://nocp.space/blog"
     status = 301
     force = true
-
-[[redirects]]
-    from = "/*"
-    to = "/"
-    status = 200

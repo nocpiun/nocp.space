@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { loadFront } from "yaml-front-matter";
+import matter from "gray-matter";
 
 export interface Note {
   slug: string
@@ -10,32 +10,30 @@ export interface Note {
   tags: string[]
 }
 
-export type NoteWithContent = Note & { __content: string };
+export type NoteWithContent = Omit<ReturnType<typeof matter>, "data"> & {
+  data: Note;
+};
 
 const notesDirectory = path.resolve(process.cwd(), "data/notes");
 
 export function getAllNotes<T extends boolean = false>(containContent: T): T extends true ? NoteWithContent[] : Note[] {
-  const list = [];
-  const files = fs.readdirSync(notesDirectory);
-  for(const fileName of files) {
-    const filePath = path.join(notesDirectory, fileName);
-    const fileContent = fs.readFileSync(filePath, "utf-8");
-    const front = loadFront(fileContent) as NoteWithContent;
+  const notes = fs.readdirSync(notesDirectory).map(fileName => {
+    const fileContent = fs.readFileSync(path.join(notesDirectory, fileName), "utf-8");
+    const note = matter(fileContent) as NoteWithContent;
+    note.data = {
+      ...note.data,
+      slug: fileName.replace(".md", ""),
+    };
+    return note;
+  });
 
-    if(!containContent) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { __content, ...info } = front;
-      (list as Note[]).push({ ...info, slug: fileName.replace(".md", "") });
-    } else {
-      list.push({ ...front, slug: fileName.replace(".md", "") });
-    }
-  }
-  list.sort((a, b) => (
+  notes.sort(({ data: a }, { data: b }) => (
     a.date.getTime() !== b.date.getTime()
-    ? b.date.getTime() - a.date.getTime()
-    : b.title.localeCompare(a.title)
+      ? b.date.getTime() - a.date.getTime()
+      : b.title.localeCompare(a.title)
   ));
-  return list;
+
+  return (containContent ? notes : notes.map(note => note.data)) as T extends true ? NoteWithContent[] : Note[];
 }
 
 export function getNote(slug: string): NoteWithContent | null {
@@ -43,8 +41,9 @@ export function getNote(slug: string): NoteWithContent | null {
   if(!fs.existsSync(filePath)) return null;
 
   const fileContent = fs.readFileSync(filePath, "utf-8");
-  const front = loadFront(fileContent);
-  return { ...front, slug } as NoteWithContent;
+  const note = matter(fileContent) as NoteWithContent;
+  note.data = { ...note.data, slug };
+  return note;
 }
 
 export function getNoteByTitle(title: string): Note | null {

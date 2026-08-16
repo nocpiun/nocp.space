@@ -18,15 +18,17 @@ const feed = new Feed({
 });
 
 getAllArticles(true).forEach(article => {
+  const { data } = article;
+
   feed.addItem({
-    title: article.title,
-    id: `https://nocp.space/blog/${article.slug}`,
-    link: `https://nocp.space/blog/${article.slug}`,
-    description: article.excerpt,
-    content: article.__content,
-    author: [{ name: article.author }],
-    date: article.date,
-    image: article.photo ? `https://nocp.space${article.photo}` : undefined,
+    title: data.title,
+    id: `https://nocp.space/blog/${data.slug}`,
+    link: `https://nocp.space/blog/${data.slug}`,
+    description: data.excerpt,
+    content: article.content,
+    author: [{ name: data.author }],
+    date: data.date,
+    image: data.photo ? `https://nocp.space${data.photo}` : undefined,
   });
 });
 

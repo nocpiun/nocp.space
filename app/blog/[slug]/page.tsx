@@ -18,9 +18,9 @@ export async function generateMetadata({
   if(!article) return {};
 
   return {
-    title: `${blogName} - ${article?.title}`,
-    description: article?.excerpt,
-    keywords: [...siteKeywords, ...article.tags],
+    title: `${blogName} - ${article.data.title}`,
+    description: article.data.excerpt,
+    keywords: [...siteKeywords, ...article.data.tags],
   };
 }
 
@@ -37,15 +37,17 @@ export default async function Article({
     return <div></div>;
   }
 
+  const { data } = article;
+
   return (
     <div className="page-padding flex flex-col gap-10">
       <div className="mt-6 flex flex-col gap-12">
-        <h1 className="text-4xl font-bold">{article.title}</h1>
+        <h1 className="text-4xl font-bold">{data.title}</h1>
         <div className="space-x-4 *:whitespace-nowrap *:inline-block">
-          <span className="text-secondary-foreground">By {article.author}</span>
-          <span className="text-yellow-600">{formatDate(article.date)}</span>
+          <span className="text-secondary-foreground">By {data.author}</span>
+          <span className="text-yellow-600">{formatDate(data.date)}</span>
           <div className="inline-block space-x-2">
-            {article.tags.map((tag, i) => (
+            {data.tags.map((tag, i) => (
               <Link
                 href={`/blog/tag/${tag}`}
                 key={i}>
@@ -54,7 +56,7 @@ export default async function Article({
             ))}
           </div>
         </div>
-        {article.hasAI && (
+        {data.hasAI && (
           <Alert className="rounded-md">
             <Bot />
             <AlertTitle>本文包含AI生成内容</AlertTitle>
@@ -64,9 +66,9 @@ export default async function Article({
           </Alert>
         )}
       </div>
-      <div className="min-md:px-4">
+      <div className="md:px-4">
         <Markdown wrapper>
-          {article.__content}
+          {article.content}
         </Markdown>
       </div>
     </div>

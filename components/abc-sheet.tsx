@@ -27,12 +27,12 @@ export function AbcSheet({
       paddingbottom: 100,
       oneSvgPerLine: true
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // oxlint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div
       id={id}
-      className="!overflow-visible !h-fit [&>*]:!overflow-visible [&_*]:font-normal [&>*]:!h-72 [&_svg]:h-full mb-20"/>
+      className="overflow-visible! h-fit! *:overflow-visible! **:font-normal **:h-72! [&_svg]:h-full mb-20"/>
   );
 }

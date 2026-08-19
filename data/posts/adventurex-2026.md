@@ -4,7 +4,6 @@ author: NriotHrreion
 tags:
 - "小文章"
 - "黑客松"
-- "AdventureX"
 excerpt: "第一次参加黑客松就来到了中国最大的黑客松 AdventureX，舒适的开发环境和认识的新朋友一起构成了这个夏天最难忘的记忆"
 date: 2026-08-03
 ---

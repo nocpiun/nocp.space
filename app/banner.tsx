@@ -30,12 +30,12 @@ export function Banner() {
           src={Avatar.src}
           alt="avatar"/>
         <span className="mt-10 text-lg *:leading-9 max-md:text-center">
-          我是一个热爱前端开发、音乐和Minecraft的学生，<br />
+          我是一个热爱代码、开源、音乐和Minecraft的学生，<br />
           很高兴能见到你！👋
         </span>
         <div className="mt-6 flex flex-wrap max-md:justify-center gap-0 [&>a]:text-foreground [&>a]:no-underline [&>a]:rounded-full">
           <Button
-            className="!text-white bg-theme hover:bg-theme-foreground mr-2"
+            className="text-white! bg-theme hover:bg-theme-foreground mr-2"
             size="lg"
             asChild>
             <Link href="/blog">

@@ -9,5 +9,10 @@
     "not_found_handling": "none",
     "binding": "ASSETS"
   },
-  "workers_dev": false
+  "workers_dev": false,
+  "observability": {
+    "logs": {
+      "enabled": true
+    }
+  }
 }

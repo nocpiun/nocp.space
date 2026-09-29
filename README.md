@@ -2,20 +2,25 @@
 
 This is Norcleeh's Site written in Next.js (vinext) + TypeScript. Deployed on Cloudflare Workers.
 
-## Deploy
+## Setup
 
 ```bash
 git clone https://github.com/nocpiun/nocp.space.git
 cd nocp.space
-npm i
-npm run build
-npm run start # http://localhost:3000
+npm ci
 ```
 
 ## Development
 
 ```bash
-npm run dev # http://localhost:3000
+npm run dev
+```
+
+## Build and preview
+
+```bash
+npm run build
+npm run start
 ```
 
 ## LICENSE

@@ -25,7 +25,8 @@
   },
   "include": [
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".cloudflare/types"
   ],
   "exclude": [
     "node_modules"

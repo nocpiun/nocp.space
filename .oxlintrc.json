@@ -30,6 +30,7 @@
     }
   },
   "ignorePatterns": [
+    ".cloudflare/**",
     ".netlify/**",
     ".next/**",
     ".output/**",

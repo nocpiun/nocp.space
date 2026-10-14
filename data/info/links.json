@@ -148,5 +148,11 @@
         "description": "一个Frontend学生",
         "url": "https://z41sarrebol.cn",
         "avatar": "https://z41sarrebol.cn/img/avatar.webp"
+    },
+    {
+        "name": "DocJlm",
+        "description": "记录 AI、编程与创造，也分享音乐和生活。",
+        "url": "https://zqcblog.com",
+        "avatar": "https://zqcblog.com/images/avatar.png"
     }
 ]

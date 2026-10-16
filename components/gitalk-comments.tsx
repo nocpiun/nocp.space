@@ -1,30 +1,31 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Gitalk from "gitalk";
+import { Gitalk } from "@aifire/gitalk";
 
 export function GitalkComments({
   issue
 }: {
   issue: number
 }) {
-  const gitalkOptions: Gitalk.GitalkOptions = {
-    clientID: process.env["NEXT_PUBLIC_GITALK_CLIENT_ID"] ?? "",
-    clientSecret: process.env["NEXT_PUBLIC_GITALK_CLIENT_SECRET"] ?? "",
-    repo: "nocp.space-comments",
-    owner: "NriotHrreion",
-    admin: ["NriotHrreion"],
-    number: issue
-  };
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if(!containerRef.current) return;
 
-    const gitalk = new Gitalk(gitalkOptions);
+    const gitalk = new Gitalk({
+      clientID: process.env.NEXT_PUBLIC_GITALK_CLIENT_ID ?? "",
+      proxy: "/api/gitalk",
+      backend: "issues",
+      repo: "nocp.space-comments",
+      owner: "NriotHrreion",
+      admin: ["NriotHrreion"],
+      number: issue
+    });
     gitalk.render(containerRef.current);
-  // oxlint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
+    return () => gitalk.destroy();
+  }, [issue]);
 
   return <div ref={containerRef}/>;
 }

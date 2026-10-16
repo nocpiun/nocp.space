@@ -6,7 +6,7 @@ import { Footer } from "@/components/footer";
 import { siteName, siteDescription, siteKeywords } from "@/lib/global";
 import { cn } from "@/lib/utils";
 
-import "gitalk/dist/gitalk.css";
+import "@aifire/gitalk/style.css";
 import "./globals.css";
 import "./gitalk.css";
 import { googleSansCode, notoSansSC, notoSerifSC } from "@/lib/fonts";

@@ -11,6 +11,8 @@ export default defineConfig({
     },
     env: {
       ASSETS: bindings.assets(),
+      GITALK_CLIENT_SECRET: bindings.secret(),
+      GITALK_SESSION_SECRET: bindings.secret(),
     },
     workersDev: false,
     observability: {

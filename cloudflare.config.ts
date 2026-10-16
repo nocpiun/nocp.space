@@ -1,4 +1,4 @@
-import { bindings, defineConfig, defineWorker } from "cf/config";
+import { bindings, defineConfig, defineWorker, triggers } from "cf/config";
 
 export default defineConfig({
   worker: defineWorker({
@@ -11,8 +11,17 @@ export default defineConfig({
     },
     env: {
       ASSETS: bindings.assets(),
+      GITALK_CLIENT_SECRET: bindings.secret(),
+      GITALK_SESSION_SECRET: bindings.secret(),
     },
+    triggers: [
+      triggers.fetch({
+        pattern: "nocp.space/*",
+        zone: "nocpiun.net",
+      }),
+    ],
     workersDev: false,
+    previewUrls: false,
     observability: {
       logs: {
         enabled: true,

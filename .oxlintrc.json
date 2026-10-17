@@ -36,7 +36,10 @@
     ".output/**",
     ".vinext/**",
     "dist/**",
-    "node_modules/**"
+    "node_modules/**",
+    "components/ui/**",
+    "components/animations/**",
+    "public/using/**",
   ],
   "rules": {
     "react/display-name": "error",
@@ -75,6 +78,19 @@
     "no-unused-expressions": "error",
     "no-unused-vars": "warn",
     "@stylistic/semi": ["error", "always"],
+    "@stylistic/keyword-spacing": ["error", {
+      "after": true,
+      "overrides": {
+        "if": { "after": false },
+        "for": { "after": false },
+        "while": { "after": false },
+        "switch": { "after": false },
+        "with": { "after": false }
+      }
+    }],
+    "@stylistic/brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+    "@stylistic/implicit-arrow-linebreak": ["error", "beside"],
+    "@stylistic/nonblock-statement-body-position": ["error", "beside"],
     "nextjs/google-font-display": "warn",
     "nextjs/google-font-preconnect": "warn",
     "nextjs/next-script-for-ga": "warn",

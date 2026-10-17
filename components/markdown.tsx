@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useEffect } from "react";
@@ -6,7 +5,7 @@ import * as MarkdownJSX from "markdown-to-jsx";
 import { RuleType } from "markdown-to-jsx";
 import hljs from "highlight.js";
 import hljsAbc from "highlightjs-abc";
-import "katex/dist/katex";
+import "katex";
 import "katex/contrib/mhchem";
 import katex from "katex";
 import { CodeBlock } from "./code-block";
@@ -23,25 +22,55 @@ import bash from "@/lib/hljs/bash";
 import { ErrorCallout, InfoCallout, TipCallout, WarningCallout } from "./ui/callout";
 
 function renderLatex(content: string) {
-  // block latex
-  content = content.replace(/\$\$([^\$]+)\$\$/g, (match, formula) => {
+  const codePatterns = [
+    // Fences may contain shorter fences and remain open until the end of the document.
+    /^(?: {0,3}> ?)* {0,3}((`|~)\2{2,})[^\r\n]*(?:\r?\n|$)[\s\S]*?(?:^(?: {0,3}> ?)* {0,3}\1\2*[ \t]*\r?$|(?![\s\S]))/gm,
+    /(?<![\\`])(?:\\\\)*(`+)(?!`)[\s\S]*?(?<!`)\1(?!`)/g,
+    // Indented code starts at the beginning of the document or after a blank line.
+    /(?:^|\r?\n[ \t]*\r?\n)(?:(?: {4}|\t)[^\r\n]*(?:\r?\n|$))+/g,
+  ];
+
+  let result = "";
+  let position = 0;
+
+  while(position < content.length) {
+    let nextCode: RegExpExecArray | null = null;
+
+    for(const pattern of codePatterns) {
+      pattern.lastIndex = position;
+      const match = pattern.exec(content);
+      if(match && (!nextCode || match.index < nextCode.index)) {
+        nextCode = match;
+      }
+    }
+
+    if(!nextCode) break;
+
+    result += renderFormulas(content.slice(position, nextCode.index)) + nextCode[0];
+    position = nextCode.index + nextCode[0].length;
+  }
+
+  return result + renderFormulas(content.slice(position));
+}
+
+function renderFormulas(content: string) {
+  // Keep escaped dollars and prices as text; only display math may span lines.
+  const formulaPattern = /\\[\s\S]|\$\$((?:\\[\s\S]|[^\\$])+?)\$\$|(?<!\$)\$(?![$\s])((?:\\[^\r\n]|[^\\$\r\n])+?)(?<!\s)\$(?![$\d])/g;
+
+  return content.replace(formulaPattern, (match, blockFormula: string | undefined, inlineFormula: string | undefined) => {
+    const formula = blockFormula ?? inlineFormula;
+    if(formula === undefined) return match;
+
     try {
-      return katex.renderToString(formula, { displayMode: true, output: "html", strict: "ignore" });
-    } catch (e) {
+      return katex.renderToString(formula, {
+        displayMode: blockFormula !== undefined,
+        output: "html",
+        strict: "ignore"
+      });
+    } catch {
       return match;
     }
   });
-
-  // inline latex
-  content = content.replace(/\$([^\$]+)\$/g, (match, formula) => {
-    try {
-      return katex.renderToString(formula, { displayMode: false, output: "html", strict: "ignore" });
-    } catch (e) {
-      return match;
-    }
-  });
-
-  return content;
 }
 
 export function Markdown({ wrapper, children, enableKatex = true }: {

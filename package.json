@@ -19,7 +19,7 @@
     "@radix-ui/react-tabs": "^1.1.13",
     "@radix-ui/react-toggle": "^1.1.9",
     "@tanstack/react-table": "^8.21.3",
-    "@vinext/cloudflare": "^1.0.0",
+    "@vinext/cloudflare": "^1.1.1",
     "abcjs": "^6.5.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -29,29 +29,28 @@
     "gsap": "^3.13.0",
     "highlight.js": "^11.11.1",
     "highlightjs-abc": "^1.1.0",
-    "katex": "^0.16.22",
+    "katex": "^0.19.0",
     "lucide-react": "^0.513.0",
     "markdown-to-jsx": "^8.0.0",
     "motion": "^12.23.24",
     "next-themes": "^0.4.6",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
-    "react-server-dom-webpack": "^19.2.8",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-server-dom-webpack": "^19.3.1",
     "tailwind-merge": "^3.3.0",
-    "vinext": "^1.0.0"
+    "vinext": "^1.2.1"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "2.0.0-beta.sha-ad79608dd",
-    "@stylistic/eslint-plugin": "^4.4.1",
+    "@cloudflare/vite-plugin": "2.0.0-beta.v.1",
+    "@stylistic/eslint-plugin": "^5.10.0",
     "@tailwindcss/vite": "^4.3.3",
-    "@types/katex": "^0.16.7",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/rss": "^0.0.32",
-    "@vitejs/plugin-react": "^6.0.5",
-    "@vitejs/plugin-rsc": "^0.5.34",
-    "cf": "1.0.0-beta.5",
+    "@vitejs/plugin-react": "^6.1.0",
+    "@vitejs/plugin-rsc": "^0.5.38",
+    "cf": "1.0.0-beta.18",
     "eslint-plugin-react": "^7.37.5",
     "oxlint": "^1.78.0",
     "tailwindcss": "^4.1.10",
@@ -59,6 +58,11 @@
     "typescript": "^5",
     "vite": "8.3.0",
     "vite-plugin-svgr": "^5.2.0"
+  },
+  "overrides": {
+    "@rolldown/plugin-babel": {
+      "@babel/plugin-transform-runtime": "^7.29.0"
+    }
   },
   "type": "module"
 }

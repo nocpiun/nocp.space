@@ -25,7 +25,8 @@ function renderLatex(content: string) {
   const codePatterns = [
     // Fences may contain shorter fences and remain open until the end of the document.
     /^(?: {0,3}> ?)* {0,3}((`|~)\2{2,})[^\r\n]*(?:\r?\n|$)[\s\S]*?(?:^(?: {0,3}> ?)* {0,3}\1\2*[ \t]*\r?$|(?![\s\S]))/gm,
-    /(?<![\\`])(?:\\\\)*(`+)(?!`)[\s\S]*?(?<!`)\1(?!`)/g,
+    // Inline code may span soft line breaks, but not blank lines.
+    /(?<![\\`])(?:\\\\)*(`+)(?!`)(?:[^\r\n]|\r?\n(?![ \t]*\r?\n))*?(?<!`)\1(?!`)/g,
     // Indented code starts at the beginning of the document or after a blank line.
     /(?:^|\r?\n[ \t]*\r?\n)(?:(?: {4}|\t)[^\r\n]*(?:\r?\n|$))+/g,
   ];

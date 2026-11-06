@@ -154,5 +154,11 @@
         "description": "记录 AI、编程与创造，也分享音乐和生活。",
         "url": "https://zqcblog.com",
         "avatar": "https://zqcblog.com/images/avatar.png"
+    },
+    {
+        "name": "Jov3",
+        "description": "Stay curious.",
+        "url": "https://jov3.cloud",
+        "avatar": "https://jov3.cloud/favicon.svg"
     }
 ]

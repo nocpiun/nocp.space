@@ -1,0 +1,31 @@
+{
+  "name": "nocp.space",
+  "version": "0.1.0",
+  "description": "The command-line companion to nocp.space",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "nocp-space": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "homepage": "https://nocp.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nocpiun/nocp.space.git",
+    "directory": "packages/cli"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5"
+  }
+}

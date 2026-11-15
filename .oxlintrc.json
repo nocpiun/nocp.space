@@ -36,6 +36,8 @@
     ".output/**",
     ".vinext/**",
     "dist/**",
+    "packages/*/dist/**",
+    "packages/*/node_modules/**",
     "node_modules/**",
     "components/ui/**",
     "components/animations/**",

@@ -1,10 +1,16 @@
 {
-  "name": "nocp.space",
+  "name": "nocp-space-web",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "packages/cli"
+  ],
   "scripts": {
     "dev": "vite dev",
+    "cli": "npm run start --workspace=nocp.space",
     "build": "vite build",
+    "build:cli": "npm run build --workspace=nocp.space",
+    "pack:cli": "npm pack --workspace=nocp.space",
     "start": "vite preview",
     "deploy": "vinext-cloudflare deploy",
     "typegen": "cf workers types",

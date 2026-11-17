@@ -1,22 +1,15 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Box, Text, useInput, useWindowSize } from "ink";
-import Link from "ink-link";
 import open from "open";
 import { CommandInput } from "./command-input.js";
 import { homeCommands, type Command } from "./commands.js";
+import { HelpPage } from "./pages/help.js";
+import { HomePage } from "./pages/home.js";
 import { profileLinks } from "./profile.js";
-
-const logo = [
-  "  _  _            _         _    ",
-  " | \\| |___ _ _ __| |___ ___| |_  ",
-  " | .` / _ \\ '_/ _| / -_) -_) ' \\ ",
-  " |_|\\_\\___/_| \\__|_\\___\\___|_||_|",
-].join("\n");
+import { colors } from "./theme.js";
 
 const maxVisibleCommands = 6;
 const initialSelection = { index: 0, start: 0 };
-
-const logoWidth = Math.max(...logo.split("\n").map(line => line.length));
 
 async function openExternalUrl(url: string) {
   await open(url);
@@ -28,19 +21,14 @@ type AppProps = {
   commands?: readonly Command[];
 };
 
-const colors = {
-  background: "#0b0b0b",
-  card: "#111111",
-  border: "#484848",
-  text: "#ededed",
-  secondary: "#a0a0a0",
-  muted: "#777777",
-};
+type Page = NonNullable<Command["page"]>;
 
 export function App({ interactive, openLink = openExternalUrl, commands = homeCommands }: AppProps) {
   const { columns, rows } = useWindowSize();
   // Keep the last terminal row free so Windows can use incremental rendering.
   const viewportHeight = Math.max(1, rows - 1);
+  const [history, setHistory] = useState<Page[]>(["home"]);
+  const page = history[history.length - 1];
   const [value, setValue] = useState("");
   const [message, setMessage] = useState("");
   const [selectedLink, setSelectedLink] = useState(0);
@@ -50,16 +38,15 @@ export function App({ interactive, openLink = openExternalUrl, commands = homeCo
   const [selection, setSelection] = useState(initialSelection);
   const [completionRevision, setCompletionRevision] = useState(0);
   const compact = rows < 34 || columns < 62;
-  const sideBySide = rows < 34 && columns >= 78;
-  const smallLogo = !sideBySide && rows < 26 && columns < 62;
   const cardWidth = Math.min(92, columns - 4);
   const cardPadding = cardWidth >= 60 ? 3 : 1;
-  const profileWidth = cardWidth - 2 - cardPadding * 2 - logoWidth - 3;
-  const minimumRows = sideBySide ? 21 : 23;
+  const minimumRows = columns >= 78 ? 21 : 23;
   const tooSmall = columns < 42 || rows < minimumRows;
   const query = value.trim().toLowerCase();
   const matchingCommands = commands.filter(command => command.name.startsWith(query));
   const visibleCommands = matchingCommands.slice(selection.start, selection.start + maxVisibleCommands);
+  const menuHeight = commandMenuOpen ? Math.max(1, visibleCommands.length) : 0;
+  const helpHeight = viewportHeight - (compact ? 7 : 9) - menuHeight;
   const selectedCommand = commandMenuOpen ? matchingCommands[selection.index] : undefined;
   const tabHint = commandMenuOpen ? "Tab 补全" : "Tab 命令";
   const inputHint = columns < 54
@@ -68,75 +55,17 @@ export function App({ interactive, openLink = openExternalUrl, commands = homeCo
       ? `${tabHint} · Shift+Tab 切换选择`
       : `↑/↓ 选择 · ${tabHint} · Enter 确认 · Shift+Tab 切换选择`;
 
-  const homeHeader = useMemo(() => (
-    <Box
-      flexDirection={sideBySide ? "row" : "column"}
-      alignItems={sideBySide ? "center" : "stretch"}
-      marginTop={sideBySide && rows >= 24 ? 1 : 0}>
-      <Box
-        width={sideBySide ? logoWidth : undefined}
-        flexShrink={0}
-        justifyContent="center"
-        marginRight={sideBySide ? 3 : 0}
-        marginY={compact ? 0 : 1}>
-        <Text color={colors.text}>{smallLogo ? "Norcleeh" : logo}</Text>
-      </Box>
-
-      <Box
-        width={sideBySide ? profileWidth : undefined}
-        flexDirection="column"
-        alignItems={sideBySide ? "flex-start" : "center"}
-        marginTop={compact ? 0 : 1}
-        marginBottom={compact ? 0 : 2}>
-        <Text color={colors.text} bold italic>Code the future.</Text>
-        <Box flexDirection="column" alignItems={sideBySide ? "flex-start" : "center"} marginTop={compact ? 0 : 1}>
-          {sideBySide ? (
-            <>
-              <Text color={colors.secondary}>我是一个热爱代码、开源、音乐</Text>
-              <Text color={colors.secondary}>和 Minecraft 的学生，</Text>
-            </>
-          ) : (
-            <Text color={colors.secondary}>我是一个热爱代码、开源、音乐和Minecraft的学生，</Text>
-          )}
-          <Text color={colors.secondary}>很高兴能见到你！</Text>
-        </Box>
-        <Box justifyContent={sideBySide ? "flex-start" : "center"} flexWrap="wrap" marginTop={compact ? 0 : 1}>
-          {profileLinks.map((link, index) => {
-            const selected = selectedLink === index;
-
-            return (
-              <Box key={link.label} marginRight={1} aria-label={`${selected ? "已选择，" : ""}打开 ${link.label}`}>
-                <Link url={link.url} fallback={false}>
-                  <Text
-                    color={selected ? colors.card : colors.secondary}
-                    backgroundColor={selected ? colors.text : colors.card}
-                    bold={selected}>
-                    {` ${link.label} `}
-                  </Text>
-                </Link>
-              </Box>
-            );
-          })}
-        </Box>
-        <Box width="100%" height={1} justifyContent={sideBySide ? "flex-start" : "center"}>
-          <Text color={colors.muted} wrap="truncate-end">
-            {linkMessage}
-          </Text>
-        </Box>
-      </Box>
-    </Box>
-  ), [sideBySide, compact, smallLogo, rows, profileWidth, selectedLink, linkMessage]);
-
   useInput((input, key) => {
     if(key.escape) {
-      setCommandMenuOpen(false);
+      if(commandMenuOpen) setCommandMenuOpen(false);
+      else goBack();
       return;
     }
 
     if(tooSmall) return;
 
     if(key.ctrl && input === "o") {
-      void activateLink(selectedLink);
+      if(page === "home") void activateLink(selectedLink);
       return;
     }
 
@@ -147,8 +76,10 @@ export function App({ interactive, openLink = openExternalUrl, commands = homeCo
 
     if(key.tab) {
       if(key.shift) {
-        setSelectedLink(index => (index + 1) % profileLinks.length);
-        setLinkMessage("");
+        if(page === "home") {
+          setSelectedLink(index => (index + 1) % profileLinks.length);
+          setLinkMessage("");
+        }
         return;
       }
 
@@ -201,16 +132,36 @@ export function App({ interactive, openLink = openExternalUrl, commands = homeCo
     }
   }
 
-  function submit(input: string) {
-    const command = selectedCommand ?? commands.find(item => item.name === input.trim().toLowerCase());
-    if(!input.trim() && !command) return;
-
-    setMessage(command
-      ? `${command.name} · 敬请期待。`
-      : "未知命令。");
+  function resetInput() {
     setValue("");
+    setMessage("");
     setCommandMenuOpen(false);
     setSelection(initialSelection);
+  }
+
+  function goBack() {
+    if(history.length === 1) {
+      setMessage("已经是第一页。");
+      return;
+    }
+
+    setHistory(previous => previous.length > 1 ? previous.slice(0, -1) : previous);
+    resetInput();
+  }
+
+  function submit(input: string) {
+    const command = commands.find(item => item.name === input.trim().toLowerCase()) ?? selectedCommand;
+    if(!input.trim() && !command) return;
+
+    resetInput();
+    if(command?.page) {
+      const nextPage = command.page;
+      setHistory(previous => previous[previous.length - 1] === nextPage ? previous : [...previous, nextPage]);
+    } else if(command?.action === "back") {
+      goBack();
+    } else {
+      setMessage(command ? `${command.name} · 敬请期待。` : "未知命令。");
+    }
   }
 
   function changeInput(input: string) {
@@ -248,10 +199,23 @@ export function App({ interactive, openLink = openExternalUrl, commands = homeCo
         paddingTop={compact ? 0 : 1}>
         <Box justifyContent="space-between">
           <Text color={colors.secondary}>nocp.space</Text>
-          <Text color={colors.muted}>~/</Text>
+          <Text color={colors.muted}>{page === "home" ? "~/" : "~/help"}</Text>
         </Box>
 
-        {homeHeader}
+        {page === "home" ? (
+          <HomePage
+            columns={columns}
+            rows={rows}
+            width={cardWidth - 2 - cardPadding * 2}
+            selectedLink={selectedLink}
+            linkMessage={linkMessage}/>
+        ) : (
+          <HelpPage
+            commands={commands}
+            width={cardWidth - 2 - cardPadding * 2}
+            maxHeight={helpHeight}
+            keyboardActive={interactive && !commandMenuOpen}/>
+        )}
 
         {commandMenuOpen && (
           <Box flexDirection="column">

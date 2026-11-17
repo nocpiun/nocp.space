@@ -25,6 +25,9 @@ function rawTextImports(): Plugin {
 }
 
 export default defineConfig({
+  ssr: {
+    noExternal: ["@nocp/shared"],
+  },
   plugins: [
     rawTextImports(),
     svgr(),

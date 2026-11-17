@@ -1,5 +1,5 @@
 import { Feed } from "feed";
-import { blogName, blogDescription } from "./global";
+import { blogName, blogDescription } from "@nocp/shared";
 import { getAllArticles } from "./blog";
 
 const feed = new Feed({

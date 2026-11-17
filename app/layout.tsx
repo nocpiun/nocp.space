@@ -3,7 +3,7 @@ import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { siteName, siteDescription, siteKeywords } from "@/lib/global";
+import { siteName, siteDescription, siteKeywords } from "@nocp/shared";
 import { cn } from "@/lib/utils";
 
 import "@aifire/gitalk/style.css";

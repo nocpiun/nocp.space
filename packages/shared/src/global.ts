@@ -4,3 +4,6 @@ export const siteKeywords = ["Nriot", "Norcleeh", "NriotHrreion", "NoahHrreion",
 export const blogName = "NBlog";
 export const blogDescription = "由一条咸鱼搭建的博客";
 export const githubAccount = "https://github.com/NriotHrreion";
+
+export const siteUrl = "https://nocp.space";
+export const blogPath = "/blog";

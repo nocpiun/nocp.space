@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { blogName, blogDescription } from "@/lib/global";
+import { blogName, blogDescription } from "@nocp/shared";
 
 import "katex/dist/katex.min.css";
 import "./github-dark.css";

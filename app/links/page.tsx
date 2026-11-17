@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { TramFront } from "lucide-react";
 import { Page } from "@/components/page";
-import { siteName, siteDescription } from "@/lib/global";
+import { siteName, siteDescription } from "@nocp/shared";
 import { LinkCard } from "./link-card";
 import { GitalkComments } from "@/components/gitalk-comments";
 import { Button } from "@/components/ui/button";

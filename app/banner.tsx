@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Book, Github, Mail, Tv } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { githubAccount } from "@/lib/global";
+import { blogPath, githubAccount } from "@nocp/shared";
 
 import Avatar from "@/assets/images/avatar.jpg";
 
@@ -38,7 +38,7 @@ export function Banner() {
             className="text-white! bg-theme hover:bg-theme-foreground mr-2"
             size="lg"
             asChild>
-            <Link href="/blog">
+            <Link href={blogPath}>
               <Book stroke="#fff"/>
               Blog
             </Link>

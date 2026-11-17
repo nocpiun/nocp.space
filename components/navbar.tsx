@@ -10,7 +10,7 @@ import {
 	NavigationMenuList
 } from "./ui/navigation-menu";
 import { ThemeToggle } from "./theme-toggle";
-import { githubAccount, siteName } from "@/lib/global";
+import { githubAccount, siteName } from "@nocp/shared";
 import { emitter } from "@/lib/emitter";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";

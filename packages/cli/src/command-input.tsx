@@ -1,18 +1,74 @@
 import { useState } from "react";
 import { Text, useInput } from "ink";
 
+function charWidth(ch: string): number {
+  const cp = ch.codePointAt(0);
+  if(cp === undefined) return 0;
+  if((cp >= 0x0300 && cp <= 0x036f)
+    || (cp >= 0x200b && cp <= 0x200d)
+    || (cp >= 0xfe00 && cp <= 0xfe0f)) return 0;
+  if((cp >= 0x1100 && cp <= 0x115f)
+    || cp === 0x2329 || cp === 0x232a
+    || (cp >= 0x2e80 && cp <= 0xa4cf && cp !== 0x303f)
+    || (cp >= 0xac00 && cp <= 0xd7a3)
+    || (cp >= 0xf900 && cp <= 0xfaff)
+    || (cp >= 0xfe10 && cp <= 0xfe19)
+    || (cp >= 0xfe30 && cp <= 0xfe6f)
+    || (cp >= 0xff00 && cp <= 0xff60)
+    || (cp >= 0xffe0 && cp <= 0xffe6)
+    || (cp >= 0x1f300 && cp <= 0x1faff)
+    || (cp >= 0x20000 && cp <= 0x3fffd)) return 2;
+  return 1;
+}
+
+function sliceWidth(chars: string[], start: number, end: number): number {
+  let total = 0;
+  for(let i = start; i < end; i++) {
+    total += charWidth(chars[i]);
+  }
+  return total;
+}
+
+function fitScroll(chars: string[], cursor: number, prevScroll: number, maxWidth: number, interactive: boolean): number {
+  if(maxWidth <= 0) return 0;
+
+  let start = Math.max(0, Math.min(prevScroll, cursor));
+  const cursorCellWidth = interactive ? charWidth(chars[cursor] ?? " ") : 0;
+
+  while(start < cursor && sliceWidth(chars, start, cursor) + cursorCellWidth > maxWidth) {
+    start++;
+  }
+
+  const trailingWidth = interactive && cursor === chars.length ? 1 : 0;
+  while(start > 0 && sliceWidth(chars, start - 1, chars.length) + trailingWidth <= maxWidth) {
+    start--;
+  }
+
+  return start;
+}
+
 type CommandInputProps = {
   value: string;
   placeholder: string;
   interactive: boolean;
+  maxWidth: number;
   onChange: (value: string) => void;
   onSubmit: (value: string) => void;
 };
 
-export function CommandInput({ value, placeholder, interactive, onChange, onSubmit }: CommandInputProps) {
+export function CommandInput({ value, placeholder, interactive, maxWidth, onChange, onSubmit }: CommandInputProps) {
   const [offset, setOffset] = useState(() => Array.from(value).length);
+  const [scroll, setScroll] = useState(() => {
+    const initial = Array.from(value);
+    return fitScroll(initial, initial.length, 0, maxWidth, interactive);
+  });
   const characters = Array.from(value);
   const cursor = Math.min(offset, characters.length);
+
+  function updateCursor(nextChars: string[], nextCursor: number) {
+    setOffset(nextCursor);
+    setScroll(fitScroll(nextChars, nextCursor, scroll, maxWidth, interactive));
+  }
 
   useInput((input, key) => {
     // Global shortcuts never become input text or move the editing cursor.
@@ -22,39 +78,51 @@ export function CommandInput({ value, placeholder, interactive, onChange, onSubm
     if(key.return) {
       onSubmit(value);
     } else if(key.leftArrow) {
-      setOffset(Math.max(0, cursor - 1));
+      updateCursor(characters, Math.max(0, cursor - 1));
     } else if(key.rightArrow) {
-      setOffset(Math.min(characters.length, cursor + 1));
+      updateCursor(characters, Math.min(characters.length, cursor + 1));
     } else if(key.home) {
-      setOffset(0);
+      updateCursor(characters, 0);
     } else if(key.end) {
-      setOffset(characters.length);
+      updateCursor(characters, characters.length);
     } else if(key.backspace) {
       if(cursor === 0) return;
       characters.splice(cursor - 1, 1);
-      setOffset(cursor - 1);
+      updateCursor(characters, cursor - 1);
       onChange(characters.join(""));
     } else if(key.delete) {
+      if(cursor >= characters.length) return;
       characters.splice(cursor, 1);
+      updateCursor(characters, cursor);
       onChange(characters.join(""));
     } else if(input) {
       const inserted = Array.from(input.replace(/[\r\n\t]/g, " "));
       characters.splice(cursor, 0, ...inserted);
-      setOffset(cursor + inserted.length);
+      updateCursor(characters, cursor + inserted.length);
       onChange(characters.join(""));
     }
   }, { isActive: interactive });
 
   const displayed = Array.from(value || placeholder);
+  const viewStart = value ? fitScroll(displayed, cursor, scroll, maxWidth, interactive) : 0;
+  let viewEnd = viewStart;
+  let used = 0;
+  while(viewEnd < displayed.length) {
+    const w = charWidth(displayed[viewEnd]);
+    if(used + w > maxWidth) break;
+    used += w;
+    viewEnd++;
+  }
+
   return (
     <Text dimColor={!value}>
       {interactive ? (
         <>
-          {displayed.slice(0, cursor).join("")}
+          {displayed.slice(viewStart, cursor).join("")}
           <Text inverse>{displayed[cursor] || " "}</Text>
-          {displayed.slice(cursor + 1).join("")}
+          {displayed.slice(cursor + 1, viewEnd).join("")}
         </>
-      ) : displayed.join("")}
+      ) : displayed.slice(viewStart, viewEnd).join("")}
     </Text>
   );
 }

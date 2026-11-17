@@ -5,6 +5,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
+    "nocp.space": "./dist/index.js",
     "nocp-space": "./dist/index.js"
   },
   "files": [

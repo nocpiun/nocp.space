@@ -40,6 +40,7 @@ export function App({ interactive, openLink = openExternalUrl, commands = homeCo
   const compact = rows < 34 || columns < 62;
   const cardWidth = Math.min(92, columns - 4);
   const cardPadding = cardWidth >= 60 ? 3 : 1;
+  const contentWidth = cardWidth - 2 - cardPadding * 2;
   const minimumRows = columns >= 78 ? 21 : 23;
   const tooSmall = columns < 42 || rows < minimumRows;
   const query = value.trim().toLowerCase();
@@ -206,13 +207,13 @@ export function App({ interactive, openLink = openExternalUrl, commands = homeCo
           <HomePage
             columns={columns}
             rows={rows}
-            width={cardWidth - 2 - cardPadding * 2}
+            width={contentWidth}
             selectedLink={selectedLink}
             linkMessage={linkMessage}/>
         ) : (
           <HelpPage
             commands={commands}
-            width={cardWidth - 2 - cardPadding * 2}
+            width={contentWidth}
             maxHeight={helpHeight}
             keyboardActive={interactive && !commandMenuOpen}/>
         )}
@@ -260,6 +261,7 @@ export function App({ interactive, openLink = openExternalUrl, commands = homeCo
                   value={value}
                   placeholder="输入命令，例如 /help"
                   interactive={interactive}
+                  maxWidth={Math.max(1, contentWidth - 4)}
                   onChange={changeInput}
                   onSubmit={submit}/>
               </Text>

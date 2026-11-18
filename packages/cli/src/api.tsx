@@ -110,8 +110,8 @@ export function RemoteStatusPage({
   keyboardActive,
   onRetry,
 }: RemoteStatusPageProps) {
-  useInput((input) => {
-    if(error && input.toLowerCase() === "r") {
+  useInput((input, key) => {
+    if(key.ctrl && error && input.toLowerCase() === "r") {
       onRetry();
     }
   }, { isActive: keyboardActive && Boolean(error) });
@@ -129,7 +129,7 @@ export function RemoteStatusPage({
         <Text color={colors.secondary}>{`加载失败：${error ?? "未知错误"}`}</Text>
       </Box>,
       <Box key="retry" height={1}>
-        <Text color={colors.muted}>请检查网络后按 R 重试，或按 Esc 返回</Text>
+        <Text color={colors.muted}>请检查网络后按 Ctrl+R 重试，或按 Esc 返回</Text>
       </Box>,
     ];
 

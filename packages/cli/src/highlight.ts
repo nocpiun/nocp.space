@@ -56,6 +56,7 @@ const highlighter = createHighlighterCoreSync({
 });
 
 const loadedLangs = new Set(highlighter.getLoadedLanguages());
+const highlightCache = new Map<string, HighlightedLine[]>();
 
 function pushToken(
   tokens: HighlightToken[],
@@ -79,12 +80,18 @@ function pushToken(
 export function highlightCodeBlock(code: string, rawLang: string): HighlightedLine[] {
   const lang = rawLang.trim().toLowerCase();
   const normalized = code.replace(/\r\n/g, "\n");
+  const cacheKey = `${lang}\0${normalized}`;
+  const cached = highlightCache.get(cacheKey);
+  if(cached) return cached;
+
   const rawLines = normalized.split("\n");
 
   if(!lang || !loadedLangs.has(lang)) {
-    return rawLines.map((line) => ({
+    const plain = rawLines.map((line) => ({
       tokens: line ? [{ text: line, color: colors.prose }] : [],
     }));
+    highlightCache.set(cacheKey, plain);
+    return plain;
   }
 
   const { tokens: tokenLines } = highlighter.codeToTokens(normalized, {
@@ -92,7 +99,7 @@ export function highlightCodeBlock(code: string, rawLang: string): HighlightedLi
     theme: themeName,
   });
 
-  return rawLines.map((rawLine, index) => {
+  const result = rawLines.map((rawLine, index) => {
     const lineTokens = tokenLines[index] ?? [];
     const tokens: HighlightToken[] = [];
 
@@ -115,6 +122,10 @@ export function highlightCodeBlock(code: string, rawLang: string): HighlightedLi
 
     return { tokens, backgroundColor };
   });
+
+  if(highlightCache.size >= 256) highlightCache.clear();
+  highlightCache.set(cacheKey, result);
+  return result;
 }
 
 export function wrapHighlightedLine(line: HighlightedLine, maxWidth: number): HighlightedLine[] {

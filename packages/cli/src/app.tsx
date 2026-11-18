@@ -169,7 +169,7 @@ export function App({
     }
 
     if(key.upArrow || key.downArrow || key.pageUp || key.pageDown) {
-      if(page !== "home" || commandMenuOpen) setMessage("");
+      if((page !== "home" || commandMenuOpen) && message) setMessage("");
       if(!commandMenuOpen || (!key.upArrow && !key.downArrow)) return;
       if(matchingCommands.length === 0) return;
       const count = matchingCommands.length;

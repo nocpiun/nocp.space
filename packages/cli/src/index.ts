@@ -38,6 +38,7 @@ if(args.includes("-v") || args.includes("--version")) {
 
   if(interactive) {
     await render(createElement(App, { interactive }), {
+      interactive: true,
       alternateScreen: true,
       incrementalRendering: true,
       maxFps: 120,

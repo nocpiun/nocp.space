@@ -61,7 +61,7 @@ export const ArticlePage = memo(function ArticlePage({
     <ScrollPage
       title={entry.title}
       header={header}
-      lines={lines}
+      textLines={lines}
       maxHeight={maxHeight}
       keyboardActive={keyboardActive}/>
   );

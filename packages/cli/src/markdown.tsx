@@ -1,12 +1,10 @@
-import { type ReactNode } from "react";
-import { Box, Text } from "ink";
 import type * as Mdast from "mdast";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
 import { siteUrl } from "@nocp/shared";
+import { renderAnsiRuns, styleAnsi } from "./ansi.js";
 import { highlightCodeBlock, wrapHighlightedLine } from "./highlight.js";
-import { TerminalLink } from "./link.js";
 import { charWidth, stringWidth, wrapText } from "./text-width.js";
 import { colors } from "./theme.js";
 
@@ -170,53 +168,35 @@ function wrapInlineSpans(spans: readonly InlineSpan[], maxWidth: number): Inline
   return lines;
 }
 
-function renderInlineSegments(segments: readonly InlineSpan[], defaultColor: string): ReactNode[] {
-  const nodes: ReactNode[] = [];
+function renderInlineSegments(segments: readonly InlineSpan[], defaultColor: string): string {
+  let out = "";
   let index = 0;
 
   while(index < segments.length) {
     const current = segments[index];
     if(current.url) {
       const url = current.url;
-      const group: InlineSpan[] = [current];
-      while(index + 1 < segments.length && segments[index + 1].url === url) {
+      const linkRuns: InlineSpan[] = [];
+      while(index < segments.length && segments[index].url === url) {
+        linkRuns.push(segments[index]);
         index++;
-        group.push(segments[index]);
       }
-      nodes.push(
-        <TerminalLink key={`link-${index}`} url={url}>
-          {group.map((part, partIndex) => (
-            <Text
-              key={partIndex}
-              color={part.color ?? defaultColor}
-              bold={part.bold}
-              italic={part.italic}
-              strikethrough={part.strikethrough}>
-              {part.text}
-            </Text>
-          ))}
-        </TerminalLink>
-      );
+      out += styleAnsi(renderAnsiRuns(linkRuns, defaultColor), { url });
     } else {
-      nodes.push(
-        <Text
-          key={`span-${index}`}
-          color={current.color ?? defaultColor}
-          bold={current.bold}
-          italic={current.italic}
-          strikethrough={current.strikethrough}>
-          {current.text}
-        </Text>
-      );
+      const plainRuns: InlineSpan[] = [];
+      while(index < segments.length && !segments[index].url) {
+        plainRuns.push(segments[index]);
+        index++;
+      }
+      out += renderAnsiRuns(plainRuns, defaultColor);
     }
-    index++;
   }
 
-  return nodes;
+  return out;
 }
 
 function pushWrappedSpans(
-  lines: ReactNode[],
+  lines: string[],
   spans: readonly InlineSpan[],
   width: number,
   defaultColor: string,
@@ -230,28 +210,21 @@ function pushWrappedSpans(
 
   for(let i = 0; i < wrapped.length; i++) {
     const linePrefix = i === 0 ? prefix : continuationPrefix;
-    lines.push(
-      <Box width={width} height={1}>
-        {linePrefix && <Text color={options?.prefixColor ?? colors.border}>{linePrefix}</Text>}
-        {renderInlineSegments(wrapped[i], defaultColor)}
-      </Box>
-    );
+    const prefixText = linePrefix
+      ? styleAnsi(linePrefix, { color: options?.prefixColor ?? colors.border })
+      : "";
+    lines.push(`${prefixText}${renderInlineSegments(wrapped[i], defaultColor)}`);
   }
 }
 
-function pushImageLine(lines: ReactNode[], alt: string, rawUrl: string, width: number) {
+function pushImageLine(lines: string[], alt: string, rawUrl: string, width: number) {
   const url = resolveSiteUrl(rawUrl);
   const label = alt ? `[图片: ${alt}]` : "[图片]";
   const singleLine = `${label} ${url}`;
 
   if(wrapText(singleLine, width).length === 1) {
     lines.push(
-      <Box width={width} height={1}>
-        <Text color={colors.secondary}>{`${label} `}</Text>
-        <TerminalLink url={url}>
-          <Text color={colors.muted}>{url}</Text>
-        </TerminalLink>
-      </Box>
+      `${styleAnsi(`${label} `, { color: colors.secondary })}${styleAnsi(url, { color: colors.muted, url })}`,
     );
     return;
   }
@@ -267,7 +240,7 @@ function pushImageLine(lines: ReactNode[], alt: string, rawUrl: string, width: n
 }
 
 function renderCodeBlock(
-  lines: ReactNode[],
+  lines: string[],
   value: string,
   lang: string,
   width: number,
@@ -275,38 +248,31 @@ function renderCodeBlock(
   prefixColor = colors.border,
 ) {
   if(lang) {
-    lines.push(
-      <Box width={width} height={1}>
-        {prefix !== "│ " && <Text color={prefixColor}>{prefix}</Text>}
-        <Text color={colors.muted}>{`[${lang}]`}</Text>
-      </Box>
-    );
+    const lead = prefix !== "│ " ? styleAnsi(prefix, { color: prefixColor }) : "";
+    lines.push(`${lead}${styleAnsi(`[${lang}]`, { color: colors.muted })}`);
   }
 
+  const styledPrefix = styleAnsi(prefix, { color: prefixColor });
   const codeWidth = Math.max(8, width - stringWidth(prefix));
   const highlightedLines = highlightCodeBlock(value, lang);
 
   for(const hlLine of highlightedLines) {
     for(const wrappedLine of wrapHighlightedLine(hlLine, codeWidth)) {
-      const usedWidth = wrappedLine.tokens.reduce((sum, token) => sum + stringWidth(token.text), 0);
-      const padWidth = wrappedLine.backgroundColor ? Math.max(0, codeWidth - usedWidth) : 0;
-
-      lines.push(
-        <Box width={width} height={1}>
-          <Text color={prefixColor}>{prefix}</Text>
-          {wrappedLine.tokens.map((token, tokenIndex) => (
-            <Text
-              key={tokenIndex}
-              color={token.color}
-              backgroundColor={wrappedLine.backgroundColor}
-              italic={token.italic}
-              bold={token.bold}>
-              {token.text}
-            </Text>
-          ))}
-          {padWidth > 0 && <Text backgroundColor={wrappedLine.backgroundColor}>{" ".repeat(padWidth)}</Text>}
-        </Box>
-      );
+      if(wrappedLine.backgroundColor) {
+        let usedWidth = 0;
+        for(const token of wrappedLine.tokens) {
+          usedWidth += stringWidth(token.text);
+        }
+        const body = renderAnsiRuns(wrappedLine.tokens);
+        const padWidth = Math.max(0, codeWidth - usedWidth);
+        const fullBody = padWidth > 0 ? `${body}${" ".repeat(padWidth)}` : body;
+        lines.push(`${styledPrefix}${styleAnsi(fullBody, {
+          backgroundColor: wrappedLine.backgroundColor,
+          restoreBackgroundColor: colors.card,
+        })}`);
+      } else {
+        lines.push(renderAnsiRuns([{ text: prefix, color: prefixColor }, ...wrappedLine.tokens]));
+      }
     }
   }
 }
@@ -398,7 +364,7 @@ function computeTableColumnWidths(rows: readonly (readonly InlineSpan[][])[], ma
 }
 
 function renderTableBlock(
-  lines: ReactNode[],
+  lines: string[],
   rows: readonly (readonly InlineSpan[][])[],
   width: number,
   defaultColor: string,
@@ -434,51 +400,41 @@ function renderTableBlock(
   ));
   const rowHeights = wrappedRows.map((row) => Math.max(1, ...row.map((cellLines) => cellLines.length)));
   const useRowSeparators = rowHeights.some((h) => h > 1);
+  const leadPrefix = prefix ? styleAnsi(prefix, { color: prefixColor }) : "";
+  const leftPipe = styleAnsi("│ ", { color: colors.border });
+  const midPipe = styleAnsi(" │ ", { color: colors.border });
+  const rightPipe = styleAnsi(" │", { color: colors.border });
 
-  const makeRule = (left: string, join: string, right: string) => `${left}${colWidths.map((w) => "─".repeat(w + 2)).join(join)}${right}`;
+  const makeRule = (left: string, join: string, right: string) => (
+    `${leadPrefix}${styleAnsi(`${left}${colWidths.map((w) => "─".repeat(w + 2)).join(join)}${right}`, { color: colors.border })}`
+  );
 
-  const pushRule = (rule: string) => {
-    lines.push(
-      <Box width={width} height={1}>
-        {prefix && <Text color={prefixColor}>{prefix}</Text>}
-        <Text color={colors.border}>{rule}</Text>
-      </Box>
-    );
-  };
-
-  pushRule(makeRule("┌", "┬", "┐"));
+  lines.push(makeRule("┌", "┬", "┐"));
 
   for(let r = 0; r < wrappedRows.length; r++) {
     const rowCells = wrappedRows[r];
     const rowHeight = rowHeights[r];
+    const rowColor = r === 0 && hasHeader ? colors.text : defaultColor;
 
     for(let lineIdx = 0; lineIdx < rowHeight; lineIdx++) {
-      lines.push(
-        <Box width={width} height={1}>
-          {prefix && <Text color={prefixColor}>{prefix}</Text>}
-          <Text color={colors.border}>{"│ "}</Text>
-          {rowCells.map((cellLines, col) => {
-            const segments = cellLines[lineIdx] ?? [];
-            const used = spanLineWidth(segments);
-            const pad = " ".repeat(Math.max(0, colWidths[col] - used));
-            return (
-              <Text key={col}>
-                {renderInlineSegments(segments, r === 0 && hasHeader ? colors.text : defaultColor)}
-                {pad}
-                <Text color={colors.border}>{col < colCount - 1 ? " │ " : " │"}</Text>
-              </Text>
-            );
-          })}
-        </Box>
-      );
+      let rowStr = `${leadPrefix}${leftPipe}`;
+      for(let col = 0; col < colCount; col++) {
+        const segments = rowCells[col][lineIdx] ?? [];
+        const used = spanLineWidth(segments);
+        const pad = " ".repeat(Math.max(0, colWidths[col] - used));
+        rowStr += renderInlineSegments(segments, rowColor);
+        rowStr += pad;
+        rowStr += col < colCount - 1 ? midPipe : rightPipe;
+      }
+      lines.push(rowStr);
     }
 
     if(r < wrappedRows.length - 1 && ((r === 0 && hasHeader) || useRowSeparators)) {
-      pushRule(makeRule("├", "┼", "┤"));
+      lines.push(makeRule("├", "┼", "┤"));
     }
   }
 
-  pushRule(makeRule("└", "┴", "┘"));
+  lines.push(makeRule("└", "┴", "┘"));
 }
 
 function parseHtmlTable(block: string): { rows: InlineSpan[][][]; hasHeader: boolean } {
@@ -560,7 +516,7 @@ function extractCallout(node: Mdast.Blockquote): {
 
 function renderBlockNodes(
   nodes: readonly Mdast.RootContent[],
-  lines: ReactNode[],
+  lines: string[],
   width: number,
   options?: {
     defaultColor?: string;
@@ -582,10 +538,10 @@ function renderBlockNodes(
     if(node.type === "footnoteDefinition") {
       if(!inFootnotes) {
         inFootnotes = true;
-        if(lines.length > 0 && lines[lines.length - 1] !== null) {
-          lines.push(null);
+        if(lines.length > 0 && lines[lines.length - 1] !== "") {
+          lines.push("");
         }
-        lines.push(<Text color={colors.border}>{"─".repeat(Math.min(width, 28))}</Text>);
+        lines.push(styleAnsi("─".repeat(Math.min(width, 28)), { color: colors.border }));
       }
 
       const itemPrefix = `[${node.identifier}] `;
@@ -616,10 +572,10 @@ function renderBlockNodes(
 
     inFootnotes = false;
 
-    if(index > 0 && lines.length > 0 && lines[lines.length - 1] !== null) {
+    if(index > 0 && lines.length > 0 && lines[lines.length - 1] !== "") {
       const prev = nodes[index - 1];
       const tight = Boolean(options?.prefix && prev.type === "paragraph" && node.type === "paragraph");
-      if(!tight) lines.push(null);
+      if(!tight) lines.push("");
     }
 
     switch(node.type) {
@@ -667,10 +623,7 @@ function renderBlockNodes(
         if(callout) {
           const title = callout.titleText || callout.style.label;
           lines.push(
-            <Box width={width} height={1}>
-              <Text color={callout.style.color}>{`${prefix}│ `}</Text>
-              <Text color={callout.style.color} bold>{title}</Text>
-            </Box>
+            `${styleAnsi(`${prefix}│ `, { color: callout.style.color })}${styleAnsi(title, { color: callout.style.color, bold: true })}`,
           );
           if(callout.children.length > 0) {
             renderBlockNodes(callout.children, lines, width, {
@@ -746,7 +699,7 @@ function renderBlockNodes(
         break;
       }
       case "thematicBreak": {
-        lines.push(<Text color={colors.border}>{"─".repeat(Math.min(width, 28))}</Text>);
+        lines.push(styleAnsi("─".repeat(Math.min(width, 28)), { color: colors.border }));
         break;
       }
       default:
@@ -755,14 +708,22 @@ function renderBlockNodes(
   }
 }
 
-export function renderMarkdownLines(content: string, width: number): ReactNode[] {
+const markdownLinesCache = new Map<string, readonly string[]>();
+
+export function renderMarkdownLines(content: string, width: number): readonly string[] {
+  const cacheKey = `${width}\0${content}`;
+  const cached = markdownLinesCache.get(cacheKey);
+  if(cached) return cached;
+
   const tree = markdownParser.parse(content);
-  const lines: ReactNode[] = [];
+  const lines: string[] = [];
   renderBlockNodes(tree.children, lines, width);
 
-  while(lines.length > 0 && lines[lines.length - 1] === null) {
+  while(lines.length > 0 && lines[lines.length - 1] === "") {
     lines.pop();
   }
 
+  if(markdownLinesCache.size >= 64) markdownLinesCache.clear();
+  markdownLinesCache.set(cacheKey, lines);
   return lines;
 }

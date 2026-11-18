@@ -2,7 +2,7 @@ import { memo, useMemo } from "react";
 import { Box, Text } from "ink";
 import type { ArticleDetail } from "@nocp/shared";
 import { RemoteStatusPage, useCliData } from "../api.js";
-import { renderMarkdownLines } from "../markdown.js";
+import { renderMarkdownLines } from "../markdown/index.js";
 import { ScrollPage } from "../scroll-page.js";
 import { colors } from "../theme.js";
 

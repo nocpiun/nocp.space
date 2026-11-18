@@ -1,8 +1,8 @@
 import { memo, useMemo, type ReactNode } from "react";
 import { Box, Text } from "ink";
-import { TerminalLink as Link } from "../link.js";
+import { TerminalLink as Link } from "../components/link.js";
 import { siteUrl } from "@nocp/shared";
-import { ScrollPage } from "../scroll-page.js";
+import { ScrollPage } from "../components/scroll-page.js";
 import { colors } from "../theme.js";
 
 const donateUrl = `${siteUrl}/donate`;

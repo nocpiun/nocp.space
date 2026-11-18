@@ -1,8 +1,9 @@
 import { memo, useMemo, type ReactNode } from "react";
 import { Box, Text } from "ink";
 import type { ArticleSummary, BlogListResponse } from "@nocp/shared";
-import { RemoteStatusPage, useCliData } from "../api.js";
-import { ScrollPage, type LineRange } from "../scroll-page.js";
+import { useCliData } from "../utils/api.js";
+import { RemoteStatusPage } from "../components/remote-status-page.js";
+import { ScrollPage, type LineRange } from "../components/scroll-page.js";
 import { colors } from "../theme.js";
 
 export const postsApiPath = "/api/cli/posts";

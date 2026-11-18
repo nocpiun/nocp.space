@@ -9,8 +9,8 @@ import {
   type ProjectsResponse,
   type SheetItem,
 } from "@nocp/shared";
-import { peekCliCache } from "./api.js";
-import { CommandInput } from "./command-input.js";
+import { peekCliCache } from "./utils/api.js";
+import { CommandInput } from "./components/command-input.js";
 import { homeCommands, pagePaths, type Command, type Page } from "./commands.js";
 import { ArticleListPage, notesApiPath, postsApiPath } from "./pages/article-list.js";
 import { ArticlePage } from "./pages/article.js";

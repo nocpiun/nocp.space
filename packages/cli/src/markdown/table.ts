@@ -1,5 +1,5 @@
-import { styleAnsi } from "../ansi.js";
-import { charWidth, stringWidth } from "../text-width.js";
+import { styleAnsi } from "../utils/ansi.js";
+import { charWidth, stringWidth } from "../utils/text-width.js";
 import { colors } from "../theme.js";
 import {
   pushInlineSpan,

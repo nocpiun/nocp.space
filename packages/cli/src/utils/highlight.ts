@@ -13,10 +13,10 @@ import ruby from "shiki/langs/ruby.mjs";
 import tsx from "shiki/langs/tsx.mjs";
 import typescript from "shiki/langs/typescript.mjs";
 import yaml from "shiki/langs/yaml.mjs";
-import { abcLanguage } from "./langs/abc.js";
-import { dark2026Theme } from "./themes/2026-dark.js";
+import { abcLanguage } from "../langs/abc.js";
+import { dark2026Theme } from "../themes/2026-dark.js";
+import { colors } from "../theme.js";
 import { charWidth } from "./text-width.js";
-import { colors } from "./theme.js";
 
 export type HighlightToken = {
   text: string;

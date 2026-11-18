@@ -1,7 +1,7 @@
 import type * as Mdast from "mdast";
 import { siteUrl } from "@nocp/shared";
-import { renderAnsiRuns, styleAnsi } from "../ansi.js";
-import { charWidth, stringWidth, wrapText } from "../text-width.js";
+import { renderAnsiRuns, styleAnsi } from "../utils/ansi.js";
+import { charWidth, stringWidth, wrapText } from "../utils/text-width.js";
 import { colors } from "../theme.js";
 
 export type InlineSpan = {

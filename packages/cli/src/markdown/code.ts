@@ -1,6 +1,6 @@
-import { renderAnsiRuns, styleAnsi } from "../ansi.js";
-import { highlightCodeBlock, wrapHighlightedLine } from "../highlight.js";
-import { stringWidth } from "../text-width.js";
+import { renderAnsiRuns, styleAnsi } from "../utils/ansi.js";
+import { highlightCodeBlock, wrapHighlightedLine } from "../utils/highlight.js";
+import { stringWidth } from "../utils/text-width.js";
 import { colors } from "../theme.js";
 
 export function renderCodeBlock(

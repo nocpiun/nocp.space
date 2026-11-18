@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Box, Text } from "ink";
-import { TerminalLink as Link } from "../link.js";
+import { TerminalLink as Link } from "../components/link.js";
 import { profileLinks } from "../profile.js";
 import { colors } from "../theme.js";
 

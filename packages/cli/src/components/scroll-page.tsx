@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Box, Text, Transform, useInput } from "ink";
-import { colors } from "./theme.js";
+import { colors } from "../theme.js";
 
 const bgWrapEnabled = !process.env.NO_COLOR
   && (Boolean(process.stdout.isTTY) || Boolean(process.env.FORCE_COLOR && process.env.FORCE_COLOR !== "0"));

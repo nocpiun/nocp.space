@@ -1,5 +1,3 @@
-import type { ReactNode } from "react";
-import { Text, Transform } from "ink";
 import ansiEscapes from "ansi-escapes";
 import supportsHyperlinks from "supports-hyperlinks";
 
@@ -11,19 +9,4 @@ export const supportsOsc8 = supportsHyperlinks.stdout
 
 export function wrapOsc8Link(text: string, url: string): string {
   return supportsOsc8 ? ansiEscapes.link(text, url) : text;
-}
-
-type TerminalLinkProps = {
-  url: string;
-  children: ReactNode;
-};
-
-export function TerminalLink({ url, children }: TerminalLinkProps) {
-  if(!supportsOsc8) return <>{children}</>;
-
-  return (
-    <Transform transform={(output) => ansiEscapes.link(output, url)}>
-      <Text>{children}</Text>
-    </Transform>
-  );
 }

@@ -326,6 +326,7 @@ export function App({
       case "blog":
         return (
           <ArticleListPage
+            key="blog"
             kind="blog"
             title={blogName}
             width={contentWidth}
@@ -337,6 +338,7 @@ export function App({
       case "notes":
         return (
           <ArticleListPage
+            key="notes"
             kind="notes"
             title="笔记"
             width={contentWidth}

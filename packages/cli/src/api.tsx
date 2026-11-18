@@ -68,6 +68,7 @@ export function useCliData<T>(path: string) {
     }
 
     let cancelled = false;
+    setData(undefined);
     setLoading(true);
     setError(null);
 

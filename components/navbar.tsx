@@ -10,7 +10,7 @@ import {
 	NavigationMenuList
 } from "./ui/navigation-menu";
 import { ThemeToggle } from "./theme-toggle";
-import { githubAccount, siteName } from "@nocp/shared";
+import { githubAccount, siteName, travellingUrl } from "@nocp/shared";
 import { emitter } from "@/lib/emitter";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
@@ -91,7 +91,7 @@ export function Navbar() {
 					title="开往..."
 					asChild>
 					<Link
-						href="https://www.travellings.cn/go.html"
+						href={travellingUrl}
 						target="_blank">
 						<TramFront />
 					</Link>

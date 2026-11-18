@@ -11,7 +11,7 @@ const logo = [
   " |_|\\_\\___/_| \\__|_\\___\\___|_||_|",
 ].join("\n");
 
-const logoWidth = Math.max(...logo.split("\n").map(line => line.length));
+const logoWidth = Math.max(...logo.split("\n").map((line) => line.length));
 
 type HomePageProps = {
   columns: number;

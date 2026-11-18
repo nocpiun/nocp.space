@@ -35,7 +35,7 @@ export function getAllNotes<T extends boolean = false>(containContent: T): T ext
       : b.title.localeCompare(a.title)
   ));
 
-  return (containContent ? notes : notes.map(note => note.data)) as T extends true ? NoteWithContent[] : Note[];
+  return (containContent ? notes : notes.map((note) => note.data)) as T extends true ? NoteWithContent[] : Note[];
 }
 
 export function getNote(slug: string): NoteWithContent | null {
@@ -55,7 +55,7 @@ export function getNoteByTitle(title: string): Note | null {
 export function getNotesByTag(tag: string): Note[] {
   const result: Note[] = [];
   for(const note of getAllNotes(false)) {
-    if(note.tags.includes(tag) && !result.some(n => n.title === note.title)) {
+    if(note.tags.includes(tag) && !result.some((n) => n.title === note.title)) {
       result.push(note);
     }
   }
@@ -66,10 +66,10 @@ export function getNoteTags(): { tag: string, amount: number }[] {
   const tags: { tag: string, amount: number }[] = [];
   for(const note of getAllNotes(false)) {
     for(const tag of note.tags) {
-      if(!tags.some(t => t.tag === tag)) {
+      if(!tags.some((t) => t.tag === tag)) {
         tags.push({ tag, amount: 1 });
       } else {
-        const existingTag = tags.find(t => t.tag === tag);
+        const existingTag = tags.find((t) => t.tag === tag);
         if(existingTag) {
           existingTag.amount++;
         }

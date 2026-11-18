@@ -6,4 +6,7 @@ export const blogDescription = "由一条咸鱼搭建的博客";
 export const githubAccount = "https://github.com/NriotHrreion";
 
 export const siteUrl = "https://nocp.space";
+export const siteIcon = "https://nocp.space/static/icon.png";
+export const siteThemeColor = "#077955";
 export const blogPath = "/blog";
+export const travellingUrl = "https://www.travellings.cn/go.html";

@@ -10,7 +10,7 @@ export default defineConfig({
   input: "src/index.ts",
   platform: "node",
   // Bundle workspace source; keep runtime libraries installed through npm.
-  external: id => runtimeDependencies.some(name => id === name || id.startsWith(`${name}/`)),
+  external: (id) => runtimeDependencies.some((name) => id === name || id.startsWith(`${name}/`)),
   output: {
     file: "dist/index.js",
     format: "esm",

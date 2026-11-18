@@ -91,13 +91,14 @@
         "if": { "after": false },
         "for": { "after": false },
         "while": { "after": false },
-        "switch": { "after": false },
-        "with": { "after": false }
+        "switch": { "after": false }
       }
     }],
     "@stylistic/brace-style": ["error", "1tbs", { "allowSingleLine": true }],
     "@stylistic/implicit-arrow-linebreak": ["error", "beside"],
     "@stylistic/nonblock-statement-body-position": ["error", "beside"],
+    "@stylistic/quotes": ["error", "double"],
+    "@stylistic/arrow-parens": ["error", "always"],
     "nextjs/google-font-display": "warn",
     "nextjs/google-font-preconnect": "warn",
     "nextjs/next-script-for-ga": "warn",

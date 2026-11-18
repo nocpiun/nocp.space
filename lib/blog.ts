@@ -39,7 +39,7 @@ export function getAllArticles<T extends boolean = false>(containContent: T): T 
       : b.title.localeCompare(a.title)
   ));
 
-  return (containContent ? articles : articles.map(article => article.data)) as T extends true ? Article[] : Post[];
+  return (containContent ? articles : articles.map((article) => article.data)) as T extends true ? Article[] : Post[];
 }
 
 export function getArticle(slug: string): Article | null {
@@ -59,7 +59,7 @@ export function getPostByTitle(title: string): Post | null {
 export function getPostsByCategory(category: string): Post[] {
   const result: Post[] = [];
   for(const post of getAllArticles(false)) {
-    if(post.categories && post.categories.includes(category) && !result.some(p => p.title === post.title)) {
+    if(post.categories && post.categories.includes(category) && !result.some((p) => p.title === post.title)) {
       result.push(post);
     }
   }
@@ -69,7 +69,7 @@ export function getPostsByCategory(category: string): Post[] {
 export function getPostsByTag(tag: string): Post[] {
   const result: Post[] = [];
   for(const post of getAllArticles(false)) {
-    if(post.tags.includes(tag) && !result.some(p => p.title === post.title)) {
+    if(post.tags.includes(tag) && !result.some((p) => p.title === post.title)) {
       result.push(post);
     }
   }
@@ -80,10 +80,10 @@ export function getTags(): { tag: string, amount: number }[] {
   const tags: { tag: string, amount: number }[] = [];
   for(const post of getAllArticles(false)) {
     for(const tag of post.tags) {
-      if(!tags.some(t => t.tag === tag)) {
+      if(!tags.some((t) => t.tag === tag)) {
         tags.push({ tag, amount: 1 });
       } else {
-        const existingTag = tags.find(t => t.tag === tag);
+        const existingTag = tags.find((t) => t.tag === tag);
         if(existingTag) {
           existingTag.amount++;
         }

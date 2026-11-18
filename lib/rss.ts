@@ -17,7 +17,7 @@ const feed = new Feed({
   author: { name: "Norcleeh", link: "https://nocp.space" }
 });
 
-getAllArticles(true).forEach(article => {
+getAllArticles(true).forEach((article) => {
   const { data } = article;
 
   feed.addItem({

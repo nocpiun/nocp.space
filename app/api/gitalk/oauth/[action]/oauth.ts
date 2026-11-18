@@ -312,8 +312,8 @@ function secretsMatch(left: string, right: string) {
 function getCookie(request: Request, name: string) {
   const cookie = request.headers.get("Cookie")
     ?.split(";")
-    .map(value => value.trim())
-    .find(value => value.startsWith(`${name}=`));
+    .map((value) => value.trim())
+    .find((value) => value.startsWith(`${name}=`));
 
   return cookie?.slice(name.length + 1) ?? "";
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Bot } from "lucide-react";
-import { blogName, siteKeywords } from "@/lib/global";
+import { blogName, siteKeywords } from "@nocp/shared";
 import { getArticle } from "@/lib/blog";
 import { formatDate } from "@/lib/utils";
 import { Markdown } from "@/components/markdown";

@@ -23,6 +23,13 @@ npm run build
 npm run start
 ```
 
+## CLI
+
+```bash
+npm run build:cli
+npm run cli
+```
+
 ## LICENSE
 
 [MIT](./LICENSE)

@@ -1,5 +1,5 @@
 import { Feed } from "feed";
-import { blogName, blogDescription } from "./global";
+import { blogName, blogDescription } from "@nocp/shared";
 import { getAllArticles } from "./blog";
 
 const feed = new Feed({
@@ -17,7 +17,7 @@ const feed = new Feed({
   author: { name: "Norcleeh", link: "https://nocp.space" }
 });
 
-getAllArticles(true).forEach(article => {
+getAllArticles(true).forEach((article) => {
   const { data } = article;
 
   feed.addItem({

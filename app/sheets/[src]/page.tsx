@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { blogName, siteKeywords } from "@/lib/global";
+import { blogName, siteKeywords } from "@nocp/shared";
 import { getSheet } from "@/lib/sheets";
 import { AbcSheet } from "@/components/abc-sheet";
 import { PrintSheetButton } from "./print-sheet-button";

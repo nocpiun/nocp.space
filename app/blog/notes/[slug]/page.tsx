@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { blogName, siteKeywords } from "@/lib/global";
+import { blogName, siteKeywords } from "@nocp/shared";
 import { getNote } from "@/lib/notes";
 import { formatDate } from "@/lib/utils";
 import { Markdown } from "@/components/markdown";

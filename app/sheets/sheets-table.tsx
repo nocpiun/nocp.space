@@ -10,7 +10,7 @@ import {
   getFilteredRowModel,
   useReactTable
 } from "@tanstack/react-table";
-import type { ArrayElement } from "@/lib/utils";
+import type { SheetItem } from "@nocp/shared";
 import {
   Table,
   TableBody,
@@ -24,7 +24,7 @@ import { Input } from "@/components/ui/input";
 
 import sheets from "@/data/sheets/sheets.json";
 
-const columns: ColumnDef<ArrayElement<typeof sheets>>[] = [
+const columns: ColumnDef<SheetItem>[] = [
   {
     accessorKey: "name",
     header() {

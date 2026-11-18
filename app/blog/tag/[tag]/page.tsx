@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getPostsByTag } from "@/lib/blog";
-import { blogName, siteKeywords } from "@/lib/global";
+import { blogName, siteKeywords } from "@nocp/shared";
 import { ArticleCard } from "../../article-card";
 
 export async function generateMetadata({

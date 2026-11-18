@@ -5,8 +5,7 @@ import {
   CardDescription,
   CardTitle
 } from "@/components/ui/card";
-import type { ArrayElement } from "@/lib/utils";
-import type links from "@/data/info/links.json";
+import type { FriendLink } from "@nocp/shared";
 import { Button } from "@/components/ui/button";
 
 export function LinkCard({
@@ -14,7 +13,7 @@ export function LinkCard({
   description,
   url,
   avatar
-}: ArrayElement<typeof links>) {
+}: FriendLink) {
   const handleClick = () => {
     window.open(url, "_blank");
   };

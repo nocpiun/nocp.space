@@ -1,0 +1,15 @@
+{
+  "name": "@nocp/shared",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared site metadata and profile links for nocp.space",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  }
+}

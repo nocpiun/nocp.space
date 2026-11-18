@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { TramFront } from "lucide-react";
 import { Page } from "@/components/page";
-import { siteName, siteDescription } from "@/lib/global";
+import {
+  siteName,
+  siteDescription,
+  siteUrl,
+  siteIcon,
+  siteThemeColor,
+  travellingUrl,
+} from "@nocp/shared";
 import { LinkCard } from "./link-card";
 import { GitalkComments } from "@/components/gitalk-comments";
 import { Button } from "@/components/ui/button";
@@ -21,9 +28,9 @@ export default function Links() {
       <div className="space-y-2">
         <p><b>名称</b>：<code>{siteName}</code></p>
         <p><b>简介</b>：{siteDescription}</p>
-        <p><b>URL</b>：<Link href="/">https://nocp.space</Link></p>
-        <p><b>图标</b>：<Link href="https://nocp.space/static/icon.png">https://nocp.space/static/icon.png</Link></p>
-        <p><b>颜色</b>：<span className="bg-theme text-white">#077955</span></p>
+        <p><b>URL</b>：<Link href="/">{siteUrl}</Link></p>
+        <p><b>图标</b>：<Link href={siteIcon}>{siteIcon}</Link></p>
+        <p><b>颜色</b>：<span className="bg-theme text-white">{siteThemeColor}</span></p>
       </div>
 
       <h3 className="text-2xl font-semibold">开往</h3>
@@ -31,7 +38,7 @@ export default function Links() {
       <Button asChild>
         <Link
           className="hover:no-underline"
-          href="https://www.travellings.cn/go.html"
+          href={travellingUrl}
           target="_blank">
           <TramFront />
           Travelling 开往...

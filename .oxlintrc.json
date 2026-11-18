@@ -36,6 +36,8 @@
     ".output/**",
     ".vinext/**",
     "dist/**",
+    "packages/*/dist/**",
+    "packages/*/node_modules/**",
     "node_modules/**",
     "components/ui/**",
     "components/animations/**",
@@ -59,9 +61,14 @@
     "react-js/jsx-uses-react": "error",
     "react-js/jsx-uses-vars": "error",
     "react-js/no-deprecated": "error",
+    "react-js/jsx-closing-bracket-location": ["error", "after-props"],
+    "react-js/jsx-closing-tag-location": ["error", "tag-aligned"],
+    "react-js/prop-types": "error",
+    "react-js/require-render-return": "error",
     "react/rules-of-hooks": "error",
     "react/exhaustive-deps": "warn",
     "import/no-anonymous-default-export": "warn",
+    "arrow-body-style": ["error", "as-needed"],
     "jsx-a11y/alt-text": [
       "warn",
       {
@@ -84,13 +91,14 @@
         "if": { "after": false },
         "for": { "after": false },
         "while": { "after": false },
-        "switch": { "after": false },
-        "with": { "after": false }
+        "switch": { "after": false }
       }
     }],
     "@stylistic/brace-style": ["error", "1tbs", { "allowSingleLine": true }],
     "@stylistic/implicit-arrow-linebreak": ["error", "beside"],
     "@stylistic/nonblock-statement-body-position": ["error", "beside"],
+    "@stylistic/quotes": ["error", "double"],
+    "@stylistic/arrow-parens": ["error", "always"],
     "nextjs/google-font-display": "warn",
     "nextjs/google-font-preconnect": "warn",
     "nextjs/next-script-for-ga": "warn",

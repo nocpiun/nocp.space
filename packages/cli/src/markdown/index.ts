@@ -54,11 +54,13 @@ function renderBlockNodes(
   const prefixColor = options?.prefixColor ?? colors.border;
   const listDepth = options?.listDepth ?? 0;
   let inFootnotes = false;
+  let hasEmittedBlock = false;
 
   const ensureBlockGap = (tight = false) => {
-    if(!tight && lines.length > 0 && lines[lines.length - 1] !== "") {
+    if(hasEmittedBlock && !tight && lines.length > 0 && lines[lines.length - 1] !== "") {
       lines.push("");
     }
+    hasEmittedBlock = true;
   };
 
   for(let index = 0; index < nodes.length; index++) {
@@ -71,6 +73,7 @@ function renderBlockNodes(
         ensureBlockGap();
         lines.push(styleAnsi("─".repeat(Math.min(width, 28)), { color: colors.border }));
       }
+      hasEmittedBlock = true;
 
       const itemPrefix = `[${node.identifier}] `;
       const firstChild = node.children[0];

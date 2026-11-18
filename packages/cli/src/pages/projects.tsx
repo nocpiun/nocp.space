@@ -1,6 +1,6 @@
 import { memo, useMemo, type ReactNode } from "react";
 import { Box, Text } from "ink";
-import Link from "ink-link";
+import { TerminalLink as Link } from "../link.js";
 import type { ProjectsResponse } from "@nocp/shared";
 import { RemoteStatusPage, useCliData } from "../api.js";
 import { ScrollPage, type LineRange } from "../scroll-page.js";
@@ -100,7 +100,7 @@ export const ProjectsPage = memo(function ProjectsPage({
       builtLines.push(
         <Box width={width} height={1} justifyContent="space-between">
           <Box flexShrink={0}>
-            <Link url={entry.openUrl} fallback={false}>
+            <Link url={entry.openUrl}>
               <Text
                 color={selected ? colors.card : colors.text}
                 backgroundColor={selected ? colors.text : colors.card}

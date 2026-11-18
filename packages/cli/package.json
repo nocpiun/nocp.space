@@ -27,13 +27,19 @@
     "prepack": "npm run build"
   },
   "dependencies": {
+    "ansi-escapes": "^7.3.0",
     "ink": "^8.0.0",
-    "ink-link": "^5.0.0",
     "open": "^11.0.4",
-    "react": "^19.3.1"
+    "react": "^19.3.1",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "shiki": "^4.6.0",
+    "supports-hyperlinks": "^4.6.0",
+    "unified": "^11.0.5"
   },
   "devDependencies": {
     "@nocp/shared": "0.1.0",
+    "@types/mdast": "^4.0.4",
     "@types/node": "^20",
     "@types/react": "^19.3.0",
     "dotenv": "^18.0.10",

@@ -3,6 +3,7 @@ export const colors = {
   card: "#111111",
   border: "#484848",
   text: "#ededed",
+  prose: "#cccccc",
   secondary: "#a0a0a0",
   muted: "#777777",
 };

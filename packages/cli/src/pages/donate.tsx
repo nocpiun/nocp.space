@@ -1,6 +1,6 @@
 import { memo, useMemo, type ReactNode } from "react";
 import { Box, Text } from "ink";
-import Link from "ink-link";
+import { TerminalLink as Link } from "../link.js";
 import { siteUrl } from "@nocp/shared";
 import { ScrollPage } from "../scroll-page.js";
 import { colors } from "../theme.js";
@@ -86,7 +86,7 @@ export const DonatePage = memo(function DonatePage({
     <ScrollPage
       title="打赏"
       subtitle={(
-        <Link url={donateUrl} fallback={false}>
+        <Link url={donateUrl}>
           <Text color={colors.muted}>nocp.space/donate</Text>
         </Link>
       )}

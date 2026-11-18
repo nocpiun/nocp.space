@@ -3,6 +3,7 @@ import { siteUrl } from "@nocp/shared";
 import { renderAnsiRuns, styleAnsi } from "../utils/ansi.js";
 import { charWidth, stringWidth, wrapText } from "../utils/text-width.js";
 import { colors } from "../theme.js";
+import { stripInlineHtml } from "./html.js";
 
 export type InlineSpan = {
   text: string;
@@ -81,6 +82,9 @@ export function collectPhrasingSpans(
       case "inlineCode":
         pushInlineSpan(spans, { ...base, color: base.color ?? inlineCodeColor, text: node.value });
         break;
+      case "inlineMath":
+        pushInlineSpan(spans, { ...base, color: base.color ?? colors.text, text: node.value });
+        break;
       case "link": {
         const url = resolveSiteUrl(node.url);
         const children = node.children.length > 0
@@ -145,11 +149,12 @@ export function collectPhrasingSpans(
         spans.push({ ...base, text: "\n" });
         break;
       case "html": {
-        if(/^<br\s*\/?>$/i.test(node.value.trim())) {
+        const stripped = node.value.replace(/<!--[\s\S]*?-->/g, "").trim();
+        if(/^<br\s*\/?>$/i.test(stripped)) {
           spans.push({ ...base, text: "\n" });
         } else {
-          const stripped = node.value.replace(/<[^>]+>/g, "");
-          if(stripped) pushInlineSpan(spans, { ...base, text: stripped });
+          const text = stripInlineHtml(node.value);
+          if(text) pushInlineSpan(spans, { ...base, text });
         }
         break;
       }

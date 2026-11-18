@@ -1,6 +1,7 @@
 import { styleAnsi } from "../utils/ansi.js";
 import { charWidth, stringWidth } from "../utils/text-width.js";
 import { colors } from "../theme.js";
+import { htmlToPlainLines } from "./html.js";
 import {
   pushInlineSpan,
   pushWrappedSpans,
@@ -200,17 +201,7 @@ export function parseHtmlTable(block: string): { rows: InlineSpan[][][]; hasHead
 
     for(const cellMatch of cellMatches) {
       if(cellMatch[1].toLowerCase() === "th") rowIsHeader = true;
-      const normalizedLines = cellMatch[2]
-        .replace(/<br\s*\/?>/gi, "\n")
-        .replace(/<[^>]+>/g, "")
-        .replace(/&nbsp;/g, " ")
-        .replace(/&amp;/g, "&")
-        .replace(/&lt;/g, "<")
-        .replace(/&gt;/g, ">")
-        .split("\n")
-        .map((part) => part.replace(/\s+/g, " ").trim())
-        .filter(Boolean);
-      const text = normalizedLines.join("\n");
+      const text = htmlToPlainLines(cellMatch[2]).join("\n");
       cells.push(text ? [{ text, bold: rowIsHeader, color: rowIsHeader ? colors.text : undefined }] : []);
     }
 

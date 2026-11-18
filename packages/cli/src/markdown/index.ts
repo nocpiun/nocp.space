@@ -1,5 +1,6 @@
 import type * as Mdast from "mdast";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
 import { styleAnsi } from "../utils/ansi.js";
@@ -7,10 +8,33 @@ import { stringWidth } from "../utils/text-width.js";
 import { colors } from "../theme.js";
 import { extractCallout } from "./callout.js";
 import { renderCodeBlock } from "./code.js";
+import { htmlToPlainLines } from "./html.js";
 import { collectDefinitions, collectPhrasingSpans, pushImageLine, pushWrappedSpans } from "./inline.js";
 import { parseHtmlTable, renderTableBlock } from "./table.js";
 
-const markdownParser = unified().use(remarkParse).use(remarkGfm);
+const markdownParser = unified().use(remarkParse).use(remarkGfm).use(remarkMath);
+
+function renderMathLines(
+  lines: string[],
+  value: string,
+  width: number,
+  prefix: string,
+  prefixColor: string,
+  italic?: boolean,
+) {
+  const mathLines = value.replace(/\r\n/g, "\n").split("\n");
+  for(const mathLine of mathLines) {
+    if(!mathLine.trim()) {
+      if(lines.length > 0 && lines[lines.length - 1] !== "") lines.push("");
+      continue;
+    }
+    pushWrappedSpans(lines, [{ text: mathLine, color: colors.secondary, italic }], width, colors.secondary, {
+      prefix: `${prefix}  `,
+      continuationPrefix: `${prefix}  `,
+      prefixColor,
+    });
+  }
+}
 
 function renderBlockNodes(
   nodes: readonly Mdast.RootContent[],
@@ -31,6 +55,12 @@ function renderBlockNodes(
   const listDepth = options?.listDepth ?? 0;
   let inFootnotes = false;
 
+  const ensureBlockGap = (tight = false) => {
+    if(!tight && lines.length > 0 && lines[lines.length - 1] !== "") {
+      lines.push("");
+    }
+  };
+
   for(let index = 0; index < nodes.length; index++) {
     const node = nodes[index];
     if(node.type === "definition") continue;
@@ -38,9 +68,7 @@ function renderBlockNodes(
     if(node.type === "footnoteDefinition") {
       if(!inFootnotes) {
         inFootnotes = true;
-        if(lines.length > 0 && lines[lines.length - 1] !== "") {
-          lines.push("");
-        }
+        ensureBlockGap();
         lines.push(styleAnsi("─".repeat(Math.min(width, 28)), { color: colors.border }));
       }
 
@@ -71,15 +99,12 @@ function renderBlockNodes(
     }
 
     inFootnotes = false;
-
-    if(index > 0 && lines.length > 0 && lines[lines.length - 1] !== "") {
-      const prev = nodes[index - 1];
-      const tight = Boolean(options?.prefix && prev.type === "paragraph" && node.type === "paragraph");
-      if(!tight) lines.push("");
-    }
+    const prev = index > 0 ? nodes[index - 1] : undefined;
+    const tightParagraph = Boolean(options?.prefix && prev?.type === "paragraph" && node.type === "paragraph");
 
     switch(node.type) {
       case "heading": {
+        ensureBlockGap();
         const marker = node.depth <= 2 ? "# " : "## ";
         const color = node.depth <= 2 ? colors.text : colors.prose;
         const spans = collectPhrasingSpans(node.children, definitions, { bold: true, color });
@@ -91,6 +116,7 @@ function renderBlockNodes(
         break;
       }
       case "paragraph": {
+        ensureBlockGap(tightParagraph);
         if(!prefix && node.children.length === 1) {
           const single = node.children[0];
           if(single.type === "image") {
@@ -105,6 +131,10 @@ function renderBlockNodes(
             }
           }
         }
+        if(node.children.length === 1 && node.children[0].type === "inlineMath") {
+          renderMathLines(lines, node.children[0].value, width, prefix, prefixColor, options?.italic);
+          break;
+        }
         const spans = collectPhrasingSpans(node.children, definitions, {
           color: defaultColor,
           italic: options?.italic,
@@ -116,7 +146,13 @@ function renderBlockNodes(
         });
         break;
       }
+      case "math": {
+        ensureBlockGap();
+        renderMathLines(lines, node.value, width, prefix, prefixColor, options?.italic);
+        break;
+      }
       case "code": {
+        ensureBlockGap();
         renderCodeBlock(
           lines,
           node.value,
@@ -128,6 +164,7 @@ function renderBlockNodes(
         break;
       }
       case "blockquote": {
+        ensureBlockGap();
         const callout = extractCallout(node);
         if(callout) {
           const title = callout.titleText || callout.style.label;
@@ -152,6 +189,7 @@ function renderBlockNodes(
         break;
       }
       case "list": {
+        ensureBlockGap();
         const indent = " ".repeat(Math.min(4, listDepth * 2));
         for(let itemIndex = 0; itemIndex < node.children.length; itemIndex++) {
           const item = node.children[itemIndex];
@@ -188,6 +226,7 @@ function renderBlockNodes(
         break;
       }
       case "table": {
+        ensureBlockGap();
         const rows = node.children.map((row, rowIndex) => (
           row.children.map((cell) => (
             collectPhrasingSpans(cell.children, definitions, {
@@ -202,12 +241,26 @@ function renderBlockNodes(
       case "html": {
         const trimmed = node.value.trim();
         if(/^<table[\s>]/i.test(trimmed)) {
+          ensureBlockGap();
           const { rows, hasHeader } = parseHtmlTable(trimmed);
           renderTableBlock(lines, rows, width, defaultColor, hasHeader, prefix, prefixColor);
+        } else {
+          const plainLines = htmlToPlainLines(trimmed);
+          if(plainLines.length > 0) {
+            ensureBlockGap();
+            for(const plainLine of plainLines) {
+              pushWrappedSpans(lines, [{ text: plainLine, color: defaultColor, italic: options?.italic }], width, defaultColor, {
+                prefix,
+                continuationPrefix: prefix,
+                prefixColor,
+              });
+            }
+          }
         }
         break;
       }
       case "thematicBreak": {
+        ensureBlockGap();
         lines.push(styleAnsi("─".repeat(Math.min(width, 28)), { color: colors.border }));
         break;
       }

@@ -12,7 +12,7 @@ export type NoteWithContent = Omit<ReturnType<typeof matter>, "data"> & {
   data: Note;
 };
 
-const noteSources = import.meta.glob("../packages/shared/data/notes/*.md", {
+const noteSources = import.meta.glob("../data/notes/*.md", {
   eager: true,
   import: "default",
   query: "?raw",
@@ -39,7 +39,7 @@ export function getAllNotes<T extends boolean = false>(containContent: T): T ext
 }
 
 export function getNote(slug: string): NoteWithContent | null {
-  const fileContent = noteSources[`../packages/shared/data/notes/${slug}.md`];
+  const fileContent = noteSources[`../data/notes/${slug}.md`];
   return fileContent === undefined ? null : parseNote(slug, fileContent);
 }
 

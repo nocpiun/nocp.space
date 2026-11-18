@@ -1,17 +1,16 @@
 import { memo, useMemo, type ReactNode } from "react";
 import { Box, Text } from "ink";
-import { recommendedPosts } from "@nocp/shared";
-import type { ArticleEntry } from "virtual:nocp-content";
+import type { ArticleSummary, BlogListResponse } from "@nocp/shared";
+import { RemoteStatusPage, useCliData } from "../api.js";
 import { ScrollPage, type LineRange } from "../scroll-page.js";
 import { colors } from "../theme.js";
 
-const recommendedSet = new Set(recommendedPosts);
+export const postsApiPath = "/api/cli/posts";
+export const notesApiPath = "/api/cli/notes";
 
 type ArticleListPageProps = {
+  kind: "blog" | "notes";
   title: string;
-  entries: readonly ArticleEntry[];
-  unit: string;
-  showRecommended?: boolean;
   width: number;
   maxHeight: number;
   selectedIndex: number;
@@ -20,17 +19,27 @@ type ArticleListPageProps = {
 };
 
 export const ArticleListPage = memo(function ArticleListPage({
+  kind,
   title,
-  entries,
-  unit,
-  showRecommended = false,
   width,
   maxHeight,
   selectedIndex,
   keyboardActive,
   onSelect,
 }: ArticleListPageProps) {
+  const apiPath = kind === "blog" ? postsApiPath : notesApiPath;
+  const { data, loading, error, reload } = useCliData<BlogListResponse | ArticleSummary[]>(apiPath);
   const showTags = width >= 54;
+
+  const { entries, recommendedSet } = useMemo(() => {
+    if(!data) {
+      return { entries: [] as readonly ArticleSummary[], recommendedSet: new Set<string>() };
+    }
+    if(Array.isArray(data)) {
+      return { entries: data, recommendedSet: new Set<string>() };
+    }
+    return { entries: data.posts, recommendedSet: new Set(data.recommended) };
+  }, [data]);
 
   const { lines, itemRanges } = useMemo(() => {
     const builtLines: ReactNode[] = [];
@@ -40,7 +49,7 @@ export const ArticleListPage = memo(function ArticleListPage({
       const entry = entries[index];
       const selected = index === selectedIndex;
       const startLine = builtLines.length;
-      const star = showRecommended && recommendedSet.has(entry.title) ? "★ " : "";
+      const star = recommendedSet.has(entry.title) ? "★ " : "";
       const tagsText = entry.tags.slice(0, 3).map((tag) => `#${tag}`).join(" ");
       const secondLine = entry.excerpt
         ? entry.excerpt
@@ -74,12 +83,24 @@ export const ArticleListPage = memo(function ArticleListPage({
     }
 
     return { lines: builtLines, itemRanges: ranges };
-  }, [entries, selectedIndex, showRecommended, showTags, width]);
+  }, [entries, recommendedSet, selectedIndex, showTags, width]);
+
+  if(!data) {
+    return (
+      <RemoteStatusPage
+        title={title}
+        maxHeight={maxHeight}
+        loading={loading}
+        error={error}
+        keyboardActive={keyboardActive}
+        onRetry={reload}/>
+    );
+  }
 
   return (
     <ScrollPage
       title={title}
-      subtitle={<Text color={colors.muted}>{`共 ${entries.length} ${unit} · Enter 阅读`}</Text>}
+      subtitle={<Text color={colors.muted}>{`共 ${entries.length} 篇 · Enter 阅读`}</Text>}
       lines={lines}
       maxHeight={maxHeight}
       keyboardActive={keyboardActive}

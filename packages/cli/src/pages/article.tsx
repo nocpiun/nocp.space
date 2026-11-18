@@ -1,15 +1,14 @@
-import { memo, useMemo, type ReactNode } from "react";
+import { memo, useMemo } from "react";
 import { Box, Text } from "ink";
-import Link from "ink-link";
-import { siteUrl } from "@nocp/shared";
-import type { ArticleEntry } from "virtual:nocp-content";
+import type { ArticleDetail } from "@nocp/shared";
+import { RemoteStatusPage, useCliData } from "../api.js";
 import { renderMarkdownLines } from "../markdown.js";
 import { ScrollPage } from "../scroll-page.js";
 import { colors } from "../theme.js";
 
 type ArticlePageProps = {
   kind: "blog" | "notes";
-  entry: ArticleEntry;
+  slug: string;
   width: number;
   maxHeight: number;
   keyboardActive: boolean;
@@ -17,38 +16,51 @@ type ArticlePageProps = {
 
 export const ArticlePage = memo(function ArticlePage({
   kind,
-  entry,
+  slug,
   width,
   maxHeight,
   keyboardActive,
 }: ArticlePageProps) {
-  const url = `${siteUrl}/${kind === "blog" ? "blog" : "blog/notes"}/${entry.slug}`;
+  const apiPath = `/api/cli/${kind === "blog" ? "posts" : "notes"}/${encodeURIComponent(slug)}`;
+  const { data: entry, loading, error, reload } = useCliData<ArticleDetail>(apiPath);
 
-  const lines = useMemo(() => {
+  const header = useMemo(() => {
+    if(!entry) return undefined;
+
     const tags = entry.tags.map((tag) => `#${tag}`).join(" ");
     const meta = [entry.author, entry.date, tags, entry.hasAI ? "AI 辅助" : ""]
       .filter(Boolean)
       .join(" · ");
 
-    const builtLines: ReactNode[] = [
+    return [
       <Box key="meta" width={width} height={1}>
         <Text color={colors.muted} wrap="truncate-end">{meta}</Text>
       </Box>,
       <Text key="divider" color={colors.border}>{"─".repeat(Math.min(width, 40))}</Text>,
-      ...renderMarkdownLines(entry.content, width),
     ];
-
-    return builtLines;
   }, [entry, width]);
+
+  const lines = useMemo(() => {
+    if(!entry) return [];
+    return renderMarkdownLines(entry.content, width);
+  }, [entry, width]);
+
+  if(!entry) {
+    return (
+      <RemoteStatusPage
+        title={slug}
+        maxHeight={maxHeight}
+        loading={loading}
+        error={error}
+        keyboardActive={keyboardActive}
+        onRetry={reload}/>
+    );
+  }
 
   return (
     <ScrollPage
       title={entry.title}
-      subtitle={(
-        <Link url={url} fallback={false}>
-          <Text color={colors.muted}>网页版</Text>
-        </Link>
-      )}
+      header={header}
       lines={lines}
       maxHeight={maxHeight}
       keyboardActive={keyboardActive}/>

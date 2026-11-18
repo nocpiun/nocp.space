@@ -2,15 +2,18 @@ import { memo, useMemo, type ReactNode } from "react";
 import { Box, Text } from "ink";
 import Link from "ink-link";
 import {
-  friendLinks,
   siteDescription,
   siteIcon,
   siteName,
   siteThemeColor,
   siteUrl,
+  type FriendLink,
 } from "@nocp/shared";
+import { RemoteStatusPage, useCliData } from "../api.js";
 import { ScrollPage, type LineRange } from "../scroll-page.js";
 import { colors } from "../theme.js";
+
+export const linksApiPath = "/api/cli/links";
 
 function formatHost(url: string): string {
   try {
@@ -63,15 +66,17 @@ export const LinksPage = memo(function LinksPage({
   keyboardActive,
   onSelect,
 }: LinksPageProps) {
+  const { data: links, loading, error, reload } = useCliData<FriendLink[]>(linksApiPath);
   const wide = width >= 64;
   const hostWidth = width >= 78 ? 20 : 16;
 
   const { lines, itemRanges } = useMemo(() => {
+    const list = links ?? [];
     const builtLines: ReactNode[] = [];
     const ranges: LineRange[] = [];
 
-    for(let index = 0; index < friendLinks.length; index++) {
-      const item = friendLinks[index];
+    for(let index = 0; index < list.length; index++) {
+      const item = list[index];
       const selected = index === selectedIndex;
       const host = formatHost(item.url);
 
@@ -144,12 +149,24 @@ export const LinksPage = memo(function LinksPage({
     );
 
     return { lines: builtLines, itemRanges: ranges };
-  }, [hostWidth, selectedIndex, wide, width]);
+  }, [hostWidth, links, selectedIndex, wide, width]);
+
+  if(!links) {
+    return (
+      <RemoteStatusPage
+        title="友情链接"
+        maxHeight={maxHeight}
+        loading={loading}
+        error={error}
+        keyboardActive={keyboardActive}
+        onRetry={reload}/>
+    );
+  }
 
   return (
     <ScrollPage
       title="友情链接"
-      subtitle={<Text color={colors.muted}>{`共 ${friendLinks.length} 位`}</Text>}
+      subtitle={<Text color={colors.muted}>{`共 ${links.length} 位`}</Text>}
       lines={lines}
       maxHeight={maxHeight}
       keyboardActive={keyboardActive}

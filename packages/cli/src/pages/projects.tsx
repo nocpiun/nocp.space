@@ -1,9 +1,12 @@
 import { memo, useMemo, type ReactNode } from "react";
 import { Box, Text } from "ink";
 import Link from "ink-link";
-import { featuredProjects, projects } from "@nocp/shared";
+import type { ProjectsResponse } from "@nocp/shared";
+import { RemoteStatusPage, useCliData } from "../api.js";
 import { ScrollPage, type LineRange } from "../scroll-page.js";
 import { colors } from "../theme.js";
+
+export const projectsApiPath = "/api/cli/projects";
 
 function stripHtml(text: string): string {
   return text.replace(/<br\s*\/?>/gi, " ").replace(/<[^>]+>/g, "");
@@ -26,27 +29,29 @@ export type ProjectEntry = {
   featured: boolean;
 };
 
-export const projectEntries: readonly ProjectEntry[] = [
-  ...featuredProjects.map((item) => {
-    const host = formatHost(item.url);
-    return {
+export function buildProjectEntries(data: ProjectsResponse): ProjectEntry[] {
+  return [
+    ...data.featured.map((item) => {
+      const host = formatHost(item.url);
+      return {
+        name: item.name,
+        description: stripHtml(item.description),
+        openUrl: item.url,
+        meta: item.repo ? `${host} · ${item.repo}` : host,
+        shortMeta: host,
+        featured: true,
+      };
+    }),
+    ...data.projects.map((item) => ({
       name: item.name,
       description: stripHtml(item.description),
-      openUrl: item.url,
-      meta: item.repo ? `${host} · ${item.repo}` : host,
-      shortMeta: host,
-      featured: true,
-    };
-  }),
-  ...projects.map((item) => ({
-    name: item.name,
-    description: stripHtml(item.description),
-    openUrl: item.url ?? `https://github.com/${item.repo}`,
-    meta: `${item.repo} · ${item.year}`,
-    shortMeta: String(item.year),
-    featured: false,
-  })),
-];
+      openUrl: item.url ?? `https://github.com/${item.repo}`,
+      meta: `${item.repo} · ${item.year}`,
+      shortMeta: String(item.year),
+      featured: false,
+    })),
+  ];
+}
 
 type ProjectsPageProps = {
   width: number;
@@ -63,23 +68,28 @@ export const ProjectsPage = memo(function ProjectsPage({
   keyboardActive,
   onSelect,
 }: ProjectsPageProps) {
+  const { data, loading, error, reload } = useCliData<ProjectsResponse>(projectsApiPath);
   const showFullMeta = width >= 50;
+
+  const projectEntries = useMemo(() => (data ? buildProjectEntries(data) : []), [data]);
 
   const { lines, itemRanges } = useMemo(() => {
     const builtLines: ReactNode[] = [];
     const ranges: LineRange[] = [];
     let inOtherSection = false;
 
-    builtLines.push(<Text color={colors.secondary} bold>精选项目</Text>);
+    if(projectEntries.length > 0 && projectEntries[0].featured) {
+      builtLines.push(<Text color={colors.secondary} bold>精选项目</Text>);
+    }
 
     for(let index = 0; index < projectEntries.length; index++) {
       const entry = projectEntries[index];
       let sectionHeaderLine: number | undefined;
-      if(index === 0) {
+      if(index === 0 && entry.featured) {
         sectionHeaderLine = 0;
       } else if(!entry.featured && !inOtherSection) {
         inOtherSection = true;
-        builtLines.push(null);
+        if(builtLines.length > 0) builtLines.push(null);
         sectionHeaderLine = builtLines.length;
         builtLines.push(<Text color={colors.secondary} bold>其他项目</Text>);
       }
@@ -117,7 +127,19 @@ export const ProjectsPage = memo(function ProjectsPage({
     }
 
     return { lines: builtLines, itemRanges: ranges };
-  }, [selectedIndex, showFullMeta, width]);
+  }, [projectEntries, selectedIndex, showFullMeta, width]);
+
+  if(!data) {
+    return (
+      <RemoteStatusPage
+        title="项目列表"
+        maxHeight={maxHeight}
+        loading={loading}
+        error={error}
+        keyboardActive={keyboardActive}
+        onRetry={reload}/>
+    );
+  }
 
   return (
     <ScrollPage

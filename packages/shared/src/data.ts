@@ -1,8 +1,3 @@
-import linksJson from "../data/links.json" with { type: "json" };
-import projectsJson from "../data/projects.json" with { type: "json" };
-import recommendedJson from "../data/recommended.json" with { type: "json" };
-import sheetsJson from "../data/sheets/sheets.json" with { type: "json" };
-
 export type FriendLink = {
   name: string;
   description: string;
@@ -33,7 +28,30 @@ export type SheetItem = {
   src: string;
 };
 
-export const friendLinks: readonly FriendLink[] = linksJson;
+export type ArticleSummary = {
+  slug: string;
+  title: string;
+  author: string;
+  date: string;
+  categories?: string[];
+  tags: string[];
+  excerpt?: string;
+  hasAI?: boolean;
+};
+
+export type ArticleDetail = ArticleSummary & {
+  content: string;
+};
+
+export type ProjectsResponse = {
+  featured: readonly FeaturedProject[];
+  projects: readonly ProjectItem[];
+};
+
+export type BlogListResponse = {
+  recommended: readonly string[];
+  posts: readonly ArticleSummary[];
+};
 
 export const featuredProjects: readonly FeaturedProject[] = [
   {
@@ -48,9 +66,3 @@ export const featuredProjects: readonly FeaturedProject[] = [
     repo: "nocpiun/calcium",
   },
 ];
-
-export const projects: readonly ProjectItem[] = projectsJson;
-
-export const recommendedPosts: readonly string[] = recommendedJson;
-
-export const sheets: readonly SheetItem[] = sheetsJson;

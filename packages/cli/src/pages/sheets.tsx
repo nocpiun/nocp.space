@@ -1,9 +1,12 @@
 import { memo, useMemo, type ReactNode } from "react";
 import { Box, Text } from "ink";
 import Link from "ink-link";
-import { sheets, siteUrl } from "@nocp/shared";
+import { siteUrl, type SheetItem } from "@nocp/shared";
+import { RemoteStatusPage, useCliData } from "../api.js";
 import { ScrollPage, type LineRange } from "../scroll-page.js";
 import { colors } from "../theme.js";
+
+export const sheetsApiPath = "/api/cli/sheets";
 
 export function sheetUrl(src: string): string {
   return `${siteUrl}/sheets/${src}`;
@@ -24,14 +27,16 @@ export const SheetsPage = memo(function SheetsPage({
   keyboardActive,
   onSelect,
 }: SheetsPageProps) {
+  const { data: sheets, loading, error, reload } = useCliData<SheetItem[]>(sheetsApiPath);
   const wide = width >= 58;
 
   const { lines, itemRanges } = useMemo(() => {
+    const list = sheets ?? [];
     const builtLines: ReactNode[] = [];
     const ranges: LineRange[] = [];
 
-    for(let index = 0; index < sheets.length; index++) {
-      const item = sheets[index];
+    for(let index = 0; index < list.length; index++) {
+      const item = list[index];
       const selected = index === selectedIndex;
       const meta = wide
         ? `${item.author} · ${item.tune}调 · 变调夹${item.capo}品`
@@ -85,7 +90,19 @@ export const SheetsPage = memo(function SheetsPage({
     }
 
     return { lines: builtLines, itemRanges: ranges };
-  }, [selectedIndex, wide, width]);
+  }, [selectedIndex, sheets, wide, width]);
+
+  if(!sheets) {
+    return (
+      <RemoteStatusPage
+        title="曲谱"
+        maxHeight={maxHeight}
+        loading={loading}
+        error={error}
+        keyboardActive={keyboardActive}
+        onRetry={reload}/>
+    );
+  }
 
   return (
     <ScrollPage

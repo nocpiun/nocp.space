@@ -16,7 +16,7 @@ export type Article = Omit<ReturnType<typeof matter>, "data"> & {
   data: Post;
 };
 
-const postSources = import.meta.glob("../packages/shared/data/posts/*.md", {
+const postSources = import.meta.glob("../data/posts/*.md", {
   eager: true,
   import: "default",
   query: "?raw",
@@ -43,7 +43,7 @@ export function getAllArticles<T extends boolean = false>(containContent: T): T 
 }
 
 export function getArticle(slug: string): Article | null {
-  const fileContent = postSources[`../packages/shared/data/posts/${slug}.md`];
+  const fileContent = postSources[`../data/posts/${slug}.md`];
   return fileContent === undefined ? null : parseArticle(slug, fileContent);
 }
 

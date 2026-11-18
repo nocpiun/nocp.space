@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "dev": "vite dev",
+    "dev:cli": "npm run dev --workspace=nocp.space",
     "cli": "npm run start --workspace=nocp.space",
     "build": "vite build",
     "build:cli": "npm run build --workspace=nocp.space",

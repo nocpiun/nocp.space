@@ -1,18 +1,25 @@
 import { useCallback, useState } from "react";
 import { Box, Text, useInput, useWindowSize } from "ink";
 import open from "open";
-import { blogName, friendLinks, sheets } from "@nocp/shared";
-import { notes, posts } from "virtual:nocp-content";
+import {
+  blogName,
+  type ArticleSummary,
+  type BlogListResponse,
+  type FriendLink,
+  type ProjectsResponse,
+  type SheetItem,
+} from "@nocp/shared";
+import { peekCliCache } from "./api.js";
 import { CommandInput } from "./command-input.js";
 import { homeCommands, pagePaths, type Command, type Page } from "./commands.js";
-import { ArticleListPage } from "./pages/article-list.js";
+import { ArticleListPage, notesApiPath, postsApiPath } from "./pages/article-list.js";
 import { ArticlePage } from "./pages/article.js";
 import { DonatePage } from "./pages/donate.js";
 import { HelpPage } from "./pages/help.js";
 import { HomePage } from "./pages/home.js";
-import { LinksPage } from "./pages/links.js";
-import { projectEntries, ProjectsPage } from "./pages/projects.js";
-import { SheetsPage, sheetUrl } from "./pages/sheets.js";
+import { linksApiPath, LinksPage } from "./pages/links.js";
+import { buildProjectEntries, projectsApiPath, ProjectsPage } from "./pages/projects.js";
+import { sheetsApiPath, SheetsPage, sheetUrl } from "./pages/sheets.js";
 import { profileLinks } from "./profile.js";
 import { colors } from "./theme.js";
 
@@ -71,7 +78,7 @@ export function App({
   const matchingCommands = commands.filter((command) => command.name.startsWith(query));
   const visibleCommands = matchingCommands.slice(selection.start, selection.start + maxVisibleCommands);
   const menuHeight = commandMenuOpen ? Math.max(1, visibleCommands.length) : 0;
-  const pageHeight = viewportHeight - (compact ? 7 : 9) - menuHeight;
+  const pageHeight = viewportHeight - (compact ? 7 : 8) - menuHeight;
   const selectedCommand = commandMenuOpen ? matchingCommands[selection.index] : undefined;
   const keyboardActive = interactive && !commandMenuOpen;
   const tabHint = commandMenuOpen ? "Tab 补全" : "Tab 命令";
@@ -223,19 +230,20 @@ export function App({
     const trimmed = input.trim().toLowerCase();
     if(!trimmed && !commandMenuOpen) {
       if(page === "links") {
-        const link = friendLinks[pageSelection.links];
+        const link = peekCliCache<FriendLink[]>(linksApiPath)?.[pageSelection.links];
         if(link) void openTarget(link.name, link.url, "status");
       } else if(page === "projects") {
-        const project = projectEntries[pageSelection.projects];
+        const data = peekCliCache<ProjectsResponse>(projectsApiPath);
+        const project = data ? buildProjectEntries(data)[pageSelection.projects] : undefined;
         if(project) void openTarget(project.name, project.openUrl, "status");
       } else if(page === "sheets") {
-        const sheet = sheets[pageSelection.sheets];
+        const sheet = peekCliCache<SheetItem[]>(sheetsApiPath)?.[pageSelection.sheets];
         if(sheet) void openTarget(sheet.name, sheetUrl(sheet.src), "status");
       } else if(page === "blog") {
-        const post = posts[pageSelection.blog];
+        const post = peekCliCache<BlogListResponse>(postsApiPath)?.posts[pageSelection.blog];
         if(post) pushRoute({ page: "article", kind: "blog", slug: post.slug });
       } else if(page === "notes") {
-        const note = notes[pageSelection.notes];
+        const note = peekCliCache<ArticleSummary[]>(notesApiPath)?.[pageSelection.notes];
         if(note) pushRoute({ page: "article", kind: "notes", slug: note.slug });
       }
       return;
@@ -318,10 +326,8 @@ export function App({
       case "blog":
         return (
           <ArticleListPage
+            kind="blog"
             title={blogName}
-            entries={posts}
-            unit="篇"
-            showRecommended
             width={contentWidth}
             maxHeight={pageHeight}
             selectedIndex={pageSelection.blog}
@@ -331,29 +337,24 @@ export function App({
       case "notes":
         return (
           <ArticleListPage
+            kind="notes"
             title="笔记"
-            entries={notes}
-            unit="篇"
             width={contentWidth}
             maxHeight={pageHeight}
             selectedIndex={pageSelection.notes}
             keyboardActive={keyboardActive}
             onSelect={selectNote}/>
         );
-      case "article": {
-        const list = route.kind === "blog" ? posts : notes;
-        const entry = list.find((item) => item.slug === route.slug);
-        if(!entry) return <Text color={colors.muted}>未找到文章。</Text>;
+      case "article":
         return (
           <ArticlePage
             key={`${route.kind}:${route.slug}`}
             kind={route.kind}
-            entry={entry}
+            slug={route.slug}
             width={contentWidth}
             maxHeight={pageHeight}
             keyboardActive={keyboardActive}/>
         );
-      }
     }
   }
 
@@ -422,7 +423,7 @@ export function App({
           </Box>
         )}
 
-        <Box position="relative" height={3} flexShrink={0} marginTop={compact ? 0 : 1}>
+        <Box position="relative" height={3} flexShrink={0}>
           <Box
             width="100%"
             borderStyle="round"

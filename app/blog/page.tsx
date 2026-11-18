@@ -10,10 +10,11 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
-import { recommendedPosts } from "@nocp/shared";
 import { getRelativeNumber } from "@/lib/utils";
 import { getAllNotes } from "@/lib/notes";
 import { BlogTabs } from "./blog-tabs";
+
+import recommended from "@/data/info/recommended.json";
 
 export default function BlogOverview() {
   const posts = getAllArticles(false);
@@ -36,7 +37,7 @@ export default function BlogOverview() {
           </CardHeader>
           <CardContent className="pl-10 flex flex-col gap-2">
             <ul className="space-y-2">
-              {recommendedPosts.map((title, i) => (
+              {recommended.map((title, i) => (
                 <li className="list-disc marker:text-muted-foreground" key={i}>
                   <Link
                     href={`/blog/${getPostByTitle(title)?.slug}`}>

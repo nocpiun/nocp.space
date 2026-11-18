@@ -29,7 +29,7 @@ export default async function Sheet({
 }) {
   const { src } = await params;
   const sheet = getSheet(src);
-  const { default: content } = await import(`@/packages/shared/data/sheets/${src}.abc`);
+  const { default: content } = await import(`@/data/sheets/${src}.abc`);
 
   if(!sheet) return <></>;
 

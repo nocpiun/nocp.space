@@ -17,6 +17,7 @@ function fitRangeOffset(range: LineRange, currentStart: number, visibleCount: nu
 type ScrollPageProps = {
   title: string;
   subtitle?: ReactNode;
+  header?: readonly ReactNode[];
   lines: readonly ReactNode[];
   maxHeight: number;
   keyboardActive: boolean;
@@ -28,6 +29,7 @@ type ScrollPageProps = {
 export const ScrollPage = memo(function ScrollPage({
   title,
   subtitle,
+  header,
   lines,
   maxHeight,
   keyboardActive,
@@ -35,7 +37,8 @@ export const ScrollPage = memo(function ScrollPage({
   itemRanges,
   onSelect,
 }: ScrollPageProps) {
-  const visibleCount = Math.min(lines.length, Math.max(1, maxHeight - 3));
+  const headerHeight = header?.length ?? 0;
+  const visibleCount = Math.min(lines.length, Math.max(1, maxHeight - 4 - headerHeight));
   const maxOffset = Math.max(0, lines.length - visibleCount);
   const [offset, setOffset] = useState(() => {
     if(selectedIndex === undefined) return 0;
@@ -107,11 +110,16 @@ export const ScrollPage = memo(function ScrollPage({
   }, { isActive: keyboardActive });
 
   return (
-    <Box flexDirection="column" height={visibleCount + 3} flexShrink={0}>
+    <Box flexDirection="column" height={visibleCount + 4 + headerHeight} flexShrink={0}>
       <Box marginTop={1} height={1} justifyContent="space-between">
         <Text color={colors.text} bold>{title}</Text>
         {subtitle}
       </Box>
+      {header?.map((line, index) => (
+        <Box key={`header-${index}`} height={1}>
+          {line}
+        </Box>
+      ))}
       <Box flexDirection="column" height={visibleCount}>
         {lines.slice(start, start + visibleCount).map((line, index) => (
           <Box key={start + index} height={1}>
@@ -119,7 +127,7 @@ export const ScrollPage = memo(function ScrollPage({
           </Box>
         ))}
       </Box>
-      <Box height={1} justifyContent="space-between">
+      <Box marginTop={1} height={1} justifyContent="space-between">
         {!selectable && maxOffset > 0 ? <Text color={colors.muted}>↑↓ 滚动 · PgUp/PgDn</Text> : <Box/>}
         {maxOffset > 0 && <Text color={colors.muted}>{`${start + 1}-${start + visibleCount}/${lines.length}`}</Text>}
       </Box>

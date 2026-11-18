@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 
-import { projects } from "@nocp/shared";
+import projects from "@/data/info/projects.json";
 
 export function ProjectsTable() {
   return (

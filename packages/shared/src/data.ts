@@ -1,6 +1,7 @@
 import linksJson from "../data/links.json" with { type: "json" };
 import projectsJson from "../data/projects.json" with { type: "json" };
 import recommendedJson from "../data/recommended.json" with { type: "json" };
+import sheetsJson from "../data/sheets/sheets.json" with { type: "json" };
 
 export type FriendLink = {
   name: string;
@@ -24,6 +25,14 @@ export type ProjectItem = {
   repo: string;
 };
 
+export type SheetItem = {
+  name: string;
+  author: string;
+  tune: string;
+  capo: number;
+  src: string;
+};
+
 export const friendLinks: readonly FriendLink[] = linksJson;
 
 export const featuredProjects: readonly FeaturedProject[] = [
@@ -43,3 +52,5 @@ export const featuredProjects: readonly FeaturedProject[] = [
 export const projects: readonly ProjectItem[] = projectsJson;
 
 export const recommendedPosts: readonly string[] = recommendedJson;
+
+export const sheets: readonly SheetItem[] = sheetsJson;

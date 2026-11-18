@@ -1,14 +1,18 @@
 import { useCallback, useState } from "react";
 import { Box, Text, useInput, useWindowSize } from "ink";
 import open from "open";
-import { friendLinks } from "@nocp/shared";
+import { blogName, friendLinks, sheets } from "@nocp/shared";
+import { notes, posts } from "virtual:nocp-content";
 import { CommandInput } from "./command-input.js";
 import { homeCommands, pagePaths, type Command, type Page } from "./commands.js";
+import { ArticleListPage } from "./pages/article-list.js";
+import { ArticlePage } from "./pages/article.js";
 import { DonatePage } from "./pages/donate.js";
 import { HelpPage } from "./pages/help.js";
 import { HomePage } from "./pages/home.js";
 import { LinksPage } from "./pages/links.js";
 import { projectEntries, ProjectsPage } from "./pages/projects.js";
+import { SheetsPage, sheetUrl } from "./pages/sheets.js";
 import { profileLinks } from "./profile.js";
 import { colors } from "./theme.js";
 
@@ -18,6 +22,10 @@ const initialSelection = { index: 0, start: 0 };
 async function openExternalUrl(url: string) {
   await open(url);
 }
+
+type Route =
+  | { page: Page }
+  | { page: "article"; kind: "blog" | "notes"; slug: string };
 
 type AppProps = {
   interactive: boolean;
@@ -35,14 +43,18 @@ export function App({
   const { columns, rows } = useWindowSize();
   // Keep the last terminal row free so Windows can use incremental rendering.
   const viewportHeight = Math.max(1, rows - 1);
-  const [history, setHistory] = useState<Page[]>([initialPage]);
-  const page = history[history.length - 1];
+  const [history, setHistory] = useState<Route[]>([{ page: initialPage }]);
+  const route = history[history.length - 1];
+  const page = route.page;
   const [value, setValue] = useState("");
   const [message, setMessage] = useState("");
   const [pageSelection, setPageSelection] = useState({
     home: 0,
     links: 0,
     projects: 0,
+    sheets: 0,
+    blog: 0,
+    notes: 0,
   });
   const [linkMessage, setLinkMessage] = useState("");
   const [openingLink, setOpeningLink] = useState(false);
@@ -82,6 +94,21 @@ export function App({
 
   const selectProject = useCallback((index: number) => {
     setPageSelection((prev) => ({ ...prev, projects: index }));
+    setMessage("");
+  }, []);
+
+  const selectSheet = useCallback((index: number) => {
+    setPageSelection((prev) => ({ ...prev, sheets: index }));
+    setMessage("");
+  }, []);
+
+  const selectBlogPost = useCallback((index: number) => {
+    setPageSelection((prev) => ({ ...prev, blog: index }));
+    setMessage("");
+  }, []);
+
+  const selectNote = useCallback((index: number) => {
+    setPageSelection((prev) => ({ ...prev, notes: index }));
     setMessage("");
   }, []);
 
@@ -172,13 +199,23 @@ export function App({
     setSelection(initialSelection);
   }
 
+  function pushRoute(next: Route) {
+    setHistory((previous) => {
+      const top = previous[previous.length - 1];
+      if(top.page === next.page && (top.page !== "article" || (next.page === "article" && top.kind === next.kind && top.slug === next.slug))) {
+        return previous;
+      }
+      return [...previous, next];
+    });
+  }
+
   function goBack() {
     if(history.length === 1) {
       setMessage("已经是第一页。");
       return;
     }
 
-    setHistory((previous) => previous.length > 1 ? previous.slice(0, -1) : previous);
+    setHistory((previous) => (previous.length > 1 ? previous.slice(0, -1) : previous));
     resetInput();
   }
 
@@ -191,6 +228,15 @@ export function App({
       } else if(page === "projects") {
         const project = projectEntries[pageSelection.projects];
         if(project) void openTarget(project.name, project.openUrl, "status");
+      } else if(page === "sheets") {
+        const sheet = sheets[pageSelection.sheets];
+        if(sheet) void openTarget(sheet.name, sheetUrl(sheet.src), "status");
+      } else if(page === "blog") {
+        const post = posts[pageSelection.blog];
+        if(post) pushRoute({ page: "article", kind: "blog", slug: post.slug });
+      } else if(page === "notes") {
+        const note = notes[pageSelection.notes];
+        if(note) pushRoute({ page: "article", kind: "notes", slug: note.slug });
       }
       return;
     }
@@ -200,8 +246,7 @@ export function App({
 
     resetInput();
     if(command?.page) {
-      const nextPage = command.page;
-      setHistory((previous) => previous[previous.length - 1] === nextPage ? previous : [...previous, nextPage]);
+      pushRoute({ page: command.page });
     } else if(command?.action === "back") {
       goBack();
     } else if(command?.url) {
@@ -218,7 +263,7 @@ export function App({
   }
 
   function renderPage() {
-    switch(page) {
+    switch(route.page) {
       case "home":
         return (
           <HomePage
@@ -261,8 +306,60 @@ export function App({
             keyboardActive={keyboardActive}
             onSelect={selectProject}/>
         );
+      case "sheets":
+        return (
+          <SheetsPage
+            width={contentWidth}
+            maxHeight={pageHeight}
+            selectedIndex={pageSelection.sheets}
+            keyboardActive={keyboardActive}
+            onSelect={selectSheet}/>
+        );
+      case "blog":
+        return (
+          <ArticleListPage
+            title={blogName}
+            entries={posts}
+            unit="篇"
+            showRecommended
+            width={contentWidth}
+            maxHeight={pageHeight}
+            selectedIndex={pageSelection.blog}
+            keyboardActive={keyboardActive}
+            onSelect={selectBlogPost}/>
+        );
+      case "notes":
+        return (
+          <ArticleListPage
+            title="笔记"
+            entries={notes}
+            unit="篇"
+            width={contentWidth}
+            maxHeight={pageHeight}
+            selectedIndex={pageSelection.notes}
+            keyboardActive={keyboardActive}
+            onSelect={selectNote}/>
+        );
+      case "article": {
+        const list = route.kind === "blog" ? posts : notes;
+        const entry = list.find((item) => item.slug === route.slug);
+        if(!entry) return <Text color={colors.muted}>未找到文章。</Text>;
+        return (
+          <ArticlePage
+            key={`${route.kind}:${route.slug}`}
+            kind={route.kind}
+            entry={entry}
+            width={contentWidth}
+            maxHeight={pageHeight}
+            keyboardActive={keyboardActive}/>
+        );
+      }
     }
   }
+
+  const headerPath = route.page === "article"
+    ? `~/${route.kind}/${route.slug}`
+    : pagePaths[route.page];
 
   if(tooSmall) {
     return (
@@ -293,7 +390,7 @@ export function App({
         paddingTop={compact ? 0 : 1}>
         <Box justifyContent="space-between">
           <Text color={colors.secondary}>nocp.space</Text>
-          <Text color={colors.muted}>{pagePaths[page]}</Text>
+          <Text color={colors.muted}>{headerPath}</Text>
         </Box>
 
         {renderPage()}

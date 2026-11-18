@@ -1,9 +1,10 @@
 import { memo, useMemo, type ReactNode } from "react";
 import { Box, Text } from "ink";
-import Link from "ink-link";
+import { TerminalLink as Link } from "../components/link.js";
 import { siteUrl, type SheetItem } from "@nocp/shared";
-import { RemoteStatusPage, useCliData } from "../api.js";
-import { ScrollPage, type LineRange } from "../scroll-page.js";
+import { useCliData } from "../utils/api.js";
+import { RemoteStatusPage } from "../components/remote-status-page.js";
+import { ScrollPage, type LineRange } from "../components/scroll-page.js";
 import { colors } from "../theme.js";
 
 export const sheetsApiPath = "/api/cli/sheets";
@@ -47,7 +48,7 @@ export const SheetsPage = memo(function SheetsPage({
         builtLines.push(
           <Box width={width} height={1} justifyContent="space-between">
             <Box flexShrink={0}>
-              <Link url={sheetUrl(item.src)} fallback={false}>
+              <Link url={sheetUrl(item.src)}>
                 <Text
                   color={selected ? colors.card : colors.text}
                   backgroundColor={selected ? colors.text : colors.card}
@@ -69,7 +70,7 @@ export const SheetsPage = memo(function SheetsPage({
         const startLine = builtLines.length;
         builtLines.push(
           <Box width={width} height={1}>
-            <Link url={sheetUrl(item.src)} fallback={false}>
+            <Link url={sheetUrl(item.src)}>
               <Text
                 color={selected ? colors.card : colors.text}
                 backgroundColor={selected ? colors.text : colors.card}

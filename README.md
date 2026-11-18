@@ -12,8 +12,17 @@ npm ci
 
 ## Development
 
+- Site dev:
+
 ```bash
 npm run dev
+```
+
+- CLI dev:
+
+```bash
+npm run dev
+npm run dev:cli
 ```
 
 ## Build and preview
@@ -30,6 +39,6 @@ npm run build:cli
 npm run cli
 ```
 
-## LICENSE
+## License
 
 [MIT](./LICENSE)

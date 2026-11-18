@@ -1,7 +1,7 @@
 import { memo, useMemo } from "react";
 import { Box, Text } from "ink";
 import type { Command } from "../commands.js";
-import { ScrollPage } from "../scroll-page.js";
+import { ScrollPage } from "../components/scroll-page.js";
 import { colors } from "../theme.js";
 
 type HelpLine = {

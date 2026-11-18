@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Text, useInput } from "ink";
-import { charWidth } from "./text-width.js";
+import { charWidth } from "../utils/text-width.js";
 
 function sliceWidth(chars: string[], start: number, end: number): number {
   let total = 0;

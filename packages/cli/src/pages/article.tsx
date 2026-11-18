@@ -1,9 +1,10 @@
 import { memo, useMemo } from "react";
 import { Box, Text } from "ink";
 import type { ArticleDetail } from "@nocp/shared";
-import { RemoteStatusPage, useCliData } from "../api.js";
-import { renderMarkdownLines } from "../markdown.js";
-import { ScrollPage } from "../scroll-page.js";
+import { useCliData } from "../utils/api.js";
+import { RemoteStatusPage } from "../components/remote-status-page.js";
+import { ScrollPage } from "../components/scroll-page.js";
+import { renderMarkdownLines } from "../markdown/index.js";
 import { colors } from "../theme.js";
 
 type ArticlePageProps = {
@@ -61,7 +62,7 @@ export const ArticlePage = memo(function ArticlePage({
     <ScrollPage
       title={entry.title}
       header={header}
-      lines={lines}
+      textLines={lines}
       maxHeight={maxHeight}
       keyboardActive={keyboardActive}/>
   );

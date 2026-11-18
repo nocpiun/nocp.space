@@ -1,6 +1,6 @@
 import { memo, useMemo, type ReactNode } from "react";
 import { Box, Text } from "ink";
-import Link from "ink-link";
+import { TerminalLink as Link } from "../components/link.js";
 import {
   siteDescription,
   siteIcon,
@@ -9,8 +9,9 @@ import {
   siteUrl,
   type FriendLink,
 } from "@nocp/shared";
-import { RemoteStatusPage, useCliData } from "../api.js";
-import { ScrollPage, type LineRange } from "../scroll-page.js";
+import { useCliData } from "../utils/api.js";
+import { RemoteStatusPage } from "../components/remote-status-page.js";
+import { ScrollPage, type LineRange } from "../components/scroll-page.js";
 import { colors } from "../theme.js";
 
 export const linksApiPath = "/api/cli/links";
@@ -40,7 +41,7 @@ function SiteInfoRow({ label, value, url, color = colors.muted, backgroundColor,
       </Box>
       <Box flexGrow={1}>
         {url ? (
-          <Link url={url} fallback={false}>
+          <Link url={url}>
             <Text color={color} backgroundColor={backgroundColor} wrap="truncate-end">{value}</Text>
           </Link>
         ) : (
@@ -85,7 +86,7 @@ export const LinksPage = memo(function LinksPage({
         builtLines.push(
           <Box width={width} height={1}>
             <Box width={20} marginRight={2} flexShrink={0}>
-              <Link url={item.url} fallback={false}>
+              <Link url={item.url}>
                 <Text
                   color={selected ? colors.card : colors.text}
                   backgroundColor={selected ? colors.text : colors.card}
@@ -113,7 +114,7 @@ export const LinksPage = memo(function LinksPage({
         builtLines.push(
           <Box width={width} height={1} justifyContent="space-between">
             <Box flexShrink={0}>
-              <Link url={item.url} fallback={false}>
+              <Link url={item.url}>
                 <Text
                   color={selected ? colors.card : colors.text}
                   backgroundColor={selected ? colors.text : colors.card}

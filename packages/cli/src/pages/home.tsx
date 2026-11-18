@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Box, Text } from "ink";
-import Link from "ink-link";
+import { TerminalLink as Link } from "../components/link.js";
 import { profileLinks } from "../profile.js";
 import { colors } from "../theme.js";
 
@@ -65,7 +65,7 @@ export const HomePage = memo(function HomePage({ columns, rows, width, selectedL
 
             return (
               <Box key={link.label} marginRight={1} aria-label={`${selected ? "已选择，" : ""}打开 ${link.label}`}>
-                <Link url={link.url} fallback={false}>
+                <Link url={link.url}>
                   <Text
                     color={selected ? colors.card : colors.secondary}
                     backgroundColor={selected ? colors.text : colors.card}

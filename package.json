@@ -50,7 +50,7 @@
     "vinext": "^1.4.6"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "2.0.0-beta.v.1",
+    "@cloudflare/vite-plugin": "2.0.0-rc.2",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^20",
@@ -59,7 +59,7 @@
     "@types/rss": "^0.0.32",
     "@vitejs/plugin-react": "^6.1.0",
     "@vitejs/plugin-rsc": "^0.5.38",
-    "cf": "1.0.0-beta.18",
+    "cf": "1.0.0-rc.1",
     "eslint-plugin-react": "^7.37.5",
     "oxlint": "^1.78.0",
     "tailwindcss": "^4.1.10",

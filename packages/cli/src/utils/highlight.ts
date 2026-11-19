@@ -8,6 +8,7 @@ import html from "shiki/langs/html.mjs";
 import javascript from "shiki/langs/javascript.mjs";
 import json from "shiki/langs/json.mjs";
 import jsx from "shiki/langs/jsx.mjs";
+import latex from "shiki/langs/latex.mjs";
 import markdown from "shiki/langs/markdown.mjs";
 import ruby from "shiki/langs/ruby.mjs";
 import tsx from "shiki/langs/tsx.mjs";
@@ -51,6 +52,7 @@ const highlighter = createHighlighterCoreSync({
     json,
     css,
     yaml,
+    latex,
     abcLanguage,
   ],
 });
@@ -126,6 +128,16 @@ export function highlightCodeBlock(code: string, rawLang: string): HighlightedLi
   if(highlightCache.size >= 256) highlightCache.clear();
   highlightCache.set(cacheKey, result);
   return result;
+}
+
+/**
+ * Highlights a LaTeX math expression inside display math delimiters so TeX math rules apply,
+ * then strips the synthetic wrapper lines from the result.
+ */
+export function highlightMath(code: string): HighlightedLine[] {
+  const normalized = code.replace(/\r\n/g, "\n");
+  const lineCount = normalized.split("\n").length;
+  return highlightCodeBlock(`$$\n${normalized}\n$$`, "latex").slice(1, 1 + lineCount);
 }
 
 export function wrapHighlightedLine(line: HighlightedLine, maxWidth: number): HighlightedLine[] {

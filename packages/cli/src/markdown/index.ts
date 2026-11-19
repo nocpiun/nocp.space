@@ -4,12 +4,19 @@ import remarkMath from "remark-math";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
 import { styleAnsi } from "../utils/ansi.js";
+import { highlightMath } from "../utils/highlight.js";
 import { stringWidth } from "../utils/text-width.js";
 import { colors } from "../theme.js";
 import { extractCallout } from "./callout.js";
 import { renderCodeBlock } from "./code.js";
 import { htmlToPlainLines } from "./html.js";
-import { collectDefinitions, collectPhrasingSpans, pushImageLine, pushWrappedSpans } from "./inline.js";
+import {
+  collectDefinitions,
+  collectPhrasingSpans,
+  mathTokensToSpans,
+  pushImageLine,
+  pushWrappedSpans,
+} from "./inline.js";
 import { parseHtmlTable, renderTableBlock } from "./table.js";
 
 const markdownParser = unified().use(remarkParse).use(remarkGfm).use(remarkMath);
@@ -22,13 +29,13 @@ function renderMathLines(
   prefixColor: string,
   italic?: boolean,
 ) {
-  const mathLines = value.replace(/\r\n/g, "\n").split("\n");
-  for(const mathLine of mathLines) {
-    if(!mathLine.trim()) {
+  for(const mathLine of highlightMath(value)) {
+    if(!mathLine.tokens.some((token) => token.text.trim() !== "")) {
       if(lines.length > 0 && lines[lines.length - 1] !== "") lines.push("");
       continue;
     }
-    pushWrappedSpans(lines, [{ text: mathLine, color: colors.secondary, italic }], width, colors.secondary, {
+    const spans = mathTokensToSpans(mathLine.tokens, { italic });
+    pushWrappedSpans(lines, spans, width, colors.secondary, {
       prefix: `${prefix}  `,
       continuationPrefix: `${prefix}  `,
       prefixColor,

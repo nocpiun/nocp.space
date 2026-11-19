@@ -2,6 +2,8 @@
 
 This is Norcleeh's Site written in Next.js (vinext) + TypeScript. Deployed on Cloudflare Workers.
 
+Also available in CLI, try `npx nocp.space`
+
 ## Setup
 
 ```bash
@@ -12,13 +14,13 @@ npm ci
 
 ## Development
 
-- Site dev:
+- **Site:**
 
 ```bash
 npm run dev
 ```
 
-- CLI dev:
+- **CLI:**
 
 ```bash
 npm run dev

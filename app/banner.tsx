@@ -25,14 +25,21 @@ export function Banner() {
           ease="power3.out"
           splitType="words"
           onLetterAnimationComplete={() => {}}/>
+        
         <img
           className="w-40 h-40 mt-10 rounded-full shadow-xl hidden max-md:block"
           src={Avatar.src}
           alt="avatar"/>
+        
         <span className="mt-10 text-lg *:leading-9 max-md:text-center">
           我是一个热爱代码、开源、音乐和Minecraft的学生，<br />
           很高兴能见到你！👋
         </span>
+
+        <div className="my-4 w-[50%] h-8 px-2 py-1 flex items-center text-sm bg-muted rounded-sm before:content-['$'] before:text-secondary-foreground before:mr-1.5">
+          npx nocp.space
+        </div>
+
         <div className="mt-6 flex flex-wrap max-md:justify-center gap-0 [&>a]:text-foreground [&>a]:no-underline [&>a]:rounded-full">
           <Button
             className="text-white! bg-theme hover:bg-theme-foreground mr-2"
@@ -77,6 +84,7 @@ export function Banner() {
           </Button>
         </div>
       </div>
+
       <img
         className="w-40 h-40 rounded-full shadow-xl max-md:hidden"
         src={Avatar.src}

@@ -65,7 +65,7 @@
     "tailwindcss": "^4.1.10",
     "tw-animate-css": "^1.3.4",
     "typescript": "^5",
-    "vite": "8.3.0",
+    "vite": "8.3.8",
     "vite-plugin-svgr": "^5.2.0"
   },
   "overrides": {

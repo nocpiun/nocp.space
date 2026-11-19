@@ -1,6 +1,7 @@
 import type * as Mdast from "mdast";
 import { siteUrl } from "@nocp/shared";
 import { renderAnsiRuns, styleAnsi } from "../utils/ansi.js";
+import { highlightMath, type HighlightToken } from "../utils/highlight.js";
 import { charWidth, stringWidth, wrapText } from "../utils/text-width.js";
 import { colors } from "../theme.js";
 import { stripInlineHtml } from "./html.js";
@@ -36,6 +37,24 @@ export function pushInlineSpan(spans: InlineSpan[], span: InlineSpan) {
     return;
   }
   spans.push({ ...span });
+}
+
+/** Converts highlighted math tokens into inline spans while preserving outer modifiers like italic or url. */
+export function mathTokensToSpans(
+  tokens: readonly HighlightToken[],
+  base: Omit<InlineSpan, "text"> = {},
+): InlineSpan[] {
+  const spans: InlineSpan[] = [];
+  for(const token of tokens) {
+    pushInlineSpan(spans, {
+      ...base,
+      color: token.color,
+      italic: Boolean(base.italic || token.italic),
+      bold: Boolean(base.bold || token.bold),
+      text: token.text,
+    });
+  }
+  return spans;
 }
 
 export function collectDefinitions(
@@ -82,9 +101,16 @@ export function collectPhrasingSpans(
       case "inlineCode":
         pushInlineSpan(spans, { ...base, color: base.color ?? inlineCodeColor, text: node.value });
         break;
-      case "inlineMath":
-        pushInlineSpan(spans, { ...base, color: base.color ?? colors.text, text: node.value });
+      case "inlineMath": {
+        const mathLines = highlightMath(node.value);
+        for(let i = 0; i < mathLines.length; i++) {
+          if(i > 0) pushInlineSpan(spans, { ...base, text: "\n" });
+          for(const span of mathTokensToSpans(mathLines[i].tokens, base)) {
+            pushInlineSpan(spans, span);
+          }
+        }
         break;
+      }
       case "link": {
         const url = resolveSiteUrl(node.url);
         const children = node.children.length > 0

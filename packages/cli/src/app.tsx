@@ -429,11 +429,11 @@ export function App({
           <Box
             width="100%"
             borderStyle="round"
-            borderColor={colors.secondary}
+            borderColor={colors.accent}
             borderBackgroundColor={colors.card}
             backgroundColor={colors.card}
             paddingX={0}>
-            <Text color={colors.text}>{"> "}</Text>
+            <Text color={colors.accent} bold>{"> "}</Text>
             <Box flexGrow={1} height={1} overflow="hidden">
               <Text color={colors.text}>
                 <CommandInput

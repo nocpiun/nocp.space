@@ -60,8 +60,8 @@ export const ArticleListPage = memo(function ArticleListPage({
         <Box width={width} height={1} justifyContent="space-between">
           <Box flexGrow={1} marginRight={2}>
             <Text
-              color={selected ? colors.card : colors.text}
-              backgroundColor={selected ? colors.text : colors.card}
+              color={selected ? colors.onAccent : colors.text}
+              backgroundColor={selected ? colors.accent : colors.card}
               bold={selected}
               wrap="truncate-end">
               {` ${star}${entry.title} `}

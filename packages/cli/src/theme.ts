@@ -1,3 +1,5 @@
+import { siteThemeColor } from "@nocp/shared";
+
 export const colors = {
   background: "#0b0b0b",
   card: "#111111",
@@ -6,4 +8,6 @@ export const colors = {
   prose: "#cccccc",
   secondary: "#a0a0a0",
   muted: "#777777",
+  accent: siteThemeColor,
+  onAccent: "#ffffff",
 };

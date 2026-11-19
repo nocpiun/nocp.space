@@ -88,8 +88,8 @@ export const LinksPage = memo(function LinksPage({
             <Box width={20} marginRight={2} flexShrink={0}>
               <Link url={item.url}>
                 <Text
-                  color={selected ? colors.card : colors.text}
-                  backgroundColor={selected ? colors.text : colors.card}
+                  color={selected ? colors.onAccent : colors.text}
+                  backgroundColor={selected ? colors.accent : colors.card}
                   bold={selected}
                   wrap="truncate-end">
                   {` ${item.name} `}
@@ -116,8 +116,8 @@ export const LinksPage = memo(function LinksPage({
             <Box flexShrink={0}>
               <Link url={item.url}>
                 <Text
-                  color={selected ? colors.card : colors.text}
-                  backgroundColor={selected ? colors.text : colors.card}
+                  color={selected ? colors.onAccent : colors.text}
+                  backgroundColor={selected ? colors.accent : colors.card}
                   bold={selected}
                   wrap="truncate-end">
                   {` ${item.name} `}

@@ -67,8 +67,8 @@ export const HomePage = memo(function HomePage({ columns, rows, width, selectedL
               <Box key={link.label} marginRight={1} aria-label={`${selected ? "已选择，" : ""}打开 ${link.label}`}>
                 <Link url={link.url}>
                   <Text
-                    color={selected ? colors.card : colors.secondary}
-                    backgroundColor={selected ? colors.text : colors.card}
+                    color={selected ? colors.onAccent : colors.secondary}
+                    backgroundColor={selected ? colors.accent : colors.card}
                     bold={selected}>
                     {` ${link.label} `}
                   </Text>

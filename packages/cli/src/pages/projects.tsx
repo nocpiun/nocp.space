@@ -103,8 +103,8 @@ export const ProjectsPage = memo(function ProjectsPage({
           <Box flexShrink={0}>
             <Link url={entry.openUrl}>
               <Text
-                color={selected ? colors.card : colors.text}
-                backgroundColor={selected ? colors.text : colors.card}
+                color={selected ? colors.onAccent : colors.text}
+                backgroundColor={selected ? colors.accent : colors.card}
                 bold={selected}
                 wrap="truncate-end">
                 {` ${entry.name} `}

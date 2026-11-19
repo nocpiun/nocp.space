@@ -114,7 +114,7 @@ function renderBlockNodes(
         pushWrappedSpans(lines, spans, width, color, {
           prefix: `${prefix}${marker}`,
           continuationPrefix: `${prefix}${" ".repeat(marker.length)}`,
-          prefixColor: colors.muted,
+          prefixColor: colors.accent,
         });
         break;
       }

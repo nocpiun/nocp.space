@@ -50,8 +50,8 @@ export const SheetsPage = memo(function SheetsPage({
             <Box flexShrink={0}>
               <Link url={sheetUrl(item.src)}>
                 <Text
-                  color={selected ? colors.card : colors.text}
-                  backgroundColor={selected ? colors.text : colors.card}
+                  color={selected ? colors.onAccent : colors.text}
+                  backgroundColor={selected ? colors.accent : colors.card}
                   bold={selected}
                   wrap="truncate-end">
                   {` ${item.name} `}
@@ -72,8 +72,8 @@ export const SheetsPage = memo(function SheetsPage({
           <Box width={width} height={1}>
             <Link url={sheetUrl(item.src)}>
               <Text
-                color={selected ? colors.card : colors.text}
-                backgroundColor={selected ? colors.text : colors.card}
+                color={selected ? colors.onAccent : colors.text}
+                backgroundColor={selected ? colors.accent : colors.card}
                 bold={selected}
                 wrap="truncate-end">
                 {` ${item.name} `}

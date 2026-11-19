@@ -1,6 +1,6 @@
 {
   "name": "nocp.space",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "The command-line companion to nocp.space",
   "license": "MIT",
   "type": "module",
